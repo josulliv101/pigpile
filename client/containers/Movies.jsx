@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { connectAsyncWork } from '@josulliv101/connect-async-work';
 
-import withAsyncWork from '../HOCs/withAsyncWork';
+// import withAsyncWork from '../HOCs/withAsyncWork';
 import { getAllMovies } from '../reducers/movies';
 import img from './tshirt.png';
 
@@ -10,7 +11,7 @@ type Props = {
   loading: boolean,
 };
 
-@withAsyncWork({ key: 'movies', action: getAllMovies },
+@connectAsyncWork({ key: 'movies', action: getAllMovies },
   () => ({}), {}
 )
 class Movies extends React.Component { // eslint-disable-line react/prefer-stateless-function

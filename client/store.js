@@ -1,5 +1,5 @@
 // @flow
-import { createStore, applyMiddleware, compose } from 'redux';
+import { createStore, applyMiddleware, combineReducers, compose } from 'redux';
 import createSagaMiddleware, { END } from 'redux-saga';
 import createLogger from 'redux-logger';
 import { routerMiddleware, connectRouter } from 'connected-react-router';

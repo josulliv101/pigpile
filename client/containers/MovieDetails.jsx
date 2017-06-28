@@ -1,20 +1,16 @@
 import React from 'react';
-// import { connect } from 'react-redux';
+import { connectAsyncWork } from '@josulliv101/connect-async-work';
 
-// import { fetchCancel } from '../reducers/api';
 import { getMovieDetails } from '../reducers/movies';
-import withAsyncWork from '../HOCs/withAsyncWork';
+
 
 type Props = {
   id: string,
-  // getMovieDetails: Function,
-  // fetchCancel: Function,
   movie: Object,
   loading: boolean,
-  // cached: boolean,
 };
 
-@withAsyncWork(
+@connectAsyncWork(
   {
     key: 'movie',
     keyReducer: (state, { match: { params: { id } } }) => `movie-${id}`,

@@ -52,6 +52,7 @@
     "webpack-node-externals": "^1.5.4"
   },
   "dependencies": {
+    "@josulliv101/connect-async-work": "^1.0.7",
     "babel-register": "^6.24.1",
     "body-parser": "^1.17.2",
     "connected-react-router": "^4.2.3",

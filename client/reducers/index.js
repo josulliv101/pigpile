@@ -1,9 +1,6 @@
 import { combineReducers } from 'redux';
-
-import api from './api';
-import movies from './movies';
+import { reducer as asyncWorkReducer } from '@josulliv101/connect-async-work';
 
 export default combineReducers({
-  api,
-  // movies,
+  asyncWork: asyncWorkReducer,
 });

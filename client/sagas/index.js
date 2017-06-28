@@ -1,11 +1,8 @@
 import { fork } from 'redux-saga/effects';
-
-import { watchApi } from './api';
-import { moviesSaga } from './movies';
+import { watchApi } from '@josulliv101/connect-async-work';
 
 export default function* root(apiClient) {
   yield [
   	watchApi(apiClient),
-    // fork(moviesSaga),
   ];
 }

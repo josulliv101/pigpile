@@ -1,16 +1,15 @@
 import React from 'react';
 import Avatar from 'material-ui/Avatar';
+import { connectAsyncWork } from '@josulliv101/connect-async-work';
 
-import withAsyncWork from '../HOCs/withAsyncWork';
 import { getGithubUsers } from '../reducers/movies';
-
 
 type Props = {
   githubUsers: Array<Object>,
   loading: boolean,
 };
 
-@withAsyncWork({ key: 'githubUsers', action: getGithubUsers },
+@connectAsyncWork({ key: 'githubUsers', action: getGithubUsers },
   () => ({}), {}
 )
 class GithubUsers extends React.Component { // eslint-disable-line react/prefer-stateless-function
