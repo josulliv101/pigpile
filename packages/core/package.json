@@ -1,0 +1,30 @@
+{
+  "name": "@pigpile/core",
+  "version": "0.1.0",
+  "description": "Core components for @pigpile",
+  "repository": "https://github.com/josulliv101/pigpile/tree/master/packages/core",
+  "main": "dist/pigpile-core.cjs.js",
+  "module": "dist/pigpile-core.esm.js",
+  "types": "dist/pigpile-core.cjs.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.17.0",
+    "@chakra-ui/react": "^2.2.1",
+    "@emotion/react": "^11.7.1",
+    "@emotion/styled": "^11.6.0",
+    "@types/react": "^18.0.14",
+    "framer-motion": "^4.1.17",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "s-ago": "^2.2.0"
+  },
+  "devDependencies": {
+
+  }
+}
