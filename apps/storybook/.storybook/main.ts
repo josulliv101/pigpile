@@ -3,7 +3,6 @@ module.exports = {
     {
       directory: "../stories/core",
       files: "*.stories.*",
-      title: "Storybook Design System",
       titlePrefix: "Components",
     },
   ],
