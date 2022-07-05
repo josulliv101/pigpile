@@ -1,4 +1,4 @@
-import theme from '@pigpile/theme';
+import theme from "@pigpile/theme";
 
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
@@ -11,7 +11,16 @@ export const parameters = {
   },
   chakra: {
     theme,
-    colorSchemes: ['gray', 'blue', 'pink', 'purple', 'orange', 'red', 'green', 'yellow'],
+    colorSchemes: [
+      "gray",
+      "blue",
+      "pink",
+      "purple",
+      "orange",
+      "red",
+      "green",
+      "yellow",
+    ],
   },
   controls: {
     matchers: {

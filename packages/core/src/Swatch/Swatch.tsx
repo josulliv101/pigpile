@@ -14,10 +14,7 @@ import { cx } from "@chakra-ui/utils";
 import { motion, HTMLMotionProps } from "framer-motion";
 import getColorNames from "./getColorNames";
 
-
-export const FooButton = () => (
-  <Button>my foo btn</Button>
-)
+export const FooButton = () => <Button>my foo btn</Button>;
 
 const ColorLayer = chakra("div", {
   baseStyle: {
@@ -113,7 +110,6 @@ export const SwatchButton_ = forwardRef<SwatchButtonProps, "button">(
 );
 
 const MotionSwatch = motion<SwatchButtonProps>(Swatch);
-
 
 export const SwatchAnimated: React.FC<SwatchButtonProps> = (props) => (
   <MotionSwatch

@@ -22,7 +22,10 @@ const baseStyle: SystemStyleFunction = (props) => {
 const gradientVariant: SystemStyleFunction = (props) => {
   const { bgImage, colorScheme, theme } = props;
   const colorValues = colorScheme === "pink" ? [300, 500] : [400, 600];
-  const c = mode(`${colorScheme}.${colorValues[0]}`, `${colorScheme}.${colorValues[1]}`)(props);
+  const c = mode(
+    `${colorScheme}.${colorValues[0]}`,
+    `${colorScheme}.${colorValues[1]}`
+  )(props);
   const gradientColor = getColor(theme, c, colorScheme);
   const gradient = `linear-gradient(180deg,${gradientColor},hsla(0,0%,${useColorModeValue(
     "48%",

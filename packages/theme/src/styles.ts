@@ -1,4 +1,4 @@
-import { mode, Styles } from "@chakra-ui/theme-tools"
+import { mode, Styles } from "@chakra-ui/theme-tools";
 
 const styles: Styles = {
   global: (props) => ({
@@ -6,7 +6,7 @@ const styles: Styles = {
       overflowX: "hidden",
       _light: {
         bgColor: "gray.50",
-      }
+      },
     },
     "#__next": {
       display: "flex",
@@ -16,9 +16,9 @@ const styles: Styles = {
 
       ">main": {
         flexGrow: 1,
-      }
-    }
+      },
+    },
   }),
-}
+};
 
-export default styles
+export default styles;
