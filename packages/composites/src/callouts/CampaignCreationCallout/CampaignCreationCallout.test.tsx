@@ -1,5 +1,3 @@
-import * as React from "react";
-// import userEvent from "@testing-library/user-event";
 import { render } from "../../../../../../testUtils";
 import { axe } from "jest-axe";
 import { CampaignCreationCallout } from "./CampaignCreationCallout";

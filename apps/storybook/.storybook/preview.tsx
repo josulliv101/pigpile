@@ -1,4 +1,5 @@
 import theme from "@pigpile/theme";
+import { Box } from "@pigpile/core";
 
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
@@ -38,10 +39,10 @@ export const parameters = {
   },
 };
 
-/*export const decorators = [
+export const decorators = [
   (Story) => (
-    <LinkingProvider value={LinkLibrary}>
+    <Box p="40">
       <Story />
-    </LinkingProvider>
+    </Box>
   ),
-];*/
+];

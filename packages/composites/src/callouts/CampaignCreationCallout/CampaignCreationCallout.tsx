@@ -1,6 +1,12 @@
-import * as React from "react";
-import { Avatar, Badge, Box, HStack, Text } from "@chakra-ui/react";
-import { Callout, CalloutProps } from "@pigpile/core";
+import {
+  Avatar,
+  Badge,
+  Box,
+  HStack,
+  Text,
+  Callout,
+  CalloutProps,
+} from "@pigpile/core";
 
 export interface CampaignCreationCalloutProps extends CalloutProps {
   createdBy: string;
