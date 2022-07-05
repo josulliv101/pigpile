@@ -5,6 +5,11 @@ module.exports = {
       files: "*.stories.*",
       titlePrefix: "Components",
     },
+    {
+      directory: "../../../packages/composites",
+      files: "**/*.stories.tsx",
+      titlePrefix: "Composites",
+    },
   ],
   addons: [
     "@chakra-ui/storybook-addon",
