@@ -5461,6 +5461,11 @@ cosmiconfig@^7.0.0:
     path-type "^4.0.0"
     yaml "^1.10.0"
 
+countup.js@^2.2.0:
+  version "2.3.1"
+  resolved "https://registry.yarnpkg.com/countup.js/-/countup.js-2.3.1.tgz#764b386136ac5d532cacb9134f4fc18d538c486a"
+  integrity sha512-kZ0OIYQo1Ni5VIyZD1BapS1yBaHGCeV/NfgKAunmKsm6EvU84Vs90LQNbeBWzejivJ13FXgq3m4OxOMCnb6aZA==
+
 cp-file@^7.0.0:
   version "7.0.0"
   resolved "https://registry.yarnpkg.com/cp-file/-/cp-file-7.0.0.tgz#b9454cfd07fe3b974ab9ea0e5f29655791a9b8cd"
@@ -10022,6 +10027,13 @@ react-clientside-effect@^1.2.6:
   integrity sha512-XGGGRQAKY+q25Lz9a/4EPqom7WRjz3z9R2k4jhVKA/puQFH/5Nt27vFZYql4m4NVNdUvX8PS3O7r/Zzm7cjUlg==
   dependencies:
     "@babel/runtime" "^7.12.13"
+
+react-countup@^6.3.0:
+  version "6.3.0"
+  resolved "https://registry.yarnpkg.com/react-countup/-/react-countup-6.3.0.tgz#9a345674d571f76c1046a0ded89fc86dbe52a2f0"
+  integrity sha512-uZsE+kuisXp/3OZeAuq2lzp6sXKmzw331Et5CRy4ueR9VcOp7z7T6/O1F04BC2Pa2frKmIITsghi3Hh933qWXQ==
+  dependencies:
+    countup.js "^2.2.0"
 
 react-docgen-typescript@^2.1.1:
   version "2.2.2"
