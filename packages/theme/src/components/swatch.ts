@@ -4,7 +4,7 @@ import {
   PartsStyleObject,
 } from "@chakra-ui/theme-tools";
 
-const parts = anatomy("swatch").parts("container", "color2", "icon");
+const parts = anatomy("swatch").parts("container", "color2", "color3", "icon");
 
 const baseStyle: PartsStyleObject = {
   container: {
@@ -33,7 +33,7 @@ const baseStyle: PartsStyleObject = {
 
 const variantRound: PartsStyleObject = {
   container: { borderRadius: "full" },
-  color3: { top: "58%" },
+  color3: { left: "46%", top: "58%" },
 };
 
 const variantRoundCurved: PartsStyleFunction<typeof parts> = (props) => {

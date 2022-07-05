@@ -3,7 +3,7 @@ module.exports = {
     {
       directory: "../stories/core",
       files: "*.stories.*",
-      titlePrefix: "@pigpile/core",
+      titlePrefix: "Components",
     },
   ],
   addons: [

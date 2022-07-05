@@ -11,7 +11,7 @@ const colors = [
 
 const meta = {
   component: Swatch,
-  title: "Swatch",
+  title: "Data Display / Swatch",
   parameters: {
     argsByIndex: [{}, {}, {}]
   },

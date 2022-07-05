@@ -25,7 +25,7 @@
     "jsx": "react-jsx"
   },
   "references": [
-    { "path": "../components" }
+    { "path": "../core" }
   ],
   "include": ["**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules"]

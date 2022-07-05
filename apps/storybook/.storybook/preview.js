@@ -11,6 +11,7 @@ export const parameters = {
   },
   chakra: {
     theme,
+    colorSchemes: ['gray', 'blue', 'pink', 'purple', 'orange', 'red', 'green', 'yellow'],
   },
   controls: {
     matchers: {
