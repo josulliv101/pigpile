@@ -9,7 +9,7 @@ import {
   TabPanel,
   Text,
   VStack,
-} from "@chakra-ui/react";
+} from "@pigpile/core";
 
 export default {
   title: "Disclosure / Tabs variant=[raised]",

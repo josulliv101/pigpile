@@ -1,6 +1,5 @@
 import * as React from "react";
-import { Progress, VStack } from "@chakra-ui/react";
-import { CountUpBox } from "@pigpile/core";
+import { CountUpBox, Progress, VStack } from "@pigpile/core";
 
 export default {
   title: "Data Display / CountUpBox",

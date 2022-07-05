@@ -1,11 +1,15 @@
 import * as React from "react";
-import { Avatar, Badge, Heading, Text, VStack } from "@chakra-ui/react";
 import {
   Card,
   CardAvatar,
   CardBackground,
   CardBadge,
   CardContent,
+  Avatar,
+  Badge,
+  Heading,
+  Text,
+  VStack,
 } from "@pigpile/core";
 
 export default {

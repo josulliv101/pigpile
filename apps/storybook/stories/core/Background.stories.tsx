@@ -1,5 +1,4 @@
-import { Background } from "@pigpile/core";
-import { Stack } from "@chakra-ui/react";
+import { Background, Stack } from "@pigpile/core";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import * as React from "react";
 

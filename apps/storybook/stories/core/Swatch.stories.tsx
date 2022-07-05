@@ -1,5 +1,4 @@
-import { Button, Stack } from "@chakra-ui/react";
-import { Swatch, SwatchButton } from "@pigpile/core";
+import { Swatch, SwatchButton, Button, Stack } from "@pigpile/core";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import { FaHeart } from "react-icons/fa";
 

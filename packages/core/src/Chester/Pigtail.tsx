@@ -1,6 +1,5 @@
 import * as React from "react";
-import { HTMLChakraProps } from "@chakra-ui/react";
-import { Tail } from "@pigpile/core";
+import { HTMLChakraProps, Tail } from "../";
 
 export const Pigtail: React.FC<HTMLChakraProps<"svg">> = (props) => (
   <Tail

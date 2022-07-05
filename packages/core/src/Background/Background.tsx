@@ -1,31 +1,33 @@
 import * as React from "react";
 import {
   chakra,
+  cx,
   forwardRef,
   omitThemingProps,
   ThemingProps,
   useStyleConfig,
   HTMLChakraProps,
-} from "@chakra-ui/system";
-import { cx } from "@chakra-ui/utils";
+} from "../";
 
-export interface BackgroundProps
+export interface BackgroundMediaProps
   extends HTMLChakraProps<"div">,
     ThemingProps<"Container"> {}
 
-export const Background = forwardRef<BackgroundProps, "div">((props, ref) => {
-  const { className, bgImage, ...rest } = omitThemingProps(props);
-  const styles = useStyleConfig("Background", props);
-  return (
-    <chakra.div
-      ref={ref}
-      className={cx("chakra-background", className)}
-      {...rest}
-      __css={{
-        ...styles,
-      }}
-    />
-  );
-});
+export const Background = forwardRef<BackgroundMediaProps, "div">(
+  (props, ref) => {
+    const { className, bgImage, ...rest } = omitThemingProps(props);
+    const styles = useStyleConfig("Background", props);
+    return (
+      <chakra.div
+        ref={ref}
+        className={cx("chakra-background", className)}
+        {...rest}
+        __css={{
+          ...styles,
+        }}
+      />
+    );
+  }
+);
 
 Background.displayName = "Background";

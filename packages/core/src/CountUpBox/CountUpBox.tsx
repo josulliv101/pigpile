@@ -1,21 +1,19 @@
 import * as React from "react";
 import {
-  StylesProvider,
-  SystemStyleObject,
-  useMultiStyleConfig,
-  HTMLChakraProps,
-  ThemingProps,
-} from "@chakra-ui/system";
-import {
+  cx,
   Box,
   BoxProps,
   Fade,
   HStack,
   useStyles,
   VStack,
-} from "@chakra-ui/react";
+  StylesProvider,
+  SystemStyleObject,
+  useMultiStyleConfig,
+  HTMLChakraProps,
+  ThemingProps,
+} from "../";
 import CountUp from "react-countup";
-import { cx } from "@chakra-ui/utils";
 
 export interface CountUpBoxProps
   extends HTMLChakraProps<"aside">,

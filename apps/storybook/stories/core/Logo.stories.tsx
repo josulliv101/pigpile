@@ -1,5 +1,4 @@
-import { Box, HStack } from "@chakra-ui/react";
-import { Logo, Tail } from "@pigpile/core";
+import { Logo, Tail, Box, HStack } from "@pigpile/core";
 
 export default {
   title: "Media and Icons / Logo",

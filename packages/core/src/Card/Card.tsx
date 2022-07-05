@@ -1,6 +1,7 @@
 import * as React from "react";
 import {
   chakra,
+  cx,
   forwardRef,
   omitThemingProps,
   StylesProvider,
@@ -8,9 +9,11 @@ import {
   ThemingProps,
   useMultiStyleConfig,
   HTMLChakraProps,
-} from "@chakra-ui/system";
-import { Avatar, AvatarProps, Box, useStyles } from "@chakra-ui/react";
-import { cx, __DEV__ } from "@chakra-ui/utils";
+  Avatar,
+  AvatarProps,
+  Box,
+  useStyles,
+} from "../";
 
 export interface CardProps
   extends HTMLChakraProps<"div">,

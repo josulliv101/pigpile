@@ -1,6 +1,8 @@
 import * as React from "react";
-import { chakra, forwardRef, omitThemingProps } from "@chakra-ui/system";
+import { FaCheck } from "react-icons/fa";
+import { motion, HTMLMotionProps } from "framer-motion";
 import {
+  cx,
   Button,
   ButtonProps,
   Icon,
@@ -8,10 +10,10 @@ import {
   SquareProps,
   SystemStyleObject,
   useMultiStyleConfig,
-} from "@chakra-ui/react";
-import { FaCheck } from "react-icons/fa";
-import { cx } from "@chakra-ui/utils";
-import { motion, HTMLMotionProps } from "framer-motion";
+  chakra,
+  forwardRef,
+  omitThemingProps,
+} from "../";
 import getColorNames from "./getColorNames";
 
 export const FooButton = () => <Button>my foo btn</Button>;

@@ -1,4 +1,5 @@
 export * from "@chakra-ui/react";
+export { cx } from "@chakra-ui/utils";
 
 // extend the chakra-ui base
 export * from "./Background";

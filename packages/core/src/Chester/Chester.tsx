@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Box, Fade, HTMLChakraProps, Image, Stack } from "@chakra-ui/react";
+import { Box, Fade, HTMLChakraProps, Image, Stack } from "../";
 import {
   jumpAnimation,
   wahooAnimation,

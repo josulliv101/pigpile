@@ -1,10 +1,5 @@
 import * as React from "react";
-import {
-  chakra,
-  HTMLChakraProps,
-  useStyleConfig,
-  omitThemingProps,
-} from "@chakra-ui/react";
+import { chakra, HTMLChakraProps, useStyleConfig, omitThemingProps } from "../";
 
 export interface LogoBaseProps extends HTMLChakraProps<"svg"> {
   colorScheme?: string;

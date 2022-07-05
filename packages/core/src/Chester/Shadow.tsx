@@ -1,5 +1,5 @@
 import * as React from "react";
-import { chakra, HTMLChakraProps } from "@chakra-ui/react";
+import { chakra, HTMLChakraProps } from "../";
 
 export const Shadow: React.FC<HTMLChakraProps<"div">> = (props) => (
   <chakra.div
