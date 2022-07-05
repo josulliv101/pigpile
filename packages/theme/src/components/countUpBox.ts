@@ -1,4 +1,4 @@
-import { anatomy, mode, SystemStyleFunction } from "@chakra-ui/theme-tools";
+import { anatomy, mode, SystemStyleFunction } from "@pigpile/core";
 
 const parts = anatomy("countUpBox").parts("container", "countUpLabel", "label");
 

@@ -1,11 +1,11 @@
 import {
+  keyframes,
   mode,
   PartsStyleFunction,
+  progressAnatomy as parts,
   SystemStyleObject,
   SystemStyleFunction,
-} from "@chakra-ui/theme-tools";
-import { progressAnatomy as parts } from "@chakra-ui/anatomy";
-import { keyframes } from "@chakra-ui/react";
+} from "@pigpile/core";
 
 const slide = keyframes`
   0% {

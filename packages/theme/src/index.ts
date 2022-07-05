@@ -1,4 +1,4 @@
-import { extendTheme } from "@chakra-ui/react";
+import { extendTheme } from "@pigpile/core";
 import components from "./components";
 import foundations from "./foundations";
 import styles from "./styles";

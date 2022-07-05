@@ -1,8 +1,4 @@
-import {
-  anatomy,
-  PartsStyleFunction,
-  PartsStyleObject,
-} from "@chakra-ui/theme-tools";
+import { anatomy, PartsStyleFunction, PartsStyleObject } from "@pigpile/core";
 
 const parts = anatomy("swatch").parts("container", "color2", "color3", "icon");
 

@@ -1,4 +1,4 @@
-import { mode, Styles } from "@chakra-ui/theme-tools";
+import { Styles } from "@pigpile/core";
 
 const styles: Styles = {
   global: (props) => ({

@@ -1,4 +1,4 @@
-import { SystemStyleObject } from "@chakra-ui/theme-tools";
+import { SystemStyleObject } from "@pigpile/core";
 
 const raisedVariant: SystemStyleObject = {
   root: {

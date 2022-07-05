@@ -1,4 +1,4 @@
-import { mode, SystemStyleFunction } from "@chakra-ui/theme-tools";
+import { mode, SystemStyleFunction } from "@pigpile/core";
 
 const baseStyle: SystemStyleFunction = (props) => {
   const { colorScheme = "gray" } = props;

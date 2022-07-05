@@ -4,7 +4,7 @@ import {
   mode,
   SystemStyleFunction,
   PartsStyleFunction,
-} from "@chakra-ui/theme-tools";
+} from "@pigpile/core";
 
 export const parts = anatomy("card").parts(
   "container",

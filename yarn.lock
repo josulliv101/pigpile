@@ -1173,7 +1173,7 @@
     "@chakra-ui/spinner" "^2.0.2"
     "@chakra-ui/utils" "2.0.2"
 
-"@chakra-ui/anatomy@2.0.1":
+"@chakra-ui/anatomy@2.0.1", "@chakra-ui/anatomy@^2.0.1":
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/@chakra-ui/anatomy/-/anatomy-2.0.1.tgz#3be152b6eaef93e0727cd12d3269b2e4374335d2"
   integrity sha512-lbOUfPmCtgIe0G7Iu6C2MaFP3FKOHgKWxDrYc3498TQ7/z5N1r7AO6jB+gFRGDbxJNLjRGOLG7tV0bufagGTUw==
@@ -1659,7 +1659,7 @@
     "@chakra-ui/utils" "2.0.2"
     "@ctrl/tinycolor" "^3.4.0"
 
-"@chakra-ui/theme@2.1.0", "@chakra-ui/theme@^2.1.0":
+"@chakra-ui/theme@2.1.0":
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/@chakra-ui/theme/-/theme-2.1.0.tgz#2a71da8c7f4c191e3711ef6139cec398a4fd7ad4"
   integrity sha512-OHvKCQ/QUHc3ZVgKKshYkvholiDhPf7vEPZcNOi5rnaFSP4PzWd00d1i7HOXYSyv/TGDOBRzs1IcodKfG6FzgA==
