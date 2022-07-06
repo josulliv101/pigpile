@@ -16,9 +16,14 @@ import {
 import { OAuthButtonGroup, OAuthButtonGroupProps } from "./OAuthButtonGroup";
 import { PasswordField } from "./PasswordField";
 
-export interface LoginFormProps extends OAuthButtonGroupProps {}
+export interface LoginFormProps extends OAuthButtonGroupProps {
+  onForgotPassword: () => void;
+  onSignIn: () => void;
+}
 
 export const LoginForm: React.FC<LoginFormProps> = ({
+  onForgotPassword,
+  onSignIn,
   onSignInWithProvider,
 }) => (
   <Box>
@@ -39,14 +44,18 @@ export const LoginForm: React.FC<LoginFormProps> = ({
             </FormControl>
             <PasswordField />
           </Stack>
-          <HStack justify="space-between">
-            <Checkbox defaultChecked>Remember me</Checkbox>
-            <Button variant="link" colorScheme="blue" size="sm">
+          <HStack justify="flex-end">
+            <Button
+              variant="link"
+              colorScheme="blue"
+              size="sm"
+              onClick={onForgotPassword}
+            >
               Forgot password?
             </Button>
           </HStack>
           <Stack spacing="6">
-            <Button size="md" variant="solid">
+            <Button size="md" variant="solid" onClick={onSignIn}>
               Sign in
             </Button>
             <HStack borderColor="gray.300">

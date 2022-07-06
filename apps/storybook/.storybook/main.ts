@@ -19,4 +19,9 @@ module.exports = {
   ],
   framework: "@storybook/react",
   staticDirs: ["../public"],
+  env: (config) => ({
+    ...config,
+    API_KEY:
+      "pk_test_51KS10YEIuGVvU2MeS14tENtb7kldKxgxJdr8cjxbDS2dfSYYUM4YegqHH3LCD2kDJYJLWdsOXzlkVRWrHXAI2cVk00DWLlxoO8",
+  }),
 };
