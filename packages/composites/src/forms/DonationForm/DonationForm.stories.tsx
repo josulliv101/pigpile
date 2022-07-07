@@ -13,25 +13,71 @@ export default {
   title: "Forms/ Donation Form",
   component: DonationForm,
   argTypes: {
-    onSignInWithProvider: { action: "provider btn clicked" },
-    onSignIn: { action: "sign in btn clicked" },
-    // onChangeTip: { action: "tip changed" }
+    initialNumberOfUnits: {
+      name: "initialNumberOfUnits",
+      type: { name: "number", required: false },
+      defaultValue: 12,
+      description: "Initial Number Of Units",
+      table: {
+        type: { summary: "number" },
+        defaultValue: { summary: 12 },
+      },
+      control: {
+        type: "number",
+      },
+    },
   },
 } as ComponentMeta<typeof DonationForm>;
 
-const Template: ComponentStory<typeof DonationForm> = (args) => {
+const Template: ComponentStory<typeof DonationForm> = ({
+  initialNumberOfUnits,
+  ...args
+}) => {
   const [tip, setTip] = useState(undefined);
+  const [showCustomInputField, setShowCustomInputField] = useState(false);
+  const [numberOfUnits, setNumberOfUnits] = useState(initialNumberOfUnits);
+  console.log("story args", args);
   return (
     <DonationForm
       {...args}
+      numberOfUnits={numberOfUnits}
       paymentIntent={mockPaymentIntent}
       tip={tip}
+      showCustomInputField={showCustomInputField}
       onChangeTip={setTip}
+      onCloseCustomInputField={() => setShowCustomInputField(false)}
+      onShowCustomInputField={() => setShowCustomInputField(true)}
+      onChangeCustomInputField={setNumberOfUnits}
     />
   );
 };
 
 export const Basic = Template.bind({});
+
+export const NoNumberOfUnitsSet = Template.bind({});
+NoNumberOfUnitsSet.args = {
+  initialNumberOfUnits: null,
+};
+
+function sleep(ms: number) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+export const UpdateNumberOfUnits = Template.bind({});
+UpdateNumberOfUnits.play = async () => {
+  const updateInputBtn = screen.getByLabelText("edit donation amount");
+  await sleep(1000);
+  await userEvent.click(updateInputBtn);
+  await sleep(1000);
+  const addOneBtn = screen.getByRole("spinbutton");
+  userEvent.clear(addOneBtn);
+  await userEvent.type(addOneBtn, "15", {
+    delay: 100,
+  });
+  await sleep(500);
+  const confirmBtn = screen.getByText("Confirm");
+  await userEvent.click(confirmBtn);
+};
 
 export const ShowTipOptions = Template.bind({});
 ShowTipOptions.play = async () => {
@@ -45,7 +91,7 @@ export const UpdateTipTo1 = Template.bind({});
 UpdateTipTo1.play = async () => {
   await ShowTipOptions.play();
 
-  await new Promise((r) => setTimeout(r, 500));
+  await sleep(500);
 
   const tipOption = screen.getByTestId("option-1");
   await userEvent.click(tipOption);
@@ -76,4 +122,4 @@ InvalidEmail.play = async () => {
 };
 
 export const CreditCardValidation = () =>
-  "To Be Done (the credit card field is embedded in an iframe which handles its own validation)";
+  "To Be Done (the credit card field is embedded in a stripe iframe which handles its own validation)";

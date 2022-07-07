@@ -1,24 +1,82 @@
-import { HStack, HTMLChakraProps, IconButton, Text } from "@pigpile/core";
+import { useState } from "react";
+import {
+  Button,
+  ButtonGroup,
+  HStack,
+  HTMLChakraProps,
+  IconButton,
+  Text,
+} from "@pigpile/core";
 import { FaPencilAlt } from "react-icons/fa";
+import { CustomInputField } from "./CustomInputField";
 
 export interface ItemsLabelProps extends HTMLChakraProps<"div"> {
   label: string;
   numberOfUnits: number;
-  onEdit?: () => void;
+  showCustomInputField: boolean;
+  onCloseCustomInputField: () => void;
+  onShowCustomInputField: () => void;
+  onChangeCustomInputField: (n) => void;
 }
 
 export const ItemsLabel: React.FC<ItemsLabelProps> = ({
   label,
   numberOfUnits,
-  onEdit,
+  showCustomInputField,
+  onCloseCustomInputField,
+  onShowCustomInputField,
+  onChangeCustomInputField,
   ...props
 }) => {
+  const [updatedNumberOfUnits, setUpdatedNumberOfUnits] = useState(
+    numberOfUnits || 1
+  );
+  const handleCommitInputChange = () => {
+    onChangeCustomInputField(updatedNumberOfUnits);
+    onCloseCustomInputField();
+  };
   return (
-    <HStack alignItems={{ base: "flex-start", md: "center" }}>
-      <Text fontSize={{ base: "md", md: "xl" }}>
-        Items: {numberOfUnits} {label}
+    <HStack
+      justifyContent="space-between"
+      alignItems={{ base: "flex-start", md: "center" }}
+    >
+      <Text
+        display="flex"
+        alignItems="center"
+        fontSize={{ base: "md", md: "xl" }}
+      >
+        Items:{" "}
+        {!showCustomInputField ? (
+          numberOfUnits
+        ) : (
+          <CustomInputField
+            numberOfUnits={updatedNumberOfUnits}
+            onChange={(n) => setUpdatedNumberOfUnits(Number(n))}
+          />
+        )}{" "}
+        {label}
       </Text>
-      {onEdit && (
+      {showCustomInputField && (
+        <ButtonGroup colorScheme="blue" mx="3" size="xs">
+          <Button
+            variant="outline"
+            colorScheme="whiteAlpha"
+            color="white"
+            onClick={handleCommitInputChange}
+          >
+            Confirm
+          </Button>
+          <Button
+            colorScheme="whiteAlpha"
+            color="white"
+            variant="ghost"
+            onClick={onCloseCustomInputField}
+          >
+            Cancel
+          </Button>
+        </ButtonGroup>
+      )}
+      {onShowCustomInputField && !showCustomInputField && (
         <IconButton
           color="gray.200"
           variant="ghost"
@@ -26,7 +84,7 @@ export const ItemsLabel: React.FC<ItemsLabelProps> = ({
           size="xs"
           aria-label="edit donation amount"
           icon={<FaPencilAlt />}
-          onClick={onEdit}
+          onClick={onShowCustomInputField}
         />
       )}
     </HStack>

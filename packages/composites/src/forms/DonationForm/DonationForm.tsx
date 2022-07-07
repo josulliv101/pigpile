@@ -1,5 +1,5 @@
 import type * as React from "react";
-import { Box, Callout, HTMLChakraProps, Stack } from "@pigpile/core";
+import { Box, Callout, HTMLChakraProps, Stack, Text } from "@pigpile/core";
 import { Elements } from "@stripe/react-stripe-js";
 import { PaymentIntent } from "@stripe/stripe-js";
 import { getStripe } from "./getStripe";
@@ -8,49 +8,74 @@ import { TipInput } from "./TipInput";
 import { TotalLabel } from "./TotalLabel";
 import { PaymentTabs } from "./PaymentTabs";
 import { CreditCardForm } from "./CreditCardForm";
+import { CustomInputField } from "./CustomInputField";
 
 export interface DonationFormProps extends HTMLChakraProps<"div"> {
   paymentIntent: PaymentIntent;
   onChangeTip: () => void;
+  onChangeCustomInputField: () => void;
+  onCloseCustomInputField?: () => void;
+  onShowCustomInputField: () => void;
+  numberOfUnits: number | null;
   tip: number;
+  showCustomInputField: boolean;
 }
 
 export const DonationForm: React.FC<DonationFormProps> = ({
   paymentIntent,
   tip,
+  numberOfUnits,
+  showCustomInputField: showCustomInputFieldProp,
   onChangeTip,
+  onChangeCustomInputField,
+  onCloseCustomInputField,
+  onShowCustomInputField,
   ...props
 }) => {
+  const showCustomInputField =
+    showCustomInputFieldProp || numberOfUnits === null;
   return (
     <Callout as={Stack} spacing="8" {...props}>
-      <ItemsLabel
-        onEdit={() => console.log("edit")}
-        numberOfUnits={12}
-        label="pairs of socks"
-      />
-      <TipInput tip={tip} onChange={onChangeTip} />
-      <TotalLabel amount={12} tip={1} />
-      {/*<PaymentTabs />*/}
-      <Elements
-        stripe={getStripe()}
-        options={{
-          appearance: {
-            theme: "night",
-            variables: {
-              colorPrimary: "#0570de",
-              colorBackground: "#ffffff",
-              colorText: "#30313d",
-              colorDanger: "#df1b41",
-              fontFamily: "Ideal Sans, system-ui, sans-serif",
-              spacingUnit: "2px",
-              borderRadius: "4px",
-            },
-          },
-          clientSecret: paymentIntent?.client_secret,
-        }}
-      >
-        <CreditCardForm paymentIntent={paymentIntent} />
-      </Elements>
+      {true && (
+        <ItemsLabel
+          onCloseCustomInputField={onCloseCustomInputField}
+          onShowCustomInputField={onShowCustomInputField}
+          onChangeCustomInputField={onChangeCustomInputField}
+          numberOfUnits={numberOfUnits}
+          label="pairs of socks"
+          showCustomInputField={showCustomInputField}
+        />
+      )}
+      {numberOfUnits !== null && (
+        <Box opacity={showCustomInputField ? 0.2 : 1}>
+          <TipInput tip={tip} onChange={onChangeTip} />
+          <TotalLabel amount={numberOfUnits} tip={1} />
+          {/*<PaymentTabs />*/}
+          <Elements
+            stripe={getStripe()}
+            options={{
+              appearance: {
+                theme: "night",
+                variables: {
+                  colorPrimary: "#0570de",
+                  colorBackground: "#ffffff",
+                  colorText: "#30313d",
+                  colorDanger: "#df1b41",
+                  fontFamily: "Ideal Sans, system-ui, sans-serif",
+                  spacingUnit: "2px",
+                  borderRadius: "4px",
+                },
+              },
+              clientSecret: paymentIntent?.client_secret,
+            }}
+          >
+            <CreditCardForm paymentIntent={paymentIntent} />
+          </Elements>
+        </Box>
+      )}
+      {numberOfUnits === null && (
+        <Text>Thank you so much for supporting this pigpile ❤️</Text>
+      )}
     </Callout>
   );
 };

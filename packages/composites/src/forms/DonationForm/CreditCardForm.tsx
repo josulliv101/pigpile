@@ -42,6 +42,8 @@ export const CreditCardForm: React.FC<CreditCardFormProps> = ({
   const elements = useElements();
   const [validCard, setValidCard] = useState(false);
   const [isCardReady, setIsCardReady] = useState(false);
+  const [isCardFocused, setIsCardFocused] = useState(false);
+
   console.log("stripeDetails", stripeDetails);
 
   const handleSubmit: React.FormEventHandler<HTMLFormElement> = async (
@@ -81,8 +83,11 @@ export const CreditCardForm: React.FC<CreditCardFormProps> = ({
         console.log("props", { dirty, isValid, setStatus, status }, rest);
         const handleCardChange = (event) =>
           setStatus({ ...status, ccComplete: event.complete });
-        const handleCardBlur = (event) =>
+        const handleCardBlur = (event) => {
           setStatus({ ...status, userUnfocusedCard: true });
+          setIsCardFocused(false);
+        };
+        const handleCardFocus = (event) => setIsCardFocused(true);
         const isCardInvalid = status?.userUnfocusedCard && !status.ccComplete;
         return (
           <Form>
@@ -108,11 +113,24 @@ export const CreditCardForm: React.FC<CreditCardFormProps> = ({
                   pl="16px"
                   pr="4px"
                   lineHeight="40px"
-                  boxShadow={isCardInvalid ? "0 0 0 1px #e53e3e" : "none"}
-                  border={`1px ${isCardInvalid ? "#E53E3E" : "#e2e8f0"} solid`}
+                  boxShadow={
+                    isCardInvalid
+                      ? "0 0 0 1px #e53e3e"
+                      : isCardFocused
+                      ? "0 0 0 1px #3182ce"
+                      : "none"
+                  }
+                  border={`1px ${
+                    isCardInvalid
+                      ? "#E53E3E"
+                      : isCardFocused
+                      ? "#3182ce"
+                      : "#e2e8f0"
+                  } solid`}
                   borderRadius="md"
                 >
                   <CardElement
+                    onFocus={handleCardFocus}
                     onBlur={handleCardBlur}
                     onReady={() => setIsCardReady(true)}
                     onChange={handleCardChange}

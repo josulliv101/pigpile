@@ -19,7 +19,7 @@ export const TotalLabel: React.FC<TotalLabelProps> = ({
   ...props
 }) => {
   return (
-    <Box>
+    <Box mt="8">
       <HStack alignItems="flex-end" justifyContent="space-between" {...props}>
         <Text
           fontSize={{ base: "md", md: "xl" }}

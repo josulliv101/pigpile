@@ -38,11 +38,3 @@ export const parameters = {
     ],
   },
 };
-
-export const decorators = [
-  (Story) => (
-    <Box p="40">
-      <Story />
-    </Box>
-  ),
-];
