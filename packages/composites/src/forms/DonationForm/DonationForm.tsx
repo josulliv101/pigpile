@@ -36,20 +36,22 @@ export const DonationForm: React.FC<DonationFormProps> = ({
     showCustomInputFieldProp || numberOfUnits === null;
   return (
     <Callout as={Stack} spacing="8" {...props}>
-      {true && (
-        <ItemsLabel
-          onCloseCustomInputField={onCloseCustomInputField}
-          onShowCustomInputField={onShowCustomInputField}
-          onChangeCustomInputField={onChangeCustomInputField}
-          numberOfUnits={numberOfUnits}
-          label="pairs of socks"
-          showCustomInputField={showCustomInputField}
-        />
-      )}
+      <ItemsLabel
+        onCloseCustomInputField={onCloseCustomInputField}
+        onShowCustomInputField={onShowCustomInputField}
+        onChangeCustomInputField={onChangeCustomInputField}
+        numberOfUnits={numberOfUnits}
+        label="pairs of socks"
+        showCustomInputField={showCustomInputField}
+      />
       {numberOfUnits !== null && (
-        <Box opacity={showCustomInputField ? 0.2 : 1}>
-          <TipInput tip={tip} onChange={onChangeTip} />
-          <TotalLabel amount={numberOfUnits} tip={1} />
+        <Box opacity={showCustomInputField ? 0.1 : 1}>
+          <TipInput
+            tip={tip}
+            onChange={onChangeTip}
+            isDisabled={showCustomInputField}
+          />
+          <TotalLabel amount={numberOfUnits} tip={tip} />
           {/*<PaymentTabs />*/}
           <Elements
             stripe={getStripe()}
@@ -69,7 +71,10 @@ export const DonationForm: React.FC<DonationFormProps> = ({
               clientSecret: paymentIntent?.client_secret,
             }}
           >
-            <CreditCardForm paymentIntent={paymentIntent} />
+            <CreditCardForm
+              showCustomInputField={showCustomInputField}
+              paymentIntent={paymentIntent}
+            />
           </Elements>
         </Box>
       )}

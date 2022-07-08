@@ -1,3 +1,4 @@
+import { useEffect, useRef } from "react";
 import {
   HStack,
   Stack,
@@ -22,6 +23,12 @@ export const CustomInputField: React.FC<CustomInputFieldProps> = ({
   numberOfUnits,
   onChange,
 }) => {
+  const inputEl = useRef(null);
+  useEffect(() => {
+    if (inputEl?.current) {
+      inputEl.current.focus();
+    }
+  }, []);
   return (
     <NumberInput
       mx="3"
@@ -32,11 +39,15 @@ export const CustomInputField: React.FC<CustomInputFieldProps> = ({
       defaultValue={numberOfUnits}
       min={1}
       max={500}
+      borderColor="whiteAlpha.500"
     >
-      <NumberInputField arial-label="update number of units" />
-      <NumberInputStepper>
-        <NumberIncrementStepper arial-label="increment number of units" />
-        <NumberDecrementStepper />
+      <NumberInputField ref={inputEl} arial-label="update number of units" />
+      <NumberInputStepper borderColor="whiteAlpha.500">
+        <NumberIncrementStepper
+          borderColor="whiteAlpha.500"
+          arial-label="increment number of units"
+        />
+        <NumberDecrementStepper borderColor="whiteAlpha.500" />
       </NumberInputStepper>
     </NumberInput>
   );

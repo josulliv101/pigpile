@@ -6,6 +6,7 @@ import {
   HTMLChakraProps,
   IconButton,
   Text,
+  Tooltip,
 } from "@pigpile/core";
 import { FaPencilAlt } from "react-icons/fa";
 import { CustomInputField } from "./CustomInputField";
@@ -28,17 +29,24 @@ export const ItemsLabel: React.FC<ItemsLabelProps> = ({
   onChangeCustomInputField,
   ...props
 }) => {
+  const [isCustomInputDirty, setIsCustomInputDirty] = useState(false);
   const [updatedNumberOfUnits, setUpdatedNumberOfUnits] = useState(
     numberOfUnits || 1
   );
   const handleCommitInputChange = () => {
     onChangeCustomInputField(updatedNumberOfUnits);
     onCloseCustomInputField();
+    setIsCustomInputDirty(false);
   };
+
   return (
     <HStack
       justifyContent="space-between"
       alignItems={{ base: "flex-start", md: "center" }}
+      flexDirection={{
+        base: showCustomInputField ? "column" : "row",
+        md: "row",
+      }}
     >
       <Text
         display="flex"
@@ -51,41 +59,61 @@ export const ItemsLabel: React.FC<ItemsLabelProps> = ({
         ) : (
           <CustomInputField
             numberOfUnits={updatedNumberOfUnits}
-            onChange={(n) => setUpdatedNumberOfUnits(Number(n))}
+            onChange={(n) => {
+              setIsCustomInputDirty(true);
+              setUpdatedNumberOfUnits(Number(n));
+            }}
           />
         )}{" "}
         {label}
       </Text>
       {showCustomInputField && (
-        <ButtonGroup colorScheme="blue" mx="3" size="xs">
+        <ButtonGroup
+          pt={{ base: 4, md: 0 }}
+          justifyContent={{ base: "flex-end", md: "flex-start" }}
+          w={{ base: "full", md: "auto" }}
+          mx="3"
+          size="xs"
+        >
           <Button
             variant="outline"
             colorScheme="whiteAlpha"
             color="white"
             onClick={handleCommitInputChange}
+            borderColor={{ base: "transparent", md: "whiteAlpha.500" }}
+            size={numberOfUnits === null ? "sm" : "xs"}
+            disabled={numberOfUnits !== null && !isCustomInputDirty}
           >
-            Confirm
+            Confirm{" "}
+            {numberOfUnits === null && `Adding ${updatedNumberOfUnits} Item(s)`}
           </Button>
-          <Button
-            colorScheme="whiteAlpha"
-            color="white"
-            variant="ghost"
-            onClick={onCloseCustomInputField}
-          >
-            Cancel
-          </Button>
+          {numberOfUnits !== null && (
+            <Button
+              colorScheme="whiteAlpha"
+              color="white"
+              variant="ghost"
+              onClick={(n) => {
+                onCloseCustomInputField(n);
+                setIsCustomInputDirty(false);
+              }}
+            >
+              Cancel
+            </Button>
+          )}
         </ButtonGroup>
       )}
       {onShowCustomInputField && !showCustomInputField && (
-        <IconButton
-          color="gray.200"
-          variant="ghost"
-          colorScheme="whiteAlpha"
-          size="xs"
-          aria-label="edit donation amount"
-          icon={<FaPencilAlt />}
-          onClick={onShowCustomInputField}
-        />
+        <Tooltip label="Edit Quantity">
+          <IconButton
+            color="gray.200"
+            variant="ghost"
+            colorScheme="whiteAlpha"
+            size="sm"
+            aria-label="edit donation amount"
+            icon={<FaPencilAlt />}
+            onClick={onShowCustomInputField}
+          />
+        </Tooltip>
       )}
     </HStack>
   );

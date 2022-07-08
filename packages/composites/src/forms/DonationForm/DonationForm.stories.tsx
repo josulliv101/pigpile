@@ -79,17 +79,11 @@ UpdateNumberOfUnits.play = async () => {
   await userEvent.click(confirmBtn);
 };
 
-export const ShowTipOptions = Template.bind({});
-ShowTipOptions.play = async () => {
+export const UpdateTip = Template.bind({});
+UpdateTip.play = async () => {
+  await sleep(500);
   const tipInput = screen.getByTestId("updatetip");
-  await userEvent.click(tipInput, {
-    delay: 100,
-  });
-};
-
-export const UpdateTipTo1 = Template.bind({});
-UpdateTipTo1.play = async () => {
-  await ShowTipOptions.play();
+  await userEvent.click(tipInput);
 
   await sleep(500);
 

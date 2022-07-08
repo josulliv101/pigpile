@@ -39,6 +39,7 @@ export const TipInput: React.FC<TipInputProps> = ({
   options = [0, 0.5, 1.0, 1.5],
   tip = 0,
   onChange,
+  isDisabled,
   ...props
 }) => {
   return (
@@ -55,6 +56,8 @@ export const TipInput: React.FC<TipInputProps> = ({
           variant="outline"
           size="xs"
           data-testid="updatetip"
+          disabled={isDisabled}
+          _disabled={{ cursor: "default" }}
         >
           ${tip}
         </MenuButton>

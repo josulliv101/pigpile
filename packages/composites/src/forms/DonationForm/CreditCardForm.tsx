@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import type * as React from "react";
 import {
   Box,
@@ -27,6 +27,7 @@ import { useStripe } from "./useStripe";
 
 export interface CreditCardFormProps extends HTMLChakraProps<"div"> {
   paymentIntent: PaymentIntent;
+  showCustomInputField: boolean;
   onSubmit?: () => void;
 }
 
@@ -35,6 +36,7 @@ export const CreditCardForm: React.FC<CreditCardFormProps> = ({
   numberOfUnits,
   onSubmit,
   paymentIntent,
+  showCustomInputField,
   ...props
 }) => {
   const stripeDetails = useStripe();
@@ -43,8 +45,16 @@ export const CreditCardForm: React.FC<CreditCardFormProps> = ({
   const [validCard, setValidCard] = useState(false);
   const [isCardReady, setIsCardReady] = useState(false);
   const [isCardFocused, setIsCardFocused] = useState(false);
+  const [cardApi, setCardApi] = useState(null);
 
-  console.log("stripeDetails", stripeDetails);
+  console.log("stripeDetails", { showCustomInputField }, stripeDetails);
+
+  useEffect(() => {
+    if (cardApi?.update) {
+      console.log("useEffect", showCustomInputField);
+      cardApi.update({ disabled: showCustomInputField });
+    }
+  }, [showCustomInputField]);
 
   const handleSubmit: React.FormEventHandler<HTMLFormElement> = async (
     values,
@@ -88,6 +98,11 @@ export const CreditCardForm: React.FC<CreditCardFormProps> = ({
           setIsCardFocused(false);
         };
         const handleCardFocus = (event) => setIsCardFocused(true);
+        const handleReady = (cardApi) => {
+          console.log("handleReady", cardApi);
+          setCardApi(cardApi);
+          setIsCardReady(true);
+        };
         const isCardInvalid = status?.userUnfocusedCard && !status.ccComplete;
         return (
           <Form>
@@ -96,13 +111,17 @@ export const CreditCardForm: React.FC<CreditCardFormProps> = ({
                 {({ field, form }) => (
                   <FormControl
                     isInvalid={form.errors.email && form.touched.email}
+                    isDisabled={showCustomInputField}
                   >
                     <Input
                       {...field}
+                      isRequired
                       id="email"
                       aria-label="Email"
                       placeholder="Email"
                       _placeholder={{ color: "whiteAlpha.800" }}
+                      _disabled={{ opacity: 1, cursor: "default" }}
+                      // sx={{ cursor: "default" }}
                     />
                     <FormErrorMessage>{form.errors.email}</FormErrorMessage>
                   </FormControl>
@@ -128,11 +147,12 @@ export const CreditCardForm: React.FC<CreditCardFormProps> = ({
                       : "#e2e8f0"
                   } solid`}
                   borderRadius="md"
+                  // cursor="crosshair"
                 >
                   <CardElement
                     onFocus={handleCardFocus}
                     onBlur={handleCardBlur}
-                    onReady={() => setIsCardReady(true)}
+                    onReady={handleReady}
                     onChange={handleCardChange}
                     options={{
                       iconStyle: "solid",
@@ -170,7 +190,12 @@ export const CreditCardForm: React.FC<CreditCardFormProps> = ({
                 type="submit"
                 variant="solid"
                 colorScheme="blue"
-                disabled={!dirty || !isValid || !status?.ccComplete}
+                disabled={
+                  showCustomInputField ||
+                  !dirty ||
+                  !isValid ||
+                  !status?.ccComplete
+                }
               >
                 Donate Now
               </Button>
