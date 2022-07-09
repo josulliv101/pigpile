@@ -23,7 +23,7 @@ const raisedVariant: SystemStyleObject = {
     _focus: {
       boxShadow: "none",
       textDecoration: "underline",
-      textDecorationColor: "gray.400",
+      textDecorationColor: "gray.800",
     },
     _dark: {
       color: "gray.50",
