@@ -28,7 +28,7 @@ import { useStripe } from "./useStripe";
 export interface CreditCardFormProps extends HTMLChakraProps<"div"> {
   paymentIntent: PaymentIntent;
   showCustomInputField: boolean;
-  onSubmit?: () => void;
+  onSubmit: () => void;
 }
 
 export const CreditCardForm: React.FC<CreditCardFormProps> = ({
@@ -65,12 +65,16 @@ export const CreditCardForm: React.FC<CreditCardFormProps> = ({
 
     const cardElements = elements.getElement(CardElement);
 
-    const { error, paymentIntent: confirmPaymentIntent } =
-      await stripeObj.confirmCardPayment(paymentIntent?.client_secret, {
-        payment_method: {
-          card: cardElements,
-        },
-      });
+    const {
+      error,
+      paymentIntent: confirmPaymentIntent,
+      ...rest
+    } = await stripeObj.confirmCardPayment(paymentIntent?.client_secret, {
+      payment_method: {
+        card: cardElements,
+      },
+    });
+    onSubmit({ values, confirmPaymentIntent, error, rest });
     console.log("handle submit", error, confirmPaymentIntent);
   };
 
@@ -199,7 +203,6 @@ export const CreditCardForm: React.FC<CreditCardFormProps> = ({
               >
                 Donate Now
               </Button>
-              <code>{JSON.stringify(status)}</code>
             </Stack>
           </Form>
         );

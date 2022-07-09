@@ -16,6 +16,7 @@ export interface DonationFormProps extends HTMLChakraProps<"div"> {
   onChangeCustomInputField: () => void;
   onCloseCustomInputField?: () => void;
   onShowCustomInputField: () => void;
+  onSubmit: () => void;
   numberOfUnits: number | null;
   tip: number;
   showCustomInputField: boolean;
@@ -30,6 +31,7 @@ export const DonationForm: React.FC<DonationFormProps> = ({
   onChangeCustomInputField,
   onCloseCustomInputField,
   onShowCustomInputField,
+  onSubmit,
   ...props
 }) => {
   const showCustomInputField =
@@ -74,6 +76,7 @@ export const DonationForm: React.FC<DonationFormProps> = ({
             <CreditCardForm
               showCustomInputField={showCustomInputField}
               paymentIntent={paymentIntent}
+              onSubmit={onSubmit}
             />
           </Elements>
         </Box>

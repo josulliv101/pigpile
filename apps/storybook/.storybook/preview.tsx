@@ -1,4 +1,4 @@
-import theme from "@pigpile/theme";
+import { theme } from "@pigpile/theme";
 import { Box } from "@pigpile/core";
 
 export const parameters = {
@@ -28,13 +28,5 @@ export const parameters = {
       color: /(background|color)$/i,
       date: /Date$/,
     },
-  },
-  storySort: {
-    method: "alphabetical",
-    order: [
-      "Components",
-      ["Data Display", "Disclosure", "Feedback", "Layout", "Media and Icons"],
-      "*",
-    ],
   },
 };

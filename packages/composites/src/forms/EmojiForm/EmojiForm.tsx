@@ -1,19 +1,13 @@
 import { useEffect, useState } from "react";
 import { Formik, Field, FieldProps, Form } from "formik";
 import {
-  Avatar,
-  AvatarBadge,
   Box,
   Button,
   Callout,
   Checkbox,
-  Flex,
   FormControl,
   FormErrorMessage,
-  FormLabel,
-  FormHelperText,
   HTMLChakraProps,
-  IconButton,
   Input,
   InputGroup,
   InputRightAddon,
@@ -166,7 +160,11 @@ export const EmojiForm: React.FC<EmojiFormProps> = ({ onSubmit, ...props }) => {
                         onClick={() => setActiveEmoji(emoji)}
                         minH="32px"
                         fontSize="xl"
-                        _active={{ bgColor: "blackAlpha.200" }}
+                        _active={{
+                          bgColor: "blackAlpha.200",
+                          borderWidth: 1,
+                          borderColor: "gray.300",
+                        }}
                         // bgColor={emoji === activeEmoji ? "white" : "whiteAlpha.300"}
                         size="xs"
                         variant="ghost"

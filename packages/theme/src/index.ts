@@ -3,10 +3,13 @@ import components from "./components";
 import foundations from "./foundations";
 import styles from "./styles";
 
-const theme = extendTheme({
+export * as colorSchemes from "./colorSchemes";
+export * as userThemes from "./userThemes";
+export * from "./themeOptions";
+export * from "./types";
+
+export const theme = extendTheme({
   components,
   ...foundations,
   styles,
 });
-
-export default theme;

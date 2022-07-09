@@ -52,6 +52,7 @@ export const ItemsLabel: React.FC<ItemsLabelProps> = ({
         display="flex"
         alignItems="center"
         fontSize={{ base: "md", md: "xl" }}
+        noOfLines={1}
       >
         Items:{" "}
         {!showCustomInputField ? (
