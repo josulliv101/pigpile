@@ -1,17 +1,12 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-import {
-  screen,
-  userEvent,
-} from "@storybook/testing-library";
+import { screen, userEvent } from "@storybook/testing-library";
 import { Box } from "@pigpile/core";
 import { Footer } from "./Footer";
 
 export default {
   title: "Footer",
   component: Footer,
-  argTypes: {
-
-  },
+  argTypes: {},
   decorators: [
     (Story) => (
       <Box bgColor="blackAlpha.600" h="inherit">

@@ -1,17 +1,12 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-import {
-  screen,
-  userEvent,
-} from "@storybook/testing-library";
+import { screen, userEvent } from "@storybook/testing-library";
 import { Box } from "@pigpile/core";
 import { Nav } from "./Nav";
 
 export default {
   title: "Nav",
   component: Nav,
-  argTypes: {
-
-  },
+  argTypes: {},
   decorators: [
     (Story) => (
       <Box bgColor="blackAlpha.600" h="inherit" p="4">
@@ -36,13 +31,13 @@ Authenticated.args = {
   user: {
     displayName: "Mr. Foobar",
     isAnonymous: false,
-  }
-}
+  },
+};
 
 export const AuthenticatedAsAdmin = Template.bind({});
 AuthenticatedAsAdmin.args = {
   user: {
     ...Authenticated.args.user,
     isAdmin: true,
-  }
-}
+  },
+};

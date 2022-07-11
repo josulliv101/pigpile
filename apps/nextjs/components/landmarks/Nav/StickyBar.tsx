@@ -6,6 +6,6 @@ export const StickyBar = chakra(Background, {
     h: "20px",
     pos: "sticky",
     zIndex: "sticky",
-    top: { base: '32px', md: '38px' }
+    top: { base: "32px", md: "38px" },
   },
 });

@@ -1,17 +1,24 @@
-import NextLink from 'next/link';
-import { chakra, AbsoluteCenter as Center, Container, Flex, Text, Logo } from "@pigpile/core";
+import NextLink from "next/link";
+import {
+  chakra,
+  AbsoluteCenter as Center,
+  Container,
+  Flex,
+  Text,
+  Logo,
+} from "@pigpile/core";
 import useIsScrolledY from "./useIsScrolledY";
 
-const Background = chakra('div', {
+const Background = chakra("div", {
   baseStyle: {
     pos: "fixed",
     py: 2,
     top: 0,
     transition: "background 200ms ease-out",
     w: "100vw",
-    zIndex: "banner"
+    zIndex: "banner",
   },
-})
+});
 
 const BrandText = chakra(Text, {
   baseStyle: {
@@ -19,14 +26,18 @@ const BrandText = chakra(Text, {
     fontFamily: "brand",
     fontSize: [20, 24],
   },
-})
+});
 
-const getLogoTransform = ({ scale }) => `translate3d(-50%, -50%, 0) scale(${scale})`;
+const getLogoTransform = ({ scale }) =>
+  `translate3d(-50%, -50%, 0) scale(${scale})`;
 
-export const Banner: React.FC<HTMLChakraProps<"div">> = ({ children: nav, ...props }) => {
+export const Banner: React.FC<HTMLChakraProps<"div">> = ({
+  children: nav,
+  ...props
+}) => {
   const isScrolledY = useIsScrolledY();
-  const logoTransform = getLogoTransform({ scale: isScrolledY ? .9 : 1 });
-  const bgColor = isScrolledY ? 'black' : 'transparent';
+  const logoTransform = getLogoTransform({ scale: isScrolledY ? 0.9 : 1 });
+  const bgColor = isScrolledY ? "black" : "transparent";
   return (
     <Background as="header" bgColor={bgColor} {...props}>
       <Container>
@@ -34,10 +45,14 @@ export const Banner: React.FC<HTMLChakraProps<"div">> = ({ children: nav, ...pro
           <NextLink href="/" passHref>
             <BrandText as="a">Pigpile</BrandText>
           </NextLink>
-          <Center as={Logo} boxSize={{ base: 9, md: 10 }} transform={logoTransform} />
-          { nav }
+          <Center
+            as={Logo}
+            boxSize={{ base: 9, md: 10 }}
+            transform={logoTransform}
+          />
+          {nav}
         </Flex>
       </Container>
     </Background>
-  )
+  );
 };

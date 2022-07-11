@@ -1,17 +1,12 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-import {
-  screen,
-  userEvent,
-} from "@storybook/testing-library";
+import { screen, userEvent } from "@storybook/testing-library";
 import { Box } from "@pigpile/core";
 import { Banner } from "./Banner";
 
 export default {
   title: "Banner",
   component: Banner,
-  argTypes: {
-
-  },
+  argTypes: {},
   decorators: [
     (Story) => (
       <Box bgColor="blackAlpha.600" h="inherit">
@@ -33,5 +28,5 @@ export const Default = Template.bind({});
 
 export const WithNav = Template.bind({});
 WithNav.args = {
-  children: <div style={{color: "white"}}>my nav</div>
+  children: <div style={{ color: "white" }}>my nav</div>,
 };

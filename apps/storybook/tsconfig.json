@@ -26,8 +26,5 @@
   },
   "include": ["./src/**/*.tsx", "./src/**/*.ts"],
   "exclude": ["node_modules"],
-  "references": [
-    { "path": "../../packages/theme" },
-    { "path": "../nextjs" }
-  ]
+  "references": [{ "path": "../../packages/theme" }, { "path": "../nextjs" }]
 }
