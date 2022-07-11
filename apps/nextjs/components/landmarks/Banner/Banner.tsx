@@ -45,11 +45,14 @@ export const Banner: React.FC<HTMLChakraProps<"div">> = ({
           <NextLink href="/" passHref>
             <BrandText as="a">Pigpile</BrandText>
           </NextLink>
-          <Center
-            as={Logo}
-            boxSize={{ base: 9, md: 10 }}
-            transform={logoTransform}
-          />
+          <NextLink href="/" passHref>
+            <Center
+              as={Logo}
+              boxSize={{ base: 9, md: 10 }}
+              transform={logoTransform}
+              cursor="pointer"
+            />
+          </NextLink>
           {nav}
         </Flex>
       </Container>

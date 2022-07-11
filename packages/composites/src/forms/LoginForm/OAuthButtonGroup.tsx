@@ -20,9 +20,11 @@ export const OAuthButtonGroup: React.FC<OAuthButtonGroupProps> = ({
         <Button
           key={name}
           width="full"
-          borderColor="gray.200"
-          color="black"
+          borderColor="gray.400"
+          color="inherit"
           onClick={onSignInWithProvider}
+          colorScheme="whiteAlpha"
+          _dark={{ borderColor: "gray.600" }}
         >
           <VisuallyHidden>Sign in with {name}</VisuallyHidden>
           {icon}

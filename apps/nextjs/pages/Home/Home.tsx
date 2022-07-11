@@ -10,6 +10,8 @@ import {
 } from "@pigpile/core";
 // import { GetServerSideProps } from "next";
 import { LayoutFullViewport } from "../../components/layouts";
+// import { StickyBar } from "../../components/landmarks";
+
 // console.log('LayoutBasic', LayoutBasic);
 interface PageProps {}
 

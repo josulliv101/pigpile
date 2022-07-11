@@ -27,14 +27,16 @@ export const LoginForm: React.FC<LoginFormProps> = ({
   onSignInWithProvider,
 }) => (
   <Box>
-    <Stack w="full" spacing="8">
+    <Stack w="full" spacing="8" alignItems="center">
       <Box
+        maxW="md"
         py={{ base: "0", sm: "8" }}
         px={{ base: "4", sm: "10" }}
-        bg={useBreakpointValue({ base: "transparent", sm: "white" })}
+        bg={useBreakpointValue({ base: "transparent", sm: "whiteAlpha.700" })}
         boxShadow={{ base: "none", sm: useColorModeValue("md", "md-dark") }}
         borderRadius={{ base: "none", sm: "xl" }}
-        _dark={{ bg: "gray.700" }}
+        _dark={{ bg: "gray.700", color: "gray.100" }}
+        color="gray.600"
       >
         <Stack spacing="6">
           <Stack spacing="5">

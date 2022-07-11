@@ -7,7 +7,13 @@ import {
 } from "@pigpile/theme";
 import { Box } from "@pigpile/core";
 
-console.log("colorSchemes, userThemes", colorSchemes, userThemes);
+console.log(
+  "colorSchemes, userThemes",
+  getThemeWithDefaults(
+    colorSchemes.colorSchemeBluePink,
+    userThemes.farmUserTheme
+  )
+);
 
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },

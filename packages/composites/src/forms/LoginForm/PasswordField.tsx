@@ -35,6 +35,7 @@ export const PasswordField = forwardRef<HTMLInputElement, InputProps>(
               aria-label={isOpen ? "Mask password" : "Reveal password"}
               icon={isOpen ? <HiEyeOff /> : <HiEye />}
               onClick={onClickReveal}
+              color="inherit"
             />
           </InputRightElement>
           <Input

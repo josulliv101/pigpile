@@ -1,6 +1,7 @@
 import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
 import {
   ButtonGroup,
+  Button,
   Container,
   HStack,
   IconButton,
@@ -31,18 +32,20 @@ export const Footer: React.FC<HTMLChakraProps<"footer">> = (props) => {
           <HStack>
             <Text fontSize="sm" color="gray.200" opacity=".8">
               &copy; {new Date().getFullYear()} Pigpile Corporation. All rights
-              reserved.
+              reserved. (breakpoint value is {breakPoint})
             </Text>
             {/*<Logo boxSize={5} bgColor="gray.600" fill="gray.500" shadow="none" borderWidth="0" opacity=".4" />*/}
           </HStack>
           <ButtonGroup variant="ghost" opacity=".8" spacing="4">
-            <IconButton
+            <Button color="gray.300">About</Button>
+            <Button color="gray.300">Contact</Button>
+            {/*            <IconButton
               as="a"
               href="#"
               aria-label="LinkedIn"
               icon={<FaLinkedin fontSize="1.25rem" />}
               color="gray.300"
-            />
+            />*/}
             <IconButton
               as="a"
               href="#"
@@ -50,13 +53,13 @@ export const Footer: React.FC<HTMLChakraProps<"footer">> = (props) => {
               color="gray.300"
               icon={<FaGithub fontSize="1.25rem" />}
             />
-            <IconButton
+            {/*            <IconButton
               as="a"
               href="#"
               aria-label="Twitter"
               color="gray.300"
               icon={<FaTwitter fontSize="1.25rem" />}
-            />
+            />*/}
           </ButtonGroup>
         </Stack>
       </Stack>
