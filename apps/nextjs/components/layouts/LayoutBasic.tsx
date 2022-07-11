@@ -1,22 +1,17 @@
-import react from "react";
-import { Container, HTMLChakraProps } from "@pigpile/core";
 import { Banner, Footer, Main, Nav } from "../landmarks";
+import { LayoutProps } from "./LayoutProps";
 
-export const LayoutBasic: React.FC<HTMLChakraProps<"div">> = ({ children }) => {
+export const LayoutBasic: React.FC<LayoutProps> = ({
+  children,
+  ...navProps
+}) => {
   return (
     <>
       <Banner bgColor="black">
-        <Nav />
+        <Nav {...navProps} />
       </Banner>
-      <Main>
-        Basic Layout
-        {children}
-      </Main>
+      <Main>{children}</Main>
       <Footer bgColor="gray.200" color="gray.700" />
     </>
   );
 };
-
-// export const LayoutBasic = (page):JSX.Element => <Basic>{ page }</Basic>
-
-// LayoutBasic.displayName = "LayoutBasic";

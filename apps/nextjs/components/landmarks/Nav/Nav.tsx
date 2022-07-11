@@ -10,6 +10,7 @@ export interface User {
 }
 
 export interface NavProps extends HTMLChakraProps<"nav"> {
+  children?: React.ReactNode;
   user?: User;
   onLogin: () => void;
   onLogout: () => void;
@@ -17,6 +18,7 @@ export interface NavProps extends HTMLChakraProps<"nav"> {
 }
 
 export const Nav: React.FC<NavProps> = ({
+  children,
   user,
   onLogin,
   onLogout,
@@ -50,6 +52,7 @@ export const Nav: React.FC<NavProps> = ({
       ) : (
         <UserProfileMenu user={user} onLogout={onLogout} />
       )}
+      {children}
     </ButtonGroup>
   );
 };

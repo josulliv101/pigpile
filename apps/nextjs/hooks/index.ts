@@ -1,0 +1,1 @@
+export { useLabelBundle } from "./useLabelBundle";

@@ -1,0 +1,21 @@
+{
+  "name": "@pigpile/labelBundles",
+  "version": "0.1.0",
+  "description": "Label bundles for @pigpile",
+  "repository": "https://github.com/josulliv101/pigpile/tree/master/packages/labelBundles",
+  "main": "dist/pigpile-labelBundles.cjs.js",
+  "module": "dist/pigpile-labelBundles.esm.js",
+  "types": "dist/pigpile-labelBundles.cjs.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.17.0",
+    "lodash.get": "^4.4.2"
+  },
+  "devDependencies": {}
+}

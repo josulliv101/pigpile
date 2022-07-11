@@ -19,29 +19,12 @@
     "experimentalDecorators": true,
     "resolveJsonModule": true,
     "forceConsistentCasingInFileNames": true,
-    "lib": ["dom", "dom.iterable", "esnext"],
-    "noEmit": true,
-    "isolatedModules": true,
-    "allowJs": false,
-    "strict": true,
-    "jsx": "preserve",
-    "baseUrl": "./",
-    "incremental": true
+    "composite": true,
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "jsx": "react-jsx"
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": ["./src/**/*.tsx", "./src/**/*.ts"],
   "exclude": ["node_modules"],
-  "references": [
-    {
-      "path": "../../packages/composites"
-    },
-    {
-      "path": "../../packages/core"
-    },
-    {
-      "path": "../../packages/labelBundles"
-    },
-    {
-      "path": "../../packages/theme"
-    }
-  ]
+  "references": [{ "path": "../hooks" }]
 }

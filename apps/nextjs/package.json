@@ -11,6 +11,9 @@
   },
   "dependencies": {
     "@pigpile/core": "^0.1.0",
+    "@pigpile/composites": "^0.1.0",
+    "@pigpile/labelBundles": "^0.1.0",
+    "@pigpile/theme": "^0.1.0",
     "@types/react": "^18.0.14",
     "framer-motion": "^4.1.17",
     "lodash.debounce": "^4.0.8",

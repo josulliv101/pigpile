@@ -25,7 +25,6 @@ const Template: ComponentStory<typeof Footer> = (args) => {
 };
 
 export const Default = Template.bind({});
-/*Default.play = async () => {
-  const btn = screen.getByText("hello");
-  await userEvent.click(btn);
-};*/
+
+export const Small = Template.bind({});
+Small.args = { size: "sm" };
