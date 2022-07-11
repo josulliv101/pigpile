@@ -19,15 +19,26 @@
     "experimentalDecorators": true,
     "resolveJsonModule": true,
     "forceConsistentCasingInFileNames": true,
-    "composite": true,
-    "outDir": "./dist",
-    "rootDir": "./src",
-    "jsx": "react-jsx"
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "noEmit": true,
+    "isolatedModules": true,
+    "allowJs": false,
+    "strict": true,
+    "jsx": "preserve",
+    "baseUrl": "./",
+    "incremental": true
   },
-  "include": ["./src/**/*.tsx", "./src/**/*.ts"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules"],
   "references": [
-    { "path": "../../packages/theme" },
-    { "path": "../nextjs" }
+    {
+      "path": "../../packages/composites"
+    },
+    {
+      "path": "../../packages/core"
+    },
+    {
+      "path": "../../packages/theme"
+    }
   ]
 }

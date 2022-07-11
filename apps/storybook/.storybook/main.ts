@@ -10,6 +10,11 @@ module.exports = {
       files: "**/*.stories.tsx",
       titlePrefix: "Composites",
     },
+    {
+      directory: "../../nextjs",
+      files: "**/*.stories.tsx",
+      titlePrefix: "Pages",
+    },
   ],
   addons: [
     "@chakra-ui/storybook-addon",
@@ -18,7 +23,7 @@ module.exports = {
     "@storybook/addon-interactions",
   ],
   framework: "@storybook/react",
-  staticDirs: ["../public"],
+  staticDirs: ["../../nextjs/public"],
   env: (config) => ({
     ...config,
     API_KEY:

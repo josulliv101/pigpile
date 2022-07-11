@@ -29,4 +29,6 @@ export const parameters = {
       date: /Date$/,
     },
   },
+  // layout: 'centered',
+  padded: false,
 };

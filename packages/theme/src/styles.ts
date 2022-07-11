@@ -8,7 +8,7 @@ const styles: Styles = {
         bgColor: "gray.50",
       },
     },
-    "#__next": {
+    "#__next, #root": {
       display: "flex",
       flexDirection: "column",
       h: "100vh",
