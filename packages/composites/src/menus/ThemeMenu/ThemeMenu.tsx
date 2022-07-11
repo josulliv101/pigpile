@@ -38,7 +38,8 @@ export const ThemeMenu: React.FC<ThemeMenuProps> = ({
     <Popover placement="bottom-end" size="10rem">
       <PopoverTrigger>
         <IconButton
-          colorScheme="blue"
+          colorScheme="whiteAlpha"
+          bgColor="transparent"
           borderColor="transparent"
           aria-label="Theme"
           icon={<PaintBrushIcon boxSize="5" color="gray.200" />}

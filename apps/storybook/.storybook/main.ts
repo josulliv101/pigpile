@@ -11,13 +11,19 @@ module.exports = {
       titlePrefix: "Composites",
     },
     {
-      directory: "../../nextjs",
+      directory: "../../nextjs/components/landmarks",
+      files: "**/*.stories.tsx",
+      titlePrefix: "Landmarks",
+    },
+    {
+      directory: "../../nextjs/pages",
       files: "**/*.stories.tsx",
       titlePrefix: "Pages",
     },
   ],
   addons: [
     "@chakra-ui/storybook-addon",
+    "storybook-addon-next-router",
     "@storybook/addon-links",
     "@storybook/addon-essentials",
     "@storybook/addon-interactions",

@@ -1,23 +1,30 @@
-import NextLink from 'next/link';
-import { Box, Button, ButtonGroup, HTMLChakraProps, IconButton, List, ListItem, Text } from "@pigpile/core";
-/*import { FaUserAlt } from 'react-icons/fa'
-import { useDispatch, useSelector } from 'react-redux'
-import { useRouter } from 'next/router'
-import { selectUser, signOutUser, User } from '@pigpile/store'
-import { NavButton } from "src/components/extended";
-import { UserProfileMenu } from "src/components/menus";
-import { ThemePopover } from "./ThemePopover";
-import { LinkButton as Link } from "./LinkButton";*/
+import { ButtonGroup, HTMLChakraProps, IconButton } from "@pigpile/core";
+import { ThemeMenu, UserProfileMenu } from "@pigpile/composites";
+import { themeOptions } from "@pigpile/theme";
+import { FaUserAlt } from 'react-icons/fa'
 
-export const Nav: React.FC<HTMLChakraProps<"nav">> = props => {
-/*  const user = useSelector(selectUser) as User;
-  const dispatch = useDispatch();
-  const router = useRouter();
-  console.log('router', router)
-  const isUserAuthenticated = user?.isAnonymous === false;*/
+export interface User {
+  displayName: string;
+  isAdmin: boolean;
+  isAnonymous: boolean;
+}
+
+export interface NavProps extends HTMLChakraProps<"nav"> {
+  user?: User;
+  onLogin: () => void;
+  onLogout: () => void;
+  onThemeOptionChange: () => void;
+}
+
+export const Nav: React.FC<NavProps> = ({ user, onLogin, onLogout, onThemeOptionChange, ...props }) => {
+  const isUserAuthenticated = user?.isAnonymous === false;
   return (
-    <nav>
-      my nav
-    </nav>
+    <ButtonGroup as="nav" size="sm" spacing="2" display={{ base: "none", sm: "flex" }} {...props}>
+      <ThemeMenu boxSize={6} themeOptions={themeOptions} onThemeOptionChange={onThemeOptionChange} />
+      { !isUserAuthenticated
+          ? <IconButton onClick={onLogin} variant="outline" colorScheme="blackAlpha" borderColor="transparent"  aria-label='Theme' color="gray.50" icon={<FaUserAlt boxSize="5" color="gray.300" />} />
+          : <UserProfileMenu user={user} onLogout={onLogout} />
+      }
+    </ButtonGroup>
   );
 }

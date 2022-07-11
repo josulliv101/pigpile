@@ -1,5 +1,8 @@
-import { theme } from "@pigpile/theme";
+import { RouterContext } from 'next/dist/shared/lib/router-context';
+import { theme, getThemeWithDefaults, colorSchemes, userThemes } from "@pigpile/theme";
 import { Box } from "@pigpile/core";
+
+console.log('colorSchemes, userThemes', colorSchemes, userThemes);
 
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
@@ -11,7 +14,7 @@ export const parameters = {
     ],
   },*/
   chakra: {
-    theme,
+    theme: getThemeWithDefaults(colorSchemes.colorSchemeBluePink, userThemes.farmUserTheme),
     colorSchemes: [
       "gray",
       "blue",
@@ -31,4 +34,7 @@ export const parameters = {
   },
   // layout: 'centered',
   padded: false,
+  nextRouter: {
+    Provider: RouterContext.Provider,
+  },
 };
