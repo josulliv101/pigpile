@@ -61,4 +61,7 @@ export type LabelBundleType = {
     wiggle: string;
     wahoo: string;
   };
+  campaign: {
+    heroTitle: string;
+  };
 };

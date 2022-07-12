@@ -65,4 +65,7 @@ export const defaultLabelBundle: LabelBundleType = {
     wiggle: "Wiggle",
     wahoo: "Wahoo",
   },
+  campaign: {
+    heroTitle: "Help us donate {{amount}} {{itemType}} to {{org}}",
+  },
 };

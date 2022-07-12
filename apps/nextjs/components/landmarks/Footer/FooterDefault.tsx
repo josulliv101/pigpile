@@ -10,7 +10,6 @@ import {
   Text,
 } from "@pigpile/core";
 import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
-import { frLabelBundle } from "@pigpile/labelBundles";
 import { useLabelBundle } from "../../../hooks";
 
 export const FooterDefault = () => {
@@ -59,7 +58,12 @@ export const FooterDefault = () => {
           </Stack>
           <Stack spacing="4">
             <Text fontSize="sm" fontWeight="semibold" color="subtle">
-              Stay up to date
+              {getLabel(
+                "campaign.heroTitle",
+                "1,000",
+                getLabel("pairs of socks"),
+                "The Somerville Homeless Coalition"
+              )}
             </Text>
             <Stack
               spacing="4"

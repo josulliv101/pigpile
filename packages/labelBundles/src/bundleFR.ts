@@ -65,4 +65,8 @@ export const frLabelBundle: LabelBundleType = {
     wiggle: "Wiggle",
     wahoo: "Wahoo",
   },
+  campaign: {
+    heroTitle: "Aidez-nous à donner {{amount}} {{itemType}} à {{org}}",
+  },
+  "pairs of socks": "paires de chaussettes",
 };
