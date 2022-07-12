@@ -4,6 +4,7 @@ import Card from "./card";
 import Container from "./container";
 import CountUpBox from "./countUpBox";
 import Logo from "./logo";
+import Modal from "./modal";
 import Progress from "./progress";
 import StickyBar from "./stickyBar";
 import Swatch from "./swatch";
@@ -16,6 +17,7 @@ export default {
   Container,
   CountUpBox,
   Logo,
+  Modal,
   Progress,
   StickyBar,
   Swatch,

@@ -12,6 +12,7 @@ import {
   Spacer,
   Stack,
   Text,
+  useToast,
 } from "@chakra-ui/react";
 import {
   Elements,
@@ -39,6 +40,7 @@ export const CreditCardForm: React.FC<CreditCardFormProps> = ({
   showCustomInputField,
   ...props
 }) => {
+  const toast = useToast();
   const stripeDetails = useStripe();
   const stripeObj = useStripeObject();
   const elements = useElements();
@@ -60,22 +62,38 @@ export const CreditCardForm: React.FC<CreditCardFormProps> = ({
     values,
     actions
   ) => {
-    console.log("handleSubmit", paymentIntent, values, actions);
-    if (!elements || !paymentIntent?.client_secret) return;
+    if (process.env.IS_STORYBOOK === true) {
+      console.warn("Credit card submission is disabled within Storybook.");
+      toast({
+        title: "Functionality Disabled",
+        description: "Credit card submission is disabled within Storybook.",
+        status: "info",
+        duration: 5000,
+        isClosable: true,
+        position: "top",
+      });
+      return;
+    }
+    console.log("handleSubmit 1", paymentIntent, values, actions);
+    if (!stripeObj || !elements || !paymentIntent?.client_secret) return;
 
     const cardElements = elements.getElement(CardElement);
 
-    const {
-      error,
-      paymentIntent: confirmPaymentIntent,
-      ...rest
-    } = await stripeObj.confirmCardPayment(paymentIntent?.client_secret, {
-      payment_method: {
-        card: cardElements,
-      },
-    });
-    onSubmit({ values, confirmPaymentIntent, error, rest });
-    console.log("handle submit", error, confirmPaymentIntent);
+    try {
+      const {
+        error,
+        paymentIntent: confirmPaymentIntent,
+        ...rest
+      } = await stripeObj.confirmCardPayment(paymentIntent?.client_secret, {
+        payment_method: {
+          card: cardElements,
+        },
+      });
+      console.log("handle submit 2", error, confirmPaymentIntent);
+      onSubmit({ values, confirmPaymentIntent, error, rest });
+    } catch (error) {
+      console.log("error", error);
+    }
   };
 
   return (
@@ -193,7 +211,7 @@ export const CreditCardForm: React.FC<CreditCardFormProps> = ({
               <Button
                 type="submit"
                 variant="solid"
-                colorScheme="blue"
+                colorScheme="pink"
                 disabled={
                   showCustomInputField ||
                   !dirty ||

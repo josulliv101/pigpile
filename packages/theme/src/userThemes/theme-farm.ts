@@ -15,7 +15,7 @@ export const farmUserTheme: PigpileTheme = {
     { variant: "subtle", components: ["BackgroundContent"] },
   ],
   componentsBySize: [
-    { size: "xl", components: ["Button", "ShareButtonFoo"] },
+    { size: "md", components: ["Button", "ShareButtonFoo"] },
     { size: "lg", components: ["CardAvatar"] },
     { size: "md", components: ["MenuButton", "Tag"] },
     { size: "sm", components: ["Avatar"] },

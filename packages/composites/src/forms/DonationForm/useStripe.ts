@@ -3,9 +3,7 @@ import { PaymentIntent, Stripe, loadStripe } from "@stripe/stripe-js";
 import { fetchPostJSON } from "../../../pages/api/api-helpers";
 import * as config from "../../../pages/api/config";
 
-let stripePromise: Promise<Stripe | null> = loadStripe(
-  process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!
-);
+let stripePromise: Promise<Stripe | null> = loadStripe(process.env.API_KEY!);
 
 export function useStripe() {
   const [paymentIntent, setPaymentIntent] = useState<PaymentIntent | null>(

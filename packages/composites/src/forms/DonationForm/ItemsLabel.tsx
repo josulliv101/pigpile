@@ -42,10 +42,10 @@ export const ItemsLabel: React.FC<ItemsLabelProps> = ({
   return (
     <HStack
       justifyContent="space-between"
-      alignItems={{ base: "flex-start", md: "center" }}
+      alignItems={{ base: "flex-start" }}
       flexDirection={{
-        base: showCustomInputField ? "column" : "row",
-        md: "row",
+        base: showCustomInputField ? "column" : "row", // showCustomInputField ? "column" : "row",
+        // md: "row",
       }}
     >
       <Text
@@ -70,9 +70,9 @@ export const ItemsLabel: React.FC<ItemsLabelProps> = ({
       </Text>
       {showCustomInputField && (
         <ButtonGroup
-          pt={{ base: 4, md: 0 }}
-          justifyContent={{ base: "flex-end", md: "flex-start" }}
-          w={{ base: "full", md: "auto" }}
+          pt={{ base: 4 }} // , md: 0
+          justifyContent={{ base: "flex-end" }} // md: "flex-start"
+          w={{ base: "full" }} // , md: "auto"
           mx="3"
           size="xs"
         >
@@ -94,7 +94,7 @@ export const ItemsLabel: React.FC<ItemsLabelProps> = ({
               color="white"
               variant="ghost"
               onClick={(n) => {
-                onCloseCustomInputField(n);
+                onCloseCustomInputField();
                 setIsCustomInputDirty(false);
               }}
             >

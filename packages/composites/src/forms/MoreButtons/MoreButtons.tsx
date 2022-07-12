@@ -18,14 +18,14 @@ interface Option {
 }
 
 export interface MoreButtonsProps extends HTMLChakraProps<"div"> {
-  limit: number;
+  limit?: number;
   options: Option[];
-  onButtonClick: React.MouseEventHandler<HTMLButtonElement>;
+  onButtonClick: (n: number) => void;
 }
 
 const USE_DEFAULT = "lg";
 
-export const BACK_BTN_ID = "back-button";
+export const MORE_BUTTONS_BACK_ID = "back-button";
 
 const ButtonMore = ({ label, ...props }) => (
   <Button
@@ -33,8 +33,11 @@ const ButtonMore = ({ label, ...props }) => (
     children={label}
     {...props}
     leftIcon={
-      props.value === BACK_BTN_ID ? <Icon as={FaArrowCircleLeft} /> : null
+      props.value === MORE_BUTTONS_BACK_ID ? (
+        <Icon as={FaArrowCircleLeft} />
+      ) : null
     }
+    sx={{ ">span": { pointerEvents: "none" } }}
   />
 );
 
@@ -43,7 +46,6 @@ export const MoreButtons: React.FC<MoreButtonsProps> = ({
   options = [],
   moreTooltipLabel = "",
   onButtonClick,
-  onCustomButtonClick,
   ...props
 }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -52,7 +54,7 @@ export const MoreButtons: React.FC<MoreButtonsProps> = ({
   const size = isOpen ? "sm" : USE_DEFAULT;
 
   const handleButtonClick = (ev) => {
-    if (isOpen && ev.target.value === BACK_BTN_ID) {
+    if (isOpen && ev.target.value === MORE_BUTTONS_BACK_ID) {
       onClose();
     } else {
       onButtonClick(ev.target.value);

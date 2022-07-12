@@ -47,7 +47,7 @@ export const DonationForm: React.FC<DonationFormProps> = ({
         showCustomInputField={showCustomInputField}
       />
       {numberOfUnits !== null && (
-        <Box opacity={showCustomInputField ? 0.1 : 1}>
+        <Box opacity={showCustomInputField ? 0 : 1}>
           <TipInput
             tip={tip}
             onChange={onChangeTip}
@@ -82,7 +82,9 @@ export const DonationForm: React.FC<DonationFormProps> = ({
         </Box>
       )}
       {numberOfUnits === null && (
-        <Text>Thank you so much for supporting this pigpile ❤️</Text>
+        <Text textAlign="center">
+          Thank you so much for supporting this pigpile ❤️
+        </Text>
       )}
     </Callout>
   );

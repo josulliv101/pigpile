@@ -1,5 +1,5 @@
 import react from "react";
-import { BACK_BTN_ID } from "./";
+import { MORE_BUTTONS_BACK_ID } from "./";
 
 export const options = [
   { label: "1 pair", value: 1.5 },
@@ -10,7 +10,7 @@ export const options = [
 export const moreOptions = [
   { label: "4 pairs", value: 6 },
   { label: "5 pairs", value: 7.5 },
-  { label: "back", value: BACK_BTN_ID },
+  { label: "back", value: MORE_BUTTONS_BACK_ID },
   { label: "6 pairs", value: 9 },
   { label: "7 pairs", value: 10.5 },
   { label: "8 pairs", value: 12 },

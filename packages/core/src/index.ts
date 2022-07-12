@@ -5,6 +5,7 @@ export {
   darken,
   getColor,
   mode,
+  transparentize,
   PartsStyleFunction,
   PartsStyleObject,
   SystemStyleFunction,
