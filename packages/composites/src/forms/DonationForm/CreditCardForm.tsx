@@ -207,7 +207,7 @@ export const CreditCardForm: React.FC<CreditCardFormProps> = ({
                   Credit card information incomplete
                 </FormErrorMessage>
               </FormControl>
-              <Spacer p="1" />
+              {!showCustomInputField && <Spacer p="20" />}
               <Button
                 type="submit"
                 variant="solid"

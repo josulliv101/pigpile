@@ -153,7 +153,7 @@ export const Hero = ({ stepWithinWizard = 0 }): JSX.Element => {
           minH="640px"
           bgImage={landscapeImage}
           bgSize="cover"
-          bgPosition="22% 50%"
+          bgPosition="27% 50%"
         >
           <ModalHeader>Modal Title</ModalHeader>
           <ModalCloseButton />

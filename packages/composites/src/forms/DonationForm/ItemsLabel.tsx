@@ -104,7 +104,7 @@ export const ItemsLabel: React.FC<ItemsLabelProps> = ({
         </ButtonGroup>
       )}
       {onShowCustomInputField && !showCustomInputField && (
-        <Tooltip label="Edit Quantity">
+        <Tooltip label="Edit Quantity" placement="top">
           <IconButton
             color="gray.200"
             variant="ghost"

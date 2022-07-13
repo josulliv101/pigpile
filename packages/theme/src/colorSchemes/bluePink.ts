@@ -17,11 +17,12 @@ export const colorSchemeBluePink: ColorScheme = {
         "BackgroundBar",
         "BackgroundLandscape",
         "Modal",
+        "StickyBar",
       ],
     },
     {
       colorScheme: "pink",
-      components: ["ActionButton", "CardBadge", "StickyBar"],
+      components: ["ActionButton", "CardBadge"],
     },
     { colorScheme: "whiteAlpha", components: ["NavButton"] },
     { colorScheme: "yellow", components: ["BackgroundContent"] },

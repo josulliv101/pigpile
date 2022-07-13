@@ -13,7 +13,7 @@ export {
   Styles,
 } from "@chakra-ui/theme-tools";
 export { useColorModeValue } from "@chakra-ui/color-mode";
-export { cx } from "@chakra-ui/utils";
+export { cx, memoizedGet, mergeWith } from "@chakra-ui/utils";
 export * from "@chakra-ui/anatomy";
 
 // extend the chakra-ui base
