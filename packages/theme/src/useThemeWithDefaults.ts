@@ -9,7 +9,7 @@ import {
 import { theme } from "./index";
 
 export const getThemeWithDefaults = (colorScheme, userTheme) => {
-  console.log("getThemeWithDefaults", colorScheme, userTheme);
+  // console.log("getThemeWithDefaults", colorScheme, userTheme);
   return extendTheme(
     ...colorScheme.componentsByColorScheme.map((item) =>
       withDefaultColorScheme(item)

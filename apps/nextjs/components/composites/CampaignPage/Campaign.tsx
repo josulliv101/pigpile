@@ -85,21 +85,17 @@ const mockOrgProps = {
     "Founded in 1969, Pine Street Inn provides a comprehensive range of services to nearly 2,000 homeless men and women each day. We are the largest homeless services provider in New England, and could not do this important work without the support of our donors and local community.",
 };
 
-function Campaign(): JSX.Element {
+function Campaign({ title, descr, descrShort, tags = [] }): JSX.Element {
   return (
     <>
       <Hero />
       <StickyBar />
       <CampaignOverviewBar
         location="Somerville, MA"
-        tags={["sock-drive"]}
-        overview="This pigpile provides homeless individuals and families with new socks and individualized supportive services and tailored housing solutions with a goal of obtaining and maintaining affordable housing."
+        tags={tags}
+        overview={descrShort}
       />
-      <CampaignDetailsBar
-        description="100% of the money pledged for socks goes towards the purchase of brand new socks (shipping is free). If we are able to drive the price of the socks down by buying in bulk or finding online promotional deals, we will use that savings to buy & donate even more socks. All invoices and the final tally of socks will be posted here. Thank you for supporting this pigpile and helping the Somerville Homeless Coalition.
-
-If the Hanes Men's Ultimate Crewsocks (#84UP12) are not available in the size/quantity needed, we will substitute in another sock of equal quality and price. As always, all pledged money for socks goes to the purchase of socks."
-      />
+      <CampaignDetailsBar description={descr} />
       <Container minH="100px">
         <HStack
           w="full"

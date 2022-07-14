@@ -1,8 +1,10 @@
 import NextLink from "next/link";
+import { useDispatch } from "react-redux";
 import { FaUserAlt } from "react-icons/fa";
 import { ButtonGroup, HTMLChakraProps, IconButton } from "@pigpile/core";
 import { ThemeMenu, UserProfileMenu } from "@pigpile/composites";
 import { themeOptions } from "@pigpile/theme";
+import { signInUser } from "../../../store";
 
 export interface User {
   displayName: string;
@@ -26,6 +28,7 @@ export const Nav: React.FC<NavProps> = ({
   onThemeOptionChange,
   ...props
 }) => {
+  const dispatch = useDispatch();
   const isUserAuthenticated = user?.isAnonymous === false;
   return (
     <ButtonGroup
@@ -56,6 +59,14 @@ export const Nav: React.FC<NavProps> = ({
       ) : (
         <UserProfileMenu user={user} onLogout={onLogout} />
       )}
+      <IconButton
+        onClick={() => dispatch(signInUser({ joe: "bird" }))}
+        colorScheme="red"
+        borderColor="transparent"
+        aria-label="foobar"
+        color="gray.50"
+        icon={<FaUserAlt color="gray.300" />}
+      />
       {children}
     </ButtonGroup>
   );

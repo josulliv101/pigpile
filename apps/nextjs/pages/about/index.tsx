@@ -1,6 +1,6 @@
 import { GetStaticProps, GetStaticPaths, GetServerSideProps } from "next";
 import { useRouter } from "next/router";
-import { useSelector, useStore } from "react-redux";
+import { useSelector } from "react-redux";
 import { Box, Heading, Text } from "@pigpile/core";
 import { LayoutBasic } from "../../components/layouts";
 import { fetchUser, selectUser, wrapper } from "../../store";

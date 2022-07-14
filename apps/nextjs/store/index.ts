@@ -1,11 +1,13 @@
 import {
   configureStore,
+  createAsyncThunk,
   createSlice,
   PayloadAction,
   ThunkAction,
 } from "@reduxjs/toolkit";
 import { Action } from "redux";
 import { createWrapper, HYDRATE } from "next-redux-wrapper";
+import { getCampaignFromDb } from "@pigpile/db";
 
 export interface User {
   uid: string;
@@ -14,10 +16,76 @@ export interface User {
   isAdmin?: boolean | null;
 }
 
+export interface Campaign {
+  id: string;
+  beneficiary: {
+    name: string;
+    descr: string;
+  };
+  campaign: {
+    name: string;
+    descr: string;
+    descrShort: string;
+    createdBy: string;
+    createdOn: number;
+  };
+  location: {
+    city: string;
+    state: string;
+    country: string;
+  };
+  tags: string[];
+  media: {
+    imageUri: string;
+    video: {
+      id: string | number;
+      type: "WISTIA" | "YOUTUBE";
+    };
+  };
+  goal: {
+    amount: number;
+    type: "FUNDS" | "IN-KIND";
+    label: string;
+  };
+}
+
+export const campaignSlice = createSlice({
+  name: "campaign",
+
+  initialState: {} as Record<string, Campaign>,
+
+  reducers: {
+    setCampaign(_, action) {
+      return action.payload;
+    },
+  },
+
+  extraReducers: {
+    [HYDRATE]: (state, action) => {
+      console.log("HYDRATE", action.payload);
+      return {
+        ...state,
+        ...action.payload.campaign,
+      };
+    },
+  },
+});
+
 export interface AuthState {
   user: User | null;
   error?: string;
 }
+
+export const signInUser = createAsyncThunk(
+  "auth/signInUser",
+  async (options: { provider: any; cb: () => void }) => {
+    console.log("@@@signInUser args@@@", options);
+    const timeoutPromise = (timeout: number) =>
+      new Promise((resolve) => setTimeout(resolve, timeout));
+
+    await timeoutPromise(200);
+  }
+);
 
 export const authSlice = createSlice({
   name: "auth",
@@ -50,6 +118,7 @@ const makeStore = () =>
   configureStore({
     reducer: {
       [authSlice.name]: authSlice.reducer,
+      [campaignSlice.name]: campaignSlice.reducer,
     },
     devTools: true,
   });
@@ -81,7 +150,21 @@ export const fetchUser =
     );
   };
 
+export const fetchCampaign =
+  (id: string): AppThunk =>
+  async (dispatch) => {
+    const campaign = await getCampaignFromDb(id);
+    dispatch(
+      campaignSlice.actions.setCampaign({
+        [id]: campaign,
+      })
+    );
+  };
+
 export const wrapper = createWrapper<AppStore>(makeStore);
 
-export const selectUser = (id: any) => (state: AppState) =>
+export const selectUser = () => (state: AppState) =>
   state?.[authSlice.name]?.user;
+
+export const selectCampaign = (id: any) => (state: AppState) =>
+  state?.[campaignSlice.name]?.[id];

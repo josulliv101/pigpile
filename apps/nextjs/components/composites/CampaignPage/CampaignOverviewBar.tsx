@@ -39,7 +39,7 @@ export const CampaignOverviewBar = ({
         >
           <GridItem rowSpan={{ base: 2, md: 1, xl: 1 }} colSpan={1}>
             <Box flex="6">
-              <HStack mt="2" mb="8">
+              <HStack mt="2" mb="8" spacing="0">
                 {tags.map((t) => (
                   <Tag key={t}>#{t}</Tag>
                 ))}
