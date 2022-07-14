@@ -90,15 +90,15 @@ const mockPaymentIntent = {
 
 const chesterAnimationProps = {};
 export const options = [
-  { label: "1 pair", value: 1 },
-  { label: "2 pairs", value: 2 },
-  { label: "3 pairs", value: 3 },
-  { label: "6 pairs", value: 6 },
-  { label: "12 pairs", value: 12 },
+  { label: "2 pairs", value: 2, price: 3 },
+  { label: "4 pairs", value: 4, price: 6 },
+  { label: "6 pairs", value: 6, price: 9 },
+  { label: "12 pairs", value: 12, price: 18 },
+  // { label: "12 pairs", value: 12 },
   { label: "back", value: MORE_BUTTONS_BACK_ID },
-  { label: "18 pairs", value: 18 },
-  { label: "24 pairs", value: 24 },
-  { label: "48 pairs", value: 48 },
+  { label: "18 pairs", value: 18, price: 27 },
+  { label: "24 pairs", value: 24, price: 36 },
+  { label: "48 pairs", value: 48, price: 72 },
   { label: "custom", value: "custom" },
 ];
 

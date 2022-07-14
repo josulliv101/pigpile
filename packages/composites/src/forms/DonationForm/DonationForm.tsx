@@ -82,8 +82,8 @@ export const DonationForm: React.FC<DonationFormProps> = ({
         </Box>
       )}
       {numberOfUnits === null && (
-        <Text textAlign="center">
-          Thank you so much for supporting this pigpile ❤️
+        <Text textAlign="center" mt="2" opacity=".8">
+          Thank you for supporting this pigpile 🤍
         </Text>
       )}
     </Callout>

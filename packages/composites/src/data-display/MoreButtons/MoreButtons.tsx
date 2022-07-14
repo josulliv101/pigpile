@@ -4,6 +4,7 @@ import {
   Box,
   Button,
   ButtonGroup,
+  chakra,
   Icon,
   Tooltip,
   useDisclosure,
@@ -27,18 +28,32 @@ const USE_DEFAULT = "lg";
 
 export const MORE_BUTTONS_BACK_ID = "back-button";
 
-const ButtonMore = ({ label, ...props }) => (
+const ButtonMore = ({ label, price, ...props }) => (
   <Button
     mb="4"
-    children={label}
+    // children={label}
     {...props}
+    borderRadius="full"
     leftIcon={
       props.value === MORE_BUTTONS_BACK_ID ? (
         <Icon as={FaArrowCircleLeft} />
       ) : null
     }
     sx={{ ">span": { pointerEvents: "none" } }}
-  />
+  >
+    {label}
+    {price && props.value !== MORE_BUTTONS_BACK_ID ? (
+      <chakra.span
+        transform="scale(.8)"
+        color="gray.200"
+        fontSize={props.size}
+        fontWeight="normal"
+        ml="2"
+      >
+        / ${price}
+      </chakra.span>
+    ) : null}
+  </Button>
 );
 
 export const MoreButtons: React.FC<MoreButtonsProps> = ({
@@ -67,12 +82,12 @@ export const MoreButtons: React.FC<MoreButtonsProps> = ({
       justifyContent="center"
       flexWrap="wrap"
       maxW="560px"
-      size={size}
       {...props}
     >
       {displayedOptions.map((btnProps) => (
         <ButtonMore
           key={btnProps.value}
+          size={size}
           {...btnProps}
           onClick={handleButtonClick}
         />
