@@ -8,46 +8,7 @@ import {
 import { Action } from "redux";
 import { createWrapper, HYDRATE } from "next-redux-wrapper";
 import { getCampaignFromDb } from "@pigpile/db";
-
-export interface User {
-  uid: string;
-  displayName: string | null;
-  isAnonymous: boolean | null;
-  isAdmin?: boolean | null;
-}
-
-export interface Campaign {
-  id: string;
-  beneficiary: {
-    name: string;
-    descr: string;
-  };
-  campaign: {
-    name: string;
-    descr: string;
-    descrShort: string;
-    createdBy: string;
-    createdOn: number;
-  };
-  location: {
-    city: string;
-    state: string;
-    country: string;
-  };
-  tags: string[];
-  media: {
-    imageUri: string;
-    video: {
-      id: string | number;
-      type: "WISTIA" | "YOUTUBE";
-    };
-  };
-  goal: {
-    amount: number;
-    type: "FUNDS" | "IN-KIND";
-    label: string;
-  };
-}
+import { AuthState, Campaign, User } from "@pigpile/types";
 
 export const campaignSlice = createSlice({
   name: "campaign",
@@ -70,11 +31,6 @@ export const campaignSlice = createSlice({
     },
   },
 });
-
-export interface AuthState {
-  user: User | null;
-  error?: string;
-}
 
 export const signInUser = createAsyncThunk(
   "auth/signInUser",
