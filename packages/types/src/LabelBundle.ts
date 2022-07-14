@@ -1,4 +1,4 @@
-export type LabelBundleType = {
+export type LabelBundle = {
   // org
   org: string;
   orgFormal: string;
@@ -7,7 +7,7 @@ export type LabelBundleType = {
   platform: string;
 
   // legal
-  copyright: "All rights reserved.";
+  copyright: string;
 
   // common
   admin: string;

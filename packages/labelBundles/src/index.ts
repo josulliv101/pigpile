@@ -1,5 +1,5 @@
 import get from "lodash.get";
-import { LabelBundleType } from "./LabelBundleType";
+import { LabelBundle } from "@pigpile/types";
 
 export * from "./bundleDefault";
 export * from "./bundleFR";
@@ -14,7 +14,7 @@ const getReplaceMatchesFn = (replacementValues: replacementValue[]) => {
 };
 
 export const makeGetLabelFromBundle =
-  (bundleToUse: LabelBundleType) =>
+  (bundleToUse: LabelBundle) =>
   (value: string, ...replacementValues: replacementValue[]) => {
     const templateString = get(bundleToUse, value);
     if (!templateString) {

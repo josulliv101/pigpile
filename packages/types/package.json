@@ -1,0 +1,20 @@
+{
+  "name": "@pigpile/types",
+  "version": "0.1.0",
+  "description": "Types for @pigpile",
+  "repository": "https://github.com/josulliv101/pigpile/tree/master/packages/types",
+  "main": "dist/pigpile-types.cjs.js",
+  "module": "dist/pigpile-types.esm.js",
+  "types": "dist/pigpile-types.cjs.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.17.0"
+  },
+  "devDependencies": {}
+}
