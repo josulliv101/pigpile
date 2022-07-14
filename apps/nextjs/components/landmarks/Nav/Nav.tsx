@@ -1,7 +1,8 @@
+import NextLink from "next/link";
+import { FaUserAlt } from "react-icons/fa";
 import { ButtonGroup, HTMLChakraProps, IconButton } from "@pigpile/core";
 import { ThemeMenu, UserProfileMenu } from "@pigpile/composites";
 import { themeOptions } from "@pigpile/theme";
-import { FaUserAlt } from "react-icons/fa";
 
 export interface User {
   displayName: string;
@@ -40,15 +41,18 @@ export const Nav: React.FC<NavProps> = ({
         onThemeOptionChange={onThemeOptionChange}
       />
       {!isUserAuthenticated ? (
-        <IconButton
-          onClick={onLogin}
-          variant="outline"
-          colorScheme="blackAlpha"
-          borderColor="transparent"
-          aria-label="Theme"
-          color="gray.50"
-          icon={<FaUserAlt boxSize="5" color="gray.300" />}
-        />
+        <NextLink href="/login" passHref>
+          <IconButton
+            // onClick={onLogin}
+            as="a"
+            variant="outline"
+            colorScheme="blackAlpha"
+            borderColor="transparent"
+            aria-label="Theme"
+            color="gray.50"
+            icon={<FaUserAlt color="gray.300" />}
+          />
+        </NextLink>
       ) : (
         <UserProfileMenu user={user} onLogout={onLogout} />
       )}

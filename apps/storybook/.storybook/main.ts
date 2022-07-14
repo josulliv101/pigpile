@@ -33,7 +33,7 @@ module.exports = {
   env: (config) => ({
     ...config,
     IS_STORYBOOK: true,
-    API_KEY:
+    NEXT_PUBLIC_STRIPE_API_KEY:
       "pk_test_51KS10YEIuGVvU2MeS14tENtb7kldKxgxJdr8cjxbDS2dfSYYUM4YegqHH3LCD2kDJYJLWdsOXzlkVRWrHXAI2cVk00DWLlxoO8",
   }),
 };

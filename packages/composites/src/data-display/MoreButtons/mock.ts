@@ -1,4 +1,3 @@
-import react from "react";
 import { MORE_BUTTONS_BACK_ID } from "./";
 
 export const options = [

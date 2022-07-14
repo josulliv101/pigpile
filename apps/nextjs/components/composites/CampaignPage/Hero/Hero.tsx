@@ -27,7 +27,6 @@ import {
   ModalProps,
 } from "@pigpile/core";
 import { useLabelBundle } from "../../../../hooks";
-import { DonationModal } from "./DonationModal";
 
 interface HeroProps {}
 
@@ -103,7 +102,7 @@ export const options = [
   { label: "custom", value: "custom" },
 ];
 
-export const Hero = ({ stepWithinWizard = 0 }): JSX.Element => {
+const Hero = ({ stepWithinWizard = 0 }): JSX.Element => {
   const { getLabel } = useLabelBundle();
   const [userRequestsCustomAmount, setUserRequestsCustomAmount] =
     useState(false);
@@ -251,3 +250,5 @@ export const Hero = ({ stepWithinWizard = 0 }): JSX.Element => {
     </Background>
   );
 };
+
+export default Hero;

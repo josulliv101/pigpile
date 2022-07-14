@@ -1,4 +1,3 @@
-import { Box, Container, HTMLChakraProps } from "@chakra-ui/react";
 import { Banner, Footer, Main, Nav } from "../landmarks";
 import { LayoutProps } from "./LayoutProps";
 

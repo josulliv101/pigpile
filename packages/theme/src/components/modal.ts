@@ -8,11 +8,12 @@ const baseStyle: SystemStyleFunction = (props) => {
   )(props);
 
   const color = mode(props.color ?? "white", `${colorScheme}.100`)(props);
-  const gradientColor1 = transparentize(`${colorScheme}.600`, 0.8)(props.theme);
-  const gradientColor2 = transparentize(
+
+  const gradientColor1 = transparentize(
     `${colorScheme}.500`,
     0.98
   )(props.theme);
+  const gradientColor2 = transparentize(`${colorScheme}.600`, 0.8)(props.theme);
 
   return {
     dialog: {
@@ -26,8 +27,11 @@ const baseStyle: SystemStyleFunction = (props) => {
         height: "100%",
         bg: `gray.900`,
         opacity: "0.9",
-        bgImage: `linear-gradient(180deg,${gradientColor2},${gradientColor1})`,
+        bgImage: `linear-gradient(180deg,${gradientColor1},${gradientColor2})`,
       },
+    },
+    dialogContainer: {
+      pt: 20,
     },
   };
 };

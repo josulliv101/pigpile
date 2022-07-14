@@ -17,17 +17,58 @@ import {
   OrganizationCallout,
   Supporters,
 } from "@pigpile/composites";
-import { LayoutCampaign } from "../../../components/layouts";
-import { Hero } from "./Hero";
+// import { LayoutCampaign } from "../../../components/layouts";
+import Hero from "./Hero";
 import { CampaignOverviewBar } from "./CampaignOverviewBar";
 import { CampaignDetailsBar } from "./CampaignDetailsBar";
-import { mockDonationProps } from "./Supporters/mock";
+// import { mockDonationProps } from "./Supporters/mock";
+
+const mockDonationProps = {
+  donations: [
+    {
+      name: "Joe Sullivan",
+      icon: "😊",
+      amount: 10,
+      donatedAt: "06/19/2022",
+    },
+    {
+      name: "Josie Sullivan",
+      icon: "🐭",
+      amount: 5,
+      donatedAt: "06/18/2022",
+    },
+    {
+      name: "Hoss Sullivan",
+      icon: "🤘🏼",
+      amount: 20,
+      donatedAt: "06/18/2022",
+    },
+    {
+      name: "Lorraine Sullivan",
+      icon: "🥰",
+      amount: 15,
+      donatedAt: "06/18/2022",
+    },
+    {
+      name: "Skunk Sullivan",
+      icon: "🥰",
+      amount: 15,
+      donatedAt: "06/18/2022",
+    },
+    {
+      name: "Heather Sullivan",
+      icon: "🥰",
+      amount: 15,
+      donatedAt: "06/18/2022",
+    },
+  ],
+};
 
 const landscapeImage =
   "url(https:/pigpile-next.firebaseapp.com/images/landscape.png)";
 const SPACING = 10;
 
-export const mockCreatedByProps = {
+const mockCreatedByProps = {
   createdBy: "Joe Sullivan",
   createdAt: "01/12/2022",
   isEmployee: true,
@@ -36,7 +77,7 @@ export const mockCreatedByProps = {
   description: "Sed ut perspiciatis unde omnis iste natus error sit.",
 };
 
-export const mockOrgProps = {
+const mockOrgProps = {
   name: "Somerville Homeless Shelter",
   location: "Somervill,e MA",
   url: "http://pigpile.org",
@@ -69,7 +110,7 @@ If the Hanes Men's Ultimate Crewsocks (#84UP12) are not available in the size/qu
         >
           <Stack w="70%" spacing={8}>
             <Supporters {...mockDonationProps} />
-            <Divider bgColor="gray.300" />
+            <Divider bgColor="gray.600" />
             <HStack w="full" alignItems="stretch" spacing={4}>
               <OrganizationCallout
                 flex="1 0 calc(50% - 10px)"
@@ -115,8 +156,8 @@ If the Hanes Men's Ultimate Crewsocks (#84UP12) are not available in the size/qu
         <Heading size="md" my="4">
           How It Works
         </Heading>
-        {[...Array(3)].map(() => (
-          <Box mb="12">
+        {[...Array(3)].map((_, index) => (
+          <Box key={index} mb="12">
             <Text fontSize="2xl">
               Sed ut perspiciatis unde omnis iste natus error sit voluptatem
               accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
@@ -135,16 +176,16 @@ If the Hanes Men's Ultimate Crewsocks (#84UP12) are not available in the size/qu
   );
 }
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
+/*export const getServerSideProps: GetServerSideProps = async (context) => {
   return {
     props: {
       foo: "bar",
     },
   };
-};
+};*/
 
-Campaign.getLayout = (page): JSX.Element => (
-  <LayoutCampaign>page</LayoutCampaign>
-);
+/*Campaign.getLayout = (page): JSX.Element => (
+  <LayoutCampaign>{page}</LayoutCampaign>
+);*/
 
 export default Campaign;

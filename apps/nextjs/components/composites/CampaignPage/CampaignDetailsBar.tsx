@@ -65,7 +65,7 @@ export const CampaignDetailsBar = ({ description }) => {
             {description}
           </Text>
           <Center>
-            <Button size="sm" variant="solid" onClick={onToggle}>
+            <Button size="sm" variant="ghost" onClick={onToggle}>
               {isOpen ? "less" : "read more"}
             </Button>
           </Center>

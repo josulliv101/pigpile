@@ -79,11 +79,11 @@ export const CampaignOverviewBar = ({
                     title="lewis-titles Video"
                     allow="autoplay; fullscreen"
                     allowtransparency="true"
-                    frameborder="0"
+                    frameBorder="0"
                     scrolling="no"
                     className="wistia_embed"
                     name="wistia_embed"
-                    msallowfullscreen
+                    msallowfullscreen="true"
                     width="100%"
                     height="100%"
                   ></iframe>

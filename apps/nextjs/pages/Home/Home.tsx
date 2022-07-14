@@ -49,7 +49,7 @@ function Home({}: PageProps): JSX.Element {
           Our mission is to inspire giving and help good causes raise
           funds/in-kind donations.
         </Text>
-        <NextLink href="/long" passHref>
+        <NextLink href="/pigpile/somerville-homeless-coalition" passHref>
           {/*<Button width="full" maxWidth="max-content" boxShadow="md" size={{ base: "xs", sm: "sm", md: "lg" }} fontWeight={{ base: "normal", md: "semibold" }} py={{ base: 8, md: 12 }} variant="solid">
             Pigpile on The Somerville Homeless Coalition
             <Text fontWeight="normal" fontSize="xs" pos="absolute" bottom=".5rem" right={{ base: "0", base: ".7rem", md: "1.5rem" }}>#sock-drive</Text>
@@ -78,8 +78,8 @@ function Home({}: PageProps): JSX.Element {
   );
 }
 
-Home.getLayout = (page): JSX.Element => (
-  <LayoutFullViewport>{page}</LayoutFullViewport>
+Home.getLayout = (page, layoutProps): JSX.Element => (
+  <LayoutFullViewport {...layoutProps}>{page}</LayoutFullViewport>
 );
 
 export default Home;

@@ -19,8 +19,8 @@ function Login({}: PageProps): JSX.Element {
   );
 }
 
-Login.getLayout = (page): JSX.Element => (
-  <LayoutFullViewport>{page}</LayoutFullViewport>
+Login.getLayout = (page, layoutProps): JSX.Element => (
+  <LayoutFullViewport {...layoutProps}>{page}</LayoutFullViewport>
 );
 
 export default Login;

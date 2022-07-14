@@ -10,7 +10,7 @@ import { MoreButtons } from "./MoreButtons";
 import { options, moreOptions } from "./mock";
 
 export default {
-  title: "Forms / More Buttons",
+  title: "Data Display / More Buttons",
   component: MoreButtons,
   argTypes: {
     options: {

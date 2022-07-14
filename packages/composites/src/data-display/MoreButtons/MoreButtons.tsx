@@ -71,7 +71,11 @@ export const MoreButtons: React.FC<MoreButtonsProps> = ({
       {...props}
     >
       {displayedOptions.map((btnProps) => (
-        <ButtonMore {...btnProps} onClick={handleButtonClick} />
+        <ButtonMore
+          key={btnProps.value}
+          {...btnProps}
+          onClick={handleButtonClick}
+        />
       ))}
       {!isOpen && isLimitExceeded && (
         <Tooltip
