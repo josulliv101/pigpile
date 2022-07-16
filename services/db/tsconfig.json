@@ -26,5 +26,8 @@
   },
   "include": ["./src/**/*.tsx", "./src/**/*.ts"],
   "exclude": ["node_modules"],
-  "references": []
+  "references": [
+    { "path": "../../packages/types" },
+    { "path": "../connect-client" }
+  ]
 }

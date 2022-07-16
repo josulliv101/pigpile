@@ -23,12 +23,10 @@ export interface NavProps extends HTMLChakraProps<"nav"> {
 export const Nav: React.FC<NavProps> = ({
   children,
   user,
-  onLogin,
   onLogout,
   onThemeOptionChange,
   ...props
 }) => {
-  const dispatch = useDispatch();
   const isUserAuthenticated = user?.isAnonymous === false;
   return (
     <ButtonGroup
@@ -46,7 +44,6 @@ export const Nav: React.FC<NavProps> = ({
       {!isUserAuthenticated ? (
         <NextLink href="/login" passHref>
           <IconButton
-            // onClick={onLogin}
             as="a"
             variant="outline"
             colorScheme="blackAlpha"
@@ -59,14 +56,6 @@ export const Nav: React.FC<NavProps> = ({
       ) : (
         <UserProfileMenu user={user} onLogout={onLogout} />
       )}
-      <IconButton
-        onClick={() => dispatch(signInUser({ joe: "bird" }))}
-        colorScheme="red"
-        borderColor="transparent"
-        aria-label="foobar"
-        color="gray.50"
-        icon={<FaUserAlt color="gray.300" />}
-      />
       {children}
     </ButtonGroup>
   );

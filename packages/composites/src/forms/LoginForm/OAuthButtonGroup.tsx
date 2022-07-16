@@ -1,5 +1,8 @@
 import { Button, ButtonGroup, VisuallyHidden } from "@pigpile/core";
+import { GithubAuthProvider } from "@pigpile/connect-client";
 import { GitHubIcon, GoogleIcon, TwitterIcon } from "./ProviderIcons";
+
+const githubAuthProvider = new GithubAuthProvider();
 
 const providers = [
   { name: "Google", icon: <GoogleIcon boxSize="5" /> },
@@ -8,7 +11,7 @@ const providers = [
 ];
 
 export interface OAuthButtonGroupProps {
-  onSignInWithProvider: () => void;
+  onSignInWithProvider: (provider: unknown) => void;
 }
 
 export const OAuthButtonGroup: React.FC<OAuthButtonGroupProps> = ({
@@ -22,7 +25,7 @@ export const OAuthButtonGroup: React.FC<OAuthButtonGroupProps> = ({
           width="full"
           borderColor="gray.400"
           color="inherit"
-          onClick={onSignInWithProvider}
+          onClick={() => onSignInWithProvider(githubAuthProvider)}
           colorScheme="whiteAlpha"
           _dark={{ borderColor: "gray.600" }}
         >

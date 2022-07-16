@@ -14,10 +14,7 @@ export const parts = anatomy("card").parts(
   "content"
 );
 
-console.log("cardAnatomy", parts.keys);
-
 const baseStyleBadge: SystemStyleFunction = (props) => {
-  console.log("baseStyleBadge", props);
   return {
     position: "absolute",
     display: "flex",
@@ -31,7 +28,6 @@ const baseStyleBadge: SystemStyleFunction = (props) => {
 };
 
 const baseStyleContent: SystemStyleFunction = (props) => {
-  console.log("baseStyleContent", props);
   return {
     color: mode("gray.500", "gray.200")(props),
     fontSize: "14px",
@@ -40,7 +36,6 @@ const baseStyleContent: SystemStyleFunction = (props) => {
 };
 
 const baseStyleAvatar: SystemStyleFunction = (props) => {
-  console.log("Card Avatar theme: baseStyleAvatar", props);
   return {
     alignItems: "center",
     color: "white",
@@ -53,7 +48,6 @@ const baseStyleAvatar: SystemStyleFunction = (props) => {
 };
 
 const baseStyleBackground: SystemStyleFunction = (props) => {
-  console.log("baseStyleBackground", props);
   return {
     pos: "absolute",
     top: 0,
@@ -65,7 +59,6 @@ const baseStyleBackground: SystemStyleFunction = (props) => {
 };
 
 const baseStyleContainer: SystemStyleFunction = (props) => {
-  console.log("baseStyleContainer", props);
   return {
     pos: "relative",
   };
@@ -81,7 +74,6 @@ const baseStyle: PartsStyleFunction<typeof parts> = (props) => ({
 
 const variantSolid: PartsStyleFunction<typeof parts> = (props) => {
   const { colorScheme: c = "gray" } = props;
-  console.log("variantSolid", props);
   return {
     background: {
       bgColor: mode(`${c}.200`, `${c}.700`)(props),
@@ -97,7 +89,6 @@ const variantSolid: PartsStyleFunction<typeof parts> = (props) => {
 
 const variantOutline: PartsStyleFunction<typeof parts> = (props) => {
   const { colorScheme = "gray" } = props;
-  console.log("variantOutline", props);
   const backgroundOpacity = mode(1, 0.5)(props);
   const lightenBgColorMap = {
     pink: 7,

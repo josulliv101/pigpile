@@ -43,7 +43,7 @@ export const TipInput: React.FC<TipInputProps> = ({
   ...props
 }) => {
   return (
-    <Text fontSize="md" {...props}>
+    <Text as="div" fontSize="md" {...props}>
       We're a free service and rely on donor love. Any contribution is
       appreciated. Include a tip of &nbsp;
       <Menu placement="bottom-end">

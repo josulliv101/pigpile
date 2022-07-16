@@ -22,7 +22,6 @@ export interface CardProps
 export const Card = forwardRef<CardProps, "div">((props, ref) => {
   const containerProps = omitThemingProps(props);
   const styles = useMultiStyleConfig("Card", props);
-  console.log("Card useMultiStyleConfig", styles);
   const containerStyles: SystemStyleObject = {
     ...styles.container,
   };
@@ -77,11 +76,6 @@ export const CardAvatar = forwardRef<CardAvatarProps, typeof Avatar>(
   (props, ref) => {
     const styles = useStyles();
     const stylesFromStyleConfig = useMultiStyleConfig("CardAvatar", props);
-    console.log(
-      "Card:Avatar stylesFromStyleConfig",
-      stylesFromStyleConfig,
-      props
-    );
     return (
       <Box
         ref={ref}
@@ -99,8 +93,6 @@ export type CardBackgroundProps = HTMLChakraProps<"div">;
 export const CardBackground = forwardRef<CardBackgroundProps, "div">(
   (props, ref) => {
     const styles = useStyles();
-    // const stylesFromStyleConfig = useMultiStyleConfig("CardAvatar", props)
-    console.log("CardBackground", styles, props);
     return (
       <Box
         ref={ref}

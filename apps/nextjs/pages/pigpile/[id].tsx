@@ -1,42 +1,21 @@
-import { GetServerSideProps } from "next";
-import { useRouter } from "next/router";
 import { useSelector } from "react-redux";
-import {
-  Background,
-  Box,
-  Button,
-  Center,
-  Container,
-  Divider,
-  Heading,
-  HStack,
-  Stack,
-  StickyBar,
-  Text,
-} from "@pigpile/core";
+import { adminDb } from "@pigpile/connect-admin";
 import { LayoutCampaign } from "../../components/layouts";
 import Content from "../../components/composites/CampaignPage/Campaign";
-import { fetchCampaign, selectCampaign, wrapper } from "../../store";
+import { campaignSlice, selectCampaign, wrapper } from "../../store";
 
 export function Campaign({ id }): JSX.Element {
-  console.log("campaign id prop", id);
   const { campaign, tags } = useSelector(selectCampaign(id)) || {};
-  return (
-    <>
-      <Content {...campaign} tags={tags} />
-    </>
-  );
+  console.log("campaign tags prop", id, useSelector(selectCampaign(id)));
+  return <Content {...campaign} tags={tags} />;
 }
 
 export const getServerSideProps = wrapper.getServerSideProps(
   (store) =>
     async ({ params }) => {
       const { id } = params;
-      console.log("getServerSideProps fetching: ", id);
-      await store.dispatch(fetchCampaign(id));
-
-      console.log("State on server", id, store.getState());
-
+      const snapshot = await adminDb.collection("campaigns").doc(id).get();
+      store.dispatch(campaignSlice.actions.setCampaign(snapshot.data()));
       return {
         props: {
           id,

@@ -19,6 +19,7 @@ import { PasswordField } from "./PasswordField";
 export interface LoginFormProps extends OAuthButtonGroupProps {
   onForgotPassword: () => void;
   onSignIn: () => void;
+  onSignInWithProvider: () => void;
 }
 
 export const LoginForm: React.FC<LoginFormProps> = ({

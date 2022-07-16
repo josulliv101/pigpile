@@ -48,7 +48,7 @@ const ButtonMore = ({ label, price, ...props }) => (
         color="gray.200"
         fontSize={props.size}
         fontWeight="normal"
-        ml="2"
+        ml="1"
       >
         / ${price}
       </chakra.span>

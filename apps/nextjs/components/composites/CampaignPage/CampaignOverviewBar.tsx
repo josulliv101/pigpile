@@ -27,7 +27,6 @@ export const CampaignOverviewBar = ({
   ...containerProps
 }) => {
   const theme = useTheme();
-  console.log("CampaignOverviewBar theme", theme);
   return (
     <BackgroundContent py={{ base: "4", lg: "10" }} {...containerProps}>
       <Container>

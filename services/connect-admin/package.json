@@ -1,0 +1,21 @@
+{
+  "name": "@pigpile/connect-admin",
+  "version": "0.1.0",
+  "description": "Connect backend to services for @pigpile",
+  "repository": "https://github.com/josulliv101/pigpile/tree/master/packages/connect-admin",
+  "main": "dist/pigpile-connect-admin.cjs.js",
+  "module": "dist/pigpile-connect-admin.esm.js",
+  "types": "dist/pigpile-connect-admin.cjs.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.17.0",
+    "firebase-admin": "^11.0.0"
+  },
+  "devDependencies": {}
+}
