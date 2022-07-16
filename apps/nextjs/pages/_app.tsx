@@ -6,7 +6,7 @@ import { wrapper, selectUser } from "../store";
 import { useConnectClient } from "../hooks";
 
 function PigpileApp({ Component, pageProps }: AppProps): JSX.Element {
-  const { error, user, onLogout } = useConnectClient();
+  const { error, isAppReady, user, onLogout } = useConnectClient();
   console.log(
     "useConnectClient returned from hook",
     error || "no error returned"
@@ -25,6 +25,7 @@ function PigpileApp({ Component, pageProps }: AppProps): JSX.Element {
       <CSSReset />
       {error && <div>ERROR: {error}</div>}
       {getLayout(<Component {...pageProps} />, {
+        isAppReady,
         user,
         onLogout,
         onThemeOptionChange,

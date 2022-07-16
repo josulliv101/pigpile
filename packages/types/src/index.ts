@@ -41,6 +41,7 @@ export interface Campaign {
 }
 
 export interface AuthState {
-  user: User | null;
+  user?: User | null;
+  isReady: boolean;
   error?: string;
 }

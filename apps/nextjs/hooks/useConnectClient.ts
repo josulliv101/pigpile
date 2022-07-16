@@ -2,14 +2,16 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { User } from "@pigpile/types";
 import { connectClientApp } from "@pigpile/connect-client";
-import { authSlice, selectUser, signOutUser } from "../store";
+import { authSlice, selectIsAppReady, selectUser, signOutUser } from "../store";
 
 export function useConnectClient() {
   const user = useSelector(selectUser());
+  const isAppReady = useSelector(selectIsAppReady());
   const [error, setError] = useState("");
   const dispatch = useDispatch();
+
   const onAuthStateChanged = (user: User) =>
-    dispatch(authSlice.actions.login(user));
+    dispatch(authSlice.actions.autheniticate(user));
 
   const onLogout = () => dispatch(signOutUser());
 
@@ -27,6 +29,7 @@ export function useConnectClient() {
 
   return {
     error,
+    isAppReady,
     user,
     onLogout,
   };

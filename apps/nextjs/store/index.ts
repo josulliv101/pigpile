@@ -95,9 +95,14 @@ export const signOutUser = createAsyncThunk("auth/signOutUser", async () => {
 export const authSlice = createSlice({
   name: "auth",
 
-  initialState: { user: null, error: "" } as AuthState,
+  initialState: { user: null, error: "", isReady: false } as AuthState,
 
   reducers: {
+    autheniticate: (state, action: PayloadAction<User | null>) => {
+      state.user = action.payload;
+      state.isReady = true;
+      return state;
+    },
     login: (state, action: PayloadAction<User>) => {
       state.user = action.payload;
       return state;
@@ -120,27 +125,27 @@ export const authSlice = createSlice({
       console.log("auth HYDRATE", payload);
       return {
         ...state,
-        ...payload?.auth,
+        // ...payload?.auth,
       };
-    }),
-      builder.addCase(signInUser.fulfilled, (proxy, args) => {
-        console.log("signInUser.fulfilled", proxy, args);
-        if (args?.meta?.arg?.cb) {
-          console.log("calling fn");
-          args.meta.arg.cb();
-        }
-        if (auth.currentUser) {
-          const { uid, photoURL, displayName, email, isAnonymous } =
-            auth.currentUser!;
-          authSlice.actions.login({
-            uid,
-            photo: photoURL,
-            email,
-            displayName,
-            isAnonymous,
-          });
-        }
-      });
+    });
+    builder.addCase(signInUser.fulfilled, (proxy, args) => {
+      console.log("signInUser.fulfilled", proxy, args);
+      if (args?.meta?.arg?.cb) {
+        console.log("calling fn");
+        args.meta.arg.cb();
+      }
+      if (auth.currentUser) {
+        const { uid, photoURL, displayName, email, isAnonymous } =
+          auth.currentUser!;
+        authSlice.actions.login({
+          uid,
+          photo: photoURL,
+          email,
+          displayName,
+          isAnonymous,
+        });
+      }
+    });
     builder.addCase(signOutUser.fulfilled, () => {
       console.log("signOutUser.fulfilled");
       authSlice.actions.logout();
@@ -199,6 +204,9 @@ export const wrapper = createWrapper<AppStore>(makeStore);
 
 export const selectUser = () => (state: AppState) =>
   state?.[authSlice.name]?.user;
+
+export const selectIsAppReady = () => (state: AppState) =>
+  state?.[authSlice.name]?.isReady;
 
 export const selectCampaign = (id: any) => (state: AppState) =>
   state?.[campaignSlice.name]?.[id];

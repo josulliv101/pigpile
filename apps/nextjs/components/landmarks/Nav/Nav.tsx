@@ -22,12 +22,18 @@ export interface NavProps extends HTMLChakraProps<"nav"> {
 
 export const Nav: React.FC<NavProps> = ({
   children,
+  isAppReady,
   user,
   onLogout,
   onThemeOptionChange,
   ...props
 }) => {
   const isUserAuthenticated = user?.isAnonymous === false;
+
+  if (!isAppReady) {
+    return null;
+  }
+
   return (
     <ButtonGroup
       as="nav"
