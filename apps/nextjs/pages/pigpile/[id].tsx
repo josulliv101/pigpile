@@ -2,7 +2,7 @@ import { useSelector } from "react-redux";
 import { adminDb } from "@pigpile/connect-admin";
 import { LayoutCampaign } from "../../components/layouts";
 import Content from "../../components/composites/CampaignPage/Campaign";
-import { campaignSlice, selectCampaign, wrapper } from "../../store";
+import { campaignsSlice, selectCampaign, wrapper } from "../../store";
 
 export function Campaign({ id }): JSX.Element {
   const { campaign, tags } = useSelector(selectCampaign(id)) || {};
@@ -15,7 +15,7 @@ export const getServerSideProps = wrapper.getServerSideProps(
     async ({ params }) => {
       const { id } = params;
       const snapshot = await adminDb.collection("campaigns").doc(id).get();
-      store.dispatch(campaignSlice.actions.setCampaign(snapshot.data()));
+      store.dispatch(campaignsSlice.actions.setCampaign(snapshot.data()));
       return {
         props: {
           id,
