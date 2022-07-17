@@ -1,35 +1,25 @@
 import { AppProps } from "next/app";
 import { ChakraProvider, CSSReset } from "@pigpile/core";
-import { useThemeWithDefaults, colorSchemes, userThemes } from "@pigpile/theme";
+import { userThemes } from "@pigpile/theme";
 import { LayoutBasic } from "components/layouts";
-import { wrapper, selectUser } from "../store";
-import { useConnectClient } from "../hooks";
+import { wrapper } from "../store";
+import { useConnectClient, useTheme } from "../hooks";
 
 function PigpileApp({ Component, pageProps }: AppProps): JSX.Element {
-  const { error, isAppReady, user, onLogout } = useConnectClient();
+  const { error } = useConnectClient();
   console.log(
     "useConnectClient returned from hook",
     error || "no error returned"
   );
 
-  const themeWithDefaults = useThemeWithDefaults(
-    colorSchemes.colorSchemeBluePink,
-    userThemes.farmUserTheme
-  );
+  const { theme } = useTheme("", userThemes.farmUserTheme);
   const getLayout = Component.getLayout ?? LayoutBasic;
-  const onThemeOptionChange = (id, payload) =>
-    console.log("theme change", id, payload);
 
   return (
-    <ChakraProvider theme={themeWithDefaults}>
+    <ChakraProvider theme={theme}>
       <CSSReset />
       {error && <div>ERROR: {error}</div>}
-      {getLayout(<Component {...pageProps} />, {
-        isAppReady,
-        user,
-        onLogout,
-        onThemeOptionChange,
-      })}
+      {getLayout(<Component {...pageProps} />)}
     </ChakraProvider>
   );
 }

@@ -1,10 +1,8 @@
 import NextLink from "next/link";
-import { useDispatch } from "react-redux";
 import { FaUserAlt } from "react-icons/fa";
 import { ButtonGroup, HTMLChakraProps, IconButton } from "@pigpile/core";
 import { ThemeMenu, UserProfileMenu } from "@pigpile/composites";
 import { themeOptions } from "@pigpile/theme";
-import { signInUser } from "../../../store";
 
 export interface User {
   displayName: string;
@@ -14,8 +12,9 @@ export interface User {
 
 export interface NavProps extends HTMLChakraProps<"nav"> {
   children?: React.ReactNode;
-  user?: User;
-  onLogin: () => void;
+  isAppReady?: boolean;
+  themeState: any;
+  user?: User | null;
   onLogout: () => void;
   onThemeOptionChange: () => void;
 }
@@ -23,6 +22,7 @@ export interface NavProps extends HTMLChakraProps<"nav"> {
 export const Nav: React.FC<NavProps> = ({
   children,
   isAppReady,
+  themeState,
   user,
   onLogout,
   onThemeOptionChange,
@@ -45,6 +45,7 @@ export const Nav: React.FC<NavProps> = ({
       <ThemeMenu
         boxSize={6}
         themeOptions={themeOptions}
+        activeIndexes={themeState}
         onThemeOptionChange={onThemeOptionChange}
       />
       {!isUserAuthenticated ? (

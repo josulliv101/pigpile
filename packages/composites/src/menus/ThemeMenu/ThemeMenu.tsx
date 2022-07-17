@@ -16,12 +16,13 @@ import {
 import { PaintBrushIcon, ThemeTabs } from "./";
 
 export interface ThemeMenuProps {
-  activeThemeOptionIds: ActiveThemeOptionIds;
+  activeIndexes: ActiveThemeOptionIds;
   themeOptions: ThemeOptions;
   onThemeOptionChange: () => void;
 }
 
 export const ThemeMenu: React.FC<ThemeMenuProps> = ({
+  activeIndexes = {},
   themeOptions,
   onThemeOptionChange,
 }) => {
@@ -56,6 +57,7 @@ export const ThemeMenu: React.FC<ThemeMenuProps> = ({
               key={key}
               id={key}
               {...themeOptions[key]}
+              index={activeIndexes?.[key] ?? 0}
               onChange={onThemeOptionChange}
             />
           ))}

@@ -1,14 +1,12 @@
-import { Banner, Footer, Main, Nav } from "../landmarks";
+import { Banner, Footer, Main } from "../landmarks";
+import { NavConnected as Nav } from "./NavConnected";
 import { LayoutProps } from "./LayoutProps";
 
-export const LayoutCampaign: React.FC<LayoutProps> = ({
-  children,
-  ...navProps
-}) => {
+export const LayoutCampaign: React.FC<LayoutProps> = ({ children }) => {
   return (
     <>
       <Banner>
-        <Nav {...navProps} />
+        <Nav />
       </Banner>
       <Main maxW="full" p="0">
         {children}

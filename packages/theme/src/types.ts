@@ -1,4 +1,4 @@
-import { SwatchProps } from "@pigpile/components";
+import { SwatchProps } from "@pigpile/core";
 
 export interface ChesterAbsolutePosition {
   top?: string;
@@ -41,7 +41,7 @@ export interface ComponentsBySize {
 export interface ColorScheme {
   id: string;
   swatch: SwatchProps;
-  componentsByColorScheme?: ComponentsByColorScheme[];
+  componentsByColorScheme: ComponentsByColorScheme[];
 }
 
 export interface PigpileTheme {

@@ -1,27 +1,17 @@
-import { Background, HTMLChakraProps } from "@pigpile/core";
-// import { useLandscapeImage } from "src/hooks";
-// import { BackgroundLandscape } from "src/components/extended";
-import { Banner, Footer, Main, Nav } from "../landmarks";
+import { Background } from "@pigpile/core";
+import { Banner, Footer, Main } from "../landmarks";
+import { NavConnected as Nav } from "./NavConnected";
 import { LayoutProps } from "./LayoutProps";
 
-/*export interface LayoutFullViewportProps extends HTMLChakraProps<"div"> {
-  onLogin: () => void;
-  onLogout: () => void;
-  onThemeOptionChange: () => void;
-}
-*/
 const bgImage = "url(https:/pigpile-next.firebaseapp.com/images/landscape.png)";
 
-export const LayoutFullViewport: React.FC<LayoutProps> = ({
-  children,
-  ...navProps
-}) => {
+export const LayoutFullViewport: React.FC<LayoutProps> = ({ children }) => {
   const landscapeImage = bgImage; // useLandscapeImage();
   console.log("LayoutFullViewport", Background);
   return (
     <>
       <Banner>
-        <Nav {...navProps} />
+        <Nav />
       </Banner>
       <Background
         as="main"

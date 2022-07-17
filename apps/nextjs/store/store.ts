@@ -3,12 +3,14 @@ import { Action } from "redux";
 import { createWrapper } from "next-redux-wrapper";
 import { authSlice } from "./authSlice";
 import { campaignsSlice } from "./campaignsSlice";
+import { themeSlice } from "./themeSlice";
 
 const makeStore = () =>
   configureStore({
     reducer: {
       [authSlice.name]: authSlice.reducer,
       [campaignsSlice.name]: campaignsSlice.reducer,
+      [themeSlice.name]: themeSlice.reducer,
     },
     devTools: true,
   });
