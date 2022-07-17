@@ -1,11 +1,11 @@
-import { useCallback, useMemo } from "react";
+import { useCallback, useEffect, useMemo } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   extendTheme,
   withDefaultColorScheme,
   withDefaultSize,
   withDefaultVariant,
-  // withDefaultProps,
+  useColorMode,
 } from "@pigpile/core";
 import {
   getColorSchemeByIndex,
@@ -13,7 +13,7 @@ import {
   userThemes,
   ColorScheme,
 } from "@pigpile/theme";
-import { selectColorSchemeIndex, selectThemeState, themeSlice } from "../store";
+import { selectThemeState, themeSlice } from "../store";
 
 // TODO on-demand loading of themes
 
@@ -31,21 +31,21 @@ export const getThemeWithDefaults = (colorScheme: ColorScheme, userTheme) => {
 
 export const useTheme = (_, userTheme__ = userThemes.farmUserTheme) => {
   const dispatch = useDispatch();
-  const colorSchemeIndex = useSelector(selectColorSchemeIndex());
-  const themeState = useSelector(selectThemeState());
-  const colorScheme = getColorSchemeByIndex(themeState.colorScheme);
-  console.log("colorSchemeIndex...", colorSchemeIndex, colorScheme);
+  // const colorSchemeIndex = useColorMode()
+  const activeIndexes = useSelector(selectThemeState());
+  const colorScheme = getColorSchemeByIndex(activeIndexes.colorScheme);
   const theme = useMemo(
     () => getThemeWithDefaults(colorScheme, userTheme__),
-    [colorSchemeIndex]
+    [activeIndexes.colorScheme]
   );
 
   const onThemeOptionChange = useCallback(
     (id: string, index: number) => {
+      console.log("", id, index);
       dispatch(themeSlice.actions.setActiveIndex({ id, index }));
     },
     [dispatch]
   );
 
-  return { theme, themeState, onThemeOptionChange };
+  return { theme, themeState: activeIndexes, onThemeOptionChange };
 };

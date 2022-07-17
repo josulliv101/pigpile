@@ -1,5 +1,6 @@
-import { useCallback } from "react";
+import { useCallback, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useColorMode } from "@pigpile/core";
 import { selectUser, selectIsAppReady, signOutUser } from "../store";
 import { useTheme } from "../hooks";
 
@@ -9,6 +10,7 @@ export function useNavProps() {
   const user = useSelector(selectUser());
   const isAppReady = useSelector(selectIsAppReady());
   const onLogout = useCallback(() => dispatch(signOutUser()), [dispatch]);
+
   return {
     themeState,
     onThemeOptionChange,

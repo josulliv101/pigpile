@@ -28,12 +28,13 @@ export const ThemeMenu: React.FC<ThemeMenuProps> = ({
 }) => {
   const { setColorMode } = useColorMode();
   const { colorMode } = themeOptions;
+  const colorModeIndex = activeIndexes.colorMode;
 
   useEffect(() => {
-    const { id: activeColorMode } = colorMode.options[colorMode.index];
+    const { id: activeColorMode } = colorMode.options[colorModeIndex];
     // TODO find better way to avoid animation disruption when color mode changes
     setTimeout(() => setColorMode(activeColorMode), 300);
-  }, [colorMode]);
+  }, [colorModeIndex]);
 
   return (
     <Popover placement="bottom-end" size="10rem">

@@ -1,5 +1,5 @@
 import { AppProps } from "next/app";
-import { ChakraProvider, CSSReset } from "@pigpile/core";
+import { ChakraProvider, CSSReset, localStorageManager } from "@pigpile/core";
 import { userThemes } from "@pigpile/theme";
 import { LayoutBasic } from "components/layouts";
 import { wrapper } from "../store";
@@ -16,7 +16,7 @@ function PigpileApp({ Component, pageProps }: AppProps): JSX.Element {
   const getLayout = Component.getLayout ?? LayoutBasic;
 
   return (
-    <ChakraProvider theme={theme}>
+    <ChakraProvider theme={theme} colorModeManager={localStorageManager}>
       <CSSReset />
       {error && <div>ERROR: {error}</div>}
       {getLayout(<Component {...pageProps} />)}

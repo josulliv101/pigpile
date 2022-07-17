@@ -7,6 +7,7 @@ export const themeSlice = createSlice({
 
   initialState: {
     colorScheme: 2,
+    colorMode: 0,
   },
 
   reducers: {
