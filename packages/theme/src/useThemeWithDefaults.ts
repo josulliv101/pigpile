@@ -5,7 +5,7 @@ import {
   withDefaultSize,
   withDefaultVariant,
   // withDefaultProps,
-} from "@pigpile/core";
+} from "@josulliv101/core";
 import { theme } from "./index";
 
 export const getThemeWithDefaults = (colorScheme, userTheme) => {

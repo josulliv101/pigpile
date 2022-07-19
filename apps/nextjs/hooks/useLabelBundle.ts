@@ -4,7 +4,7 @@ import {
   frLabelBundle,
   makeGetLabelFromBundle,
   LabelBundleType,
-} from "@pigpile/labelBundles";
+} from "@josulliv101/labelBundles";
 
 export type LabelBundleMap = Record<string, LabelBundleType>;
 

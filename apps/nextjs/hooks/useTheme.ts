@@ -5,20 +5,18 @@ import {
   withDefaultColorScheme,
   withDefaultSize,
   withDefaultVariant,
-  useColorMode,
-} from "@pigpile/core";
+} from "@josulliv101/core";
 import {
   getColorSchemeByIndex,
   theme,
   userThemes,
   ColorScheme,
-} from "@pigpile/theme";
+} from "@josulliv101/theme";
 import { selectThemeState, themeSlice } from "../store";
 
-// TODO on-demand loading of themes
+// TODO on-demand loading of themes / clean this up
 
 export const getThemeWithDefaults = (colorScheme: ColorScheme, userTheme) => {
-  // console.log("getThemeWithDefaults", colorScheme, userTheme);
   return extendTheme(
     ...colorScheme.componentsByColorScheme.map((item) =>
       withDefaultColorScheme(item)
@@ -31,7 +29,6 @@ export const getThemeWithDefaults = (colorScheme: ColorScheme, userTheme) => {
 
 export const useTheme = (_, userTheme__ = userThemes.farmUserTheme) => {
   const dispatch = useDispatch();
-  // const colorSchemeIndex = useColorMode()
   const activeIndexes = useSelector(selectThemeState());
   const colorScheme = getColorSchemeByIndex(activeIndexes.colorScheme);
   const theme = useMemo(
@@ -41,7 +38,6 @@ export const useTheme = (_, userTheme__ = userThemes.farmUserTheme) => {
 
   const onThemeOptionChange = useCallback(
     (id: string, index: number) => {
-      console.log("", id, index);
       dispatch(themeSlice.actions.setActiveIndex({ id, index }));
     },
     [dispatch]

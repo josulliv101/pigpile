@@ -1,4 +1,4 @@
-import { mode, SystemStyleFunction, transparentize } from "@pigpile/core";
+import { mode, SystemStyleFunction, transparentize } from "@josulliv101/core";
 
 const baseStyle: SystemStyleFunction = (props) => {
   const { colorScheme = "gray" } = props;

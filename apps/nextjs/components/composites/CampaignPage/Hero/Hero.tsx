@@ -4,7 +4,7 @@ import {
   EmojiForm,
   MoreButtons,
   MORE_BUTTONS_BACK_ID,
-} from "@pigpile/composites";
+} from "@josulliv101/composites";
 import {
   AbsoluteCenter,
   Background,
@@ -21,17 +21,14 @@ import {
   ModalOverlay,
   ModalContent,
   ModalHeader,
-  ModalFooter,
   ModalBody,
   ModalCloseButton,
-  ModalProps,
-} from "@pigpile/core";
+} from "@josulliv101/core";
 import { useLabelBundle } from "../../../../hooks";
 
 interface HeroProps {}
 
-const landscapeImage =
-  "url(https:/pigpile-next.firebaseapp.com/images/landscape.png)";
+const landscapeImage = "url(/landscape.png)";
 
 const mockPaymentIntent = {
   id: "pi_3LKoL2EIuGVvU2Me0PofWgHK",

@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Box } from "@pigpile/core";
+import { Box } from "@josulliv101/core";
 import { DonationTabs } from "./DonationTabs";
 import { DonationsGrid } from "./DonationsGrid";
 import { DonationsTable } from "./DonationsTable";

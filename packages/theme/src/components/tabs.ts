@@ -1,4 +1,4 @@
-import { SystemStyleObject } from "@pigpile/core";
+import { SystemStyleObject } from "@josulliv101/core";
 
 const raisedVariant: SystemStyleObject = {
   root: {

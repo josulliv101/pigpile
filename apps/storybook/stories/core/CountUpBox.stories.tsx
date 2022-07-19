@@ -1,5 +1,5 @@
 import * as React from "react";
-import { CountUpBox, Progress, VStack } from "@pigpile/core";
+import { CountUpBox, Progress, VStack } from "@josulliv101/core";
 
 export default {
   title: "Data Display / CountUpBox",

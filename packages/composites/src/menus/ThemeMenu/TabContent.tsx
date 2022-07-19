@@ -6,7 +6,7 @@ import {
   Text,
   SwatchAnimated,
   SwatchProps,
-} from "@pigpile/core";
+} from "@josulliv101/core";
 
 export interface TabContentProps extends BoxProps {
   label: string;

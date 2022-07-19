@@ -1,5 +1,5 @@
 import get from "lodash.get";
-import { LabelBundle } from "@pigpile/types";
+import { LabelBundle } from "@josulliv101/types";
 
 export * from "./bundleDefault";
 export * from "./bundleFR";

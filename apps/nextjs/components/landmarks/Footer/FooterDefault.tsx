@@ -9,7 +9,7 @@ import {
   Logo,
   Stack,
   Text,
-} from "@pigpile/core";
+} from "@josulliv101/core";
 import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
 import { useLabelBundle } from "../../../hooks";
 

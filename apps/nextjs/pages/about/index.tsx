@@ -1,7 +1,7 @@
 import { GetStaticProps, GetStaticPaths, GetServerSideProps } from "next";
 import { useRouter } from "next/router";
 import { useSelector } from "react-redux";
-import { Box, Heading, Text } from "@pigpile/core";
+import { Box, Heading, Text } from "@josulliv101/core";
 import { LayoutBasic } from "../../components/layouts";
 import { fetchUser, selectUser, wrapper } from "../../store";
 
@@ -10,15 +10,11 @@ interface PageProps {
 }
 
 function About(props: PageProps): JSX.Element {
-  const { locale, locales, defaultLocale } = useRouter();
-  const user = useSelector(selectUser("props.id"));
-  console.log("About props", props, locale, locales, defaultLocale);
   return (
     <Box>
       <Heading size="md" my="4">
         About
       </Heading>
-      <Text>{JSON.stringify(user)}</Text>
       <Text>
         Sed ut perspiciatis unde omnis iste natus error sit voluptatem
         accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab
@@ -50,20 +46,3 @@ About.getLayout = (page, layoutProps): JSX.Element => (
 };*/
 
 export default About;
-
-export const getServerSideProps = wrapper.getServerSideProps(
-  (store) =>
-    async ({ params }) => {
-      // const {id} = params;
-
-      await store.dispatch(fetchUser("id"));
-
-      console.log("State on server", store.getState());
-
-      return {
-        props: {
-          id: "joe",
-        },
-      };
-    }
-);

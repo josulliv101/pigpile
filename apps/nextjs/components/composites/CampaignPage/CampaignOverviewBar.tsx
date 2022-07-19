@@ -11,11 +11,11 @@ import {
   Tag,
   Text,
   useTheme,
-} from "@pigpile/core";
+} from "@josulliv101/core";
 import { FaShareAlt as FaShare } from "react-icons/fa";
 import { extendThemedComponent } from "../../../hocs";
 
-// Extending gives the ability for the new component to have its own defaults (colorScheme, size, variants) set in the theme
+// Extending gives the ability for the new component to have its own defaults (colorScheme, size, variants) which can be set in the theme
 export const BackgroundContent = extendThemedComponent("BackgroundContent", {
   Background,
 });

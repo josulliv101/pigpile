@@ -2,13 +2,11 @@ import * as React from "react";
 import {
   Avatar as AvatarBase,
   Badge,
-  Box,
-  Heading,
   HStack,
   Stack,
   StackDivider,
   Text,
-} from "@chakra-ui/react";
+} from "@josulliv101/core";
 
 export interface Donation {
   name: string;

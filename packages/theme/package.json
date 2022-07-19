@@ -1,10 +1,10 @@
 {
-  "name": "@pigpile/theme",
-  "version": "0.1.0",
+  "name": "@josulliv101/theme",
+  "version": "0.1.2",
   "description": "Extended chakra-ui theme for @pigpile",
   "repository": "https://github.com/josulliv101/pigpile/tree/master/packages/theme",
-  "main": "dist/pigpile-theme.cjs.js",
-  "module": "dist/pigpile-theme.esm.js",
+  "main": "dist/josulliv101-theme.cjs.js",
+  "module": "dist/josulliv101-theme.esm.js",
   "types": "dist/pigpile-theme.cjs.d.ts",
   "files": [
     "dist"
@@ -17,7 +17,7 @@
     "@babel/runtime": "^7.17.0",
     "@emotion/react": "^11.7.1",
     "@emotion/styled": "^11.6.0",
-    "@pigpile/core": "*",
+    "@josulliv101/core": "^0.1.1",
     "@types/react": "^18.0.14",
     "framer-motion": "^4.1.17",
     "react": "^18.2.0",

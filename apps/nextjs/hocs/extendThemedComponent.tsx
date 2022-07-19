@@ -4,7 +4,7 @@ import {
   useChakra,
   memoizedGet,
   mergeWith,
-} from "@pigpile/core";
+} from "@josulliv101/core";
 
 export const extendThemedComponent = (
   extendedName: string,

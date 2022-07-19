@@ -1,4 +1,4 @@
-import { Styles } from "@pigpile/core";
+import { Styles } from "@josulliv101/core";
 
 const styles: Styles = {
   global: (props) => ({

@@ -7,7 +7,7 @@ import {
   IconButton,
   Text,
   Tooltip,
-} from "@pigpile/core";
+} from "@josulliv101/core";
 import { FaPencilAlt } from "react-icons/fa";
 import { CustomInputField } from "./CustomInputField";
 

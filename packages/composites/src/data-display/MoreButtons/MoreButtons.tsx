@@ -1,14 +1,13 @@
-import { useState } from "react";
 import type * as React from "react";
 import {
-  Box,
   Button,
   ButtonGroup,
   chakra,
   Icon,
   Tooltip,
   useDisclosure,
-} from "@chakra-ui/react";
+  HTMLChakraProps,
+} from "@josulliv101/core";
 import { FaEllipsisH, FaArrowCircleLeft } from "react-icons/fa";
 
 interface Option {

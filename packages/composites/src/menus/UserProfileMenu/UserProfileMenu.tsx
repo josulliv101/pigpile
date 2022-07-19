@@ -11,7 +11,7 @@ import {
   Center,
   Stack,
   Text,
-} from "@chakra-ui/react";
+} from "@josulliv101/core";
 
 export function UserProfileMenu({ user, onLogout }) {
   return (

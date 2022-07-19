@@ -1,15 +1,12 @@
 import { useEffect, useRef } from "react";
 import {
-  HStack,
-  Stack,
   NumberInput,
   NumberInputField,
   NumberInputStepper,
   NumberIncrementStepper,
   NumberDecrementStepper,
-  Text,
-} from "@pigpile/core";
-import { FaPencilAlt } from "react-icons/fa";
+  HTMLChakraProps,
+} from "@josulliv101/core";
 
 export interface CustomInputFieldProps extends HTMLChakraProps<"div"> {
   label?: string;

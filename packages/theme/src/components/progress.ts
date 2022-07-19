@@ -5,7 +5,7 @@ import {
   progressAnatomy as parts,
   SystemStyleObject,
   SystemStyleFunction,
-} from "@pigpile/core";
+} from "@josulliv101/core";
 
 const slide = keyframes`
   0% {

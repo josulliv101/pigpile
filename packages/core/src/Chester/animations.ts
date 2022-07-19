@@ -1,4 +1,4 @@
-import { keyframes } from "@pigpile/core";
+import { keyframes } from "@chakra-ui/react";
 
 export const jumpAnimation = keyframes`
   from,

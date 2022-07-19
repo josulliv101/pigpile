@@ -7,7 +7,7 @@ import {
   HStack,
   Stack,
   Text,
-} from "@pigpile/core";
+} from "@josulliv101/core";
 
 export interface OrganizationCalloutProps extends CalloutProps {
   name: string;

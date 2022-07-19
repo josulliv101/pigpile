@@ -1,10 +1,10 @@
 {
-  "name": "@pigpile/types",
-  "version": "0.1.0",
+  "name": "@josulliv101/types",
+  "version": "0.1.2",
   "description": "Types for @pigpile",
   "repository": "https://github.com/josulliv101/pigpile/tree/master/packages/types",
-  "main": "dist/pigpile-types.cjs.js",
-  "module": "dist/pigpile-types.esm.js",
+  "main": "dist/josulliv101-types.cjs.js",
+  "module": "dist/josulliv101-types.esm.js",
   "types": "dist/pigpile-types.cjs.d.ts",
   "files": [
     "dist"

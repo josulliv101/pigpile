@@ -3,27 +3,21 @@ import type * as React from "react";
 import {
   Box,
   Button,
-  Divider,
   FormControl,
   FormErrorMessage,
-  HStack,
   HTMLChakraProps,
   Input,
   Spacer,
   Stack,
-  Text,
   useToast,
-} from "@chakra-ui/react";
+} from "@josulliv101/core";
 import {
-  Elements,
   useElements,
   CardElement,
   useStripe as useStripeObject,
 } from "@stripe/react-stripe-js";
 import { PaymentIntent } from "@stripe/stripe-js";
 import { Formik, Field, Form } from "formik";
-import debounce from "lodash.debounce";
-import { getStripe } from "./getStripe";
 import { useStripe } from "./useStripe";
 
 export interface CreditCardFormProps extends HTMLChakraProps<"div"> {
@@ -44,7 +38,6 @@ export const CreditCardForm: React.FC<CreditCardFormProps> = ({
   const stripeDetails = useStripe();
   const stripeObj = useStripeObject();
   const elements = useElements();
-  const [validCard, setValidCard] = useState(false);
   const [isCardReady, setIsCardReady] = useState(false);
   const [isCardFocused, setIsCardFocused] = useState(false);
   const [cardApi, setCardApi] = useState(null);

@@ -1,10 +1,10 @@
 {
-  "name": "@pigpile/connect-client",
-  "version": "0.1.0",
+  "name": "@josulliv101/connect-client",
+  "version": "0.1.2",
   "description": "Client connections to services for @pigpile",
   "repository": "https://github.com/josulliv101/pigpile/tree/master/packages/connect-client",
-  "main": "dist/pigpile-connect-client.cjs.js",
-  "module": "dist/pigpile-connect-client.esm.js",
+  "main": "dist/josulliv101-connect-client.cjs.js",
+  "module": "dist/josulliv101-connect-client.esm.js",
   "types": "dist/pigpile-connect-client.cjs.d.ts",
   "files": [
     "dist"

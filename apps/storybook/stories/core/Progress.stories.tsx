@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Progress, VStack } from "@pigpile/core";
+import { Progress, VStack } from "@josulliv101/core";
 
 export default {
   title: "Feedback / Progress",

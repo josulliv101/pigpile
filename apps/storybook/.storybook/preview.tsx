@@ -4,8 +4,8 @@ import {
   getThemeWithDefaults,
   colorSchemes,
   userThemes,
-} from "@pigpile/theme";
-import { Box } from "@pigpile/core";
+} from "@josulliv101/theme";
+import { Box } from "@josulliv101/core";
 
 console.log(
   "colorSchemes, userThemes",

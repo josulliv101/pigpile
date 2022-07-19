@@ -1,8 +1,8 @@
 import NextLink from "next/link";
 import { FaUserAlt } from "react-icons/fa";
-import { ButtonGroup, HTMLChakraProps, IconButton } from "@pigpile/core";
-import { ThemeMenu, UserProfileMenu } from "@pigpile/composites";
-import { themeOptions } from "@pigpile/theme";
+import { ButtonGroup, HTMLChakraProps, IconButton } from "@josulliv101/core";
+import { ThemeMenu, UserProfileMenu } from "@josulliv101/composites";
+import { themeOptions } from "@josulliv101/theme";
 
 export interface User {
   displayName: string;

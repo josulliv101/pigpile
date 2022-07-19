@@ -9,7 +9,7 @@ import {
   InputRightElement,
   useDisclosure,
   useMergeRefs,
-} from "@pigpile/core";
+} from "@josulliv101/core";
 import { HiEye, HiEyeOff } from "react-icons/hi";
 
 export const PasswordField = forwardRef<HTMLInputElement, InputProps>(

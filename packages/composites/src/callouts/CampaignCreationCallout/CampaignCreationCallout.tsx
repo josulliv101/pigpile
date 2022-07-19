@@ -6,7 +6,7 @@ import {
   Text,
   Callout,
   CalloutProps,
-} from "@pigpile/core";
+} from "@josulliv101/core";
 
 export interface CampaignCreationCalloutProps extends CalloutProps {
   createdBy: string;

@@ -1,6 +1,6 @@
 import { useCallback, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useColorMode } from "@pigpile/core";
+import { useColorMode } from "@josulliv101/core";
 import { selectUser, selectIsAppReady, signOutUser } from "../store";
 import { useTheme } from "../hooks";
 

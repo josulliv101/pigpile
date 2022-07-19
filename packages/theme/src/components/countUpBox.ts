@@ -1,4 +1,4 @@
-import { anatomy, mode, SystemStyleFunction } from "@pigpile/core";
+import { anatomy, mode, SystemStyleFunction } from "@josulliv101/core";
 
 const parts = anatomy("countUpBox").parts("container", "countUpLabel", "label");
 

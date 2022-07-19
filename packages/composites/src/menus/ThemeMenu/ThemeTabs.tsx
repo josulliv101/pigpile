@@ -13,8 +13,8 @@ import {
   TabPanel,
   Text,
   VisuallyHidden,
-} from "@chakra-ui/react";
-import { SwatchProps } from "@pigpile/components";
+  SwatchProps,
+} from "@josulliv101/core";
 import { TabContent } from "./TabContent";
 
 type Option = {

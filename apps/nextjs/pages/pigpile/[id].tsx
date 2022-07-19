@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import { adminDb } from "@pigpile/connect-admin";
+import { adminDb } from "@josulliv101/connect-admin";
 import { LayoutCampaign } from "../../components/layouts";
 import Content from "../../components/composites/CampaignPage/Campaign";
 import { campaignsSlice, selectCampaign, wrapper } from "../../store";

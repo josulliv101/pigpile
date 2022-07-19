@@ -1,4 +1,4 @@
-import { Logo, Tail, Box, HStack } from "@pigpile/core";
+import { Logo, Tail, Box, HStack } from "@josulliv101/core";
 
 export default {
   title: "Media and Icons / Logo",

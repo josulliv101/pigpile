@@ -1,5 +1,5 @@
 import { IdTokenResult, User as AuthUser } from "firebase/auth";
-import { User as PigpileUser } from "@pigpile/types";
+import { User as PigpileUser } from "@josulliv101/types";
 
 export const getUser = async (
   authUser: AuthUser | null

@@ -1,7 +1,7 @@
 import { getApp, getApps, initializeApp, FirebaseApp } from "firebase/app";
 import { Auth, getAuth, onAuthStateChanged } from "firebase/auth";
 import { initializeFirestore, Firestore } from "firebase/firestore";
-import { User } from "@pigpile/types";
+import { User } from "@josulliv101/types";
 import { getUser } from "./getUser";
 
 const firebaseConfig = {

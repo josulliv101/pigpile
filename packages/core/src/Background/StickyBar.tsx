@@ -1,4 +1,10 @@
-import { chakra, cx, forwardRef, omitThemingProps, useStyleConfig } from "../";
+import {
+  chakra,
+  forwardRef,
+  omitThemingProps,
+  useStyleConfig,
+} from "@chakra-ui/react";
+import { cx } from "@chakra-ui/utils";
 import { BackgroundMediaProps } from "./Background";
 
 export const StickyBar = forwardRef<BackgroundMediaProps, "div">(

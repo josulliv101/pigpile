@@ -3,7 +3,7 @@ import {
   mode,
   SystemStyleFunction,
   useColorModeValue,
-} from "@pigpile/core";
+} from "@josulliv101/core";
 
 const baseStyle: SystemStyleFunction = (props) => {
   const { bgColor, bgImage, colorScheme = "gray" } = props;

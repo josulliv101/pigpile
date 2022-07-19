@@ -1,9 +1,9 @@
-import { Background } from "@pigpile/core";
+import { Background } from "@josulliv101/core";
 import { Banner, Footer, Main } from "../landmarks";
 import { NavConnected as Nav } from "./NavConnected";
 import { LayoutProps } from "./LayoutProps";
 
-const bgImage = "url(https:/pigpile-next.firebaseapp.com/images/landscape.png)";
+const bgImage = "url(/landscape.png)";
 
 export const LayoutFullViewport: React.FC<LayoutProps> = ({ children }) => {
   const landscapeImage = bgImage; // useLandscapeImage();

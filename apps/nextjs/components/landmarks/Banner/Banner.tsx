@@ -6,7 +6,8 @@ import {
   Flex,
   Text,
   Logo,
-} from "@pigpile/core";
+  HTMLChakraProps,
+} from "@josulliv101/core";
 import useIsScrolledY from "./useIsScrolledY";
 
 const Background = chakra("div", {

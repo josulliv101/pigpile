@@ -1,5 +1,5 @@
 {
-  "name": "@pigpile/storybook",
+  "name": "@josulliv101/storybook",
   "version": "0.0.0",
   "private": true,
   "main": "index.js",
@@ -46,7 +46,7 @@
     "@chakra-ui/system": "^2.1.3",
     "@emotion/react": "^11.7.0",
     "@emotion/styled": "^11.6.0",
-    "@pigpile/core": "^0.1.0",
+    "@josulliv101/core": "^0.1.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.4.0",

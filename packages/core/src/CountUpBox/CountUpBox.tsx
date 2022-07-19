@@ -1,6 +1,5 @@
 import * as React from "react";
 import {
-  cx,
   Box,
   BoxProps,
   Fade,
@@ -12,7 +11,8 @@ import {
   useMultiStyleConfig,
   HTMLChakraProps,
   ThemingProps,
-} from "../";
+} from "@chakra-ui/react";
+import { cx } from "@chakra-ui/utils";
 import CountUp from "react-countup";
 
 export interface CountUpBoxProps

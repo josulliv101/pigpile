@@ -10,7 +10,7 @@ import {
   Stack,
   Text,
   useDisclosure,
-} from "@pigpile/core";
+} from "@josulliv101/core";
 import { ChevronRightIcon } from "@chakra-ui/icons";
 
 export const CampaignDetailsBar = ({ description }) => {

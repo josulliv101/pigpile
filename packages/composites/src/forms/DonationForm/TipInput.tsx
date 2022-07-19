@@ -1,19 +1,14 @@
 import type * as React from "react";
 import {
   Button,
-  HStack,
   HTMLChakraProps,
   Menu,
   MenuButton,
-  MenuItem,
   MenuItemOption,
   MenuList,
   MenuOptionGroup,
-  Tag,
-  TagLabel,
-  TagRightIcon,
   Text,
-} from "@chakra-ui/react";
+} from "@josulliv101/core";
 import { FaChevronDown } from "react-icons/fa";
 
 export interface TipInputProps extends HTMLChakraProps<"div"> {

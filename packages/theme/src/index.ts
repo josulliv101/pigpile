@@ -1,4 +1,4 @@
-import { extendTheme } from "@pigpile/core";
+import { extendTheme } from "@josulliv101/core";
 import components from "./components";
 import foundations from "./foundations";
 import styles from "./styles";

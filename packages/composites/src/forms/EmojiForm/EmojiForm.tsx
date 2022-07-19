@@ -16,7 +16,7 @@ import {
   Stack,
   Text,
   useToast,
-} from "@pigpile/core";
+} from "@josulliv101/core";
 
 const emojis = [
   "❤️",

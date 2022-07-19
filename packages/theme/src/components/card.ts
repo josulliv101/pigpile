@@ -4,7 +4,7 @@ import {
   mode,
   SystemStyleFunction,
   PartsStyleFunction,
-} from "@pigpile/core";
+} from "@josulliv101/core";
 
 export const parts = anatomy("card").parts(
   "container",

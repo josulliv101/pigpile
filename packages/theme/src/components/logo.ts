@@ -1,4 +1,4 @@
-import { getColor, mode, SystemStyleFunction } from "@pigpile/core";
+import { getColor, mode, SystemStyleFunction } from "@josulliv101/core";
 
 const baseStyle: SystemStyleFunction = (props) => {
   const { colorScheme, theme } = props;

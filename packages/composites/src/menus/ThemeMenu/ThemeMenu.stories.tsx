@@ -6,8 +6,8 @@ import {
   waitFor,
   fireEvent,
 } from "@storybook/testing-library";
-import { themeOptions } from "@pigpile/theme";
-import { useColorMode } from "@pigpile/core";
+import { themeOptions } from "@josulliv101/theme";
+import { useColorMode } from "@josulliv101/core";
 import { ThemeMenu } from "./ThemeMenu";
 
 function sleep(ms: number) {

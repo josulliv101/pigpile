@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { User } from "@pigpile/types";
-import { connectClientApp } from "@pigpile/connect-client";
+import { User } from "@josulliv101/types";
+import { connectClientApp } from "@josulliv101/connect-client";
 import { authSlice } from "../store";
 
 export function useConnectClient() {

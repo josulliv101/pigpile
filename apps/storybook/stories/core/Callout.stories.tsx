@@ -1,4 +1,4 @@
-import { Callout } from "@pigpile/core";
+import { Callout } from "@josulliv101/core";
 
 export default {
   title: "Layout / Callout",

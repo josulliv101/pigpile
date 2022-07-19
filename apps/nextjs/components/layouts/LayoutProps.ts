@@ -1,4 +1,4 @@
-import { User } from "@pigpile/types";
+import { User } from "@josulliv101/types";
 
 export interface LayoutProps {
   children: React.ReactNode;

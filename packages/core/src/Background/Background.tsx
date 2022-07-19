@@ -1,13 +1,12 @@
-import * as React from "react";
 import {
   chakra,
-  cx,
   forwardRef,
   omitThemingProps,
   ThemingProps,
   useStyleConfig,
   HTMLChakraProps,
-} from "../";
+} from "@chakra-ui/react";
+import { cx } from "@chakra-ui/utils";
 
 export interface BackgroundMediaProps
   extends HTMLChakraProps<"div">,

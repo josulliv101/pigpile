@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { signOut } from "firebase/auth";
-import { AuthState, User } from "@pigpile/types";
-import { auth, signInWithPopup } from "@pigpile/connect-client";
+import { AuthState, User } from "@josulliv101/types";
+import { auth, signInWithPopup } from "@josulliv101/connect-client";
 import { AppState } from "./";
 
 export const signInUser = createAsyncThunk(

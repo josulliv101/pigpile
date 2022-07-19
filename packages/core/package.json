@@ -1,10 +1,10 @@
 {
-  "name": "@pigpile/core",
-  "version": "0.1.0",
-  "description": "Core components for @pigpile",
+  "name": "@josulliv101/core",
+  "version": "0.1.5",
+  "description": "Chakra-ui with a few additional components for @pigpile",
   "repository": "https://github.com/josulliv101/pigpile/tree/master/packages/core",
-  "main": "dist/pigpile-core.cjs.js",
-  "module": "dist/pigpile-core.esm.js",
+  "main": "dist/josulliv101-core.cjs.js",
+  "module": "dist/josulliv101-core.esm.js",
   "types": "dist/pigpile-core.cjs.d.ts",
   "files": [
     "dist"
@@ -18,6 +18,7 @@
     "@chakra-ui/anatomy": "^2.0.1",
     "@chakra-ui/color-mode": "^2.0.4",
     "@chakra-ui/react": "^2.2.1",
+    "@chakra-ui/system": "^2.2.2",
     "@chakra-ui/theme-tools": "^2.0.2",
     "@chakra-ui/utils": "^2.0.2",
     "@emotion/react": "^11.7.1",
@@ -27,6 +28,7 @@
     "react": "^18.2.0",
     "react-countup": "^6.3.0",
     "react-dom": "^18.2.0",
+    "react-icons": "^4.4.0",
     "s-ago": "^2.2.0"
   },
   "devDependencies": {}

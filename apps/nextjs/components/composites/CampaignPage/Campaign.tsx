@@ -1,5 +1,3 @@
-import { GetServerSideProps } from "next";
-import { useRouter } from "next/router";
 import {
   Background,
   Box,
@@ -11,17 +9,15 @@ import {
   Stack,
   StickyBar,
   Text,
-} from "@pigpile/core";
+} from "@josulliv101/core";
 import {
   CampaignCreationCallout,
   OrganizationCallout,
   Supporters,
-} from "@pigpile/composites";
-// import { LayoutCampaign } from "../../../components/layouts";
+} from "@josulliv101/composites";
 import Hero from "./Hero";
 import { CampaignOverviewBar } from "./CampaignOverviewBar";
 import { CampaignDetailsBar } from "./CampaignDetailsBar";
-// import { mockDonationProps } from "./Supporters/mock";
 
 const mockDonationProps = {
   donations: [
@@ -64,8 +60,7 @@ const mockDonationProps = {
   ],
 };
 
-const landscapeImage =
-  "url(https:/pigpile-next.firebaseapp.com/images/landscape.png)";
+const landscapeImage = "url(/landscape.png)";
 const SPACING = 10;
 
 const mockCreatedByProps = {
@@ -171,17 +166,5 @@ function Campaign({ title, descr, descrShort, tags = [] }): JSX.Element {
     </>
   );
 }
-
-/*export const getServerSideProps: GetServerSideProps = async (context) => {
-  return {
-    props: {
-      foo: "bar",
-    },
-  };
-};*/
-
-/*Campaign.getLayout = (page): JSX.Element => (
-  <LayoutCampaign>{page}</LayoutCampaign>
-);*/
 
 export default Campaign;

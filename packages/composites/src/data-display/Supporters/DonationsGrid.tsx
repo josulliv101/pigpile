@@ -5,14 +5,12 @@ import {
   Heading,
   SimpleGrid,
   Text,
-} from "@chakra-ui/react";
-import {
   Card,
   CardAvatar,
   CardBackground,
   CardBadge,
   CardContent,
-} from "@pigpile/core";
+} from "@josulliv101/core";
 
 export interface Donation {
   name: string;

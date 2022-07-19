@@ -1,4 +1,4 @@
-import { SwatchProps } from "@pigpile/core";
+import { SwatchProps } from "@josulliv101/core";
 
 export interface ChesterAbsolutePosition {
   top?: string;

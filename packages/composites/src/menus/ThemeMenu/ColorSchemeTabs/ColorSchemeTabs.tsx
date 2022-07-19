@@ -9,8 +9,8 @@ import {
   Text,
   VisuallyHidden,
 } from "@chakra-ui/react";
-import { SwatchAnimated } from "@pigpile/components";
-import { ColorSchemeMap } from "@pigpile/store";
+import { SwatchAnimated } from "@josulliv101/components";
+import { ColorSchemeMap } from "@josulliv101/store";
 import { TabContent } from "../TabContent";
 
 export interface ColorSchemeTabsProps extends TabsProps {

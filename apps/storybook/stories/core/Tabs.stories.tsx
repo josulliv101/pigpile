@@ -9,7 +9,7 @@ import {
   TabPanel,
   Text,
   VStack,
-} from "@pigpile/core";
+} from "@josulliv101/core";
 
 export default {
   title: "Disclosure / Tabs variant=[raised]",

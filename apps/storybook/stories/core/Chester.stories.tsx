@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Chester } from "@pigpile/core";
+import { Chester } from "@josulliv101/core";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 
 export default {

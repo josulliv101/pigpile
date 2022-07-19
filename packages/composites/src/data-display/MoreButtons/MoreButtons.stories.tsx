@@ -5,7 +5,7 @@ import {
   waitFor,
   fireEvent,
 } from "@storybook/testing-library";
-import { Box, Center } from "@pigpile/core";
+import { Box, Center } from "@josulliv101/core";
 import { MoreButtons } from "./MoreButtons";
 import { options, moreOptions } from "./mock";
 

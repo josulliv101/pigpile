@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { HYDRATE } from "next-redux-wrapper";
-import { Campaign } from "@pigpile/types";
+import { Campaign } from "@josulliv101/types";
 import { AppState, AppThunk } from "./store";
 
 export const campaignsSlice = createSlice({
@@ -40,4 +40,4 @@ export const fetchCampaign =
   };
 
 export const selectCampaign = (id: string) => (state: AppState) =>
-  state?.[campaignsSlice.name]?.[id];
+  state[campaignsSlice.name][id];

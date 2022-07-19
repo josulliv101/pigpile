@@ -1,8 +1,6 @@
 import {
   Box,
   Button,
-  Checkbox,
-  Container,
   Divider,
   FormControl,
   FormLabel,
@@ -12,7 +10,7 @@ import {
   Text,
   useBreakpointValue,
   useColorModeValue,
-} from "@pigpile/core";
+} from "@josulliv101/core";
 import { OAuthButtonGroup, OAuthButtonGroupProps } from "./OAuthButtonGroup";
 import { PasswordField } from "./PasswordField";
 

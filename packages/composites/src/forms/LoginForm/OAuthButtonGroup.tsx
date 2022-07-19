@@ -1,5 +1,5 @@
-import { Button, ButtonGroup, VisuallyHidden } from "@pigpile/core";
-import { GithubAuthProvider } from "@pigpile/connect-client";
+import { Button, ButtonGroup, VisuallyHidden } from "@josulliv101/core";
+import { GithubAuthProvider } from "@josulliv101/connect-client";
 import { GitHubIcon, GoogleIcon, TwitterIcon } from "./ProviderIcons";
 
 const githubAuthProvider = new GithubAuthProvider();

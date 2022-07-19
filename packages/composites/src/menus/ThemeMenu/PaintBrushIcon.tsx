@@ -1,4 +1,4 @@
-import { createIcon } from "@pigpile/core";
+import { createIcon } from "@josulliv101/core";
 
 export const PaintBrushIcon = createIcon({
   displayName: "PaintBrushIcon",

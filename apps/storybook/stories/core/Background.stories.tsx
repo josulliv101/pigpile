@@ -1,4 +1,4 @@
-import { Background, Stack } from "@pigpile/core";
+import { Background, Stack } from "@josulliv101/core";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import * as React from "react";
 

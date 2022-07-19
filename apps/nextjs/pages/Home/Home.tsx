@@ -6,7 +6,7 @@ import {
   Chester,
   Heading,
   Text,
-} from "@pigpile/core";
+} from "@josulliv101/core";
 // import { GetServerSideProps } from "next";
 import { LayoutFullViewport } from "../../components/layouts";
 // import { StickyBar } from "../../components/landmarks";

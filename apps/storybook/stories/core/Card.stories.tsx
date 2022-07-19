@@ -10,7 +10,7 @@ import {
   Heading,
   Text,
   VStack,
-} from "@pigpile/core";
+} from "@josulliv101/core";
 
 export default {
   title: "Data Display / Card",

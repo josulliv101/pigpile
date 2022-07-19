@@ -1,7 +1,5 @@
-import * as React from "react";
 import {
   chakra,
-  cx,
   forwardRef,
   omitThemingProps,
   StylesProvider,
@@ -13,7 +11,8 @@ import {
   AvatarProps,
   Box,
   useStyles,
-} from "../";
+} from "@chakra-ui/react";
+import { cx } from "@chakra-ui/utils";
 
 export interface CardProps
   extends HTMLChakraProps<"div">,
@@ -75,13 +74,11 @@ export type CardAvatarProps = AvatarProps;
 export const CardAvatar = forwardRef<CardAvatarProps, typeof Avatar>(
   (props, ref) => {
     const styles = useStyles();
-    const stylesFromStyleConfig = useMultiStyleConfig("CardAvatar", props);
     return (
       <Box
         ref={ref}
         className={cx("chakra-card__avatar", props.className)}
         {...props}
-        // {...stylesFromStyleConfig.container}
         {...styles.avatar}
       />
     );

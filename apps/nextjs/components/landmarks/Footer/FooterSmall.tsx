@@ -10,7 +10,7 @@ import {
   Show,
   Stack,
   Text,
-} from "@pigpile/core";
+} from "@josulliv101/core";
 
 const NavLink = ({ href, children }) => (
   <NextLink href={href} passHref>

@@ -1,21 +1,37 @@
 {
-  "name": "@pigpile/nextjs",
+  "name": "@josulliv101/nextjs",
   "version": "0.1.0",
   "repository": "https://github.com/josulliv101/pigpile/tree/master/apps/nextjs",
   "private": true,
+  "main": "entry.js",
+  "engines": {
+    "node": "^16.15.0"
+  },
+  "nohoist": [
+    "**"
+  ],
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "test": "jest --watch"
+    "test": "jest --watch",
+    "deploy": "firebase deploy --only functions,hosting",
+    "foo": "echo foobar nextjs"
   },
   "dependencies": {
-    "@pigpile/composites": "^0.1.0",
-    "@pigpile/core": "^0.1.0",
-    "@pigpile/labelBundles": "^0.1.0",
-    "@pigpile/theme": "^0.1.0",
+    "@josulliv101/composites": "*",
+    "@josulliv101/connect-admin": "*",
+    "@josulliv101/connect-client": "*",
+    "@josulliv101/core": "*",
+    "@josulliv101/labelbundles": "*",
+    "@josulliv101/theme": "*",
+    "@josulliv101/types": "*",
+    "@preconstruct/cli": "2.1.7",
+    "@preconstruct/next": "^4.0.0",
     "@reduxjs/toolkit": "^1.8.3",
     "@types/react": "^18.0.14",
+    "firebase-admin": "^11.0.0",
+    "firebase-functions": "^3.22.0",
     "framer-motion": "^4.1.17",
     "lodash.debounce": "^4.0.8",
     "next": "^12.2.2",
@@ -31,6 +47,7 @@
     "@testing-library/react": "^13.3.0",
     "@types/jest": "^28.1.4",
     "eslint-config-next": "^12.0.10",
+    "firebase-admin": "^11.0.0",
     "jest": "^28.1.2",
     "ts-jest": "^28.0.5"
   }

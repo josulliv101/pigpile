@@ -8,11 +8,11 @@ import {
   PopoverBody,
   PopoverCloseButton,
   useColorMode,
-} from "@pigpile/core";
+} from "@josulliv101/core";
 import {
   ActiveThemeIds as ActiveThemeOptionIds,
   ThemeOptions,
-} from "@pigpile/theme";
+} from "@josulliv101/theme";
 import { PaintBrushIcon, ThemeTabs } from "./";
 
 export interface ThemeMenuProps {

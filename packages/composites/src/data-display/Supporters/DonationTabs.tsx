@@ -10,7 +10,7 @@ import {
   TabIndicator,
   TabList,
   Text,
-} from "@chakra-ui/react";
+} from "@josulliv101/core";
 
 export interface DonationTabsProps {
   activeSortByIndex: number;

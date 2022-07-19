@@ -1,7 +1,7 @@
 import { useEffect, useMemo } from "react";
 import { useDispatch, useSelector, Dispatch } from "react-redux";
 import { useColorMode } from "@chakra-ui/react";
-import { selectThemeOptions, updateThemeActiveIndex } from "@pigpile/store";
+import { selectThemeOptions, updateThemeActiveIndex } from "@josulliv101/store";
 
 const makeOnChangeHandler = (dispatch, key) => (index) =>
   dispatch(updateThemeActiveIndex({ key, index }));

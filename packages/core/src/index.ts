@@ -1,4 +1,5 @@
 export * from "@chakra-ui/react";
+export * from "@chakra-ui/anatomy";
 export {
   anatomy,
   lighten,
@@ -14,9 +15,8 @@ export {
 } from "@chakra-ui/theme-tools";
 export { useColorModeValue } from "@chakra-ui/color-mode";
 export { cx, memoizedGet, mergeWith } from "@chakra-ui/utils";
-export * from "@chakra-ui/anatomy";
 
-// extend the chakra-ui base
+export { forwardRef } from "@chakra-ui/system";
 export * from "./Background";
 export * from "./Callout";
 export * from "./Card";

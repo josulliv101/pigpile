@@ -6,7 +6,7 @@ import {
   SystemStyleObject,
   ThemingProps,
   useStyleConfig,
-} from "../";
+} from "@chakra-ui/react";
 
 export interface CalloutProps
   extends HTMLChakraProps<"div">,

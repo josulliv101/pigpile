@@ -1,6 +1,6 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import { screen, userEvent } from "@storybook/testing-library";
-import { Box } from "@pigpile/core";
+import { Box } from "@josulliv101/core";
 import { Footer } from "./Footer";
 
 export default {

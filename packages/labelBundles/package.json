@@ -1,10 +1,10 @@
 {
-  "name": "@pigpile/labelBundles",
-  "version": "0.1.0",
+  "name": "@josulliv101/labelbundles",
+  "version": "0.1.2",
   "description": "Label bundles for @pigpile",
   "repository": "https://github.com/josulliv101/pigpile/tree/master/packages/labelBundles",
-  "main": "dist/pigpile-labelBundles.cjs.js",
-  "module": "dist/pigpile-labelBundles.esm.js",
+  "main": "dist/josulliv101-labelbundles.cjs.js",
+  "module": "dist/josulliv101-labelbundles.esm.js",
   "types": "dist/pigpile-labelBundles.cjs.d.ts",
   "files": [
     "dist"

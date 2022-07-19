@@ -1,14 +1,12 @@
 import type * as React from "react";
-import { Box, Callout, HTMLChakraProps, Stack, Text } from "@pigpile/core";
+import { Box, Callout, HTMLChakraProps, Stack, Text } from "@josulliv101/core";
 import { Elements } from "@stripe/react-stripe-js";
 import { PaymentIntent } from "@stripe/stripe-js";
 import { getStripe } from "./getStripe";
 import { ItemsLabel } from "./ItemsLabel";
 import { TipInput } from "./TipInput";
 import { TotalLabel } from "./TotalLabel";
-import { PaymentTabs } from "./PaymentTabs";
 import { CreditCardForm } from "./CreditCardForm";
-import { CustomInputField } from "./CustomInputField";
 
 export interface DonationFormProps extends HTMLChakraProps<"div"> {
   paymentIntent: PaymentIntent;

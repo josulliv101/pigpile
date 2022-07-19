@@ -1,12 +1,5 @@
 import type * as React from "react";
-import {
-  Box,
-  Button,
-  Divider,
-  HStack,
-  HTMLChakraProps,
-  Text,
-} from "@chakra-ui/react";
+import { Box, Divider, HStack, HTMLChakraProps, Text } from "@josulliv101/core";
 
 export interface TotalLabelProps extends HTMLChakraProps<"div"> {
   amount: number;
