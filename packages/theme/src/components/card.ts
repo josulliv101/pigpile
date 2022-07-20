@@ -149,7 +149,7 @@ const sizes = {
     },
     container: {
       minH: "40px",
-      minW: "132px",
+      minW: "116px",
       px: 4,
       py: 3,
     },

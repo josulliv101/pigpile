@@ -2,7 +2,7 @@ import {
   Avatar,
   Badge,
   Box,
-  HStack,
+  Stack,
   Text,
   Callout,
   CalloutProps,
@@ -16,12 +16,15 @@ export interface CampaignCreationCalloutProps extends CalloutProps {
   description?: string;
 }
 
-const EmployeeBadge = () => (
+const EmployeeBadge = (props) => (
   <Badge
     textTransform="none"
-    fontSize="12px"
+    fontSize="11px"
     fontWeight="medium"
-    variant="subtle"
+    borderRadius="full"
+    py="2px"
+    px="10px"
+    {...props}
   >
     Pigpile Employee
   </Badge>
@@ -31,25 +34,29 @@ export const CampaignCreationCallout: React.FC<CampaignCreationCalloutProps> =
   ({ createdAt, createdBy, isEmployee, description, imageUrl, ...props }) => {
     return (
       <Callout
-        bgColor="gray.200"
+        bgColor="gray.100"
         color="gray.500"
         _dark={{ bgColor: "gray.600", color: "gray.300" }}
-        px="8"
-        py="6"
+        p="6"
         {...props}
       >
-        <HStack spacing="4" align="flex-start">
-          <Avatar size="md" name={createdBy} src={imageUrl} />
-          <Box>
-            <Text fontSize="sm">
-              Fundraiser created by {createdBy} on {createdAt}
-            </Text>
-            {isEmployee && <EmployeeBadge />}
+        <Stack spacing="4" align="center" spacing="3">
+          <Avatar size="xl" name={createdBy} src={imageUrl} />
+
+          <Text fontSize="sm" noOfLines={1}>
+            Created by {createdBy}
+          </Text>
+          <Text opacity=".8" fontSize="xs">
+            {createdAt}
+          </Text>
+          {isEmployee && <EmployeeBadge />}
+
+          {description && (
             <Text fontSize="14px" mt="4">
               {description}
             </Text>
-          </Box>
-        </HStack>
+          )}
+        </Stack>
       </Callout>
     );
   };

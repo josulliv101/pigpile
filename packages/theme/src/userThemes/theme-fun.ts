@@ -1,6 +1,6 @@
-import { PigpileTheme } from "../types";
+import { UserTheme } from "../types";
 
-export const funUserTheme: PigpileTheme = {
+export const funUserTheme: UserTheme = {
   id: "fun",
   label: "Fun",
   bgImage:
@@ -14,11 +14,12 @@ export const funUserTheme: PigpileTheme = {
   componentsByVariant: [
     { variant: "ghost", components: ["NavButtonFoo", "NavButtonGroup"] },
     { variant: "outline", components: ["Card"] },
+    { variant: "solid", components: ["Badge", "Tag"] },
     { variant: "subtle", components: ["BackgroundContent"] },
   ],
   componentsBySize: [
     { size: "xl", components: ["Button"] },
-    { size: "lg", components: [] },
+    { size: "lg", components: ["Badge"] },
     { size: "md", components: ["NavButtonFoo", "MenuButton"] },
     { size: "sm", components: ["Avatar"] },
   ],

@@ -31,7 +31,7 @@ const baseStyle: SystemStyleFunction = (props) => {
       },
     },
     dialogContainer: {
-      pt: 20,
+      // pt: 20,
     },
   };
 };

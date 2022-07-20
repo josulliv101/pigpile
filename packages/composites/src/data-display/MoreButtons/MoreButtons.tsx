@@ -3,6 +3,7 @@ import {
   Button,
   ButtonGroup,
   chakra,
+  Hide,
   Icon,
   Tooltip,
   useDisclosure,
@@ -92,24 +93,26 @@ export const MoreButtons: React.FC<MoreButtonsProps> = ({
         />
       ))}
       {!isOpen && isLimitExceeded && (
-        <Tooltip
-          placement="top"
-          label={moreTooltipLabel}
-          isDisabled={!moreTooltipLabel}
-        >
-          <Button
-            aria-label="more"
-            pos="absolute"
-            top="0"
-            right="0"
-            transform="translateX(140%)"
-            size="xs"
-            onClick={onOpen}
-            borderRadius="full"
+        <Hide below="md">
+          <Tooltip
+            placement="top"
+            label={moreTooltipLabel}
+            isDisabled={!moreTooltipLabel}
           >
-            <Icon as={FaEllipsisH} />
-          </Button>
-        </Tooltip>
+            <Button
+              aria-label="more"
+              pos="absolute"
+              top="0"
+              right="0"
+              transform="translateX(140%)"
+              size="xs"
+              onClick={onOpen}
+              borderRadius="full"
+            >
+              <Icon as={FaEllipsisH} />
+            </Button>
+          </Tooltip>
+        </Hide>
       )}
     </ButtonGroup>
   );

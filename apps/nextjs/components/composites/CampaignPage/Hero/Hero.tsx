@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import {
   DonationForm,
   EmojiForm,
@@ -15,7 +16,6 @@ import {
   CountUpBox,
   Heading,
   Progress,
-  Text,
   useDisclosure,
   Modal,
   ModalOverlay,
@@ -23,12 +23,14 @@ import {
   ModalHeader,
   ModalBody,
   ModalCloseButton,
+  useTheme,
 } from "@josulliv101/core";
+import { selectChesterAnimation } from "store";
 import { useLabelBundle } from "../../../../hooks";
 
 interface HeroProps {}
 
-const landscapeImage = "url(/landscape.png)";
+// const landscapeImage = "url(/landscape.png)";
 
 const mockPaymentIntent = {
   id: "pi_3LKoL2EIuGVvU2Me0PofWgHK",
@@ -100,13 +102,20 @@ export const options = [
 ];
 
 const Hero = ({ stepWithinWizard = 0 }): JSX.Element => {
+  const {
+    userTheme: { bgImage },
+  } = useTheme();
+  const chesterAnimation = useSelector(selectChesterAnimation());
+  // const foo = useChesterAnimation();
+  const landscapeImage = `url(${bgImage})`;
+
   const { getLabel } = useLabelBundle();
   const [userRequestsCustomAmount, setUserRequestsCustomAmount] =
     useState(false);
   const [numberOfUnits, setNumberOfUnits] = useState<number | null>(null);
   const [tip, setTip] = useState(0);
   const { isOpen, onOpen, onClose } = useDisclosure();
-
+  console.log("chesterAnimation", chesterAnimation);
   const handleCustomBtnClick = () => {
     setUserRequestsCustomAmount(true);
     onOpen();
@@ -143,7 +152,11 @@ const Hero = ({ stepWithinWizard = 0 }): JSX.Element => {
       variant="gradient"
       h="500px"
     >
-      <Modal isOpen={isOpen} onClose={handleCloseModal}>
+      <Modal
+        isOpen={isOpen}
+        size={{ base: "full", md: "md" }}
+        onClose={handleCloseModal}
+      >
         <ModalOverlay />
         <ModalContent
           minH="640px"
@@ -221,14 +234,17 @@ const Hero = ({ stepWithinWizard = 0 }): JSX.Element => {
           .
         </Heading>
         <MoreButtons
-          mt="12"
+          mt={{ base: "3", sm: "12" }}
           options={options}
           onButtonClick={onClick}
           // onCustomButtonClick={onCustomClick}
           moreTooltipLabel="more options"
         />
         <AbsoluteCenter top={{ base: "75%", md: "80%" }}>
-          <Chester {...chesterAnimationProps} />
+          <Chester
+            {...chesterAnimationProps}
+            animationType={chesterAnimation}
+          />
         </AbsoluteCenter>
         <CountUpBox
           minW={{ base: "120px", md: "160px" }}

@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { Box, Fade, HTMLChakraProps, Image, Stack } from "@chakra-ui/react";
 import {
   jumpAnimation,
@@ -9,7 +10,7 @@ import {
 import { Pigtail } from "./Pigtail";
 import { Shadow } from "./Shadow";
 
-export const enum ChesterAnimations {
+export enum ChesterAnimations {
   JUMP = "jump",
   WIGGLE = "wiggle",
   WAHOO = "wahoo",
@@ -39,14 +40,20 @@ export const Chester: React.FC<ChesterProps> = ({
   onAnimationEnd,
   ...props
 }) => {
+  const [animationRequested, setAnimationRequested] = useState(false);
   const animationStyle = animationType && map[animationType];
-  const animation = animate ? `${animationStyle} ${animationProperties()}` : "";
+  const animation = animationRequested
+    ? `${animationStyle} ${animationProperties()}`
+    : "";
   const shadow = `${shadowAnimation} ${animationProperties()}`;
+
+  useEffect(() => setAnimationRequested(true), [animationType]);
+
   return (
     <Box {...props}>
       <Stack
         role="img"
-        onClick={onClick}
+        onClick={() => setAnimationRequested(true)}
         aria-label="Chester the pig"
         as={Fade}
         in
@@ -56,7 +63,7 @@ export const Chester: React.FC<ChesterProps> = ({
         <Box
           pos="relative"
           animation={animation}
-          onAnimationEnd={onAnimationEnd}
+          onAnimationEnd={() => setAnimationRequested(false)}
           transformOrigin="center bottom"
         >
           <Image
@@ -78,7 +85,9 @@ export const Chester: React.FC<ChesterProps> = ({
         </Box>
         <Shadow
           animation={
-            animationType === ChesterAnimations.JUMP && animate ? shadow : ""
+            animationType === ChesterAnimations.JUMP && animationRequested
+              ? shadow
+              : ""
           }
         />
       </Stack>

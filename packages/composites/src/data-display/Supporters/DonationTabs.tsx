@@ -5,6 +5,7 @@ import {
   ButtonGroup,
   IconButton,
   HStack,
+  Hide,
   Tab,
   Tabs,
   TabIndicator,
@@ -44,13 +45,10 @@ export const DonationTabs: React.FC<DonationTabsProps> = ({
         >
           <TabList>
             <Tab>
-              <Text>Latest Donations</Text>
+              <Text noOfLines={1}>Latest Donations</Text>
             </Tab>
             <Tab>
-              <Text>Top Donations</Text>
-            </Tab>
-            <Tab display={{ base: "none", md: "flex" }}>
-              <Text>Summary</Text>
+              <Text noOfLines={1}>Top Donations</Text>
             </Tab>
           </TabList>
           <TabIndicator
@@ -61,44 +59,47 @@ export const DonationTabs: React.FC<DonationTabsProps> = ({
           />
         </Tabs>
       </Box>
-      <Box pos="relative" display="flex" align="center" flexDirection="row">
-        <Tabs
-          display={{ base: "block", lg: "block" }}
-          mr="2"
-          size="sm"
-          index={activeViewIndex}
-          isManual
-          variant="raised"
-          onChange={onViewChange}
-        >
-          <TabList>
-            <Tab>
-              <HStack spacing=".4rem" align="center">
-                <Text>Cards</Text>
-              </HStack>
-            </Tab>
-            <Tab>
-              <HStack spacing=".4rem" align="center">
-                <Text>List</Text>
-              </HStack>
-            </Tab>
-          </TabList>
-          <TabIndicator
-            sx={{ transition: "top, left, bottom, right, width" }}
-          />
-        </Tabs>
-        <ButtonGroup
-          ml="0"
-          px="2"
-          borderLeftWidth={1}
-          alignItems="center"
-          size="xs"
-          variant="ghost"
-        >
-          <IconButton aria-label="previous" icon={<FaChevronLeft />} />
-          <IconButton aria-label="next" icon={<FaChevronRight />} />
-        </ButtonGroup>
-      </Box>
+      <Hide breakpoint="(max-width: 480px)">
+        <Box pos="relative" display="flex" align="center" flexDirection="row">
+          <Tabs
+            display={{ base: "block", lg: "block" }}
+            mr="2"
+            size="sm"
+            index={activeViewIndex}
+            isManual
+            variant="raised"
+            onChange={onViewChange}
+          >
+            <TabList>
+              <Tab>
+                <HStack spacing=".4rem" align="center">
+                  <Text>Cards</Text>
+                </HStack>
+              </Tab>
+              <Tab>
+                <HStack spacing=".4rem" align="center">
+                  <Text>List</Text>
+                </HStack>
+              </Tab>
+            </TabList>
+            <TabIndicator
+              sx={{ transition: "top, left, bottom, right, width" }}
+            />
+          </Tabs>
+          <ButtonGroup
+            display="none"
+            ml="0"
+            px="2"
+            borderLeftWidth={1}
+            alignItems="center"
+            size="xs"
+            variant="ghost"
+          >
+            <IconButton aria-label="previous" icon={<FaChevronLeft />} />
+            <IconButton aria-label="next" icon={<FaChevronRight />} />
+          </ButtonGroup>
+        </Box>
+      </Hide>
     </HStack>
   );
 };

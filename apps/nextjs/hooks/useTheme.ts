@@ -8,32 +8,48 @@ import {
 } from "@josulliv101/core";
 import {
   getColorSchemeByIndex,
+  getUserThemeByIndex,
   theme,
   userThemes,
   ColorScheme,
+  UserTheme,
 } from "@josulliv101/theme";
 import { selectThemeState, themeSlice } from "../store";
 
 // TODO on-demand loading of themes / clean this up
 
-export const getThemeWithDefaults = (colorScheme: ColorScheme, userTheme) => {
+export const getThemeWithDefaults = (
+  colorScheme: ColorScheme,
+  userTheme: UserTheme
+) => {
+  const {
+    componentsByVariant = [],
+    componentsBySize = [],
+    ...rest
+  } = userTheme;
+  console.log("getThemeWithDefaults", componentsByVariant, componentsBySize);
   return extendTheme(
     ...colorScheme.componentsByColorScheme.map((item) =>
       withDefaultColorScheme(item)
     ),
-    ...userTheme.componentsByVariant.map((item) => withDefaultVariant(item)),
-    ...userTheme.componentsBySize.map((item) => withDefaultSize(item)),
-    theme
+    ...componentsByVariant.map((item) => withDefaultVariant(item)),
+    ...componentsBySize.map((item) => withDefaultSize(item)),
+    {
+      ...theme,
+      userTheme: rest,
+    }
   );
 };
 
-export const useTheme = (_, userTheme__ = userThemes.farmUserTheme) => {
+export const useTheme = () => {
   const dispatch = useDispatch();
   const activeIndexes = useSelector(selectThemeState());
   const colorScheme = getColorSchemeByIndex(activeIndexes.colorScheme);
+  const userTheme = getUserThemeByIndex(activeIndexes.userTheme);
+  console.log("userTheme ...", activeIndexes, colorScheme, userTheme);
   const theme = useMemo(
-    () => getThemeWithDefaults(colorScheme, userTheme__),
-    [activeIndexes.colorScheme]
+    () => getThemeWithDefaults(colorScheme, userTheme),
+    [activeIndexes.colorScheme, activeIndexes.userTheme]
   );
 
   const onThemeOptionChange = useCallback(

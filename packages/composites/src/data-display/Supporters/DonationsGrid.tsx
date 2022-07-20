@@ -46,7 +46,12 @@ export const DonationsGrid: React.FC<DonationsGridProps> = ({
   }
 
   return (
-    <SimpleGrid w="full" columns={5} spacing="10px" {...props}>
+    <SimpleGrid
+      w="full"
+      columns={{ base: 2, sm: 3, md: 4, lg: 5 }}
+      spacing="10px"
+      {...props}
+    >
       {donations.map(({ name, icon, amount, donatedAt }) => (
         <Card
           key={`${name}-${amount}`}
@@ -66,10 +71,12 @@ export const DonationsGrid: React.FC<DonationsGridProps> = ({
             {amount}
           </CardBadge>
           <CardContent>
-            <Heading size="sm" noOfLines={1}>
+            <Heading size="xs" noOfLines={1}>
               {name}
             </Heading>
-            <Text fontSize="xs">2 pairs of socks / {donatedAt}</Text>
+            <Text fontSize="xs" noOfLines={1}>
+              2 pairs of socks
+            </Text>
           </CardContent>
         </Card>
       ))}

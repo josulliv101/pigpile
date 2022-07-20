@@ -1,3 +1,4 @@
+import { ChevronRightIcon } from "@chakra-ui/icons";
 import {
   Box,
   Button,
@@ -11,56 +12,40 @@ import {
   Text,
   useDisclosure,
 } from "@josulliv101/core";
-import { ChevronRightIcon } from "@chakra-ui/icons";
+import { CampaignCreationCallout } from "@josulliv101/composites";
+
+const mockCreatedByProps = {
+  createdBy: "Joe Sullivan",
+  createdAt: "01/12/2022",
+  isEmployee: true,
+  imageUrl:
+    "https://firebasestorage.googleapis.com/v0/b/pigpile-next-mvp.appspot.com/o/site%2Fjoe.png?alt=media&token=b986e32a-0060-4036-ab1e-ab2208aee186",
+  // description: "Sed ut perspiciatis unde omnis iste natus error sit.",
+};
 
 export const CampaignDetailsBar = ({ description }) => {
   const { isOpen, onToggle } = useDisclosure();
   return (
     <Container pt={{ base: "12", md: "20" }} mb="10">
-      <Stack direction="row" spacing={{ base: 0, lg: 12 }}>
-        <Box
-          display={{ base: "none", md: "flex" }}
-          alignItems="flex-start"
-          minW="280px"
-        >
-          <List
-            bg="gray.100"
-            _dark={{ bgColor: "gray.700" }}
-            padding="44px"
-            spacing={3}
-          >
-            <ListItem>
-              <ListIcon as={ChevronRightIcon} />
-              The Details
-            </ListItem>
-            <ListItem>
-              <ListIcon as={ChevronRightIcon} />
-              Donation Timeline
-            </ListItem>
-            <ListItem>
-              <ListIcon as={ChevronRightIcon} />
-              FAQ
-            </ListItem>
-            <ListItem>
-              <ListIcon as={ChevronRightIcon} />
-              Sponsors
-            </ListItem>
-            {/* You can also use custom icons from react-icons */}
-            <ListItem>
-              <ListIcon as={ChevronRightIcon} />
-              How It Works
-            </ListItem>
-          </List>
-        </Box>
+      <Stack
+        direction={{ base: "column", md: "row" }}
+        spacing={{ base: 6, sm: 12 }}
+        alignItems="flex-start"
+      >
+        <CampaignCreationCallout
+          w="full"
+          flex={{ base: "0 0 100%", sm: "0 0 10rem", md: "0 0 15rem" }}
+          {...mockCreatedByProps}
+        />
         <Box>
-          <Heading size="md" fontWeight="semibold">
+          <Heading size="lg" fontWeight="semibold">
             The Details
           </Heading>
           <Text
             fontSize="2xl"
             mb="10"
             whiteSpace="pre-wrap"
-            noOfLines={isOpen ? undefined : 7}
+            noOfLines={isOpen ? undefined : 6}
           >
             {description}
           </Text>

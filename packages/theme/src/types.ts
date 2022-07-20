@@ -44,7 +44,7 @@ export interface ColorScheme {
   componentsByColorScheme: ComponentsByColorScheme[];
 }
 
-export interface PigpileTheme {
+export interface UserTheme {
   id: string;
   label: string;
   bgImage: string;
@@ -54,7 +54,7 @@ export interface PigpileTheme {
 }
 
 export type ColorSchemeMap = Record<string, ColorScheme>;
-export type ThemeMap = Record<string, PigpileTheme>;
+export type ThemeMap = Record<string, UserTheme>;
 
 export interface ThemeOptions {
   activeThemeIds: ActiveThemeIds;

@@ -1,4 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { ChesterAnimations } from "@josulliv101/core";
 import { ColorScheme, DEFAULT_COLOR_SCHEME_ID } from "@josulliv101/theme";
 import { AppState } from "./store";
 
@@ -8,6 +9,8 @@ export const themeSlice = createSlice({
   initialState: {
     colorScheme: 0,
     colorMode: 0,
+    userTheme: 0,
+    chesterAnimation: 0,
   },
 
   reducers: {
@@ -28,3 +31,12 @@ export const selectColorSchemeIndex = () => (state: AppState) =>
 
 export const selectThemeState = () => (state: AppState) =>
   state[themeSlice.name];
+
+export const selectChesterAnimation = () => (state: AppState) => {
+  const chesterAnimationIndex = state[themeSlice.name].chesterAnimation;
+  console.log(
+    "selectChesterAnimation",
+    Object.values(ChesterAnimations)[chesterAnimationIndex]
+  );
+  return Object.values(ChesterAnimations)[chesterAnimationIndex];
+};

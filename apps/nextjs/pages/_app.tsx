@@ -1,4 +1,5 @@
 import { AppProps } from "next/app";
+import { useSelector } from "react-redux";
 import {
   ChakraProvider,
   CSSReset,
@@ -6,11 +7,13 @@ import {
 } from "@josulliv101/core";
 import { userThemes } from "@josulliv101/theme";
 import { LayoutBasic } from "components/layouts";
-import { wrapper } from "../store";
+import { selectAppState, wrapper } from "../store";
 import { useConnectClient, useTheme } from "../hooks";
 
 function PigpileApp({ Component, pageProps }: AppProps): JSX.Element {
   const { error } = useConnectClient();
+  const { isUnloading } = useSelector(selectAppState());
+
   console.log(
     "useConnectClient returned from hook",
     error || "no error returned"
@@ -20,6 +23,11 @@ function PigpileApp({ Component, pageProps }: AppProps): JSX.Element {
   const getLayout =
     Component.getLayout ?? ((page) => <LayoutBasic>{page}</LayoutBasic>);
   console.log("@@Component", Component);
+
+  if (isUnloading) {
+    return <div />;
+  }
+
   return (
     <ChakraProvider theme={theme} colorModeManager={localStorageManager}>
       <CSSReset />

@@ -5,10 +5,13 @@ import {
   Container,
   Divider,
   Heading,
+  Hide,
   HStack,
+  Spacer,
   Stack,
   StickyBar,
   Text,
+  useTheme,
 } from "@josulliv101/core";
 import {
   CampaignCreationCallout,
@@ -60,7 +63,6 @@ const mockDonationProps = {
   ],
 };
 
-const landscapeImage = "url(/landscape.png)";
 const SPACING = 10;
 
 const mockCreatedByProps = {
@@ -69,7 +71,7 @@ const mockCreatedByProps = {
   isEmployee: true,
   imageUrl:
     "https://firebasestorage.googleapis.com/v0/b/pigpile-next-mvp.appspot.com/o/site%2Fjoe.png?alt=media&token=b986e32a-0060-4036-ab1e-ab2208aee186",
-  description: "Sed ut perspiciatis unde omnis iste natus error sit.",
+  // description: "Sed ut perspiciatis unde omnis iste natus error sit.",
 };
 
 const mockOrgProps = {
@@ -81,6 +83,10 @@ const mockOrgProps = {
 };
 
 function Campaign({ title, descr, descrShort, tags = [] }): JSX.Element {
+  const {
+    userTheme: { bgImage },
+  } = useTheme();
+  const landscapeImage = `url(${bgImage})`;
   return (
     <>
       <Hero />
@@ -93,25 +99,40 @@ function Campaign({ title, descr, descrShort, tags = [] }): JSX.Element {
       <CampaignDetailsBar description={descr} />
       <Container minH="100px">
         <HStack
+          id="grid-container"
           w="full"
-          direction={{ base: "column", md: "row" }}
-          spacing={SPACING}
+          flexDirection={{ base: "column-reverse", md: "row" }}
+          spacing={{ base: 0, md: SPACING }}
           align="flex-start"
           mb={SPACING}
         >
-          <Stack w="70%" spacing={8}>
+          <Stack w={{ base: "full", md: "70%" }} spacing={{ base: 0, md: 8 }}>
             <Supporters {...mockDonationProps} />
-            <Divider bgColor="gray.600" />
-            <HStack w="full" alignItems="stretch" spacing={4}>
+            <Hide below="md">
+              <Divider bgColor="gray.600" />
+            </Hide>
+            <Hide above="md">
+              <Spacer p={{ base: "10px", md: 0 }} />
+            </Hide>
+            <HStack
+              w="full"
+              alignItems="stretch"
+              flexDirection={{ base: "column", lg: "row" }}
+              spacing={{ base: 0, lg: 4 }}
+            >
               <OrganizationCallout
                 flex="1 0 calc(50% - 10px)"
                 {...mockOrgProps}
               />
+              <Hide above="lg">
+                <Spacer p="10px" />
+              </Hide>
               <Background
                 flex="1 0 calc(50% - 10px)"
                 bgImage={landscapeImage}
                 bgPosition="20% 50%"
                 variant="gradient"
+                minH="360px"
               >
                 <Container
                   pos="relative"
@@ -138,7 +159,7 @@ function Campaign({ title, descr, descrShort, tags = [] }): JSX.Element {
               </Background>
             </HStack>
           </Stack>
-          <Stack w="30%" spacing={4}>
+          <Stack w={{ base: "full", md: "30%" }} spacing={{ base: 0, md: 4 }}>
             <CampaignCreationCallout {...mockCreatedByProps} />
           </Stack>
         </HStack>

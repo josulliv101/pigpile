@@ -11,6 +11,7 @@ export const colorSchemeBluePink: ColorScheme = {
       colorScheme: "blue",
       components: [
         "Background",
+        "Badge",
         "Button",
         "Card",
         "Logo",
@@ -18,6 +19,7 @@ export const colorSchemeBluePink: ColorScheme = {
         "BackgroundLandscape",
         "Modal",
         "StickyBar",
+        "Tag",
       ],
     },
     {

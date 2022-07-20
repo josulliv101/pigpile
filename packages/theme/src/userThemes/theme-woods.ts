@@ -1,10 +1,11 @@
-import { PigpileTheme } from "../types";
+import { UserTheme } from "../types";
 
-export const woodsUserTheme: PigpileTheme = {
+export const woodsUserTheme: UserTheme = {
   id: "woods",
   label: "Woods",
-  // bgImage: "https://media.istockphoto.com/vectors/city-park-panorama-vector-id817094572",
-  bgImage: "/citypark.jpg",
+  bgImage:
+    "https://media.istockphoto.com/vectors/city-park-panorama-vector-id817094572",
+  // bgImage: "/citypark.jpg",
   chesterPosition: {
     left: "12%",
     bottom: "6%",
@@ -13,7 +14,7 @@ export const woodsUserTheme: PigpileTheme = {
   },
   componentsByVariant: [
     { variant: "ghost", components: ["NavButtonFoo", "NavButtonGroup"] },
-    { variant: "outline", components: ["Card"] },
+    { variant: "outline", components: ["Card", "Tag"] },
     { variant: "subtle", components: ["BackgroundContent"] },
   ],
   componentsBySize: [
