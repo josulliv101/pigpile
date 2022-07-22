@@ -20,8 +20,8 @@ const styles: Styles = {
     },
     "input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:focus, input:-webkit-autofill:focus-within,input:-webkit-autofill:active":
       {
-        backgroundColor: "#4a5568 !important;",
-        boxShadow: "0 0 0 30px #4a5568 inset !important",
+        backgroundColor: "#666 !important;",
+        boxShadow: "0 0 0 30px #666 inset !important",
         textFillColor: "white !important",
       },
   }),

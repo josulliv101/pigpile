@@ -16,12 +16,12 @@ import {
   CardElement,
   useStripe as useStripeObject,
 } from "@stripe/react-stripe-js";
-import { PaymentIntent } from "@stripe/stripe-js";
+// import { PaymentIntent } from "@stripe/stripe-js";
 import { Formik, Field, Form } from "formik";
-import { useStripe } from "./useStripe";
+import { useStripePaymentIntent } from "./useStripePaymentIntent";
 
 export interface CreditCardFormProps extends HTMLChakraProps<"div"> {
-  paymentIntent: PaymentIntent;
+  paymentIntent: any; // PaymentIntent;
   showCustomInputField: boolean;
   onSubmit: () => void;
 }
@@ -35,14 +35,14 @@ export const CreditCardForm: React.FC<CreditCardFormProps> = ({
   ...props
 }) => {
   const toast = useToast();
-  const stripeDetails = useStripe();
+  // const stripeDetails = useStripePaymentIntent();
   const stripeObj = useStripeObject();
   const elements = useElements();
   const [isCardReady, setIsCardReady] = useState(false);
   const [isCardFocused, setIsCardFocused] = useState(false);
   const [cardApi, setCardApi] = useState(null);
 
-  console.log("stripeDetails", { showCustomInputField }, stripeDetails);
+  console.log("stripeDetails", { showCustomInputField });
 
   useEffect(() => {
     if (cardApi?.update) {

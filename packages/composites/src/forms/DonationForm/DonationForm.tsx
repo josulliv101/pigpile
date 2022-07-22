@@ -1,15 +1,16 @@
 import type * as React from "react";
 import { Box, Callout, HTMLChakraProps, Stack, Text } from "@josulliv101/core";
 import { Elements } from "@stripe/react-stripe-js";
-import { PaymentIntent } from "@stripe/stripe-js";
-import { getStripe } from "./getStripe";
+// import { PaymentIntent } from "@stripe/stripe-js";
+// import { getStripe } from "./getStripe";
 import { ItemsLabel } from "./ItemsLabel";
 import { TipInput } from "./TipInput";
 import { TotalLabel } from "./TotalLabel";
 import { CreditCardForm } from "./CreditCardForm";
+import { useStripePaymentIntent } from "./useStripePaymentIntent";
 
 export interface DonationFormProps extends HTMLChakraProps<"div"> {
-  paymentIntent: PaymentIntent;
+  // paymentIntent: any; // PaymentIntent;
   onChangeTip: () => void;
   onChangeCustomInputField: () => void;
   onCloseCustomInputField?: () => void;
@@ -21,7 +22,7 @@ export interface DonationFormProps extends HTMLChakraProps<"div"> {
 }
 
 export const DonationForm: React.FC<DonationFormProps> = ({
-  paymentIntent,
+  // paymentIntent,
   tip,
   numberOfUnits,
   showCustomInputField: showCustomInputFieldProp,
@@ -32,6 +33,8 @@ export const DonationForm: React.FC<DonationFormProps> = ({
   onSubmit,
   ...props
 }) => {
+  const { paymentIntent, stripeObj } = useStripePaymentIntent();
+  console.log("stripeObj", paymentIntent, stripeObj);
   const showCustomInputField =
     showCustomInputFieldProp || numberOfUnits === null;
   return (
@@ -54,7 +57,7 @@ export const DonationForm: React.FC<DonationFormProps> = ({
           <TotalLabel amount={numberOfUnits} tip={tip} />
           {/*<PaymentTabs />*/}
           <Elements
-            stripe={getStripe()}
+            stripe={stripeObj}
             options={{
               appearance: {
                 theme: "night",

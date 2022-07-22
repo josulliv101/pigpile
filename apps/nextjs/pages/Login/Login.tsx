@@ -2,7 +2,7 @@ import { useDispatch } from "react-redux";
 import { AbsoluteCenter as Center } from "@josulliv101/core";
 import { LoginForm } from "@josulliv101/composites";
 import { LayoutFullViewport } from "../../components/layouts";
-import { signInUser } from "store";
+import { signInUser, wrapper } from "store";
 
 interface PageProps {}
 

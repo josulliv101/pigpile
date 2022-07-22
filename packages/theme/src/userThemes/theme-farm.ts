@@ -10,9 +10,9 @@ export const farmUserTheme: UserTheme = {
     { variant: "outline", components: ["Card"] },
     {
       variant: "solid",
-      components: ["ShareButtonFoo", "BackgroundBar", "Button"],
+      components: ["Badge", "ShareButtonFoo", "BackgroundBar", "Button"],
     },
-    { variant: "subtle", components: ["Badge", "BackgroundContent"] },
+    { variant: "subtle", components: ["BackgroundContent"] },
   ],
   componentsBySize: [
     { size: "md", components: ["Button", "ShareButtonFoo"] },

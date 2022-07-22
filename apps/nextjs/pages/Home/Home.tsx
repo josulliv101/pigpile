@@ -9,7 +9,7 @@ import {
 } from "@josulliv101/core";
 // import { GetServerSideProps } from "next";
 import { LayoutFullViewport } from "../../components/layouts";
-// import { StickyBar } from "../../components/landmarks";
+import { wrapper } from "store";
 
 // console.log('LayoutBasic', LayoutBasic);
 interface PageProps {}

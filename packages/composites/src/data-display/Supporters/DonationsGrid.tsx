@@ -62,7 +62,6 @@ export const DonationsGrid: React.FC<DonationsGridProps> = ({
           <CardAvatar as={Avatar} icon={<EmojiIcon icon={icon} />} />
           <CardBackground />
           <CardBadge
-            variant="solid"
             as={Badge}
             textTransform="none"
             fontWeight="normal"

@@ -41,9 +41,13 @@ export const CampaignCreationCallout: React.FC<CampaignCreationCalloutProps> =
         {...props}
       >
         <Stack spacing="4" align="center" spacing="3">
-          <Avatar size="xl" name={createdBy} src={imageUrl} />
+          <Avatar
+            size={{ base: "xl", sm: "lg", md: "xl" }}
+            name={createdBy}
+            src={imageUrl}
+          />
 
-          <Text fontSize="sm" noOfLines={1}>
+          <Text textAlign="center" fontSize="sm" noOfLines={2}>
             Created by {createdBy}
           </Text>
           <Text opacity=".8" fontSize="xs">

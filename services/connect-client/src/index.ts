@@ -3,3 +3,4 @@ export { signInWithPopup, signOut, GithubAuthProvider } from "firebase/auth";
 
 export * from "./isClient";
 export * from "./connectClientApp";
+export * from "./addEmojiLove";

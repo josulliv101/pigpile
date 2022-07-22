@@ -12,8 +12,14 @@ export function Campaign({ id }): JSX.Element {
 
 export const getServerSideProps = wrapper.getServerSideProps(
   (store) =>
-    async ({ params }) => {
+    async ({ params, res }) => {
       const { id } = params;
+
+      res.setHeader(
+        "Cache-Control",
+        "public, s-maxage=30, stale-while-revalidate=180"
+      );
+
       const snapshot = await adminDb.collection("campaigns").doc(id).get();
       store.dispatch(campaignsSlice.actions.setCampaign(snapshot.data()));
       return {

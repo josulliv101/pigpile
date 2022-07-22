@@ -44,8 +44,8 @@ export const CampaignOverviewBar = ({
                 ))}
               </HStack>
               <Box>
-                <Heading fontSize="3xl" fontWeight="semibold">
-                  Pigpile on cold feet in {location}
+                <Heading fontSize="2xl" fontWeight="semibold">
+                  Pigpile on {"The Somerville Homeless Coalition"}
                 </Heading>
                 <Text fontSize="2xl" noOfLines={5}>
                   {overview}

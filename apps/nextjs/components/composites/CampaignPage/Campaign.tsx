@@ -14,6 +14,15 @@ import {
   useTheme,
 } from "@josulliv101/core";
 import {
+  Avatar,
+  Badge,
+  Card,
+  CardAvatar,
+  CardBackground,
+  CardBadge,
+  CardContent,
+} from "@josulliv101/core";
+import {
   CampaignCreationCallout,
   OrganizationCallout,
   Supporters,
@@ -160,7 +169,43 @@ function Campaign({ title, descr, descrShort, tags = [] }): JSX.Element {
             </HStack>
           </Stack>
           <Stack w={{ base: "full", md: "30%" }} spacing={{ base: 0, md: 4 }}>
-            <CampaignCreationCallout {...mockCreatedByProps} />
+            {/*<CampaignCreationCallout {...mockCreatedByProps} />*/}
+            <Card
+              colorScheme="gray"
+              variant="solid"
+              size="sm"
+              minW="260px"
+              pt="36px"
+            >
+              <CardAvatar
+                as={Avatar}
+                sx={{ ">img": { transform: "scale(1)" } }}
+                size="xl"
+                src={mockCreatedByProps.imageUrl}
+              />
+              <CardBackground h="92px" />
+              <CardContent pt="2">
+                <Heading size="xs" noOfLines={2}>
+                  Created by Joe Sullivan
+                </Heading>
+                <Text fontSize="xs" noOfLines={2}>
+                  on 01/12/2022
+                </Text>
+                <Badge
+                  mb="3"
+                  color="gray.800"
+                  bgColor="gray.300"
+                  variant="solid"
+                  fontSize="0.6rem"
+                  fontWeight="normal"
+                >
+                  Pigpile Employee
+                </Badge>
+                <Text fontSize=".7rem" noOfLines={2}>
+                  Pigpile on <em>The Somerville Homeless Coalition</em>
+                </Text>
+              </CardContent>
+            </Card>
           </Stack>
         </HStack>
       </Container>

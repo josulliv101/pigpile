@@ -5,6 +5,7 @@ import { appSlice } from "./appSlice";
 import { authSlice } from "./authSlice";
 import { campaignsSlice } from "./campaignsSlice";
 import { themeSlice } from "./themeSlice";
+import { paymentSlice } from "./paymentSlice";
 
 const makeStore = () =>
   configureStore({
@@ -12,6 +13,7 @@ const makeStore = () =>
       [appSlice.name]: appSlice.reducer,
       [authSlice.name]: authSlice.reducer,
       [campaignsSlice.name]: campaignsSlice.reducer,
+      [paymentSlice.name]: paymentSlice.reducer,
       [themeSlice.name]: themeSlice.reducer,
     },
     devTools: true,

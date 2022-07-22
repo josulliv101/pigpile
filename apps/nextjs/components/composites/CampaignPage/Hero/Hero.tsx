@@ -25,67 +25,16 @@ import {
   ModalCloseButton,
   useTheme,
 } from "@josulliv101/core";
-import { selectChesterAnimation } from "store";
+import {
+  completeDonation,
+  paymentSlice,
+  selectChesterAnimation,
+  selectPaymentState,
+  FORM_STEPS,
+} from "store";
 import { useLabelBundle } from "../../../../hooks";
 
 interface HeroProps {}
-
-// const landscapeImage = "url(/landscape.png)";
-
-const mockPaymentIntent = {
-  id: "pi_3LKoL2EIuGVvU2Me0PofWgHK",
-  object: "payment_intent",
-  amount: 5000,
-  amount_capturable: 0,
-  amount_details: { tip: {} },
-  amount_received: 0,
-  application: null,
-  application_fee_amount: null,
-  automatic_payment_methods: { enabled: true },
-  canceled_at: null,
-  cancellation_reason: null,
-  capture_method: "automatic",
-  charges: {
-    object: "list",
-    data: [],
-    has_more: false,
-    total_count: 0,
-    url: "/v1/charges?payment_intent=pi_3LKoL2EIuGVvU2Me0PofWgHK",
-  },
-  client_secret: "pi_3LKoL2EIuGVvU2Me0PofWgHK_secret_a4zzST2DMrQEd6Q7OmtpYaCYa",
-  confirmation_method: "automatic",
-  created: 1657652500,
-  currency: "usd",
-  customer: null,
-  description: "pigpile_donation",
-  invoice: null,
-  last_payment_error: null,
-  livemode: false,
-  metadata: {},
-  next_action: null,
-  on_behalf_of: null,
-  payment_method: null,
-  payment_method_options: {
-    card: {
-      installments: null,
-      mandate_options: null,
-      network: null,
-      request_three_d_secure: "automatic",
-    },
-  },
-  payment_method_types: ["card"],
-  processing: null,
-  receipt_email: null,
-  review: null,
-  setup_future_usage: null,
-  shipping: null,
-  source: null,
-  statement_descriptor: null,
-  statement_descriptor_suffix: null,
-  status: "requires_payment_method",
-  transfer_data: null,
-  transfer_group: null,
-};
 
 const chesterAnimationProps = {};
 export const options = [
@@ -102,10 +51,12 @@ export const options = [
 ];
 
 const Hero = ({ stepWithinWizard = 0 }): JSX.Element => {
+  const dispatch = useDispatch();
   const {
     userTheme: { bgImage },
   } = useTheme();
   const chesterAnimation = useSelector(selectChesterAnimation());
+  const { activeFormStep } = useSelector(selectPaymentState());
   // const foo = useChesterAnimation();
   const landscapeImage = `url(${bgImage})`;
 
@@ -134,6 +85,7 @@ const Hero = ({ stepWithinWizard = 0 }): JSX.Element => {
   const handleCloseModal = () => {
     setUserRequestsCustomAmount(false);
     setNumberOfUnits(null);
+    dispatch(paymentSlice.actions.setActiveFormStep(FORM_STEPS.Donate));
     onClose();
   };
 
@@ -145,6 +97,22 @@ const Hero = ({ stepWithinWizard = 0 }): JSX.Element => {
   const handleChangeTip = (n) => {
     setTip(n);
   };
+
+  const handleSubmitDonation = () => {
+    dispatch(paymentSlice.actions.setActiveFormStep(FORM_STEPS.AdditionalInfo));
+  };
+
+  const handleSubmitAdddditionalInfo = () => {
+    dispatch(
+      completeDonation({
+        campaignId: "somerville-homeless-coalition",
+        displayName: "Joe",
+        emoji: "😀",
+      })
+    );
+    handleCloseModal();
+  };
+
   return (
     <Background
       bgImage={landscapeImage}
@@ -167,18 +135,18 @@ const Hero = ({ stepWithinWizard = 0 }): JSX.Element => {
           <ModalHeader>Modal Title</ModalHeader>
           <ModalCloseButton />
           <ModalBody pb="6">
-            {stepWithinWizard === 0 && (
+            {activeFormStep === FORM_STEPS.Donate && (
               <DonationForm
                 bgColor="transparent"
                 p="0"
-                paymentIntent={mockPaymentIntent}
+                // paymentIntent={{}}
                 onChangeTip={handleChangeTip}
                 onChangeCustomInputField={handleChangeCustomInputField}
                 onCloseCustomInputField={() =>
                   setUserRequestsCustomAmount(false)
                 }
                 onShowCustomInputField={() => setUserRequestsCustomAmount(true)}
-                onSubmit={(d) => console.log("SUBMIT", d)}
+                onSubmit={handleSubmitDonation}
                 numberOfUnits={numberOfUnits}
                 tip={tip}
                 showCustomInputField={
@@ -186,7 +154,13 @@ const Hero = ({ stepWithinWizard = 0 }): JSX.Element => {
                 }
               />
             )}
-            {stepWithinWizard === 1 && <EmojiForm />}
+            {activeFormStep === FORM_STEPS.AdditionalInfo && (
+              <EmojiForm
+                p="0"
+                bgColor="transparent"
+                onSubmit={handleSubmitAdddditionalInfo}
+              />
+            )}
           </ModalBody>
         </ModalContent>
       </Modal>
