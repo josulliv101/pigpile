@@ -1,7 +1,10 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { ChesterAnimations } from "@josulliv101/core";
 import { ColorScheme, DEFAULT_COLOR_SCHEME_ID } from "@josulliv101/theme";
-import { addEmojiLove } from "@josulliv101/connect-client";
+import {
+  addEmojiLove,
+  subscribeToCampaignDonations,
+} from "@josulliv101/connect-client";
 import { AppState } from "./store";
 
 export enum FORM_STEPS {

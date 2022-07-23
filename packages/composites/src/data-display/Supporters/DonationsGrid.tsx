@@ -1,4 +1,5 @@
 import * as React from "react";
+import { Donation } from "@josulliv101/type";
 import {
   Avatar as AvatarBase,
   Badge,
@@ -11,13 +12,6 @@ import {
   CardBadge,
   CardContent,
 } from "@josulliv101/core";
-
-export interface Donation {
-  name: string;
-  amount: number;
-  donatedAt: string;
-  icon?: string;
-}
 
 export interface DonationsGridProps {
   donations: Donation[];
@@ -52,14 +46,14 @@ export const DonationsGrid: React.FC<DonationsGridProps> = ({
       spacing="10px"
       {...props}
     >
-      {donations.map(({ name, icon, amount, donatedAt }) => (
+      {donations.map(({ displayName, emoji, quantity, createdAt }) => (
         <Card
-          key={`${name}-${amount}`}
+          key={`${displayName}-${quantity}`}
           colorScheme="blue"
           variant="outline"
           size="sm"
         >
-          <CardAvatar as={Avatar} icon={<EmojiIcon icon={icon} />} />
+          <CardAvatar as={Avatar} icon={<EmojiIcon icon={emoji} />} />
           <CardBackground />
           <CardBadge
             as={Badge}
@@ -67,14 +61,14 @@ export const DonationsGrid: React.FC<DonationsGridProps> = ({
             fontWeight="normal"
             fontSize="10px"
           >
-            {amount}
+            {quantity}
           </CardBadge>
           <CardContent>
             <Heading size="xs" noOfLines={1}>
-              {name}
+              {displayName}
             </Heading>
             <Text fontSize="xs" noOfLines={1}>
-              2 pairs of socks
+              {quantity} pairs of socks
             </Text>
           </CardContent>
         </Card>

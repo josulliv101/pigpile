@@ -1,13 +1,32 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { adminDb } from "@josulliv101/connect-admin";
+import { useSubscribeToCampaignDonations } from "@josulliv101/connect-client";
+import { Donations } from "@josulliv101/types";
 import { LayoutCampaign } from "../../components/layouts";
+import { useFoo } from "hooks";
 import Content from "../../components/composites/CampaignPage/Campaign";
-import { campaignsSlice, selectCampaign, wrapper } from "../../store";
+import {
+  campaignsSlice,
+  donationsSlice,
+  selectCampaign,
+  selectIsAppReady,
+  wrapper,
+} from "../../store";
 
 export function Campaign({ id }): JSX.Element {
-  const { beneficiary, campaign, tags } = useSelector(selectCampaign(id)) || {};
+  useFoo(id);
+  const { beneficiary, campaign, goal, tags } =
+    useSelector(selectCampaign(id)) || {};
   console.log("campaign tags prop", id, useSelector(selectCampaign(id)));
-  return <Content beneficiary={beneficiary} {...campaign} tags={tags} />;
+  return (
+    <Content
+      goalAmount={goal.amount}
+      campaignId={id}
+      beneficiary={beneficiary}
+      {...campaign}
+      tags={tags}
+    />
+  );
 }
 
 export const getServerSideProps = wrapper.getServerSideProps(

@@ -8,6 +8,18 @@ export interface User {
   isAdmin?: boolean | null;
 }
 
+export interface Donation {
+  id: string;
+  userId: string;
+  displayName: string;
+  emoji: string;
+  comment: string;
+  quantity: number;
+  tip: number;
+  isAnonymous?: boolean;
+  createdAt: Date;
+}
+
 export interface Campaign {
   id: string;
   beneficiary: {

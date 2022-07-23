@@ -18,6 +18,7 @@ import {
   Textarea,
   useToast,
 } from "@josulliv101/core";
+import { EmojiField } from "./EmojiField";
 
 const emojis = [
   "❤️",
@@ -47,6 +48,11 @@ const emojis = [
   "✌️",
   "🤟",
   "🤘",
+  "🍔",
+  "🍕",
+  "🍎",
+  "🧁",
+  "🍪",
 ];
 
 export interface EmojiFormProps extends HTMLChakraProps<"div"> {
@@ -57,10 +63,10 @@ const FieldAnonymousCheckBox = () => {
   const toast = useToast();
   const [toastHasBeenDisplayedOnce, setToastHasBeenDisplayedOnce] = useState();
   return (
-    <Field name="anonymous">
+    <Field name="isAnonymous">
       {({ field, form }: FieldProps) => {
         useEffect(() => {
-          if (!toastHasBeenDisplayedOnce && form.values.anonymous) {
+          if (!toastHasBeenDisplayedOnce && form.values.isAnonymous) {
             setToastHasBeenDisplayedOnce(true);
             toast({
               title: "Ok, we won't display your name.",
@@ -71,10 +77,10 @@ const FieldAnonymousCheckBox = () => {
               position: "top",
             });
           }
-        }, [form.values.anonymous]);
+        }, [form.values.isAnonymous]);
         return (
           <FormControl
-            id="anonymous"
+            // id="anonymous"
             isInvalid={!!form.errors.anonymous && !!form.touched.anonymous}
           >
             <Checkbox size="sm" {...field}>
@@ -102,7 +108,12 @@ export const EmojiForm: React.FC<EmojiFormProps> = ({ onSubmit, ...props }) => {
     <Callout as={Stack} spacing="8" {...props}>
       <Text>Thank you! One final step below.</Text>
       <Formik
-        initialValues={{ displayName: "", comment: "", anonymous: false }}
+        initialValues={{
+          displayName: "",
+          comment: "",
+          emoji: "😊",
+          isAnonymous: false,
+        }}
         onSubmit={onSubmit}
         validate={(values) => {
           let errors = {};
@@ -143,7 +154,7 @@ export const EmojiForm: React.FC<EmojiFormProps> = ({ onSubmit, ...props }) => {
                           fontSize="xl"
                           px="2"
                           bgColor="gray.50"
-                          children={activeEmoji}
+                          children={values.emoji}
                         />
                       </InputGroup>
                       <FormErrorMessage>
@@ -154,31 +165,16 @@ export const EmojiForm: React.FC<EmojiFormProps> = ({ onSubmit, ...props }) => {
                 </Field>
                 <FieldAnonymousCheckBox />
                 <Text pt="20px">Select Your Emoji</Text>
-                <Box p="2" borderRadius="md" borderWidth="1px">
-                  <SimpleGrid columns={{ base: 5, sm: 7, md: 10 }} spacing={2}>
-                    {emojis.map((emoji) => (
-                      <Button
-                        isActive={emoji === activeEmoji}
-                        onClick={() => setActiveEmoji(emoji)}
-                        minH="32px"
-                        fontSize="xl"
-                        _active={{
-                          bgColor: "whiteAlpha.200",
-                          borderWidth: 1,
-                          borderColor: "whiteAlpha.100",
-                        }}
-                        _hover={{ bgColor: "whiteAlpha.100" }}
-                        // bgColor={emoji === activeEmoji ? "white" : "whiteAlpha.300"}
-                        size="xs"
-                        variant="ghost"
-                        w="auto"
-                        aria-label={emoji}
-                      >
-                        {emoji}
-                      </Button>
-                    ))}
-                  </SimpleGrid>
-                </Box>
+                <Field name="emoji">
+                  {({ field, form }) => (
+                    <FormControl>
+                      <EmojiField {...field} />
+                      <FormErrorMessage>
+                        {form.errors.displayName}
+                      </FormErrorMessage>
+                    </FormControl>
+                  )}
+                </Field>
                 <Field name="comment">
                   {({ field, form }) => (
                     <FormControl

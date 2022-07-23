@@ -4,6 +4,7 @@ import { createWrapper } from "next-redux-wrapper";
 import { appSlice } from "./appSlice";
 import { authSlice } from "./authSlice";
 import { campaignsSlice } from "./campaignsSlice";
+import { donationsSlice } from "./donationsSlice";
 import { themeSlice } from "./themeSlice";
 import { paymentSlice } from "./paymentSlice";
 
@@ -13,6 +14,7 @@ const makeStore = () =>
       [appSlice.name]: appSlice.reducer,
       [authSlice.name]: authSlice.reducer,
       [campaignsSlice.name]: campaignsSlice.reducer,
+      [donationsSlice.name]: donationsSlice.reducer,
       [paymentSlice.name]: paymentSlice.reducer,
       [themeSlice.name]: themeSlice.reducer,
     },

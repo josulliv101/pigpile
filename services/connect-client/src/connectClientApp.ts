@@ -29,6 +29,7 @@ export const connectClientApp = (
 
   onAuthStateChanged(auth, async (authUser) => {
     const user = await getUser(authUser);
+    console.log("onAuthStateChanged", user, authUser);
     authStateChangedHandler(user);
   });
 };

@@ -15,7 +15,9 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.17.0",
-    "firebase": "^9.9.0"
+    "@josulliv101/types": "*",
+    "firebase": "^9.9.0",
+    "react": "18.2.0"
   },
   "devDependencies": {}
 }

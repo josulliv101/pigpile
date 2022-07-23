@@ -28,10 +28,11 @@ import {
 import { useLabelBundle } from "@josulliv101/labelbundles";
 import { formatNumber } from "@josulliv101/formatting";
 import {
-  completeDonation,
+  addCampaignDonation,
   paymentSlice,
   selectChesterAnimation,
   selectPaymentState,
+  selectUser,
   FORM_STEPS,
 } from "store";
 // import { useLabelBundle } from "../../../../hooks";
@@ -53,11 +54,17 @@ export const options = [
   { label: "custom", value: "custom" },
 ];
 
-const Hero = ({ beneficiary }): JSX.Element => {
+const Hero = ({
+  campaignId,
+  beneficiary,
+  goalAmount,
+  currentAmount,
+}): JSX.Element => {
   const dispatch = useDispatch();
   const {
     userTheme: { bgImage },
   } = useTheme();
+  const user = useSelector(selectUser());
   const chesterAnimation = useSelector(selectChesterAnimation());
   const { activeFormStep } = useSelector(selectPaymentState());
   // const foo = useChesterAnimation();
@@ -105,12 +112,19 @@ const Hero = ({ beneficiary }): JSX.Element => {
     dispatch(paymentSlice.actions.setActiveFormStep(FORM_STEPS.AdditionalInfo));
   };
 
-  const handleSubmitAdddditionalInfo = () => {
+  const handleSubmitAdditionalInfo = (donation, ...rest) => {
+    console.log(
+      "handleSubmitAdddditionalInfo",
+      { numberOfUnits, tip, user, donation },
+      ...rest
+    );
     dispatch(
-      completeDonation({
-        campaignId: "somerville-homeless-coalition",
-        displayName: "Joe",
-        emoji: "😀",
+      addCampaignDonation({
+        campaignId,
+        quantity: numberOfUnits,
+        tip,
+        userId: user?.uid,
+        ...donation,
       })
     );
     handleCloseModal();
@@ -139,7 +153,7 @@ const Hero = ({ beneficiary }): JSX.Element => {
           <ModalHeader>{beneficiary}</ModalHeader>
           <ModalCloseButton />
           <ModalBody pb="6">
-            {activeFormStep === FORM_STEPS.Donate && (
+            {false && activeFormStep === FORM_STEPS.Donate && (
               <DonationForm
                 bgColor="transparent"
                 p="0"
@@ -160,11 +174,11 @@ const Hero = ({ beneficiary }): JSX.Element => {
                 }
               />
             )}
-            {activeFormStep === FORM_STEPS.AdditionalInfo && (
+            {activeFormStep !== FORM_STEPS.AdditionalInfo && (
               <EmojiForm
                 p="0"
                 bgColor="transparent"
-                onSubmit={handleSubmitAdddditionalInfo}
+                onSubmit={handleSubmitAdditionalInfo}
               />
             )}
           </ModalBody>
@@ -190,8 +204,8 @@ const Hero = ({ beneficiary }): JSX.Element => {
         >
           {getLabel(
             "campaign.heroTitle",
-            formatNumber(1000),
-            getLabelForQuantity("donationItems", 1000),
+            formatNumber(goalAmount),
+            getLabelForQuantity("donationItems", goalAmount),
             beneficiary
           )}
         </Heading>
@@ -223,19 +237,29 @@ const Hero = ({ beneficiary }): JSX.Element => {
         <AbsoluteCenter top={{ base: "75%", md: "80%" }}>
           <Chester animationType={chesterAnimation} />
         </AbsoluteCenter>
-        <CountUpBox
-          minW={{ base: "120px", md: "160px" }}
-          bgColor="rgb(203 211 183 / 80%)"
-          pos="absolute"
-          bottom="10px"
-          right={{ base: "10px", md: "20px" }}
-          countUpValue={894}
-          limit={1000}
-          label="894 of 1K socks"
-          showLabelOnEnd
-        >
-          <Progress pos="relative" top="10px" w="full" h="4px" value={80} />
-        </CountUpBox>
+        {currentAmount && goalAmount && (
+          <CountUpBox
+            minW={{ base: "120px", md: "160px" }}
+            bgColor="rgb(203 211 183 / 80%)"
+            pos="absolute"
+            bottom="10px"
+            right={{ base: "10px", md: "20px" }}
+            countUpValue={currentAmount}
+            limit={goalAmount}
+            label={`${currentAmount} of ${goalAmount} ${getLabel(
+              "donationItems.short"
+            )}`}
+            showLabelOnEnd
+          >
+            <Progress
+              pos="relative"
+              top="10px"
+              w="full"
+              h="4px"
+              value={Math.round((currentAmount / goalAmount) * 100)}
+            />
+          </CountUpBox>
+        )}
       </Container>
     </Background>
   );

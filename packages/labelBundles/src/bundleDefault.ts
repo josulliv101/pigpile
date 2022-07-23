@@ -26,6 +26,7 @@ export const defaultLabelBundle: LabelBundleType = {
   donationItems: {
     default: "pairs of socks",
     1: "pair of socks",
+    short: "socks",
   },
   buttons: {
     about: "About",
