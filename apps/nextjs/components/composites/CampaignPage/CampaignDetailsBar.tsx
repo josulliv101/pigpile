@@ -52,7 +52,7 @@ export const CampaignDetailsBar = ({ description }) => {
             as={Avatar}
             sx={{ ">img": { transform: "scale(1)" } }}
             size="xl"
-            src={mockCreatedByProps.imageUrl}
+            src="https://avatars.githubusercontent.com/u/1703430?s=96&v=4"
           />
           <CardBackground h="92px" />
           <CardContent pt="2">

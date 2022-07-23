@@ -8,12 +8,14 @@ import {
   Text,
   Tooltip,
 } from "@josulliv101/core";
+import { getCurrency } from "@josulliv101/formatting";
 import { FaPencilAlt } from "react-icons/fa";
 import { CustomInputField } from "./CustomInputField";
 
 export interface ItemsLabelProps extends HTMLChakraProps<"div"> {
   label: string;
   numberOfUnits: number;
+  pricePerUnit: number;
   showCustomInputField: boolean;
   onCloseCustomInputField: () => void;
   onShowCustomInputField: () => void;
@@ -23,6 +25,7 @@ export interface ItemsLabelProps extends HTMLChakraProps<"div"> {
 export const ItemsLabel: React.FC<ItemsLabelProps> = ({
   label,
   numberOfUnits,
+  pricePerUnit,
   showCustomInputField,
   onCloseCustomInputField,
   onShowCustomInputField,
@@ -38,23 +41,27 @@ export const ItemsLabel: React.FC<ItemsLabelProps> = ({
     onCloseCustomInputField();
     setIsCustomInputDirty(false);
   };
-
   return (
     <HStack
       justifyContent="space-between"
-      alignItems={{ base: "flex-start" }}
+      alignItems={{
+        base: "flex-start",
+        md: !showCustomInputField ? "center" : "flex-start",
+      }}
       flexDirection={{
         base: showCustomInputField ? "column" : "row", // showCustomInputField ? "column" : "row",
         // md: "row",
       }}
+      bgColor={!showCustomInputField ? "blackAlpha.200" : ""}
     >
       <Text
         display="flex"
         alignItems="center"
-        fontSize={{ base: "md", md: "xl" }}
+        fontSize={{ base: "md", md: "md" }}
         noOfLines={1}
+        pl="2"
       >
-        Items:{" "}
+        Donate{" "}
         {!showCustomInputField ? (
           numberOfUnits
         ) : (
@@ -66,7 +73,17 @@ export const ItemsLabel: React.FC<ItemsLabelProps> = ({
             }}
           />
         )}{" "}
-        {label}
+        {typeof label === "function"
+          ? label(!showCustomInputField ? numberOfUnits : updatedNumberOfUnits)
+          : label}
+        &nbsp;
+        <Text fontSize="sm" as="span" opacity=".8">
+          /{" "}
+          {getCurrency(
+            (!showCustomInputField ? numberOfUnits : updatedNumberOfUnits) *
+              pricePerUnit
+          )}
+        </Text>
       </Text>
       {showCustomInputField && (
         <ButtonGroup
@@ -84,9 +101,15 @@ export const ItemsLabel: React.FC<ItemsLabelProps> = ({
             borderColor={{ base: "transparent", md: "whiteAlpha.500" }}
             size={numberOfUnits === null ? "sm" : "xs"}
             disabled={numberOfUnits !== null && !isCustomInputDirty}
+            w={numberOfUnits === null ? "full" : undefined}
           >
             Confirm{" "}
-            {numberOfUnits === null && `Adding ${updatedNumberOfUnits} Item(s)`}
+            {numberOfUnits === null &&
+              `adding ${updatedNumberOfUnits} ${
+                typeof label === "function"
+                  ? label(updatedNumberOfUnits)
+                  : label
+              }`}
           </Button>
           {numberOfUnits !== null && (
             <Button

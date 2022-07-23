@@ -1,4 +1,5 @@
 export * from "./LabelBundle";
+export * from "./Settings";
 
 export interface User {
   uid: string;

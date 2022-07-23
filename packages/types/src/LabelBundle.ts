@@ -33,6 +33,10 @@ export type LabelBundle = {
     view: string;
     website: string;
   };
+  donationItems: {
+    1: string;
+    default: string;
+  };
   forms: {
     anonymous: string;
     anonymousHint: string;

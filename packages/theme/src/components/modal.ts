@@ -33,6 +33,9 @@ const baseStyle: SystemStyleFunction = (props) => {
     dialogContainer: {
       // pt: 20,
     },
+    header: {
+      fontWeight: "normal",
+    },
   };
 };
 

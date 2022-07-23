@@ -1,5 +1,6 @@
 import type * as React from "react";
 import { Box, Divider, HStack, HTMLChakraProps, Text } from "@josulliv101/core";
+import { getCurrency } from "@josulliv101/formatting";
 
 export interface TotalLabelProps extends HTMLChakraProps<"div"> {
   amount: number;
@@ -19,7 +20,7 @@ export const TotalLabel: React.FC<TotalLabelProps> = ({
           alignItems="flex-end"
           display="flex"
         >
-          Total: ${amount + tip}
+          Total: {getCurrency(amount + tip)}
         </Text>
         <Text
           opacity=".8"
@@ -28,7 +29,7 @@ export const TotalLabel: React.FC<TotalLabelProps> = ({
           alignItems="flex-end"
           display="flex"
         >
-          ${amount} donation + ${tip} tip
+          {getCurrency(amount)} donation + {getCurrency(tip)} tip
         </Text>
       </HStack>
       <Divider />

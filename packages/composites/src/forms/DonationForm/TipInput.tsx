@@ -9,6 +9,7 @@ import {
   MenuOptionGroup,
   Text,
 } from "@josulliv101/core";
+import { getCurrency } from "@josulliv101/formatting";
 import { FaChevronDown } from "react-icons/fa";
 
 export interface TipInputProps extends HTMLChakraProps<"div"> {
@@ -38,7 +39,7 @@ export const TipInput: React.FC<TipInputProps> = ({
   ...props
 }) => {
   return (
-    <Text as="div" fontSize="md" {...props}>
+    <Text as="div" fontSize="md" fontWeight="200" {...props}>
       We're a free service and rely on donor love. Any contribution is
       appreciated. Include a tip of &nbsp;
       <Menu placement="bottom-end">
@@ -53,8 +54,9 @@ export const TipInput: React.FC<TipInputProps> = ({
           data-testid="updatetip"
           disabled={isDisabled}
           _disabled={{ cursor: "default" }}
+          opacity=".8"
         >
-          ${tip}
+          {getCurrency(tip)}
         </MenuButton>
         <MenuList
           color="gray.700"
@@ -73,7 +75,7 @@ export const TipInput: React.FC<TipInputProps> = ({
                 data-testid={`option-${option}`}
                 value={String(option)}
               >
-                {formatAsUSD(option)}
+                {getCurrency(option)}
               </MenuItemOption>
             ))}
           </MenuOptionGroup>

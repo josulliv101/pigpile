@@ -15,32 +15,34 @@ import {
   Spacer,
   Stack,
   Text,
+  Textarea,
   useToast,
 } from "@josulliv101/core";
 
 const emojis = [
   "❤️",
-  "💕",
-  "💙",
+  // "💕",
+  // "💙",
   "💚",
-  "💜",
+  // "💜",
   "🖤",
-  "🙂",
+  "😊",
   "😎",
   "🥰",
   "🌷",
   "🌹",
   "🌻",
   "🌼",
-  "💐",
+  // "💐",
   "🐶",
   "🐱",
   "🐭",
   "🐨",
   "🦊",
-  "👏",
-  "🙌",
-  "🙏",
+  "🐰",
+  // "👏",
+  // "🙌",
+  // "🙏",
   "💪",
   "✌️",
   "🤟",
@@ -100,7 +102,7 @@ export const EmojiForm: React.FC<EmojiFormProps> = ({ onSubmit, ...props }) => {
     <Callout as={Stack} spacing="8" {...props}>
       <Text>Thank you! One final step below.</Text>
       <Formik
-        initialValues={{ displayName: "", anonymous: false }}
+        initialValues={{ displayName: "", comment: "", anonymous: false }}
         onSubmit={onSubmit}
         validate={(values) => {
           let errors = {};
@@ -152,7 +154,7 @@ export const EmojiForm: React.FC<EmojiFormProps> = ({ onSubmit, ...props }) => {
                 </Field>
                 <FieldAnonymousCheckBox />
                 <Text pt="20px">Select Your Emoji</Text>
-                <Box bgColor="gray.50" p="2" borderRadius="md">
+                <Box p="2" borderRadius="md" borderWidth="1px">
                   <SimpleGrid columns={{ base: 5, sm: 7, md: 10 }} spacing={2}>
                     {emojis.map((emoji) => (
                       <Button
@@ -161,10 +163,11 @@ export const EmojiForm: React.FC<EmojiFormProps> = ({ onSubmit, ...props }) => {
                         minH="32px"
                         fontSize="xl"
                         _active={{
-                          bgColor: "blackAlpha.200",
+                          bgColor: "whiteAlpha.200",
                           borderWidth: 1,
-                          borderColor: "gray.300",
+                          borderColor: "whiteAlpha.100",
                         }}
+                        _hover={{ bgColor: "whiteAlpha.100" }}
                         // bgColor={emoji === activeEmoji ? "white" : "whiteAlpha.300"}
                         size="xs"
                         variant="ghost"
@@ -176,6 +179,30 @@ export const EmojiForm: React.FC<EmojiFormProps> = ({ onSubmit, ...props }) => {
                     ))}
                   </SimpleGrid>
                 </Box>
+                <Field name="comment">
+                  {({ field, form }) => (
+                    <FormControl
+                      isInvalid={form.errors.comment && form.touched.comment}
+                      // isDisabled={showCustomInputField}
+                    >
+                      <InputGroup>
+                        <Textarea
+                          {...field}
+                          id="comment"
+                          aria-label="comment"
+                          placeholder="Include a comment"
+                          _placeholder={{ color: "whiteAlpha.800" }}
+                          mt="7"
+                          // bgColor="blackAlpha.100"
+                          value={values.comment}
+                        />
+                      </InputGroup>
+                      <FormErrorMessage>
+                        {form.errors.displayName}
+                      </FormErrorMessage>
+                    </FormControl>
+                  )}
+                </Field>
                 <Spacer p="1" />
                 <Button
                   type="submit"

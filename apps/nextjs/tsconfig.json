@@ -39,6 +39,9 @@
       "path": "../../packages/core"
     },
     {
+      "path": "../../packages/formatting"
+    },
+    {
       "path": "../../packages/labelBundles"
     },
     {

@@ -1,4 +1,4 @@
-import type * as React from "react";
+import { useEffect } from "react";
 import { Box, Callout, HTMLChakraProps, Stack, Text } from "@josulliv101/core";
 import { Elements } from "@stripe/react-stripe-js";
 // import { PaymentIntent } from "@stripe/stripe-js";
@@ -17,14 +17,22 @@ export interface DonationFormProps extends HTMLChakraProps<"div"> {
   onShowCustomInputField: () => void;
   onSubmit: () => void;
   numberOfUnits: number | null;
+  pricePerUnit: number;
   tip: number;
   showCustomInputField: boolean;
+  itemsLabelDefinitions: {
+    default: string;
+    1: string;
+  };
+  itemsLabel: (n: number | null) => string;
 }
 
 export const DonationForm: React.FC<DonationFormProps> = ({
   // paymentIntent,
   tip,
-  numberOfUnits,
+  numberOfUnits = 1,
+  pricePerUnit = 1,
+  itemsLabel,
   showCustomInputField: showCustomInputFieldProp,
   onChangeTip,
   onChangeCustomInputField,
@@ -33,10 +41,23 @@ export const DonationForm: React.FC<DonationFormProps> = ({
   onSubmit,
   ...props
 }) => {
-  const { paymentIntent, stripeObj } = useStripePaymentIntent();
+  const {
+    paymentIntentAmount,
+    paymentIntent,
+    stripeObj,
+    setPaymentIntentAmount,
+  } = useStripePaymentIntent(
+    numberOfUnits !== null ? numberOfUnits * pricePerUnit + tip : 0
+  );
   console.log("stripeObj", paymentIntent, stripeObj);
   const showCustomInputField =
     showCustomInputFieldProp || numberOfUnits === null;
+
+  useEffect(() => {
+    if (numberOfUnits) {
+      setPaymentIntentAmount(numberOfUnits * pricePerUnit + tip);
+    }
+  }, [numberOfUnits, pricePerUnit, tip]);
   return (
     <Callout as={Stack} spacing="8" {...props}>
       <ItemsLabel
@@ -44,7 +65,8 @@ export const DonationForm: React.FC<DonationFormProps> = ({
         onShowCustomInputField={onShowCustomInputField}
         onChangeCustomInputField={onChangeCustomInputField}
         numberOfUnits={numberOfUnits}
-        label="pairs of socks"
+        pricePerUnit={pricePerUnit}
+        label={itemsLabel}
         showCustomInputField={showCustomInputField}
       />
       {numberOfUnits !== null && (
@@ -54,7 +76,7 @@ export const DonationForm: React.FC<DonationFormProps> = ({
             onChange={onChangeTip}
             isDisabled={showCustomInputField}
           />
-          <TotalLabel amount={numberOfUnits} tip={tip} />
+          <TotalLabel amount={numberOfUnits * pricePerUnit} tip={tip} />
           {/*<PaymentTabs />*/}
           <Elements
             stripe={stripeObj}

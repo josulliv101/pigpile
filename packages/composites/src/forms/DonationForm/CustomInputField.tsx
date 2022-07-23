@@ -37,6 +37,7 @@ export const CustomInputField: React.FC<CustomInputFieldProps> = ({
       min={1}
       max={500}
       borderColor="whiteAlpha.500"
+      bgColor="blackAlpha.200"
     >
       <NumberInputField ref={inputEl} arial-label="update number of units" />
       <NumberInputStepper borderColor="whiteAlpha.500">

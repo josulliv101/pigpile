@@ -23,6 +23,7 @@
     "@josulliv101/connect-admin": "*",
     "@josulliv101/connect-client": "*",
     "@josulliv101/core": "*",
+    "@josulliv101/formatting": "*",
     "@josulliv101/labelbundles": "*",
     "@josulliv101/theme": "*",
     "@josulliv101/types": "*",

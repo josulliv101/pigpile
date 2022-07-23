@@ -5,9 +5,9 @@ import Content from "../../components/composites/CampaignPage/Campaign";
 import { campaignsSlice, selectCampaign, wrapper } from "../../store";
 
 export function Campaign({ id }): JSX.Element {
-  const { campaign, tags } = useSelector(selectCampaign(id)) || {};
+  const { beneficiary, campaign, tags } = useSelector(selectCampaign(id)) || {};
   console.log("campaign tags prop", id, useSelector(selectCampaign(id)));
-  return <Content {...campaign} tags={tags} />;
+  return <Content beneficiary={beneficiary} {...campaign} tags={tags} />;
 }
 
 export const getServerSideProps = wrapper.getServerSideProps(
@@ -17,7 +17,7 @@ export const getServerSideProps = wrapper.getServerSideProps(
 
       res.setHeader(
         "Cache-Control",
-        "public, s-maxage=30, stale-while-revalidate=180"
+        "public, s-maxage=600, stale-while-revalidate=1800"
       );
 
       const snapshot = await adminDb.collection("campaigns").doc(id).get();

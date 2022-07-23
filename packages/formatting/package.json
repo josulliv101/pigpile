@@ -1,0 +1,21 @@
+{
+  "name": "@josulliv101/formatting",
+  "version": "0.1.2",
+  "description": "Formatting strings & numbers for @pigpile",
+  "repository": "https://github.com/josulliv101/pigpile/tree/master/packages/formatting",
+  "main": "dist/josulliv101-formatting.cjs.js",
+  "module": "dist/josulliv101-formatting.esm.js",
+  "types": "dist/pigpile-formatting.cjs.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.17.0",
+    "lodash.get": "^4.4.2"
+  },
+  "devDependencies": {}
+}

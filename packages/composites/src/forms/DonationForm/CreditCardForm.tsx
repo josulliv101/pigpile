@@ -18,7 +18,6 @@ import {
 } from "@stripe/react-stripe-js";
 // import { PaymentIntent } from "@stripe/stripe-js";
 import { Formik, Field, Form } from "formik";
-import { useStripePaymentIntent } from "./useStripePaymentIntent";
 
 export interface CreditCardFormProps extends HTMLChakraProps<"div"> {
   paymentIntent: any; // PaymentIntent;
@@ -35,7 +34,6 @@ export const CreditCardForm: React.FC<CreditCardFormProps> = ({
   ...props
 }) => {
   const toast = useToast();
-  // const stripeDetails = useStripePaymentIntent();
   const stripeObj = useStripeObject();
   const elements = useElements();
   const [isCardReady, setIsCardReady] = useState(false);
@@ -104,7 +102,7 @@ export const CreditCardForm: React.FC<CreditCardFormProps> = ({
         return errors;
       }}
     >
-      {({ dirty, isValid, setStatus, status, ...rest }) => {
+      {({ dirty, isValid, isSubmitting, setStatus, status, ...rest }) => {
         console.log("props", { dirty, isValid, setStatus, status }, rest);
         const handleCardChange = (event) =>
           setStatus({ ...status, ccComplete: event.complete });
@@ -209,8 +207,10 @@ export const CreditCardForm: React.FC<CreditCardFormProps> = ({
                   showCustomInputField ||
                   !dirty ||
                   !isValid ||
-                  !status?.ccComplete
+                  !status?.ccComplete ||
+                  isSubmitting
                 }
+                isLoading={isSubmitting}
               >
                 Donate Now
               </Button>

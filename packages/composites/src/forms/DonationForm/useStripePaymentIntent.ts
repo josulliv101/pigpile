@@ -3,9 +3,12 @@ import { loadStripe } from "@stripe/stripe-js/pure";
 
 let stripePromise: Promise<Stripe | null>;
 
-export function useStripePaymentIntent() {
+export function useStripePaymentIntent(initialPaymentIntentAmount = 0) {
+  const [paymentIntentAmount, setPaymentIntentAmount] = useState(
+    initialPaymentIntentAmount
+  );
   const [paymentIntent, setPaymentIntentObj] = useState(null);
-  const [amount, setPaymentIntentAmount] = useState(10);
+  // const [amount, setPaymentIntentAmount] = useState(10);
   const stripeObj = getStripe();
 
   useEffect(() => {
@@ -20,7 +23,7 @@ export function useStripePaymentIntent() {
         },
         redirect: "follow",
         referrerPolicy: "no-referrer",
-        body: JSON.stringify({ amount }),
+        body: JSON.stringify({ amount: paymentIntentAmount }),
       });
 
       const json = await response.json();
@@ -29,10 +32,13 @@ export function useStripePaymentIntent() {
     };
 
     console.log("FETCHING");
-    fetchData().catch(console.error);
-  }, []);
+    if (initialPaymentIntentAmount) {
+      fetchData().catch(console.error);
+    }
+  }, [paymentIntentAmount]);
 
   return {
+    paymentIntentAmount,
     paymentIntent,
     stripeObj,
     setPaymentIntentAmount,

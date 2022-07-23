@@ -23,6 +23,10 @@ export const defaultLabelBundle: LabelBundleType = {
   logout: "Logout",
   more: "more",
   tip: "tip",
+  donationItems: {
+    default: "pairs of socks",
+    1: "pair of socks",
+  },
   buttons: {
     about: "About",
     cancel: "Cancel",

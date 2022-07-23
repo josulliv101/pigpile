@@ -25,6 +25,8 @@ import {
   ModalCloseButton,
   useTheme,
 } from "@josulliv101/core";
+import { useLabelBundle } from "@josulliv101/labelbundles";
+import { formatNumber } from "@josulliv101/formatting";
 import {
   completeDonation,
   paymentSlice,
@@ -32,11 +34,12 @@ import {
   selectPaymentState,
   FORM_STEPS,
 } from "store";
-import { useLabelBundle } from "../../../../hooks";
+// import { useLabelBundle } from "../../../../hooks";
 
-interface HeroProps {}
+interface HeroProps {
+  beneficiary: string;
+}
 
-const chesterAnimationProps = {};
 export const options = [
   { label: "2 pairs", value: 2, price: 3 },
   { label: "4 pairs", value: 4, price: 6 },
@@ -50,7 +53,7 @@ export const options = [
   { label: "custom", value: "custom" },
 ];
 
-const Hero = ({ stepWithinWizard = 0 }): JSX.Element => {
+const Hero = ({ beneficiary }): JSX.Element => {
   const dispatch = useDispatch();
   const {
     userTheme: { bgImage },
@@ -60,7 +63,7 @@ const Hero = ({ stepWithinWizard = 0 }): JSX.Element => {
   // const foo = useChesterAnimation();
   const landscapeImage = `url(${bgImage})`;
 
-  const { getLabel } = useLabelBundle();
+  const { getLabel, getLabelForQuantity } = useLabelBundle();
   const [userRequestsCustomAmount, setUserRequestsCustomAmount] =
     useState(false);
   const [numberOfUnits, setNumberOfUnits] = useState<number | null>(null);
@@ -95,7 +98,7 @@ const Hero = ({ stepWithinWizard = 0 }): JSX.Element => {
   };
 
   const handleChangeTip = (n) => {
-    setTip(n);
+    setTip(Number(n));
   };
 
   const handleSubmitDonation = () => {
@@ -131,8 +134,9 @@ const Hero = ({ stepWithinWizard = 0 }): JSX.Element => {
           bgImage={landscapeImage}
           bgSize="cover"
           bgPosition="27% 50%"
+          mt="10%"
         >
-          <ModalHeader>Modal Title</ModalHeader>
+          <ModalHeader>{beneficiary}</ModalHeader>
           <ModalCloseButton />
           <ModalBody pb="6">
             {activeFormStep === FORM_STEPS.Donate && (
@@ -140,6 +144,7 @@ const Hero = ({ stepWithinWizard = 0 }): JSX.Element => {
                 bgColor="transparent"
                 p="0"
                 // paymentIntent={{}}
+                itemsLabel={(n) => getLabelForQuantity("donationItems", n)}
                 onChangeTip={handleChangeTip}
                 onChangeCustomInputField={handleChangeCustomInputField}
                 onCloseCustomInputField={() =>
@@ -148,6 +153,7 @@ const Hero = ({ stepWithinWizard = 0 }): JSX.Element => {
                 onShowCustomInputField={() => setUserRequestsCustomAmount(true)}
                 onSubmit={handleSubmitDonation}
                 numberOfUnits={numberOfUnits}
+                pricePerUnit={1.5}
                 tip={tip}
                 showCustomInputField={
                   userRequestsCustomAmount || numberOfUnits === null
@@ -184,9 +190,9 @@ const Hero = ({ stepWithinWizard = 0 }): JSX.Element => {
         >
           {getLabel(
             "campaign.heroTitle",
-            "1,000",
-            "pairs of socks",
-            "The Somerville Homeless Coalition"
+            formatNumber(1000),
+            getLabelForQuantity("donationItems", 1000),
+            beneficiary
           )}
         </Heading>
         <Heading
@@ -215,10 +221,7 @@ const Hero = ({ stepWithinWizard = 0 }): JSX.Element => {
           moreTooltipLabel="more options"
         />
         <AbsoluteCenter top={{ base: "75%", md: "80%" }}>
-          <Chester
-            {...chesterAnimationProps}
-            animationType={chesterAnimation}
-          />
+          <Chester animationType={chesterAnimation} />
         </AbsoluteCenter>
         <CountUpBox
           minW={{ base: "120px", md: "160px" }}
