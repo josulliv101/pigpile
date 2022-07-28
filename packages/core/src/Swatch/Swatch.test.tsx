@@ -1,4 +1,3 @@
-import * as React from "react";
 import userEvent from "@testing-library/user-event";
 import { render, screen } from "../../../../testUtils";
 import { axe } from "jest-axe";
@@ -58,7 +57,7 @@ describe("SwatchButton", () => {
     expect(container.firstChild).toMatchInlineSnapshot(`
       <button
         aria-label="swatch colors blue, pink, #48bb78"
-        class="chakra-button chakra-swatch css-yfdjii"
+        class="chakra-button chakra-swatch css-1xmq3zc"
         type="button"
       >
         <div

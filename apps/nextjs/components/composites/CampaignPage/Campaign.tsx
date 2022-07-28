@@ -230,7 +230,7 @@ function Campaign({
                   />
                 </Box>
                 <Heading opacity=".7" color="gray.600" size="xs" mb="1">
-                  Secure Payment Processing
+                  Stripe Secure Payment Processing
                 </Heading>
               </HStack>
               <Text fontSize="xs">

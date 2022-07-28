@@ -1,29 +1,27 @@
-import * as React from "react";
-// import userEvent from "@testing-library/user-event";
-import { render } from "../../../../../../testUtils";
+import { render } from "../../../../../testUtils";
 import { axe } from "jest-axe";
 import { DonationsGrid } from "./DonationsGrid";
-import { mockProps } from "./mock";
+import { mockDonationProps } from "./mock";
 
 describe("Supporters", () => {
   it("should not have basic accessibility issues", async () => {
-    const { container } = render(<DonationsGrid {...mockProps} />);
+    const { container } = render(<DonationsGrid {...mockDonationProps} />);
     const results = await axe(container);
     expect(results).toHaveNoViolations();
   });
   it("renders correctly", () => {
     const { container } = render(
-      <DonationsGrid donations={mockProps.donations.slice(0, 1)} />
+      <DonationsGrid donations={mockDonationProps.donations.slice(0, 1)} />
     );
     expect(container.firstChild).toMatchInlineSnapshot(`
       <div
-        class="css-1d3m6tr"
+        class="css-1svbe3o"
       >
         <div
-          class="chakra-card css-0"
+          class="chakra-card css-cfa4mp"
         >
           <span
-            class="chakra-avatar chakra-card__avatar css-66hxb4"
+            class="chakra-avatar chakra-card__avatar css-1afu1a"
           >
             <p
               class="chakra-text css-1o8uild"
@@ -34,11 +32,6 @@ describe("Supporters", () => {
           <div
             class="chakra-card__background css-0"
           />
-          <span
-            class="chakra-badge chakra-card__badge css-wgvyo1"
-          >
-            10
-          </span>
           <div
             class="chakra-card__content css-0"
           >
@@ -48,9 +41,15 @@ describe("Supporters", () => {
               Joe Sullivan
             </h2>
             <p
-              class="chakra-text css-1lj023j"
+              class="chakra-text css-llnct3"
             >
-              06/19/2022
+              10
+               pairs of socks
+            </p>
+            <p
+              class="chakra-text css-llnct3"
+            >
+              NaN years ago
             </p>
           </div>
         </div>

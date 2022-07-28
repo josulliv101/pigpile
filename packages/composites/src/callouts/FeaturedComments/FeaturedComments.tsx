@@ -28,7 +28,6 @@ function getNextIndexOnSwipe({
   comments: CommentType[];
   direction?: string;
 }) {
-  console.log("activeIndex", { activeIndex, comments, direction });
   if (direction !== "forward") {
     return activeIndex ? activeIndex - 1 : comments.length - 1;
   }

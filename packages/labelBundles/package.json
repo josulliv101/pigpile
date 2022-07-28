@@ -5,7 +5,7 @@
   "repository": "https://github.com/josulliv101/pigpile/tree/master/packages/labelBundles",
   "main": "dist/josulliv101-labelbundles.cjs.js",
   "module": "dist/josulliv101-labelbundles.esm.js",
-  "types": "dist/pigpile-labelBundles.cjs.d.ts",
+  "types": "dist/josulliv101-labelBundles.cjs.d.ts",
   "files": [
     "dist"
   ],

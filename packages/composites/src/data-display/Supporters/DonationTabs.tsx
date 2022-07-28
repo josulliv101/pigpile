@@ -23,8 +23,8 @@ import {
 } from "@josulliv101/core";
 
 export interface DonationTabsProps {
-  queryType: string;
-  viewType: string;
+  queryType: number;
+  viewType: number;
   onChange: (id: string, i: number) => void;
 }
 
@@ -64,6 +64,7 @@ export const DonationTabs: React.FC<DonationTabsProps> = ({
             </Tab>
           </TabList>
           <TabIndicator
+            role="presentation"
             sx={{
               transitionDelay: "100ms",
               transition: "top, left, bottom, right, width",
@@ -120,7 +121,7 @@ export const DonationTabs: React.FC<DonationTabsProps> = ({
           },
         }}
       >
-        <Tabs
+        {/*        <Tabs
           display={{ base: "block", lg: "block" }}
           mr="0"
           size="sm"
@@ -138,9 +139,10 @@ export const DonationTabs: React.FC<DonationTabsProps> = ({
             </Tab>
           </TabList>
           <TabIndicator
+            role="presentation"
             sx={{ transition: "top, left, bottom, right, width" }}
           />
-        </Tabs>
+        </Tabs>*/}
         <ButtonGroup
           display="none"
           ml="0"

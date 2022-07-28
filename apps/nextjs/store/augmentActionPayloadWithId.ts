@@ -3,7 +3,7 @@ const effectedActions = ["status/setStatus"];
 // TODO update id generator if needed
 const getId = () => new Date().getTime().toString(36);
 
-export function exampleMiddleware(storeAPI) {
+export function augmentActionPayloadWithId(storeAPI) {
   return function wrapDispatch(next) {
     return function handleAction(action) {
       if (!effectedActions.includes(action.type)) {

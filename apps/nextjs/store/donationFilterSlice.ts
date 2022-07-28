@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { AppState } from "./store";
 
-enum QUERY_TYPE {
+export enum QUERY_TYPE {
   Latest = 0,
   Top = 1,
 }

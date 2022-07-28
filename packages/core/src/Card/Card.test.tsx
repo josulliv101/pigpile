@@ -1,4 +1,3 @@
-import * as React from "react";
 import { render } from "../../../../testUtils";
 import { axe } from "jest-axe";
 import { Card, CardBackground, CardAvatar, CardContent } from "./Card";

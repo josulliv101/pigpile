@@ -28,7 +28,7 @@ export interface Donation {
 
 export type Comment = Pick<
   Donation,
-  "comment" | "displayName" | "emoji" | "createdAt"
+  "comment" | "displayName" | "emoji" | "createdAtInMS"
 >;
 
 export interface Campaign {

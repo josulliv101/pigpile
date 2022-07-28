@@ -5,13 +5,14 @@
   "repository": "https://github.com/josulliv101/pigpile/tree/master/packages/core",
   "main": "dist/josulliv101-core.cjs.js",
   "module": "dist/josulliv101-core.esm.js",
-  "types": "dist/pigpile-core.cjs.d.ts",
+  "types": "dist/josulliv101-core.cjs.d.ts",
   "files": [
     "dist"
   ],
   "scripts": {
     "build": "tsc",
-    "dev": "tsc --watch"
+    "dev": "tsc --watch",
+    "list": "tsc --listFiles"
   },
   "dependencies": {
     "@babel/runtime": "^7.17.0",

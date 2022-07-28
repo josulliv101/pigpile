@@ -13,7 +13,7 @@ function Login({}: PageProps): JSX.Element {
     if (provider.providerId !== "github.com") {
       dispatch(
         statusSlice.actions.setStatus({
-          title: `${provider.providerId} not implemented yet.`,
+          title: `${provider.providerId} provider not implemented yet.`,
           description: "Only Github currently works as a provider.",
           status: "info",
           isCloseable: true,

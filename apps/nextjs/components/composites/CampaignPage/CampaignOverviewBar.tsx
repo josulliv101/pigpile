@@ -61,8 +61,9 @@ function IntroBlurb({ title, blurb }) {
           dispatch(
             statusSlice.actions.setStatus({
               title: "Functionality Disabled",
-              description: "Sharing only works on the production env.",
+              description: "Sharing is disabled in the dev env.",
               status: "info",
+              isClosable: true,
             })
           )
         }

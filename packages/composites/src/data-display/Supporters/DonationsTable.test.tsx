@@ -1,29 +1,27 @@
-import * as React from "react";
-// import userEvent from "@testing-library/user-event";
-import { render } from "../../../../../../testUtils";
+import { render } from "../../../../../testUtils";
 import { axe } from "jest-axe";
 import { DonationsTable } from "./DonationsTable";
-import { mockProps } from "./mock";
+import { mockDonationProps } from "./mock";
 
 describe("Supporters", () => {
   it("should not have basic accessibility issues", async () => {
-    const { container } = render(<DonationsTable {...mockProps} />);
+    const { container } = render(<DonationsTable {...mockDonationProps} />);
     const results = await axe(container);
     expect(results).toHaveNoViolations();
   });
   it("renders correctly", () => {
     const { container } = render(
-      <DonationsTable donations={mockProps.donations.slice(0, 1)} />
+      <DonationsTable donations={mockDonationProps.donations.slice(0, 1)} />
     );
     expect(container.firstChild).toMatchInlineSnapshot(`
       <div
         class="chakra-stack css-fxiqdw"
       >
         <div
-          class="chakra-stack css-84zodg"
+          class="chakra-stack css-uxb30m"
         >
           <span
-            class="chakra-avatar css-j8hzwx"
+            class="chakra-avatar css-1sst10v"
           >
             <p
               class="chakra-text css-ypozbv"
@@ -37,15 +35,15 @@ describe("Supporters", () => {
             Joe Sullivan
           </p>
           <span
-            class="chakra-badge css-ifsvay"
+            class="chakra-badge css-djgwfr"
           >
             10
              pairs of socks
           </span>
           <span
-            class="chakra-badge css-ifsvay"
+            class="chakra-badge css-djgwfr"
           >
-            06/19/2022
+            NaN years ago
           </span>
         </div>
       </div>

@@ -2,7 +2,6 @@
   "compilerOptions": {
     "target": "es5",
     "module": "ES2020",
-    "composite": true,
     "skipLibCheck": true,
     "moduleResolution": "node",
     "removeComments": true,
@@ -27,6 +26,9 @@
     "strict": true,
     "jsx": "preserve",
     "baseUrl": "./",
+    "composite": true,
+    "declaration": true,
+    "declarationMap": true,
     "incremental": true
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
@@ -46,6 +48,9 @@
     },
     {
       "path": "../../packages/theme"
+    },
+    {
+      "path": "../../packages/types"
     },
     {
       "path": "../../services/connect-client"

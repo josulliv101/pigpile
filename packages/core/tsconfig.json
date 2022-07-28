@@ -20,11 +20,14 @@
     "resolveJsonModule": true,
     "forceConsistentCasingInFileNames": true,
     "composite": true,
+    "declaration": true,
+    "declarationMap": true,
+    "incremental": true,
     "outDir": "./dist",
     "rootDir": "./src",
     "jsx": "react-jsx"
   },
   "include": ["./src/**/*.tsx", "./src/**/*.ts"],
   "exclude": ["node_modules"],
-  "references": [{ "path": "../hooks" }]
+  "references": []
 }

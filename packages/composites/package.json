@@ -5,7 +5,7 @@
   "repository": "https://github.com/josulliv101/pigpile/tree/master/packages/composites",
   "main": "dist/josulliv101-composites.cjs.js",
   "module": "dist/josulliv101-composites.esm.js",
-  "types": "dist/pigpile-composites.cjs.d.ts",
+  "types": "dist/josulliv101-composites.cjs.d.ts",
   "files": [
     "dist"
   ],

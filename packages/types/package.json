@@ -5,7 +5,7 @@
   "repository": "https://github.com/josulliv101/pigpile/tree/master/packages/types",
   "main": "dist/josulliv101-types.cjs.js",
   "module": "dist/josulliv101-types.esm.js",
-  "types": "dist/pigpile-types.cjs.d.ts",
+  "types": "dist/josulliv101-types.cjs.d.ts",
   "files": [
     "dist"
   ],

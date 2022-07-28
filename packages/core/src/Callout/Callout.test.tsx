@@ -1,4 +1,3 @@
-import * as React from "react";
 // import userEvent from "@testing-library/user-event";
 import { render } from "../../../../testUtils";
 import { axe } from "jest-axe";
@@ -18,7 +17,7 @@ describe("Callout", () => {
     const { container } = render(<Callout {...props} />);
     expect(container.firstChild).toMatchInlineSnapshot(`
       <aside
-        class="chakra-callout css-endsbc"
+        class="chakra-callout css-1rr4qq7"
       >
         my callout
       </aside>

@@ -1,4 +1,4 @@
-import { render } from "../../../../../../testUtils";
+import { render } from "../../../../../testUtils";
 import { axe } from "jest-axe";
 import { OrganizationCallout } from "./OrganizationCallout";
 import { mockProps } from "./mock";
@@ -13,7 +13,7 @@ describe("Organization", () => {
     const { container } = render(<OrganizationCallout {...mockProps} />);
     expect(container.firstChild).toMatchInlineSnapshot(`
       <aside
-        class="chakra-callout css-endsbc"
+        class="chakra-callout css-1rr4qq7"
       >
         <div
           class="chakra-stack css-1ojabmr"
@@ -41,7 +41,7 @@ describe("Organization", () => {
             class="chakra-stack css-2nt6bn"
           >
             <button
-              class="chakra-button css-llght"
+              class="chakra-button css-145nilc"
               type="button"
             >
               Visit Website
