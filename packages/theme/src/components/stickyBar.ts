@@ -12,7 +12,7 @@ const baseStyle: SystemStyleFunction = (props) => {
     h: "20px",
     pos: "sticky",
     zIndex: "sticky",
-    top: { base: "32px", md: "38px" },
+    top: { base: "40px", md: "38px" },
   };
 };
 

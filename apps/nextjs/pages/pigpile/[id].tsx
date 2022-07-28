@@ -20,7 +20,7 @@ export function Campaign({ id }): JSX.Element {
   console.log("campaign tags prop", id, useSelector(selectCampaign(id)));
   return (
     <Content
-      goalAmount={goal.amount}
+      goalAmount={goal?.amount}
       campaignId={id}
       beneficiary={beneficiary}
       {...campaign}
@@ -40,7 +40,11 @@ export const getServerSideProps = wrapper.getServerSideProps(
       );
 
       const snapshot = await adminDb.collection("campaigns").doc(id).get();
-      store.dispatch(campaignsSlice.actions.setCampaign(snapshot.data()));
+
+      if (snapshot.data()) {
+        store.dispatch(campaignsSlice.actions.setCampaign(snapshot.data()));
+      }
+
       return {
         props: {
           id,

@@ -27,7 +27,7 @@ export const getThemeWithDefaults = (
     componentsBySize = [],
     ...rest
   } = userTheme;
-  console.log("getThemeWithDefaults", componentsByVariant, componentsBySize);
+  // console.log("getThemeWithDefaults", componentsByVariant, componentsBySize);
   return extendTheme(
     ...colorScheme.componentsByColorScheme.map((item) =>
       withDefaultColorScheme(item)
@@ -46,7 +46,7 @@ export const useTheme = () => {
   const activeIndexes = useSelector(selectThemeState());
   const colorScheme = getColorSchemeByIndex(activeIndexes.colorScheme);
   const userTheme = getUserThemeByIndex(activeIndexes.userTheme);
-  console.log("userTheme ...", activeIndexes, colorScheme, userTheme);
+  // console.log("userTheme ...", activeIndexes, colorScheme, userTheme);
   const theme = useMemo(
     () => getThemeWithDefaults(colorScheme, userTheme),
     [activeIndexes.colorScheme, activeIndexes.userTheme]

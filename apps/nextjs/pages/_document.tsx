@@ -12,17 +12,31 @@ export default class MyDocument extends Document {
           />*/}
           <meta name="theme-color" content="#000000" />
           <link rel="icon" type="image/png" href="/favicon.ico" />
+          <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link
-            href="//fonts.googleapis.com/css?family=Sriracha:400&text=Pigple&display=swap"
+            rel="preconnect"
+            href="https://fonts.gstatic.com"
+            crossOrigin="true"
+          />
+          <link
+            href="//fonts.googleapis.com/css?family=Sriracha:400&text=Pigpleongdcaus&display=block"
             rel="stylesheet"
           />
           <link
             href="//fonts.googleapis.com/css?family=Roboto:100,200,300,400.500,600,700&display=swap"
             rel="stylesheet"
           />
+          <script
+            src="https://fast.wistia.com/embed/medias/1wpb65qwkz.jsonp"
+            async
+          ></script>
+          <script
+            src="https://fast.wistia.com/assets/external/E-v1.js"
+            async
+          ></script>
         </Head>
         <body>
-          {/*<ColorModeScript initialColorMode="dark" />*/}
+          {/*<ColorModeScript />*/}
           <Main />
           <NextScript />
         </body>

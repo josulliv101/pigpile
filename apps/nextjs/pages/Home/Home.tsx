@@ -26,11 +26,11 @@ function Home({}: PageProps): JSX.Element {
       >
         <Heading
           size="lg"
-          fontSize={{ base: "1.2rem", sm: "1.6rem" }}
+          fontSize={{ base: "1.2rem", sm: "30px" }}
           fontWeight="500"
           mb="3"
         >
-          Pigpile on good causes.
+          Pigpile on good causes.!
         </Heading>
         <Heading size={{ base: "sm", sm: "md" }} fontWeight="normal" mb="6">
           an online fund-raising platform
@@ -58,7 +58,7 @@ function Home({}: PageProps): JSX.Element {
             width="full"
             maxWidth="max-content"
             boxShadow="md"
-            size={{ base: "md", md: "lg" }}
+            size="lg"
             fontWeight="semibold"
             variant="solid"
           >

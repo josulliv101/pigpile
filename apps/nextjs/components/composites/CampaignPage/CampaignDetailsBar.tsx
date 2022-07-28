@@ -23,38 +23,30 @@ import {
 } from "@josulliv101/core";
 import { CampaignCreationCallout } from "@josulliv101/composites";
 
-const mockCreatedByProps = {
-  createdBy: "Joe Sullivan",
-  createdAt: "01/12/2022",
-  isEmployee: true,
-  imageUrl:
-    "https://firebasestorage.googleapis.com/v0/b/pigpile-next-mvp.appspot.com/o/site%2Fjoe.png?alt=media&token=b986e32a-0060-4036-ab1e-ab2208aee186",
-  // description: "Sed ut perspiciatis unde omnis iste natus error sit.",
-};
-
 export const CampaignDetailsBar = ({ description }) => {
   const { isOpen, onToggle } = useDisclosure();
   return (
-    <Container pt={{ base: "12", md: "20" }} mb="10">
+    <Container pt={{ base: "12", md: "20" }} mb={{ base: 6, md: 10 }}>
       <Stack
-        direction={{ base: "column", sm: "row" }}
-        spacing={{ base: 6, sm: 12 }}
+        direction={{ base: "column-reverse", md: "row" }}
+        spacing={{ base: 6, md: 12 }}
         alignItems="flex-start"
       >
         <Card
+          p={{ base: 10, sm: 20, md: 10 }}
           colorScheme="gray"
           variant="solid"
           size="sm"
           minW="260px"
           pt="36px"
+          w="full"
         >
           <CardAvatar
             as={Avatar}
-            sx={{ ">img": { transform: "scale(1)" } }}
-            size="xl"
+            size={{ base: "xl", md: "xl" }}
             src="https://avatars.githubusercontent.com/u/1703430?s=96&v=4"
           />
-          <CardBackground h="92px" />
+          <CardBackground h={{ base: "92px", sm: "132px", md: "92px" }} />
           <CardContent pt="2">
             <Heading size="xs" noOfLines={2}>
               Created by Joe Sullivan
@@ -62,7 +54,13 @@ export const CampaignDetailsBar = ({ description }) => {
             <Text fontSize="xs" noOfLines={2}>
               on 01/12/2022
             </Text>
-            <Badge mt="1" mb="3" fontSize="0.6rem" fontWeight="normal">
+            <Badge
+              mt="1"
+              mb="3"
+              fontSize="0.6rem"
+              fontWeight="normal"
+              textTransform="none"
+            >
               Pigpile Employee
             </Badge>
             <Text fontSize="xs" noOfLines={2}>
@@ -71,17 +69,16 @@ export const CampaignDetailsBar = ({ description }) => {
             </Text>
           </CardContent>
         </Card>
-        {/*        <CampaignCreationCallout
-          w="full"
-          flex={{ base: "0 0 100%", sm: "0 0 25%", sm: "0 0 20%" }}
-          {...mockCreatedByProps}
-        />*/}
         <Box>
-          <Heading size="md" fontWeight="semibold">
+          <Heading
+            fontSize={{ base: "xl", md: "xl", lg: "2xl" }}
+            fontWeight="semibold"
+            mb="2"
+          >
             The Details
           </Heading>
           <Text
-            fontSize="2xl"
+            fontSize={{ base: "lg", md: "1.06rem", lg: "xl" }}
             mb="10"
             whiteSpace="pre-wrap"
             noOfLines={isOpen ? undefined : 7}

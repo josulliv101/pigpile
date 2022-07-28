@@ -1,6 +1,11 @@
 import NextLink from "next/link";
 import { FaUserAlt } from "react-icons/fa";
-import { ButtonGroup, HTMLChakraProps, IconButton } from "@josulliv101/core";
+import {
+  ButtonGroup,
+  HTMLChakraProps,
+  IconButton,
+  useBreakpointValue,
+} from "@josulliv101/core";
 import { ThemeMenu, UserProfileMenu } from "@josulliv101/composites";
 import { themeOptions } from "@josulliv101/theme";
 
@@ -28,6 +33,7 @@ export const Nav: React.FC<NavProps> = ({
   onThemeOptionChange,
   ...props
 }) => {
+  const viewportSize = useBreakpointValue({ base: "mobile", md: "desktop" });
   const isUserAuthenticated = user?.isAnonymous === false;
 
   if (!isAppReady) {
@@ -39,10 +45,12 @@ export const Nav: React.FC<NavProps> = ({
       as="nav"
       size="sm"
       spacing="2"
-      display={{ base: "none", sm: "flex" }}
+      display={{ base: "none", md: "flex" }}
+      pr="8"
       {...props}
     >
       <ThemeMenu
+        key={viewportSize} // force close when resize changes to small viewports
         boxSize={6}
         themeOptions={themeOptions}
         activeIndexes={themeState}

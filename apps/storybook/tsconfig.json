@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "target": "es5",
-    "module": "ES2020",
+    "module": "commonjs",
     "skipLibCheck": true,
     "moduleResolution": "node",
     "removeComments": true,
@@ -26,5 +26,8 @@
   },
   "include": ["./src/**/*.tsx", "./src/**/*.ts"],
   "exclude": ["node_modules"],
-  "references": [{ "path": "../../packages/theme" }, { "path": "../nextjs" }]
+  "references": [{ "path": "../../packages/theme" }, { "path": "../nextjs" }],
+  "compilerOptions": {
+    "module": "commonjs"
+  }
 }

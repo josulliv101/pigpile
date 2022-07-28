@@ -5,8 +5,12 @@ import { appSlice } from "./appSlice";
 import { authSlice } from "./authSlice";
 import { campaignsSlice } from "./campaignsSlice";
 import { donationsSlice } from "./donationsSlice";
+import { donationFilterSlice } from "./donationFilterSlice";
+import { statusSlice } from "./statusSlice";
 import { themeSlice } from "./themeSlice";
 import { paymentSlice } from "./paymentSlice";
+import { listenerMiddleware } from "./statusMiddleware";
+import { exampleMiddleware } from "./exampleMiddleware";
 
 const makeStore = () =>
   configureStore({
@@ -15,8 +19,16 @@ const makeStore = () =>
       [authSlice.name]: authSlice.reducer,
       [campaignsSlice.name]: campaignsSlice.reducer,
       [donationsSlice.name]: donationsSlice.reducer,
+      [donationFilterSlice.name]: donationFilterSlice.reducer,
       [paymentSlice.name]: paymentSlice.reducer,
+      [statusSlice.name]: statusSlice.reducer,
       [themeSlice.name]: themeSlice.reducer,
+    },
+    middleware: (getDefaultMiddleware) => {
+      console.log("getDefaultMiddleware()", getDefaultMiddleware());
+      return getDefaultMiddleware()
+        .prepend(listenerMiddleware.middleware)
+        .prepend(exampleMiddleware);
     },
     devTools: true,
   });

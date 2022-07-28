@@ -8,13 +8,16 @@ type CampaignDonation = Omit<Donation, "createdAt"> & {
 
 export const addDonation = async (campaignDonation: CampaignDonation) => {
   const { campaignId, ...donation } = campaignDonation;
+  if (!campaignId) {
+    throw Error("Cannot add donation without a valid campaign id.");
+  }
   if (!donation) {
     throw Error("Cannot add empty donation.");
   }
   const coll = collection(db, `campaigns/${campaignId}/donations`);
-  const updatedDoc = await setDoc(doc(coll, Date.now().toString()), {
+  const updatedDoc = await setDoc(doc(coll), {
     ...donation,
-    createdAt: Timestamp.now(),
+    createdAtInMS: Timestamp.now().seconds * 1000,
   });
   console.log("doc updatedDoc!", updatedDoc);
   return updatedDoc;

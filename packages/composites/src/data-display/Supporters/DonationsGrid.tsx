@@ -1,8 +1,11 @@
 import * as React from "react";
+import { FaComment } from "react-icons/fa";
 import { Donation } from "@josulliv101/type";
 import {
   Avatar as AvatarBase,
+  AvatarBadge,
   Badge,
+  Box,
   Heading,
   SimpleGrid,
   Text,
@@ -11,7 +14,9 @@ import {
   CardBackground,
   CardBadge,
   CardContent,
+  Tooltip,
 } from "@josulliv101/core";
+import { relativeDays } from "@josulliv101/formatting";
 
 export interface DonationsGridProps {
   donations: Donation[];
@@ -46,33 +51,75 @@ export const DonationsGrid: React.FC<DonationsGridProps> = ({
       spacing="10px"
       {...props}
     >
-      {donations.map(({ displayName, emoji, quantity, createdAt }) => (
-        <Card
-          key={`${displayName}-${quantity}`}
-          colorScheme="blue"
-          variant="outline"
-          size="sm"
-        >
-          <CardAvatar as={Avatar} icon={<EmojiIcon icon={emoji} />} />
-          <CardBackground />
-          <CardBadge
-            as={Badge}
-            textTransform="none"
-            fontWeight="normal"
-            fontSize="10px"
-          >
-            {quantity}
-          </CardBadge>
-          <CardContent>
-            <Heading size="xs" noOfLines={1}>
-              {displayName}
-            </Heading>
-            <Text fontSize="xs" noOfLines={1}>
-              {quantity} pairs of socks
-            </Text>
-          </CardContent>
-        </Card>
-      ))}
+      {donations.map(
+        ({ comment, displayName, emoji, quantity, createdAtInMS }) => (
+          <Tooltip placement="top" label={comment}>
+            <Card
+              key={`${displayName}-${quantity}`}
+              colorScheme="blue"
+              variant="outline"
+              size="sm"
+              sx={{
+                svg: { transition: "transform 300ms" },
+                _hover: { svg: { transform: "scale(1.2)" } },
+              }}
+            >
+              <CardAvatar as={Avatar} icon={<EmojiIcon icon={emoji} />}>
+                {comment && (
+                  <AvatarBadge
+                    borderColor="transparent"
+                    color="#979b9e"
+                    top="0"
+                    bottom="auto"
+                    children={
+                      <Box
+                        sx={{ svg: { outline: "none" } }}
+                        _focusVisible={{
+                          outline: "none",
+                          boxShadow: "outline",
+                          svg: {
+                            transform: "scale(1.2)",
+                            _focus: { border: "none" },
+                          },
+                        }}
+                        tabIndex="0"
+                      >
+                        <FaComment
+                          _focus={{ outline: "none" }}
+                          tabIndex="-1"
+                          border="none"
+                          color="inherit"
+                          fontSize=".9rem"
+                        />
+                      </Box>
+                    }
+                  />
+                )}
+              </CardAvatar>
+              <CardBackground />
+              {/*          <CardBadge
+              as={Badge}
+              textTransform="none"
+              fontWeight="normal"
+              fontSize="10px"
+            >
+              {quantity}
+            </CardBadge>*/}
+              <CardContent>
+                <Heading size="xs" noOfLines={1}>
+                  {displayName}
+                </Heading>
+                <Text fontSize="xs" noOfLines={1}>
+                  {quantity} pairs of socks
+                </Text>
+                <Text fontSize="xs" noOfLines={1}>
+                  {relativeDays(createdAtInMS)}
+                </Text>
+              </CardContent>
+            </Card>
+          </Tooltip>
+        )
+      )}
     </SimpleGrid>
   );
 };

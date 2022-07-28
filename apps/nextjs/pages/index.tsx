@@ -26,7 +26,7 @@ function Home({}: PageProps): JSX.Element {
       >
         <Heading
           size="lg"
-          fontSize={{ base: "1.2rem", sm: "1.6rem" }}
+          fontSize={{ base: "2xl", sm: "3xl" }}
           fontWeight="500"
           mb="3"
         >
@@ -41,7 +41,7 @@ function Home({}: PageProps): JSX.Element {
           px="10px"
           mx="auto"
           mb="12"
-          fontSize={{ base: ".9rem", sm: "1.1rem" }}
+          fontSize={{ base: "md", sm: "md" }}
           pt="4"
           borderTop="1px"
           borderColor="whiteAlpha.700"
@@ -49,7 +49,7 @@ function Home({}: PageProps): JSX.Element {
           Our mission is to inspire giving and help good causes raise
           funds/in-kind donations.
         </Text>
-        <NextLink href="/pigpile/somerville-homeless-coalition" passHref>
+        <NextLink href="/pigpiles" passHref>
           {/*<Button width="full" maxWidth="max-content" boxShadow="md" size={{ base: "xs", sm: "sm", md: "lg" }} fontWeight={{ base: "normal", md: "semibold" }} py={{ base: 8, md: 12 }} variant="solid">
             Pigpile on The Somerville Homeless Coalition
             <Text fontWeight="normal" fontSize="xs" pos="absolute" bottom=".5rem" right={{ base: "0", base: ".7rem", md: "1.5rem" }}>#sock-drive</Text>
@@ -58,11 +58,11 @@ function Home({}: PageProps): JSX.Element {
             width="full"
             maxWidth="max-content"
             boxShadow="md"
-            size={{ base: "md", md: "lg" }}
+            size="lg"
             fontWeight="semibold"
             variant="solid"
           >
-            View Pigpiles
+            View Active Pigpiles
           </Button>
         </NextLink>
       </Center>

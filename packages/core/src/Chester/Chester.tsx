@@ -62,7 +62,7 @@ export const Chester: React.FC<ChesterProps> = ({
       >
         <Box
           pos="relative"
-          animation={animation}
+          animation={animate ? animation : undefined}
           onAnimationEnd={() => setAnimationRequested(false)}
           transformOrigin="center bottom"
         >
@@ -85,7 +85,9 @@ export const Chester: React.FC<ChesterProps> = ({
         </Box>
         <Shadow
           animation={
-            animationType === ChesterAnimations.JUMP && animationRequested
+            animate &&
+            animationType === ChesterAnimations.JUMP &&
+            animationRequested
               ? shadow
               : ""
           }

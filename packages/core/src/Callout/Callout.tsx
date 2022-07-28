@@ -16,13 +16,14 @@ export const Callout: React.FC<CalloutProps> = (props) => {
   const styles = useStyleConfig("Callout", props);
   const baseStyle: SystemStyleObject = {
     flex: 1,
-    p: 10,
+    // p: 10,
   };
   const { children, __css, ...rest } = omitThemingProps(props);
   return (
     <Box
       as="aside"
       className="chakra-callout"
+      // padding={{ base: 10, md: 10 }}
       __css={{ ...baseStyle, ...styles, ...__css }}
       {...rest}
     >

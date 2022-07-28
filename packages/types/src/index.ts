@@ -1,6 +1,12 @@
 export * from "./LabelBundle";
 export * from "./Settings";
 
+export interface Status {
+  type: "info" | "warning" | "error" | "success";
+  title: string;
+  descr?: string;
+}
+
 export interface User {
   uid: string;
   displayName: string | null;
@@ -17,8 +23,13 @@ export interface Donation {
   quantity: number;
   tip: number;
   isAnonymous?: boolean;
-  createdAt: Date;
+  createdAtInMS: number;
 }
+
+export type Comment = Pick<
+  Donation,
+  "comment" | "displayName" | "emoji" | "createdAt"
+>;
 
 export interface Campaign {
   id: string;

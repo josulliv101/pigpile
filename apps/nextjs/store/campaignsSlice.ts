@@ -13,7 +13,7 @@ export const campaignsSlice = createSlice({
       console.log("setCampaign", action);
       return {
         ...state,
-        [action.payload.id]: action.payload,
+        [action.payload?.id]: action.payload,
       };
     },
   },

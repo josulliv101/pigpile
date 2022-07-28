@@ -1,4 +1,6 @@
+import Avatar from "./avatar";
 import Background from "./background";
+import Button from "./button";
 import Callout from "./callout";
 import Card from "./card";
 import Container from "./container";
@@ -11,7 +13,9 @@ import Swatch from "./swatch";
 import Tabs from "./tabs";
 
 export default {
+  Avatar,
   Background,
+  Button,
   Callout,
   Card,
   Container,

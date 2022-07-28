@@ -1,3 +1,5 @@
+import ago from "s-ago";
+
 let currencyType = "USD";
 let locale = "en-US";
 
@@ -31,3 +33,36 @@ export const getCurrency = (n: number) => {
 };
 
 export const formatNumber = (n: number) => digits.format(n);
+
+export function relativeDays(createdAtInMS) {
+  const rtf = new Intl.RelativeTimeFormat(locale, {
+    numeric: "auto",
+  });
+  /*  const oneDayInMs = 1000 * 60 * 60 * 24;
+  const daysDifference = Math.round(
+    (timestamp - new Date().getTime()) / oneDayInMs,
+  );*/
+
+  return ago(new Date(createdAtInMS));
+}
+
+export function capitalizeFirstLetter(s) {
+  if (typeof s !== "string" || !s) {
+    return s;
+  }
+  return s.charAt(0).toUpperCase() + s.slice(1);
+}
+
+export function formatAsText(s, options) {
+  if (typeof s !== "string" || !s) {
+    return s;
+  }
+  let formatted = s.replace(/[-_]/g, " ");
+  if (options?.capitalizeAll) {
+    return formatted
+      .split(" ")
+      .map((str) => capitalizeFirstLetter(str))
+      .join(" ");
+  }
+  return formatted;
+}

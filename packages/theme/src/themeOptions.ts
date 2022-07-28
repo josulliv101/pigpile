@@ -44,7 +44,7 @@ export const themeOptions = {
   },
   chesterAnimation: {
     index: 0,
-    label: "Chester's click animation",
+    label: "Chester's animation",
     options: convertObjectToOptions(ChesterAnimations),
   },
 };

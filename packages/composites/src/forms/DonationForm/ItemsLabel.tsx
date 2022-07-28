@@ -1,7 +1,9 @@
 import { useState } from "react";
 import {
+  Box,
   Button,
   ButtonGroup,
+  Flex,
   HStack,
   HTMLChakraProps,
   IconButton,
@@ -41,8 +43,11 @@ export const ItemsLabel: React.FC<ItemsLabelProps> = ({
     onCloseCustomInputField();
     setIsCustomInputDirty(false);
   };
+  const activeNumberOfUnits = showCustomInputField
+    ? updatedNumberOfUnits
+    : numberOfUnits;
   return (
-    <HStack
+    <Flex
       justifyContent="space-between"
       alignItems={{
         base: "flex-start",
@@ -52,19 +57,33 @@ export const ItemsLabel: React.FC<ItemsLabelProps> = ({
         base: showCustomInputField ? "column" : "row", // showCustomInputField ? "column" : "row",
         // md: "row",
       }}
-      bgColor={!showCustomInputField ? "blackAlpha.200" : ""}
+      bgColor="blackAlpha.200"
     >
-      <Text
-        display="flex"
-        alignItems="center"
-        fontSize={{ base: "md", md: "md" }}
-        noOfLines={1}
-        pl="2"
+      <Button
+        sx={{ svg: { transition: "opacity 200ms", opacity: 0.7 } }}
+        _active={{ background: "transparent" }}
+        _hover={{ svg: { opacity: 0.9 }, background: "transparent" }}
+        _disabled={{ opacity: 1, cursor: "default" }}
+        disabled={showCustomInputField}
+        onClick={onShowCustomInputField}
+        background={showCustomInputField ? "transparent" : "blackAlpha.50"}
+        w="full"
+        justifyContent="space-between"
+        fontWeight="normal"
       >
-        Donate{" "}
-        {!showCustomInputField ? (
-          numberOfUnits
-        ) : (
+        <Box as="span">
+          Donate {activeNumberOfUnits}
+          &nbsp;
+          {typeof label === "function" ? label(activeNumberOfUnits) : label}
+          &nbsp;
+          <Text fontSize="sm" as="span" opacity=".8">
+            / {getCurrency(activeNumberOfUnits * pricePerUnit)}
+          </Text>
+        </Box>
+        {!showCustomInputField && <FaPencilAlt />}
+      </Button>
+      {showCustomInputField && (
+        <Box w="full" pt="6" display="flex" justifyContent="center">
           <CustomInputField
             numberOfUnits={updatedNumberOfUnits}
             onChange={(n) => {
@@ -72,44 +91,30 @@ export const ItemsLabel: React.FC<ItemsLabelProps> = ({
               setUpdatedNumberOfUnits(Number(n));
             }}
           />
-        )}{" "}
-        {typeof label === "function"
-          ? label(!showCustomInputField ? numberOfUnits : updatedNumberOfUnits)
-          : label}
-        &nbsp;
-        <Text fontSize="sm" as="span" opacity=".8">
-          /{" "}
-          {getCurrency(
-            (!showCustomInputField ? numberOfUnits : updatedNumberOfUnits) *
-              pricePerUnit
-          )}
-        </Text>
-      </Text>
+        </Box>
+      )}
+
       {showCustomInputField && (
         <ButtonGroup
-          pt={{ base: 4 }} // , md: 0
-          justifyContent={{ base: "flex-end" }} // md: "flex-start"
+          pt={{ base: 6 }} // , md: 0
+          pb="4"
+          justifyContent={{ base: "center" }} // md: "flex-start"
           w={{ base: "full" }} // , md: "auto"
-          mx="3"
-          size="xs"
+          // mx="3"
+          size="md"
         >
           <Button
             variant="outline"
             colorScheme="whiteAlpha"
             color="white"
             onClick={handleCommitInputChange}
-            borderColor={{ base: "transparent", md: "whiteAlpha.500" }}
-            size={numberOfUnits === null ? "sm" : "xs"}
+            borderColor="whiteAlpha.500"
+            size={numberOfUnits === null ? "md" : "md"}
             disabled={numberOfUnits !== null && !isCustomInputDirty}
             w={numberOfUnits === null ? "full" : undefined}
+            maxW="calc(100% - 40px)"
           >
-            Confirm{" "}
-            {numberOfUnits === null &&
-              `adding ${updatedNumberOfUnits} ${
-                typeof label === "function"
-                  ? label(updatedNumberOfUnits)
-                  : label
-              }`}
+            Confirm
           </Button>
           {numberOfUnits !== null && (
             <Button
@@ -126,7 +131,7 @@ export const ItemsLabel: React.FC<ItemsLabelProps> = ({
           )}
         </ButtonGroup>
       )}
-      {onShowCustomInputField && !showCustomInputField && (
+      {false && onShowCustomInputField && !showCustomInputField && (
         <Tooltip label="Edit Quantity" placement="top">
           <IconButton
             color="gray.200"
@@ -139,6 +144,6 @@ export const ItemsLabel: React.FC<ItemsLabelProps> = ({
           />
         </Tooltip>
       )}
-    </HStack>
+    </Flex>
   );
 };

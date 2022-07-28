@@ -1,5 +1,10 @@
 import { getApp, getApps, initializeApp, FirebaseApp } from "firebase/app";
-import { Auth, getAuth, onAuthStateChanged } from "firebase/auth";
+import {
+  Auth,
+  getAuth,
+  onAuthStateChanged,
+  signInAnonymously,
+} from "firebase/auth";
 import { initializeFirestore, Firestore } from "firebase/firestore";
 import { User } from "@josulliv101/types";
 import { getUser } from "./getUser";
@@ -28,9 +33,13 @@ export const connectClientApp = (
   auth = getAuth(app);
 
   onAuthStateChanged(auth, async (authUser) => {
-    const user = await getUser(authUser);
-    console.log("onAuthStateChanged", user, authUser);
-    authStateChangedHandler(user);
+    //
+    if (!authUser) {
+      await signInAnonymously(auth);
+    } else {
+      const user = await getUser(authUser);
+      authStateChangedHandler(user);
+    }
   });
 };
 

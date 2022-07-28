@@ -23,7 +23,7 @@ export default async function handler(
     payment_intent_id,
   }: { amount: number; payment_intent_id?: string } = req.body;
   // Validate the amount that was passed from the client.
-  if (!(amount >= MIN_AMOUNT && amount <= MAX_AMOUNT)) {
+  if (!amount || !(amount > 0)) {
     res.status(500).json({ statusCode: 400, message: "Invalid amount." });
     return;
   }

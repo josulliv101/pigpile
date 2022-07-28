@@ -9,7 +9,7 @@ import {
   Input,
   Spacer,
   Stack,
-  useToast,
+  // useToast,
 } from "@josulliv101/core";
 import {
   useElements,
@@ -33,7 +33,7 @@ export const CreditCardForm: React.FC<CreditCardFormProps> = ({
   showCustomInputField,
   ...props
 }) => {
-  const toast = useToast();
+  // const toast = useToast();
   const stripeObj = useStripeObject();
   const elements = useElements();
   const [isCardReady, setIsCardReady] = useState(false);
@@ -55,14 +55,14 @@ export const CreditCardForm: React.FC<CreditCardFormProps> = ({
   ) => {
     if (process.env.IS_STORYBOOK === true) {
       console.warn("Credit card submission is disabled within Storybook.");
-      toast({
+      /*      toast({
         title: "Functionality Disabled",
         description: "Credit card submission is disabled within Storybook.",
         status: "info",
         duration: 5000,
         isClosable: true,
         position: "top",
-      });
+      });*/
       return;
     }
     console.log("handleSubmit 1", paymentIntent, values, actions);

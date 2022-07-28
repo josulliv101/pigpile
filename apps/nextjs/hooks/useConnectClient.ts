@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { User } from "@josulliv101/types";
 import { connectClientApp } from "@josulliv101/connect-client";
 import { authSlice } from "../store";

@@ -52,6 +52,7 @@ export const CountUpBox: React.FC<CountUpBoxProps> = ({
   countUpValue = 0,
   label,
   showLabelOnEnd = false,
+  sx,
   ...props
 }) => {
   const [isCountUpComplete, setIsCountUpComplete] = React.useState(
@@ -68,8 +69,8 @@ export const CountUpBox: React.FC<CountUpBoxProps> = ({
       sx={{
         ...styles.container,
         ...props,
+        ...sx,
       }}
-      // {...props}
     >
       {children}
       <StylesProvider value={styles}>

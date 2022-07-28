@@ -2,14 +2,25 @@ import { useDispatch } from "react-redux";
 import { AbsoluteCenter as Center } from "@josulliv101/core";
 import { LoginForm } from "@josulliv101/composites";
 import { LayoutFullViewport } from "../../components/layouts";
-import { signInUser, wrapper } from "store";
+import { signInUser, statusSlice } from "store";
 
 interface PageProps {}
 
 function Login({}: PageProps): JSX.Element {
   const dispatch = useDispatch();
   const handleSignIn = (provider) => {
-    console.log("handleSignIn", provider);
+    console.log("handleSignIn", provider.providerId, provider);
+    if (provider.providerId !== "github.com") {
+      dispatch(
+        statusSlice.actions.setStatus({
+          title: `${provider.providerId} not implemented yet.`,
+          description: "Only Github currently works as a provider.",
+          status: "info",
+          isCloseable: true,
+        })
+      );
+      return;
+    }
     dispatch(signInUser({ provider, cb: () => console.log("cb here") }));
   };
   return (

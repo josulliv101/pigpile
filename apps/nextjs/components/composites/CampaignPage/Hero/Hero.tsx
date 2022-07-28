@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   DonationForm,
@@ -73,10 +73,16 @@ const Hero = ({
   const { getLabel, getLabelForQuantity } = useLabelBundle();
   const [userRequestsCustomAmount, setUserRequestsCustomAmount] =
     useState(false);
+  const [startAnimation, setStartAnimation] = useState(false);
   const [numberOfUnits, setNumberOfUnits] = useState<number | null>(null);
   const [tip, setTip] = useState(0);
   const { isOpen, onOpen, onClose } = useDisclosure();
   console.log("chesterAnimation", chesterAnimation);
+
+  useEffect(() => {
+    setTimeout(() => setStartAnimation(true), 7000);
+  }, []);
+
   const handleCustomBtnClick = () => {
     setUserRequestsCustomAmount(true);
     onOpen();
@@ -150,10 +156,12 @@ const Hero = ({
           bgPosition="27% 50%"
           mt="10%"
         >
-          <ModalHeader>{beneficiary}</ModalHeader>
-          <ModalCloseButton />
+          <ModalHeader position="relative" mr="6" top="-4px" mb="4">
+            {beneficiary}
+          </ModalHeader>
+          <ModalCloseButton mr="12px" mt={{ base: "2px", md: "4px" }} />
           <ModalBody pb="6">
-            {false && activeFormStep === FORM_STEPS.Donate && (
+            {activeFormStep === FORM_STEPS.Donate && (
               <DonationForm
                 bgColor="transparent"
                 p="0"
@@ -174,7 +182,7 @@ const Hero = ({
                 }
               />
             )}
-            {activeFormStep !== FORM_STEPS.AdditionalInfo && (
+            {activeFormStep === FORM_STEPS.AdditionalInfo && (
               <EmojiForm
                 p="0"
                 bgColor="transparent"
@@ -196,10 +204,10 @@ const Hero = ({
       >
         <Heading
           align="center"
-          size="lg"
+          size={{ base: "md", md: "lg" }}
           fontSize="1.6rem"
           fontWeight="500"
-          mb="3"
+          mb={{ base: "6", md: "3" }}
           noOfLines={{ base: undefined, md: "5" }}
         >
           {getLabel(
@@ -210,22 +218,28 @@ const Hero = ({
           )}
         </Heading>
         <Heading
-          display={{ base: "none", md: "block" }}
+          display={{ base: "block", sm: "block" }}
           align="center"
-          size="md"
+          size={{ base: "sm", md: "md" }}
           fontWeight="normal"
+          mb={{ base: 6, sm: 0 }}
         >
           Select a donation amount below or choose a{" "}
           <Button
-            as="a"
+            // as="a"
             variant="link"
             color="gray.50"
             borderBottom="1px rgba(255,255,255,.7) dashed"
             onClick={handleCustomBtnClick}
+            fontSize={{ base: "1rem", md: "1.25rem" }}
+            fontWeight="normal"
+            _hover={{ textDecoration: "none", bgColor: "blackAlpha.300" }}
+            pl="1"
+            borderRadius="none"
+            _active={{ color: "inherit" }}
           >
-            custom amount
+            custom amount.
           </Button>
-          .
         </Heading>
         <MoreButtons
           mt={{ base: "3", sm: "12" }}
@@ -235,21 +249,27 @@ const Hero = ({
           moreTooltipLabel="more options"
         />
         <AbsoluteCenter top={{ base: "75%", md: "80%" }}>
-          <Chester animationType={chesterAnimation} />
+          <Chester animate={startAnimation} animationType={chesterAnimation} />
         </AbsoluteCenter>
-        {currentAmount && goalAmount && (
+        {!!currentAmount && !!goalAmount && (
           <CountUpBox
             minW={{ base: "120px", md: "160px" }}
+            maxW="201px"
             bgColor="rgb(203 211 183 / 80%)"
             pos="absolute"
-            bottom="10px"
-            right={{ base: "10px", md: "20px" }}
+            bottom={{ base: "2px", md: "10px" }}
+            right={{ base: "-10px", md: "20px" }}
             countUpValue={currentAmount}
             limit={goalAmount}
             label={`${currentAmount} of ${goalAmount} ${getLabel(
               "donationItems.short"
             )}`}
             showLabelOnEnd
+            sx={{
+              "@media screen and (min-width: 200px) and (max-width: 768px)": {
+                transform: "scale(.8)",
+              },
+            }}
           >
             <Progress
               pos="relative"

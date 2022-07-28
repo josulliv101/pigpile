@@ -3,7 +3,7 @@ import { Donation } from "@josulliv101/types";
 import { addDonation } from "@josulliv101/connect-client";
 import { AppState } from "./store";
 
-type CampaignDonation = Omit<Donation, "createdAt"> & {
+type CampaignDonation = Omit<Donation, "createdAtInMS"> & {
   campaignId: string;
 };
 

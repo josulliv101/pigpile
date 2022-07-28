@@ -12502,6 +12502,11 @@ react-style-singleton@^2.2.1:
     invariant "^2.2.4"
     tslib "^2.0.0"
 
+react-swipeable@^7.0.0:
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/react-swipeable/-/react-swipeable-7.0.0.tgz#7a12570ee435d35ac700511de338384aa78d12cd"
+  integrity sha512-NI7KGfQ6gwNFN0Hor3vytYW3iRfMMaivGEuxcADOOfBCx/kqwXE8IfHFxEcxSUkxCYf38COLKYd9EMYZghqaUA==
+
 react-syntax-highlighter@^15.4.5:
   version "15.5.0"
   resolved "https://registry.npmjs.org/react-syntax-highlighter/-/react-syntax-highlighter-15.5.0.tgz"
@@ -12948,7 +12953,7 @@ run-queue@^1.0.0, run-queue@^1.0.3:
 
 s-ago@^2.2.0:
   version "2.2.0"
-  resolved "https://registry.npmjs.org/s-ago/-/s-ago-2.2.0.tgz"
+  resolved "https://registry.yarnpkg.com/s-ago/-/s-ago-2.2.0.tgz#4143a9d0176b3100dcf649c78e8a1ec8a59b1312"
   integrity sha512-t6Q/aFCCJSBf5UUkR/WH0mDHX8EGm2IBQ7nQLobVLsdxOlkryYMbOlwu2D4Cf7jPUp0v1LhfPgvIZNoi9k8lUA==
 
 safe-buffer@5.1.1:

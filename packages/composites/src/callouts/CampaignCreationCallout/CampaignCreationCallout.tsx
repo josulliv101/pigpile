@@ -10,7 +10,7 @@ import {
 
 export interface CampaignCreationCalloutProps extends CalloutProps {
   createdBy: string;
-  createdAt: string;
+  createdAtInMS: number;
   isEmployee: boolean;
   imageUrl?: string;
   description?: string;
@@ -31,7 +31,14 @@ const EmployeeBadge = (props) => (
 );
 
 export const CampaignCreationCallout: React.FC<CampaignCreationCalloutProps> =
-  ({ createdAt, createdBy, isEmployee, description, imageUrl, ...props }) => {
+  ({
+    createdAtInMS,
+    createdBy,
+    isEmployee,
+    description,
+    imageUrl,
+    ...props
+  }) => {
     return (
       <Callout
         bgColor="gray.100"
@@ -42,7 +49,7 @@ export const CampaignCreationCallout: React.FC<CampaignCreationCalloutProps> =
       >
         <Stack spacing="4" align="center" spacing="3">
           <Avatar
-            size={{ base: "xl", sm: "lg", md: "xl" }}
+            size={{ base: "lg", md: "md" }}
             name={createdBy}
             src={imageUrl}
           />
@@ -51,7 +58,7 @@ export const CampaignCreationCallout: React.FC<CampaignCreationCalloutProps> =
             Created by {createdBy}
           </Text>
           <Text opacity=".8" fontSize="xs">
-            {createdAt}
+            {createdAtInMS}
           </Text>
           {isEmployee && <EmployeeBadge />}
 

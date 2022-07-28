@@ -17,14 +17,6 @@ const raisedVariant: SystemStyleObject = {
     color: "gray.600",
     fontWeight: "medium",
     zIndex: 1,
-    _selected: {
-      color: "gray.700",
-    },
-    _focus: {
-      boxShadow: "none",
-      textDecoration: "underline",
-      textDecorationColor: "gray.800",
-    },
     _dark: {
       color: "gray.50",
       _selected: {

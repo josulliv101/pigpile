@@ -1,5 +1,6 @@
 import type * as React from "react";
 import {
+  Box,
   Button,
   ButtonGroup,
   chakra,
@@ -23,8 +24,6 @@ export interface MoreButtonsProps extends HTMLChakraProps<"div"> {
   options: Option[];
   onButtonClick: (n: number) => void;
 }
-
-const USE_DEFAULT = "lg";
 
 export const MORE_BUTTONS_BACK_ID = "back-button";
 
@@ -66,7 +65,7 @@ export const MoreButtons: React.FC<MoreButtonsProps> = ({
   const { isOpen, onOpen, onClose } = useDisclosure();
   const isLimitExceeded = options.length > limit;
   const displayedOptions = isOpen ? options : options.slice(0, limit);
-  const size = isOpen ? "sm" : USE_DEFAULT;
+  const size = isOpen ? "sm" : "lg";
 
   const handleButtonClick = (ev) => {
     if (isOpen && ev.target.value === MORE_BUTTONS_BACK_ID) {
@@ -87,13 +86,19 @@ export const MoreButtons: React.FC<MoreButtonsProps> = ({
       {displayedOptions.map((btnProps) => (
         <ButtonMore
           key={btnProps.value}
-          size={size}
+          size={{ base: "sm", sm: size }}
           {...btnProps}
           onClick={handleButtonClick}
         />
       ))}
       {!isOpen && isLimitExceeded && (
-        <Hide below="md">
+        <Box
+          sx={{
+            "@media screen and (min-width: 200px) and (max-width: 640px)": {
+              display: "none",
+            },
+          }}
+        >
           <Tooltip
             placement="top"
             label={moreTooltipLabel}
@@ -112,7 +117,7 @@ export const MoreButtons: React.FC<MoreButtonsProps> = ({
               <Icon as={FaEllipsisH} />
             </Button>
           </Tooltip>
-        </Hide>
+        </Box>
       )}
     </ButtonGroup>
   );

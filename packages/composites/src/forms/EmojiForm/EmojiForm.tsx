@@ -16,7 +16,7 @@ import {
   Stack,
   Text,
   Textarea,
-  useToast,
+  // useToast,
 } from "@josulliv101/core";
 import { EmojiField } from "./EmojiField";
 
@@ -60,7 +60,7 @@ export interface EmojiFormProps extends HTMLChakraProps<"div"> {
 }
 
 const FieldAnonymousCheckBox = () => {
-  const toast = useToast();
+  // const toast = useToast();
   const [toastHasBeenDisplayedOnce, setToastHasBeenDisplayedOnce] = useState();
   return (
     <Field name="isAnonymous">
@@ -68,14 +68,17 @@ const FieldAnonymousCheckBox = () => {
         useEffect(() => {
           if (!toastHasBeenDisplayedOnce && form.values.isAnonymous) {
             setToastHasBeenDisplayedOnce(true);
-            toast({
+            {
+              /*            toast({
               title: "Ok, we won't display your name.",
               description: "You can still update the displayed emoji.",
               status: "info",
               duration: 5000,
               isClosable: true,
               position: "top",
-            });
+              onCloseComplete: () => console.log('CLOSE FORM')
+            });*/
+            }
           }
         }, [form.values.isAnonymous]);
         return (

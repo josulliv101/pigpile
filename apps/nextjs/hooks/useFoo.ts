@@ -1,15 +1,20 @@
-import { useCallback, useEffect } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Donation } from "@josulliv101/types";
 import {
   subscribeToCampaignDonations,
   Timestamp,
 } from "@josulliv101/connect-client";
-import { donationsSlice, selectIsAppReady } from "../store";
+import {
+  donationsSlice,
+  selectIsAppReady,
+  selectDonationFilterState,
+} from "../store";
 
 export function useFoo(campaignId: string) {
   const dispatch = useDispatch();
   const isAppReady = useSelector(selectIsAppReady());
+  const { queryType, isSortDesc } = useSelector(selectDonationFilterState());
 
   useEffect(() => {
     console.log("useFoobar a", isAppReady, campaignId, Timestamp.now());
@@ -18,6 +23,7 @@ export function useFoo(campaignId: string) {
     }
     const unsubscribe = subscribeToCampaignDonations(
       campaignId,
+      { queryType, isSortDesc },
       (donations: Donation[]) => {
         dispatch(
           donationsSlice.actions.setCampaignDonations({ campaignId, donations })
@@ -25,5 +31,5 @@ export function useFoo(campaignId: string) {
       }
     );
     return unsubscribe;
-  }, [campaignId, dispatch, isAppReady]);
+  }, [campaignId, dispatch, isAppReady, queryType, isSortDesc]);
 }

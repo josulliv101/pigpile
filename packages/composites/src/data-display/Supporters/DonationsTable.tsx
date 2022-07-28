@@ -1,12 +1,15 @@
 import * as React from "react";
+import { FaComment } from "react-icons/fa";
 import {
   Avatar as AvatarBase,
   Badge,
+  Box,
   HStack,
   Stack,
   StackDivider,
   Text,
 } from "@josulliv101/core";
+import { relativeDays } from "@josulliv101/formatting";
 
 export interface Donation {
   name: string;
@@ -48,16 +51,44 @@ export const DonationsTable: React.FC<DonationsTableProps> = ({
       divider={<StackDivider borderColor="gray.200" />}
       {...props}
     >
-      {donations.map(({ name, icon, amount, donatedAt }) => (
-        <HStack key={`${name}-${amount}`}>
-          <Avatar size="sm" icon={<EmojiIcon icon={icon} />} />
-          <Text flex="1" fontSize="sm">
-            {name}
-          </Text>
-          <Badge variant="subtle">{amount} pairs of socks</Badge>
-          <Badge variant="subtle">{donatedAt}</Badge>
-        </HStack>
-      ))}
+      {donations.map(
+        ({ comment, displayName, emoji, quantity, createdAtInMS }) => (
+          <HStack key={`${displayName}-${quantity}`}>
+            <Avatar size="sm" icon={<EmojiIcon icon={emoji} />} />
+            <Text flex="1" fontSize="sm">
+              {displayName}
+            </Text>
+            {comment ? (
+              <HStack>
+                <Badge
+                  pl="5"
+                  position="relative"
+                  whiteSpace="unset"
+                  fontWeight="normal"
+                  textTransform="none"
+                  pr="4"
+                  fontSize="xs"
+                  variant="subtle"
+                  noOfLines={1}
+                >
+                  <Box color="#8d8d8d" position="absolute" left="4px" top="4px">
+                    <FaComment color="inherit" fontSize=".7rem" />
+                  </Box>
+                  {comment}
+                </Badge>
+              </HStack>
+            ) : (
+              <Box flex="1" />
+            )}
+            <Badge fontWeight="normal" textTransform="none" variant="subtle">
+              {quantity} pairs of socks
+            </Badge>
+            <Badge fontWeight="normal" textTransform="none" variant="subtle">
+              {relativeDays(createdAtInMS)}
+            </Badge>
+          </HStack>
+        )
+      )}
     </Stack>
   );
 };

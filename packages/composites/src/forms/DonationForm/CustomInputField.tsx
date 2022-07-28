@@ -30,8 +30,8 @@ export const CustomInputField: React.FC<CustomInputFieldProps> = ({
     <NumberInput
       mx="3"
       display="inline-flex"
-      maxW="66px"
-      size="xs"
+      maxW="100px"
+      size="lg"
       onChange={onChange}
       defaultValue={numberOfUnits}
       min={1}
