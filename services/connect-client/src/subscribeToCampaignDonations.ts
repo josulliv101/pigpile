@@ -1,5 +1,4 @@
 import { collection, query, orderBy, onSnapshot } from "firebase/firestore";
-import { useEffect } from "react";
 import { Donation } from "@josulliv101/types";
 import { db } from "./connectClientApp";
 
@@ -14,7 +13,7 @@ function getOrderBy(queryType: number, isSortDesc: boolean) {
 export function subscribeToCampaignDonations(
   campaignId: string,
   { queryType, isSortDesc }: { queryType: number; isSortDesc: boolean },
-  onChange: () => void
+  onChange: (d: Donation[]) => void
 ) {
   const q = query(
     collection(db, `campaigns/${campaignId}/donations`),
@@ -27,7 +26,6 @@ export function subscribeToCampaignDonations(
       const data = doc.data();
       donations.push({ id: doc.id, ...data });
     });
-    console.log("Current donations: ", donations, q);
     onChange(donations);
   });
   return unsubscribe;

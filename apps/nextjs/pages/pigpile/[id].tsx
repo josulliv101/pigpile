@@ -3,7 +3,7 @@ import { adminDb } from "@josulliv101/connect-admin";
 import { useSubscribeToCampaignDonations } from "@josulliv101/connect-client";
 import { Donations } from "@josulliv101/types";
 import { LayoutCampaign } from "../../components/layouts";
-import { useFoo } from "hooks";
+import { useDonationsSubscription } from "hooks";
 import Content from "../../components/composites/CampaignPage/Campaign";
 import {
   campaignsSlice,
@@ -14,7 +14,7 @@ import {
 } from "../../store";
 
 export function Campaign({ id }): JSX.Element {
-  useFoo(id);
+  useDonationsSubscription(id);
   const { beneficiary, campaign, goal, tags } =
     useSelector(selectCampaign(id)) || {};
   console.log("campaign tags prop", id, useSelector(selectCampaign(id)));

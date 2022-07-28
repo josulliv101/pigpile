@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo } from "react";
+import { useCallback, useMemo } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   extendTheme,
@@ -10,13 +10,12 @@ import {
   getColorSchemeByIndex,
   getUserThemeByIndex,
   theme,
-  userThemes,
   ColorScheme,
   UserTheme,
 } from "@josulliv101/theme";
 import { selectThemeState, themeSlice } from "../store";
 
-// TODO on-demand loading of themes / clean this up
+// TODO on-demand loading of themes
 
 export const getThemeWithDefaults = (
   colorScheme: ColorScheme,
@@ -27,18 +26,17 @@ export const getThemeWithDefaults = (
     componentsBySize = [],
     ...rest
   } = userTheme;
-  // console.log("getThemeWithDefaults", componentsByVariant, componentsBySize);
-  return extendTheme(
-    ...colorScheme.componentsByColorScheme.map((item) =>
-      withDefaultColorScheme(item)
-    ),
-    ...componentsByVariant.map((item) => withDefaultVariant(item)),
-    ...componentsBySize.map((item) => withDefaultSize(item)),
-    {
-      ...theme,
-      userTheme: rest,
-    }
+
+  const colorSchemes = colorScheme.componentsByColorScheme.map((item) =>
+    withDefaultColorScheme(item)
   );
+  const variants = componentsByVariant.map((item) => withDefaultVariant(item));
+  const sizes = componentsBySize.map((item) => withDefaultSize(item));
+
+  return extendTheme(...colorSchemes, ...variants, ...sizes, {
+    ...theme,
+    userTheme: rest,
+  });
 };
 
 export const useTheme = () => {
@@ -46,7 +44,7 @@ export const useTheme = () => {
   const activeIndexes = useSelector(selectThemeState());
   const colorScheme = getColorSchemeByIndex(activeIndexes.colorScheme);
   const userTheme = getUserThemeByIndex(activeIndexes.userTheme);
-  // console.log("userTheme ...", activeIndexes, colorScheme, userTheme);
+
   const theme = useMemo(
     () => getThemeWithDefaults(colorScheme, userTheme),
     [activeIndexes.colorScheme, activeIndexes.userTheme]

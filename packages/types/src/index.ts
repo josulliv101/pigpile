@@ -2,10 +2,10 @@ export * from "./LabelBundle";
 export * from "./Settings";
 
 export interface Status {
-  id: string;
+  id?: string;
   type: "info" | "warning" | "error" | "success";
   title: string;
-  descr?: string;
+  description?: string;
 }
 
 export interface User {

@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import {
   ActionCreatorWithPayload,
+  ActionCreatorWithOptionalPayload,
   isAnyOf,
   isAsyncThunkAction,
 } from "@reduxjs/toolkit";
@@ -32,7 +33,9 @@ export function useStatusManager() {
   const dispatch = useDispatch();
   useEffect(() => {
     console.log("useStatusManager add listener: ");
-    const effect = async (action) => {
+    const effect = async (
+      action: ActionCreatorWithOptionalPayload<Status | { error: any }, string>
+    ) => {
       console.log("Middleware: ", action);
       if (action.type === "status/setStatus" || action.error) {
         toast({

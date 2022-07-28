@@ -5,8 +5,7 @@ import {
   makeGetLabelFromBundle,
   LabelBundleType,
 } from "@josulliv101/labelBundles";
-
-export type LabelBundleMap = Record<string, LabelBundleType>;
+import { LabelBundleMap } from "@josulliv101/types";
 
 const labelBundlesById: LabelBundleMap = {
   en: defaultLabelBundle,

@@ -4,17 +4,17 @@ import { AuthState, User } from "@josulliv101/types";
 import { auth, signInWithPopup } from "@josulliv101/connect-client";
 import { AppState } from "./";
 
-export const signInUserThunk = createAsyncThunk(
-  "auth/signInUser",
-  async (options: { provider: any; cb: () => void }) => {
-    if (!options?.provider) {
-      throw new Error("An auth provider is required.");
-    }
-    await signInWithPopup(auth, options.provider);
+export const signInUserThunk = createAsyncThunk<
+  void,
+  { provider: any; cb: () => void }
+>("auth/signInUser", async (options) => {
+  if (!options?.provider) {
+    throw new Error("An auth provider is required.");
   }
-);
+  await signInWithPopup(auth, options.provider);
+});
 
-export const signOutUserThunk = createAsyncThunk(
+export const signOutUserThunk = createAsyncThunk<void>(
   "auth/signOutUser",
   async () => {
     await signOut(auth);

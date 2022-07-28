@@ -69,3 +69,5 @@ export type LabelBundle = {
     heroTitle: string;
   };
 };
+
+export type LabelBundleMap = Record<string, LabelBundle>;

@@ -1,25 +1,21 @@
-import { useCallback, useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Donation } from "@josulliv101/types";
-import {
-  subscribeToCampaignDonations,
-  Timestamp,
-} from "@josulliv101/connect-client";
+import { subscribeToCampaignDonations } from "@josulliv101/connect-client";
 import {
   donationsSlice,
   selectIsAppReady,
   selectDonationFilterState,
 } from "../store";
 
-export function useFoo(campaignId: string) {
+export function useDonationsSubscription(campaignId: string) {
   const dispatch = useDispatch();
   const isAppReady = useSelector(selectIsAppReady());
   const { queryType, isSortDesc } = useSelector(selectDonationFilterState());
 
   useEffect(() => {
-    console.log("useFoobar a", isAppReady, campaignId, Timestamp.now());
     if (!isAppReady || !campaignId) {
-      return () => console.log("useFoobar b", isAppReady);
+      return;
     }
     const unsubscribe = subscribeToCampaignDonations(
       campaignId,
