@@ -5,7 +5,7 @@ import {
   selectAppState,
   selectUser,
   selectIsAppReady,
-  signOutUser,
+  signOutUserThunk,
 } from "../store";
 import { useTheme } from "../hooks";
 
@@ -15,7 +15,7 @@ export function useNavProps() {
   const user = useSelector(selectUser());
   const { isMobileNavOpen } = useSelector(selectAppState());
   const isAppReady = useSelector(selectIsAppReady());
-  const onLogout = useCallback(() => dispatch(signOutUser()), [dispatch]);
+  const onLogout = useCallback(() => dispatch(signOutUserThunk()), [dispatch]);
 
   return {
     themeState,

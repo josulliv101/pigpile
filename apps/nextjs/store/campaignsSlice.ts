@@ -1,7 +1,7 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { HYDRATE } from "next-redux-wrapper";
 import { Campaign } from "@josulliv101/types";
-import { AppState, AppThunk } from "./store";
+import { AppState } from "./store";
 
 export const campaignsSlice = createSlice({
   name: "campaigns",
@@ -10,17 +10,14 @@ export const campaignsSlice = createSlice({
 
   reducers: {
     setCampaign(state, action) {
-      console.log("setCampaign", action);
       return {
         ...state,
-        [action.payload?.id]: action.payload,
+        [action.payload?.id as string]: action.payload,
       };
     },
   },
-
   extraReducers: {
-    [HYDRATE]: (state, action) => {
-      console.log("campaign HYDRATE", action.payload);
+    [HYDRATE]: (state, action: PayloadAction<Record<string, Campaign>>) => {
       return {
         ...state,
         ...action.payload.campaigns,
@@ -28,16 +25,6 @@ export const campaignsSlice = createSlice({
     },
   },
 });
-
-export const fetchCampaign =
-  (id: string): AppThunk =>
-  async (dispatch) => {
-    dispatch(
-      campaignsSlice.actions.setCampaign({
-        [id]: {},
-      })
-    );
-  };
 
 export const selectCampaign = (id: string) => (state: AppState) =>
   state[campaignsSlice.name][id];

@@ -52,9 +52,9 @@ export const DonationsGrid: React.FC<DonationsGridProps> = ({
       {...props}
     >
       {donations.map(
-        ({ comment, displayName, emoji, quantity, createdAtInMS }) => (
+        ({ comment, displayName, emoji, quantity, createdAtInMS }, index) => (
           <Tooltip
-            key={`${displayName}-${quantity}`}
+            key={`${displayName}-${quantity}-${index}`}
             placement="top"
             label={comment}
           >

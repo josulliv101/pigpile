@@ -4,29 +4,22 @@ import { AuthState, User } from "@josulliv101/types";
 import { auth, signInWithPopup } from "@josulliv101/connect-client";
 import { AppState } from "./";
 
-export const signInUser = createAsyncThunk(
+export const signInUserThunk = createAsyncThunk(
   "auth/signInUser",
   async (options: { provider: any; cb: () => void }) => {
-    console.log("@@@signInUser args@@@", options);
     if (!options?.provider) {
-      return console.warn("no auth provider found");
+      throw new Error("An auth provider is required.");
     }
-    try {
-      await signInWithPopup(auth, options?.provider);
-      console.log("auth", auth.currentUser);
-    } catch (error) {
-      return error;
-    }
+    await signInWithPopup(auth, options.provider);
   }
 );
 
-export const signOutUser = createAsyncThunk("auth/signOutUser", async () => {
-  try {
+export const signOutUserThunk = createAsyncThunk(
+  "auth/signOutUser",
+  async () => {
     await signOut(auth);
-  } catch (error) {
-    return error;
   }
-});
+);
 
 export const authSlice = createSlice({
   name: "auth",
@@ -37,7 +30,6 @@ export const authSlice = createSlice({
     autheniticate: (state, action: PayloadAction<User | null>) => {
       state.user = action.payload;
       state.isReady = true;
-      return state;
     },
   },
 });

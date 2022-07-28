@@ -24,12 +24,6 @@ function PigpileApp({ Component, pageProps }: AppProps): JSX.Element {
     error || "no error returned"
   );
 
-  /*   useEffect(() => {
-    if (isMobileNavOpen) {
-      dispatch(appSlice.actions.closeMobileNav());
-    }
-  }, [router.asPath]);*/
-
   useEffect(() => {
     const handleStart = (url) => {
       console.log(`Loading: ${url}`);

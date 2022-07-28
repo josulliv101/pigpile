@@ -1,5 +1,10 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 import { AppState } from "./store";
+
+export interface AppSliceState {
+  isUnloading: boolean;
+  isMobileNavOpen: boolean;
+}
 
 export const appSlice = createSlice({
   name: "app",
@@ -7,22 +12,16 @@ export const appSlice = createSlice({
   initialState: {
     isUnloading: false,
     isMobileNavOpen: false,
-  },
+  } as AppSliceState,
 
   reducers: {
-    setState(state, action) {
-      console.log("App set", action);
-      return {
-        ...state,
-        ...action.payload,
-      };
+    unloading(state) {
+      state.isUnloading = true;
     },
-    openMobileNav(state, action: PayloadAction<void>) {
-      console.log("updateMobileNav", action);
+    openMobileNav(state) {
       state.isMobileNavOpen = true;
     },
-    closeMobileNav(state, action: PayloadAction<void>) {
-      console.log("updateMobileNav", action);
+    closeMobileNav(state) {
       state.isMobileNavOpen = false;
     },
   },

@@ -1,18 +1,16 @@
 import { collection, doc, setDoc, Timestamp } from "firebase/firestore";
-import { Donation } from "@josulliv101/types";
+import { AddedDonation } from "@josulliv101/types";
 import { db } from "./connectClientApp";
 
-type CampaignDonation = Omit<Donation, "createdAt"> & {
-  campaignId: string;
-};
+export const addDonation = async (addedDonation: AddedDonation) => {
+  const { campaignId, ...donation } = addedDonation;
 
-export const addDonation = async (campaignDonation: CampaignDonation) => {
-  const { campaignId, ...donation } = campaignDonation;
   if (!campaignId) {
-    throw Error("Cannot add donation without a valid campaign id.");
+    throw new Error("Cannot add donation without a valid campaign id.");
   }
+
   if (!donation) {
-    throw Error("Cannot add empty donation.");
+    throw new Error("Cannot add empty donation.");
   }
   const coll = collection(db, `campaigns/${campaignId}/donations`);
   const updatedDoc = await setDoc(doc(coll), {

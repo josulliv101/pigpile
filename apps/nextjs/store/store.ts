@@ -1,4 +1,8 @@
-import { configureStore, ThunkAction } from "@reduxjs/toolkit";
+import {
+  configureStore,
+  createListenerMiddleware,
+  ThunkAction,
+} from "@reduxjs/toolkit";
 import { Action } from "redux";
 import { createWrapper } from "next-redux-wrapper";
 import { appSlice } from "./appSlice";
@@ -9,8 +13,9 @@ import { donationFilterSlice } from "./donationFilterSlice";
 import { statusSlice } from "./statusSlice";
 import { themeSlice } from "./themeSlice";
 import { paymentSlice } from "./paymentSlice";
-import { listenerMiddleware } from "./statusMiddleware";
-import { augmentActionPayloadWithId } from "./augmentActionPayloadWithId";
+import { middlewareAugmentActionPayloadWithId } from "./middlewareAugmentActionPayloadWithId";
+
+export const listenerMiddleware = createListenerMiddleware();
 
 export const makeStore = () =>
   configureStore({
@@ -26,7 +31,7 @@ export const makeStore = () =>
     },
     middleware: (getDefaultMiddleware) => {
       return getDefaultMiddleware().concat(
-        augmentActionPayloadWithId,
+        middlewareAugmentActionPayloadWithId,
         listenerMiddleware.middleware
       );
     },

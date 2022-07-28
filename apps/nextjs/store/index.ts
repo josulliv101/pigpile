@@ -7,4 +7,3 @@ export * from "./paymentSlice";
 export * from "./statusSlice";
 export * from "./store";
 export * from "./themeSlice";
-export * from "./statusMiddleware";

@@ -5,7 +5,7 @@
   "repository": "https://github.com/josulliv101/pigpile/tree/master/packages/connect-client",
   "main": "dist/josulliv101-connect-client.cjs.js",
   "module": "dist/josulliv101-connect-client.esm.js",
-  "types": "dist/pigpile-connect-client.cjs.d.ts",
+  "types": "dist/josulliv101-connect-client.cjs.d.ts",
   "files": [
     "dist"
   ],

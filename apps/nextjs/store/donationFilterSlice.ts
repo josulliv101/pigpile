@@ -1,9 +1,14 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { AppState } from "./store";
 
 export enum QUERY_TYPE {
   Latest = 0,
   Top = 1,
+}
+
+export interface DonationFilterState {
+  queryType: QUERY_TYPE;
+  isSortDesc: boolean;
 }
 
 export const donationFilterSlice = createSlice({
@@ -12,11 +17,10 @@ export const donationFilterSlice = createSlice({
   initialState: {
     queryType: QUERY_TYPE.Latest,
     isSortDesc: true,
-  },
+  } as DonationFilterState,
 
   reducers: {
-    setState(state, action) {
-      console.log("donationFilterSlice set", action);
+    setState(state, action: PayloadAction<Partial<DonationFilterState>>) {
       return {
         ...state,
         ...action.payload,

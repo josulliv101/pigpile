@@ -28,7 +28,7 @@ import {
 import { useLabelBundle } from "@josulliv101/labelbundles";
 import { formatNumber } from "@josulliv101/formatting";
 import {
-  addCampaignDonation,
+  addCampaignDonationThunk,
   paymentSlice,
   selectChesterAnimation,
   selectPaymentState,
@@ -125,7 +125,7 @@ const Hero = ({
       ...rest
     );
     dispatch(
-      addCampaignDonation({
+      addCampaignDonationThunk({
         campaignId,
         quantity: numberOfUnits,
         tip,

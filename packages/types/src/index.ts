@@ -2,6 +2,7 @@ export * from "./LabelBundle";
 export * from "./Settings";
 
 export interface Status {
+  id: string;
   type: "info" | "warning" | "error" | "success";
   title: string;
   descr?: string;
@@ -25,6 +26,10 @@ export interface Donation {
   isAnonymous?: boolean;
   createdAtInMS: number;
 }
+
+export type AddedDonation = Omit<Donation, "createdAtInMS"> & {
+  campaignId: string;
+};
 
 export type Comment = Pick<
   Donation,

@@ -5,7 +5,7 @@
   "repository": "https://github.com/josulliv101/pigpile/tree/master/packages/connect-admin",
   "main": "dist/josulliv101-connect-admin.cjs.js",
   "module": "dist/josulliv101-connect-admin.esm.js",
-  "types": "dist/pigpile-connect-admin.cjs.d.ts",
+  "types": "dist/josulliv101-connect-admin.cjs.d.ts",
   "files": [
     "dist"
   ],

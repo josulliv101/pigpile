@@ -25,7 +25,7 @@ export default function useIsScrolledY() {
 
   useEffect(() => {
     window.onbeforeunload = function () {
-      dispatch(appSlice.actions.setState({ isUnloading: true }));
+      dispatch(appSlice.actions.unloading());
       resetWindowScrollPosition();
     };
   }, [dispatch, resetWindowScrollPosition]);
