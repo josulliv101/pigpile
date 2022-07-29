@@ -117,11 +117,7 @@ export function MobileNavContent(props: MobileNavContentProps) {
                     top="0"
                     transform="translate(-50%, 27%)"
                   />
-                  <CloseButton
-                    color="white"
-                    ref={closeBtnRef}
-                    onClick={onClose}
-                  />
+                  <CloseButton color="white" ref={closeBtnRef} onClick={onClose} />
                 </Flex>
                 <ButtonGroup
                   size={{ base: "sm", sm: "md" }}
@@ -149,7 +145,7 @@ export function MobileNavContent(props: MobileNavContentProps) {
                   <Heading
                     align="center"
                     bgColor="blackAlpha.200"
-                    w={{ base: "90%", sm: "58%", md: "60%" }}
+                    w={{ base: "90%", sm: "64%" }}
                     mt="10"
                     pt="6"
                     pb="0"
@@ -163,7 +159,7 @@ export function MobileNavContent(props: MobileNavContentProps) {
                     shadow={shadow}
                     templateColumns="repeat(2, 1fr)"
                     gap="4"
-                    w={{ base: "90%", sm: "58%", md: "60%" }}
+                    w={{ base: "90%", sm: "64%" }}
                     bgColor="blackAlpha.200"
                   >
                     {Object.keys(themeOptions).map((key) => (
@@ -226,33 +222,21 @@ const ScrollView = (props: BoxProps & { onScroll?: any }) => {
     onScroll?.(y > 5 ? true : false);
   }, [y]);
 
-  return (
-    <Box
-      ref={elRef}
-      flex="1"
-      id="routes"
-      overflow="auto"
-      px="6"
-      pb="6"
-      {...rest}
-    />
-  );
+  return <Box ref={elRef} flex="1" id="routes" overflow="auto" px="6" pb="6" {...rest} />;
 };
 
-export const MobileNavButton = forwardRef(
-  (props: IconButtonProps, ref: Ref<HTMLButtonElement>) => {
-    return (
-      <IconButton
-        ref={ref}
-        display={{ base: "flex", md: "none" }}
-        aria-label="Open menu"
-        fontSize="20px"
-        color="white"
-        variant="ghost"
-        colorScheme="blackAlpha"
-        icon={<AiOutlineMenu />}
-        {...props}
-      />
-    );
-  }
-);
+export const MobileNavButton = forwardRef((props: IconButtonProps, ref: Ref<HTMLButtonElement>) => {
+  return (
+    <IconButton
+      ref={ref}
+      display={{ base: "flex", md: "none" }}
+      aria-label="Open menu"
+      fontSize="20px"
+      color="white"
+      variant="ghost"
+      colorScheme="blackAlpha"
+      icon={<AiOutlineMenu />}
+      {...props}
+    />
+  );
+});

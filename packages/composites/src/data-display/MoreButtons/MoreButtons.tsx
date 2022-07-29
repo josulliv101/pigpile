@@ -33,12 +33,9 @@ const ButtonMore = ({ label, price, ...props }) => (
     // children={label}
     {...props}
     borderRadius="full"
-    leftIcon={
-      props.value === MORE_BUTTONS_BACK_ID ? (
-        <Icon as={FaArrowCircleLeft} />
-      ) : null
-    }
+    leftIcon={props.value === MORE_BUTTONS_BACK_ID ? <Icon as={FaArrowCircleLeft} /> : null}
     sx={{ ">span": { pointerEvents: "none" } }}
+    boxShadow="md"
   >
     {label}
     {price && props.value !== MORE_BUTTONS_BACK_ID ? (
@@ -99,11 +96,7 @@ export const MoreButtons: React.FC<MoreButtonsProps> = ({
             },
           }}
         >
-          <Tooltip
-            placement="top"
-            label={moreTooltipLabel}
-            isDisabled={!moreTooltipLabel}
-          >
+          <Tooltip placement="top" label={moreTooltipLabel} isDisabled={!moreTooltipLabel}>
             <Button
               aria-label="more"
               pos="absolute"
@@ -113,6 +106,7 @@ export const MoreButtons: React.FC<MoreButtonsProps> = ({
               size="xs"
               onClick={onOpen}
               borderRadius="full"
+              boxShadow="md"
             >
               <Icon as={FaEllipsisH} />
             </Button>

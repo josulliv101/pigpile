@@ -6,18 +6,10 @@ export default class MyDocument extends Document {
     return (
       <Html lang="en">
         <Head>
-          {/*          <meta
-            name="viewport"
-            content="width=device-width,initial-scale=1,shrink-to-fit=yes"
-          />*/}
           <meta name="theme-color" content="#000000" />
           <link rel="icon" type="image/png" href="/favicon.ico" />
           <link rel="preconnect" href="https://fonts.googleapis.com" />
-          <link
-            rel="preconnect"
-            href="https://fonts.gstatic.com"
-            crossOrigin="true"
-          />
+          <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true" />
           <link
             href="//fonts.googleapis.com/css?family=Sriracha:400&text=Pigpleongdcaus&display=block"
             rel="stylesheet"
@@ -26,14 +18,6 @@ export default class MyDocument extends Document {
             href="//fonts.googleapis.com/css?family=Roboto:100,200,300,400.500,600,700&display=swap"
             rel="stylesheet"
           />
-          <script
-            src="https://fast.wistia.com/embed/medias/1wpb65qwkz.jsonp"
-            async
-          ></script>
-          <script
-            src="https://fast.wistia.com/assets/external/E-v1.js"
-            async
-          ></script>
         </Head>
         <body>
           {/*<ColorModeScript />*/}

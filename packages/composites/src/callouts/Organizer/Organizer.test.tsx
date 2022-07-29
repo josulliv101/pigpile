@@ -1,16 +1,16 @@
 import { render } from "../../../../../testUtils";
 import { axe } from "jest-axe";
-import { CampaignCreationCallout } from "./CampaignCreationCallout";
+import { Organizer } from "./Organizer";
 import { mockProps } from "./mock";
 
 describe("Organization", () => {
   it("should not have basic accessibility issues", async () => {
-    const { container } = render(<CampaignCreationCallout {...mockProps} />);
+    const { container } = render(<Organizer {...mockProps} />);
     const results = await axe(container);
     expect(results).toHaveNoViolations();
   });
   it("renders correctly", () => {
-    const { container } = render(<CampaignCreationCallout {...mockProps} />);
+    const { container } = render(<Organizer {...mockProps} />);
     expect(container.firstChild).toMatchInlineSnapshot(`
       <aside
         class="chakra-callout css-ifhov8"

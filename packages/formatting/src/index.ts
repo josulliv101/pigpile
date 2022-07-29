@@ -53,7 +53,7 @@ export function capitalizeFirstLetter(s) {
   return s.charAt(0).toUpperCase() + s.slice(1);
 }
 
-export function formatAsText(s, options) {
+export function formatIdAsText(s, options) {
   if (typeof s !== "string" || !s) {
     return s;
   }

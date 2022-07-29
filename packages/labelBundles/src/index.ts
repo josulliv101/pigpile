@@ -17,12 +17,11 @@ const getReplaceMatchesFn = (replacementValues: replacementValue[]) => {
 export const makeGetLabelFromBundle =
   (bundleToUse: LabelBundle) =>
   (value: string, ...replacementValues: replacementValue[]) => {
-    const templateString = get(bundleToUse, value);
+    const templateString = get(bundleToUse, value) ?? value;
+
     if (!templateString) {
-      return value;
+      return "";
     }
-    return templateString.replace(
-      regex,
-      getReplaceMatchesFn(replacementValues)
-    );
+
+    return templateString.replace(regex, getReplaceMatchesFn(replacementValues));
   };

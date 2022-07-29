@@ -1,25 +1,18 @@
 import { useState, useMemo } from "react";
-import {
-  defaultLabelBundle,
-  frLabelBundle,
-  makeGetLabelFromBundle,
-  LabelBundleType,
-} from "./";
+import { LabelBundleMap } from "@josulliv101/types";
+import { defaultLabelBundle, frLabelBundle, makeGetLabelFromBundle } from "./";
 
-export type LabelBundleMap = Record<string, LabelBundleType>;
-
+// TODO load label bundles on-demand as needed
 const labelBundlesById: LabelBundleMap = {
   en: defaultLabelBundle,
   fr: frLabelBundle,
 };
 
-export function useLabelBundle() {
-  const [labelBundleId, setLabelBundleId] = useState("en");
+export function useLabelBundle(initialLocale = "en") {
+  const [labelBundleId, setLabelBundleId] = useState(initialLocale);
 
   return useMemo(() => {
-    const getLabel = makeGetLabelFromBundle(
-      labelBundlesById[labelBundleId] || defaultLabelBundle
-    );
+    const getLabel = makeGetLabelFromBundle(labelBundlesById[labelBundleId] || defaultLabelBundle);
     const getLabelForQuantity = (
       value: string,
       quantity: number,
