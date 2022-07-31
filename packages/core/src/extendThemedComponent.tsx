@@ -1,5 +1,6 @@
 import { forwardRef } from "react";
-import { ChakraComponent, useChakra, memoizedGet, mergeWith } from "@josulliv101/core";
+import { ChakraComponent, useChakra } from "@chakra-ui/react";
+import { memoizedGet, mergeWith } from "@chakra-ui/utils";
 
 export const extendThemedComponent = (
   extendedName: string,

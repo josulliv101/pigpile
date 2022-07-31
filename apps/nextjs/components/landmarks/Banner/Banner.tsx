@@ -37,21 +37,10 @@ const BrandText = chakra(Text, {
   },
 });
 
-const getLogoTransform = ({ scale }) =>
-  `translate3d(-50%, -50%, 0) scale(${scale})`;
+const getLogoTransform = ({ scale }) => `translate3d(-50%, -50%, 0) scale(${scale})`;
 
-export const Banner: React.FC<HTMLChakraProps<"div">> = ({
-  children: nav,
-  ...props
-}) => {
+export const Banner: React.FC<HTMLChakraProps<"div">> = ({ children: nav, ...props }) => {
   const dispatch = useDispatch();
-  const foo = useBreakpointValue({
-    base: "base",
-    xs: "xs",
-    sm: "sm",
-    md: "md",
-    lg: "lg",
-  });
   const { isMobileNavOpen } = useSelector(selectAppState());
   const mobileNavBtnRef = useRef<HTMLButtonElement>();
   const isScrolledY = useIsScrolledY();
@@ -75,7 +64,6 @@ export const Banner: React.FC<HTMLChakraProps<"div">> = ({
     if (typeof window !== "undefined") {
       const handleResize = debounce(
         () => {
-          console.log("RESIZE EVENT");
           handleCloseMobileNav();
         },
         300,
@@ -91,7 +79,7 @@ export const Banner: React.FC<HTMLChakraProps<"div">> = ({
       <Container>
         <Flex align="center" justify="space-between">
           <NextLink href="/" passHref>
-            <BrandText as="a">Pigpile {foo}</BrandText>
+            <BrandText as="a">Pigpile</BrandText>
           </NextLink>
           <NextLink href="/" passHref>
             <a>
@@ -112,10 +100,7 @@ export const Banner: React.FC<HTMLChakraProps<"div">> = ({
           />
         </Flex>
       </Container>
-      <MobileNavContent
-        isOpen={isMobileNavOpen}
-        onClose={handleCloseMobileNav}
-      />
+      <MobileNavContent isOpen={isMobileNavOpen} onClose={handleCloseMobileNav} />
     </Background>
   );
 };

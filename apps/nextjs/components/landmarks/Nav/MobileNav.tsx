@@ -137,9 +137,8 @@ export function MobileNavContent(props: MobileNavContentProps) {
                     bgColor="blackAlpha.200"
                   >
                     {Object.keys(themeOptions).map((key) => (
-                      <GridItem>
+                      <GridItem key={key}>
                         <ThemeTabs
-                          key={key}
                           id={key}
                           {...themeOptions[key]}
                           index={themeState?.[key] ?? 0}

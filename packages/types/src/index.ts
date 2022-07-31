@@ -3,7 +3,7 @@ export * from "./Settings";
 
 export interface Status {
   id?: string;
-  status: "info" | "warning" | "error" | "success";
+  status?: "info" | "warning" | "error" | "success";
   title: string;
   description?: string;
 }

@@ -2,15 +2,12 @@ import { AppProps } from "next/app";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  ChakraProvider,
-  CSSReset,
-  localStorageManager,
-} from "@josulliv101/core";
+import { ChakraProvider, CSSReset, localStorageManager } from "@josulliv101/core";
 import { userThemes } from "@josulliv101/theme";
 import { LayoutBasic } from "components/layouts";
-import { appSlice, selectAppState, wrapper } from "../store";
-import { useConnectClient, useStatusManager, useTheme } from "../hooks";
+import { appSlice, selectAppState, wrapper } from "store";
+import { useConnectClient, useStatusManager, useTheme } from "hooks";
+import * as ga from "../analytics";
 
 function PigpileApp({ Component, pageProps }: AppProps): JSX.Element {
   const { error } = useConnectClient();
@@ -19,19 +16,17 @@ function PigpileApp({ Component, pageProps }: AppProps): JSX.Element {
   const dispatch = useDispatch();
   useStatusManager();
 
-  console.log(
-    "useConnectClient returned from hook",
-    error || "no error returned"
-  );
+  console.log("useConnectClient returned from hook", error || "no error returned");
 
   useEffect(() => {
     const handleStart = (url) => {
       console.log(`Loading: ${url}`);
     };
-    const handleStop = () => {
+    const handleStop = (url) => {
       if (isMobileNavOpen) {
         setTimeout(() => dispatch(appSlice.actions.closeMobileNav()), 0);
       }
+      ga.pageview(url);
     };
 
     router.events.on("routeChangeStart", handleStart);
@@ -45,9 +40,8 @@ function PigpileApp({ Component, pageProps }: AppProps): JSX.Element {
     };
   }, [router]);
 
-  const { theme } = useTheme("", userThemes.farmUserTheme);
-  const getLayout =
-    Component.getLayout ?? ((page) => <LayoutBasic>{page}</LayoutBasic>);
+  const { theme } = useTheme();
+  const getLayout = Component.getLayout ?? ((page) => <LayoutBasic>{page}</LayoutBasic>);
 
   if (isUnloading) {
     return <div />;

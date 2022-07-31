@@ -20,7 +20,7 @@ export const IntroBlurb: React.FC<Props> = ({ title, blurb }) => {
       justifyContent="center"
       mb={{ base: 10, md: 0 }}
     >
-      <Heading fontSize={{ base: "xl", md: "xl", lg: "2xl" }} fontWeight="semibold" mb="2">
+      <Heading fontSize={{ base: "xl", lg: "2xl" }} fontWeight="semibold" mb="2">
         {title}
       </Heading>
       <Text fontSize={{ base: "lg", md: "1.06rem", lg: "xl" }} noOfLines={{ base: 20, md: 5 }}>
@@ -32,7 +32,6 @@ export const IntroBlurb: React.FC<Props> = ({ title, blurb }) => {
             statusSlice.actions.setStatus({
               title: "Functionality Disabled",
               description: "Sharing is disabled in the dev env.",
-              status: "error",
             })
           )
         }

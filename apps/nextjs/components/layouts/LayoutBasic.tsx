@@ -8,7 +8,7 @@ export const LayoutBasic: React.FC<LayoutProps> = ({ children }) => {
       <Banner bgColor="black">
         <Nav />
       </Banner>
-      <Main>{children}</Main>
+      <Main pb="10">{children}</Main>
       <Footer bgColor="gray.200" color="gray.700" />
     </>
   );
