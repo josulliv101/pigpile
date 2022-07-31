@@ -1,3 +1,4 @@
+import { FaMapMarkerAlt as FaMapMarker } from "react-icons/fa";
 import {
   Box,
   Button,
@@ -10,8 +11,23 @@ import {
 } from "@josulliv101/core";
 import { Organizer } from "@josulliv101/composites";
 import { useLabelBundle } from "@josulliv101/labelbundles";
+import { Organizer as OrganizerType } from "@josulliv101/types";
 
-export const CampaignDetailsBar = ({ beneficiary, createdAtInMS, description, organizer }) => {
+interface Props {
+  beneficiary: string;
+  description: string;
+  location: string;
+  organizer: OrganizerType;
+  createdAtInMS: number;
+}
+
+export const CampaignDetailsBar: React.FC<Props> = ({
+  beneficiary,
+  createdAtInMS,
+  description,
+  location,
+  organizer,
+}) => {
   const { isOpen, onToggle } = useDisclosure();
   const { getLabel } = useLabelBundle();
   return (
@@ -22,10 +38,20 @@ export const CampaignDetailsBar = ({ beneficiary, createdAtInMS, description, or
         alignItems="flex-start"
       >
         <Organizer createdAtInMS={createdAtInMS} {...organizer}>
-          <Text fontSize="xs" noOfLines={2}>
-            {getLabel("Join us as we pigpile on ")}
-            <em>{beneficiary}</em>.
-          </Text>
+          <>
+            <Text mt="2" fontSize="xs" noOfLines={2}>
+              {getLabel("Join us as we pigpile on:")}
+            </Text>
+            <Text fontSize="xs" noOfLines={2}>
+              <em>{beneficiary}</em>
+            </Text>
+            <Box display="flex" alignItems="center">
+              <FaMapMarker fontSize=".75rem" opacity=".5" />
+              <Text fontSize="xs" noOfLines={1} pl="1">
+                {location}
+              </Text>
+            </Box>
+          </>
         </Organizer>
         <Box>
           <Heading fontSize={{ base: "xl", md: "xl", lg: "2xl" }} fontWeight="semibold" mb="2">

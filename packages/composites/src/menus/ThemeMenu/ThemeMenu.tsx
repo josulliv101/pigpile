@@ -9,10 +9,7 @@ import {
   PopoverCloseButton,
   useColorMode,
 } from "@josulliv101/core";
-import {
-  ActiveThemeIds as ActiveThemeOptionIds,
-  ThemeOptions,
-} from "@josulliv101/theme";
+import { ActiveThemeIds as ActiveThemeOptionIds, ThemeOptions } from "@josulliv101/theme";
 import { PaintBrushIcon, ThemeTabs } from "./";
 
 export interface ThemeMenuProps {
@@ -54,7 +51,7 @@ export const ThemeMenu: React.FC<ThemeMenuProps> = ({
         <PopoverHeader bgColor="gray.200" _dark={{ bgColor: "gray.600" }}>
           Theme Options
         </PopoverHeader>
-        <PopoverBody mt="4">
+        <PopoverBody pt="4" bgColor="gray.50" _dark={{ bgColor: "gray.700" }}>
           {Object.keys(themeOptions).map((key) => (
             <ThemeTabs
               key={key}

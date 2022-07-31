@@ -3,9 +3,14 @@ export * from "./Settings";
 
 export interface Status {
   id?: string;
-  type: "info" | "warning" | "error" | "success";
+  status: "info" | "warning" | "error" | "success";
   title: string;
   description?: string;
+}
+
+export interface Media {
+  videoId: string;
+  caption?: string;
 }
 
 export interface User {
@@ -13,6 +18,12 @@ export interface User {
   displayName: string | null;
   isAnonymous: boolean | null;
   isAdmin?: boolean | null;
+}
+
+export interface Organizer {
+  displayName: string;
+  imageUrl: string;
+  isEmployee?: boolean;
 }
 
 export interface Donation {
@@ -31,17 +42,11 @@ export type AddedDonation = Omit<Donation, "createdAtInMS"> & {
   campaignId: string;
 };
 
-export type Comment = Pick<
-  Donation,
-  "comment" | "displayName" | "emoji" | "createdAtInMS"
->;
+export type Comment = Pick<Donation, "comment" | "displayName" | "emoji" | "createdAtInMS">;
 
 export interface Campaign {
   id: string;
-  beneficiary: {
-    name: string;
-    descr: string;
-  };
+  beneficiary: string;
   campaign: {
     name: string;
     descr: string;

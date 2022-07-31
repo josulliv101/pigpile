@@ -10,7 +10,6 @@ import { CreditCardForm } from "./CreditCardForm";
 import { useStripePaymentIntent } from "./useStripePaymentIntent";
 
 export interface DonationFormProps extends HTMLChakraProps<"div"> {
-  // paymentIntent: any; // PaymentIntent;
   onChangeTip: () => void;
   onChangeCustomInputField: () => void;
   onCloseCustomInputField?: () => void;
@@ -20,15 +19,10 @@ export interface DonationFormProps extends HTMLChakraProps<"div"> {
   pricePerUnit: number;
   tip: number;
   showCustomInputField: boolean;
-  itemsLabelDefinitions: {
-    default: string;
-    1: string;
-  };
   itemsLabel: (n: number | null) => string;
 }
 
 export const DonationForm: React.FC<DonationFormProps> = ({
-  // paymentIntent,
   tip,
   numberOfUnits = 1,
   pricePerUnit = 1,
@@ -41,17 +35,11 @@ export const DonationForm: React.FC<DonationFormProps> = ({
   onSubmit,
   ...props
 }) => {
-  const {
-    paymentIntentAmount,
-    paymentIntent,
-    stripeObj,
-    setPaymentIntentAmount,
-  } = useStripePaymentIntent(
+  const { paymentIntent, stripeObj, setPaymentIntentAmount } = useStripePaymentIntent(
     numberOfUnits !== null ? numberOfUnits * pricePerUnit + tip : 0
   );
   console.log("stripeObj", paymentIntent, stripeObj);
-  const showCustomInputField =
-    showCustomInputFieldProp || numberOfUnits === null;
+  const showCustomInputField = showCustomInputFieldProp || numberOfUnits === null;
 
   useEffect(() => {
     if (numberOfUnits) {
@@ -71,11 +59,7 @@ export const DonationForm: React.FC<DonationFormProps> = ({
       />
       {numberOfUnits !== null && (
         <Box opacity={showCustomInputField ? 0 : 1}>
-          <TipInput
-            tip={tip}
-            onChange={onChangeTip}
-            isDisabled={showCustomInputField}
-          />
+          <TipInput tip={tip} onChange={onChangeTip} isDisabled={showCustomInputField} />
           <TotalLabel amount={numberOfUnits * pricePerUnit} tip={tip} />
           {/*<PaymentTabs />*/}
           <Elements

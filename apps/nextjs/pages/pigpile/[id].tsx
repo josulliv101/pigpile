@@ -41,8 +41,17 @@ const getCommentFromDonation = ({
 
 export function Campaign({ id }): JSX.Element {
   useDonationsSubscription(id);
-  const { location, beneficiary, createdAtInMS, campaign, goal, tags, organizer, organization } =
-    useSelector(selectCampaign(id)) || {};
+  const {
+    media,
+    location,
+    beneficiary,
+    createdAtInMS,
+    campaign,
+    goal,
+    tags,
+    organizer,
+    organization,
+  } = useSelector(selectCampaign(id)) || {};
   const {
     userTheme: { bgImage },
   } = useTheme();
@@ -71,20 +80,21 @@ export function Campaign({ id }): JSX.Element {
       <Hero
         campaignId={id}
         beneficiary={beneficiary}
-        goalAmount={goal.amount}
+        goalAmount={goal?.amount}
         currentAmount={currentAmount}
       />
       <StickyBar />
       <CampaignOverviewBar
         beneficiary={beneficiary}
-        location="Somerville, MA"
         tags={tags}
-        overview={campaign.descrShort}
+        overview={campaign?.descrShort}
+        {...media}
       />
       <CampaignDetailsBar
         beneficiary={beneficiary}
         createdAtInMS={createdAtInMS}
-        description={campaign.descr}
+        description={campaign?.descr}
+        location={location}
         organizer={organizer}
       />
       <Container minH="100px">

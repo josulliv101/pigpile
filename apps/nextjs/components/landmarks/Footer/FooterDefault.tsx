@@ -12,18 +12,12 @@ import {
   Stack,
   Text,
 } from "@josulliv101/core";
-import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
-import { useLabelBundle } from "../../../hooks";
+import { FaGithub, FaFacebook, FaInstagram, FaTwitter } from "react-icons/fa";
+import { useLabelBundle } from "@josulliv101/labelbundles";
 
-function Link({ children, ...props }) {
+function Link({ children, icon, ...props }) {
   return (
-    <Button
-      size="sm"
-      variant="link"
-      fontWeight="normal"
-      color="gray.500"
-      {...props}
-    >
+    <Button size="sm" variant="link" fontWeight="normal" color="gray.500" {...props}>
       {children}
     </Button>
   );
@@ -91,20 +85,36 @@ export const FooterDefault = () => {
                   Social
                 </Text>
                 <Stack spacing={{ base: 1, sm: 2 }} shouldWrapChildren>
-                  <Link>Twitter</Link>
-                  <Link>Facebook</Link>
-                  <Link>Instagram</Link>
+                  <Link
+                    as="a"
+                    leftIcon={<FaTwitter />}
+                    href="http://www.twitter.com"
+                    target="_blank"
+                  >
+                    Twitter
+                  </Link>
+                  <Link
+                    as="a"
+                    leftIcon={<FaFacebook />}
+                    href="http://www.facebook.com"
+                    target="_blank"
+                  >
+                    Facebook
+                  </Link>
+                  <Link
+                    as="a"
+                    leftIcon={<FaInstagram />}
+                    href="http://www.instagram.com.com"
+                    target="_blank"
+                  >
+                    Instagram
+                  </Link>
                 </Stack>
               </Stack>
             </Stack>
             <Stack pt="" spacing="4" flexBasis="42%">
               <HStack spacing="3" align="center">
-                <Logo
-                  bgColor="gray.500"
-                  fill="gray.200"
-                  boxSize="8"
-                  boxShadow="none"
-                />
+                <Logo bgColor="gray.500" fill="gray.200" boxSize="8" boxShadow="none" />
                 <Text
                   fontFamily="brand"
                   color="gray.500"
@@ -115,11 +125,10 @@ export const FooterDefault = () => {
                 </Text>
               </HStack>
               <Text fontSize="md">
-                Founded in 2018, Pigpile Corporation provides a comprehensive
-                range of services to nearly 2,000 homeless men and women each
-                day. We are the largest homeless services provider in New
-                England, and could not do this important work without the
-                support of our donors and local community.
+                Founded in 2018, Pigpile Corporation provides a comprehensive range of services to
+                nearly 2,000 homeless men and women each day. We are the largest homeless services
+                provider in New England, and could not do this important work without the support of
+                our donors and local community.
               </Text>
             </Stack>
           </Stack>
@@ -131,17 +140,12 @@ export const FooterDefault = () => {
           direction={{ base: "column-reverse", md: "row" }}
           align="center"
         >
-          <Stack
-            alignItems={{ base: "center", md: "flex-start" }}
-            direction="column"
-            spacing="0"
-          >
+          <Stack alignItems={{ base: "center", md: "flex-start" }} direction="column" spacing="0">
             <Text align="center" fontSize="xs" color="subtle">
               {getLabel("address")}
             </Text>
             <Text align="center" fontSize="xs" color="subtle">
-              &copy; {new Date().getFullYear()} {getLabel("orgFormal")}.{" "}
-              {getLabel("copyright")}
+              &copy; {new Date().getFullYear()} {getLabel("orgFormal")}. {getLabel("copyright")}
             </Text>
           </Stack>
           <IconButton

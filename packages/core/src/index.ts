@@ -1,3 +1,6 @@
+import { extendThemedComponent } from "./extendThemedComponent";
+import { Background } from "./Background";
+
 export * from "@chakra-ui/react";
 export * from "@chakra-ui/anatomy";
 export {
@@ -24,3 +27,9 @@ export * from "./Chester";
 export * from "./CountUpBox";
 export * from "./Logo";
 export * from "./Swatch";
+
+// Extending gives the ability for the new component to have its own defaults (colorScheme, size, variants) set in the theme
+// Any default not set will inherit the that of the parent component.
+export const BackgroundContent = extendThemedComponent("BackgroundContent", {
+  Background,
+});

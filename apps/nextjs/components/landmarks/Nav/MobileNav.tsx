@@ -1,24 +1,20 @@
 import NextLink from "next/link";
-import { forwardRef, ReactNode, Ref, useEffect, useRef, useState } from "react";
+import { forwardRef, Ref, useEffect, useRef } from "react";
 import { useSelector } from "react-redux";
 import {
   AbsoluteCenter,
   Background,
   Box,
-  BoxProps,
   Button,
   ButtonGroup,
-  Center,
   CloseButton,
   Flex,
   Grid,
   GridItem,
   Heading,
-  HStack,
   IconButton,
   IconButtonProps,
   useBreakpointValue,
-  useColorModeValue,
   useUpdateEffect,
   useTheme,
   Logo,
@@ -26,22 +22,11 @@ import {
 } from "@josulliv101/core";
 import { themeOptions } from "@josulliv101/theme";
 import { ThemeTabs } from "@josulliv101/composites";
-import { AnimatePresence, motion, useElementScroll } from "framer-motion";
-import { useRouter } from "next/router";
-
+import { AnimatePresence, motion } from "framer-motion";
 import { AiOutlineMenu } from "react-icons/ai";
 import { RemoveScroll } from "react-remove-scroll";
-// import { mainNavLinks } from './sidebar/sidebar'
-// import SponsorButton from './sponsor-button'
-// import useRouteChanged from 'hooks/use-route-changed'
-// import { getRoutes } from 'layouts/mdx'
 import { selectChesterAnimation } from "store";
 import { useNavProps } from "hooks";
-
-type NavLinkProps = {
-  href: string;
-  children: ReactNode;
-};
 
 interface MobileNavContentProps {
   isOpen?: boolean;
@@ -51,20 +36,12 @@ interface MobileNavContentProps {
 export function MobileNavContent(props: MobileNavContentProps) {
   const { isOpen, onClose } = props;
   const closeBtnRef = useRef<HTMLButtonElement>();
-  const { pathname, asPath } = useRouter();
-  const bgColor = useColorModeValue("blue.400", "gray.800");
   const { themeState, onThemeOptionChange } = useNavProps();
   const {
     userTheme: { bgImage },
   } = useTheme();
   const chesterAnimation = useSelector(selectChesterAnimation());
   const landscapeImage = `url(${bgImage})`;
-  // useRouteChanged(onClose)
-
-  /**
-   * Scenario: Menu is open on mobile, and user resizes to desktop/tablet viewport.
-   * Result: We'll close the menu
-   */
   const showOnBreakpoint = useBreakpointValue({ base: true, lg: false });
 
   useEffect(() => {
@@ -80,8 +57,6 @@ export function MobileNavContent(props: MobileNavContentProps) {
       });
     }
   }, [isOpen]);
-
-  const [shadow, setShadow] = useState<string>();
 
   return (
     <AnimatePresence>
@@ -156,7 +131,6 @@ export function MobileNavContent(props: MobileNavContentProps) {
                   <Grid
                     px="4"
                     py="6"
-                    shadow={shadow}
                     templateColumns="repeat(2, 1fr)"
                     gap="4"
                     w={{ base: "90%", sm: "64%" }}
@@ -184,21 +158,10 @@ export function MobileNavContent(props: MobileNavContentProps) {
                   }}
                   top="auto"
                   bottom="20"
-                  animate="true"
+                  animate
                   animationType={chesterAnimation}
                 />
               </Box>
-              {/*
-              <ScrollView
-                onScroll={(scrolled) => {
-                  setShadow(scrolled ? 'md' : undefined)
-                }}
-              >
-                <SidebarContent
-                  pathname={pathname}
-                  routes={getRoutes(asPath)}
-                />
-              </ScrollView>*/}
             </Background>
           </motion.div>
         </RemoveScroll>
@@ -206,24 +169,6 @@ export function MobileNavContent(props: MobileNavContentProps) {
     </AnimatePresence>
   );
 }
-
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const ScrollView = (props: BoxProps & { onScroll?: any }) => {
-  const { onScroll, ...rest } = props;
-  const [y, setY] = useState(0);
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const elRef = useRef<any>();
-  const { scrollY } = useElementScroll(elRef);
-  useEffect(() => {
-    return scrollY.onChange(() => setY(scrollY.get()));
-  }, [scrollY]);
-
-  useUpdateEffect(() => {
-    onScroll?.(y > 5 ? true : false);
-  }, [y]);
-
-  return <Box ref={elRef} flex="1" id="routes" overflow="auto" px="6" pb="6" {...rest} />;
-};
 
 export const MobileNavButton = forwardRef((props: IconButtonProps, ref: Ref<HTMLButtonElement>) => {
   return (

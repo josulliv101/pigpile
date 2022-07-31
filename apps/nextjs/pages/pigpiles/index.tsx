@@ -24,6 +24,9 @@ function Pigpiles({ campaignIds }: PageProps): JSX.Element {
         top={{ base: "30%" }}
         w="max-content"
         textAlign="left"
+        display="flex"
+        h="full"
+        alignItems="center"
       >
         <List spacing={3}>
           {campaignIds.map((id) => (

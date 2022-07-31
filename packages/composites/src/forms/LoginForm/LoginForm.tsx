@@ -23,6 +23,7 @@ export interface LoginFormProps extends OAuthButtonGroupProps {
 export const LoginForm: React.FC<LoginFormProps> = ({
   onForgotPassword,
   onSignIn,
+  onSignUp,
   onSignInWithProvider,
 }) => (
   <Box>
@@ -31,19 +32,19 @@ export const LoginForm: React.FC<LoginFormProps> = ({
         maxW="md"
         py={{ base: "0", sm: "8" }}
         px={{ base: "4", sm: "10" }}
-        bg={useBreakpointValue({ base: "transparent", sm: "whiteAlpha.900" })}
+        bg={useBreakpointValue({ base: "transparent", sm: "gray.200" })}
         boxShadow={{ base: "none", sm: useColorModeValue("md", "md-dark") }}
         borderRadius={{ base: "none", sm: "xl" }}
         _dark={{ bg: "gray.700", color: "gray.100" }}
-        color="gray.600"
+        color={{ base: "white", sm: "gray.600" }}
       >
         <Stack spacing="6">
           <Stack spacing="5">
             <FormControl>
               <FormLabel htmlFor="email">Email</FormLabel>
-              <Input id="email" type="email" />
+              <Input id="email" type="email" borderColor="gray.300" bgColor="whiteAlpha.500" />
             </FormControl>
-            <PasswordField />
+            <PasswordField borderColor="gray.300" bgColor="whiteAlpha.500" />
           </Stack>
           <HStack justify="flex-end">
             <Button
@@ -51,6 +52,8 @@ export const LoginForm: React.FC<LoginFormProps> = ({
               colorScheme="blue"
               size="sm"
               onClick={onForgotPassword}
+              color={{ base: "gray.200", sm: "gray.500" }}
+              fontWeight="normal"
             >
               Forgot password?
             </Button>
@@ -60,11 +63,11 @@ export const LoginForm: React.FC<LoginFormProps> = ({
               Sign in
             </Button>
             <HStack borderColor="gray.300">
-              <Divider />
+              <Divider borderColor="gray.400" />
               <Text fontSize="sm" whiteSpace="nowrap" color="muted">
                 or continue with
               </Text>
-              <Divider />
+              <Divider borderColor="gray.400" />
             </HStack>
             <OAuthButtonGroup onSignInWithProvider={onSignInWithProvider} />
           </Stack>
@@ -74,7 +77,7 @@ export const LoginForm: React.FC<LoginFormProps> = ({
         <Stack spacing={{ base: "2", md: "3" }} textAlign="center">
           <HStack spacing="1" justify="center">
             <Text color="muted">Don't have an account?</Text>
-            <Button variant="link" color="white">
+            <Button variant="link" color="white" onClick={onSignUp}>
               Sign up
             </Button>
           </HStack>

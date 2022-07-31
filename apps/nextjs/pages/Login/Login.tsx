@@ -8,6 +8,17 @@ interface PageProps {}
 
 function Login({}: PageProps): JSX.Element {
   const dispatch = useDispatch();
+
+  const showFeatureNotImplementedStatus = () => {
+    dispatch(
+      statusSlice.actions.setStatus({
+        title: `Feature not implemented yet.`,
+        // description: "Only Github currently works as a provider.",
+        status: "info",
+        isCloseable: true,
+      })
+    );
+  };
   const handleSignIn = (provider) => {
     console.log("handleSignIn", provider.providerId, provider);
     if (provider.providerId !== "github.com") {
@@ -25,13 +36,13 @@ function Login({}: PageProps): JSX.Element {
   };
   return (
     <>
-      <Center
-        w="80%"
-        textAlign="center"
-        color="white"
-        top={{ base: "45%", sm: "46%" }}
-      >
-        <LoginForm onSignInWithProvider={handleSignIn} />
+      <Center w="80%" textAlign="center" color="white" top={{ base: "45%", sm: "46%" }}>
+        <LoginForm
+          onSignInWithProvider={handleSignIn}
+          onSignIn={showFeatureNotImplementedStatus}
+          onSignUp={showFeatureNotImplementedStatus}
+          onForgotPassword={showFeatureNotImplementedStatus}
+        />
       </Center>
     </>
   );
