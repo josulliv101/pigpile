@@ -8,7 +8,7 @@ export const Pigtail: React.FC<HTMLChakraProps<"svg">> = (props) => (
       left: "47px",
       top: "21px",
       zIndex: 9,
-      transform: "scale(1)",
+      transform: "scale(.85)",
       transformOrigin: "bottom left",
     }}
     fill="#e1bdbf"
