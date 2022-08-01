@@ -37,7 +37,11 @@ const EmojiIcon = ({ icon }) => (
   </Text>
 );
 
-export const DonationsTable: React.FC<DonationsTableProps> = ({ donations = [], ...props }) => {
+export const DonationsTable: React.FC<DonationsTableProps> = ({
+  donations = [],
+  getLabel,
+  ...props
+}) => {
   if (!donations.length) {
     return <Text>There's no donations yet. Be the first!</Text>;
   }
@@ -73,7 +77,7 @@ export const DonationsTable: React.FC<DonationsTableProps> = ({ donations = [], 
             </HStack>
           ) : null}
           <Badge my="1" py="1" px="2" fontWeight="normal" textTransform="none" variant="subtle">
-            {quantity} pairs of socks
+            {quantity} {getLabel(quantity)}
           </Badge>
           <Badge my="1" py="1" px="2" fontWeight="normal" textTransform="none" variant="subtle">
             {relativeDays(createdAtInMS)}

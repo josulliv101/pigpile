@@ -14,19 +14,16 @@ export const Supporters: React.FC<SupportersProps> = ({
   queryType,
   viewType,
   onChange,
+  getLabel,
   ...props
 }) => {
   return (
     <Box {...props}>
-      <DonationTabs
-        queryType={queryType}
-        viewType={viewType}
-        onChange={onChange}
-      />
+      <DonationTabs queryType={queryType} viewType={viewType} onChange={onChange} />
       {!!viewType ? (
-        <DonationsTable donations={donations} />
+        <DonationsTable donations={donations} getLabel={getLabel} />
       ) : (
-        <DonationsGrid donations={donations} />
+        <DonationsGrid donations={donations} getLabel={getLabel} />
       )}
     </Box>
   );

@@ -37,21 +37,19 @@ export const CampaignDetailsBar: React.FC<Props> = ({
         spacing={{ base: 6, md: 12 }}
         alignItems="flex-start"
       >
-        <Organizer createdAtInMS={createdAtInMS} {...organizer}>
-          <>
-            <Text mt="2" fontSize="xs" noOfLines={2}>
-              {getLabel("Join us as we pigpile on:")}
+        <Organizer maxW="272px" createdAtInMS={createdAtInMS} {...organizer}>
+          <Text mt="2" fontSize="xs" noOfLines={2}>
+            {getLabel("Join us as we pigpile on:")}
+          </Text>
+          <Text fontSize="xs" noOfLines={2} fontStyle="oblique">
+            {beneficiary}
+          </Text>
+          <Box display="flex" alignItems="center">
+            <FaMapMarker fontSize=".75rem" opacity=".5" />
+            <Text fontSize="xs" noOfLines={1} pl="1">
+              {location}
             </Text>
-            <Text fontSize="xs" noOfLines={2}>
-              <em>{beneficiary}</em>
-            </Text>
-            <Box display="flex" alignItems="center">
-              <FaMapMarker fontSize=".75rem" opacity=".5" />
-              <Text fontSize="xs" noOfLines={1} pl="1">
-                {location}
-              </Text>
-            </Box>
-          </>
+          </Box>
         </Organizer>
         <Box>
           <Heading fontSize={{ base: "xl", md: "xl", lg: "2xl" }} fontWeight="semibold" mb="2">
@@ -63,7 +61,7 @@ export const CampaignDetailsBar: React.FC<Props> = ({
             whiteSpace="pre-wrap"
             noOfLines={isOpen ? undefined : 7}
           >
-            {description}
+            {description?.split("::").join("\n\n")}
           </Text>
           <Center>
             <Button size="sm" variant="ghost" onClick={onToggle}>

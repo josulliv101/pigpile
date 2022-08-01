@@ -26,6 +26,7 @@ import {
   selectDonationFilterState,
   wrapper,
 } from "store";
+import { useLabelBundle } from "hooks";
 import Hero from "components/composites/Hero";
 import { CampaignOverviewBar } from "components/composites/CampaignOverviewBar";
 import { CampaignDetailsBar } from "components/composites/CampaignDetailsBar";
@@ -41,6 +42,7 @@ const getCommentFromDonation = ({
 
 export function Campaign({ id }): JSX.Element {
   useDonationsSubscription(id);
+  const { getLabelForQuantity } = useLabelBundle();
   const {
     media,
     location,
@@ -115,6 +117,7 @@ export function Campaign({ id }): JSX.Element {
               {...donationFilter}
               donations={donations}
               onChange={handleDonationFilterChange}
+              getLabel={(n) => getLabelForQuantity({ one: "item", many: "items" }, n)}
             />
             <Box display={{ base: "block", md: "none" }} h="6" w="0" />
             <HStack
