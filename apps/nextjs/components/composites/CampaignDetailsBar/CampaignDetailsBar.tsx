@@ -37,7 +37,11 @@ export const CampaignDetailsBar: React.FC<Props> = ({
         spacing={{ base: 6, md: 12 }}
         alignItems="flex-start"
       >
-        <Organizer maxW="272px" createdAtInMS={createdAtInMS} {...organizer}>
+        <Organizer
+          maxW={{ base: "full", md: "272px" }}
+          createdAtInMS={createdAtInMS}
+          {...organizer}
+        >
           <Text mt="2" fontSize="xs" noOfLines={2}>
             {getLabel("Join us as we pigpile on:")}
           </Text>
