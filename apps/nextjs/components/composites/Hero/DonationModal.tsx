@@ -43,6 +43,7 @@ export const DonationModal: React.FC<Props> = ({
   onSubmitDonation,
   onSubmitAdditionalInfo,
   tip,
+  pricePerUnit,
   userRequestsCustomAmount,
 }) => {
   return (
@@ -71,7 +72,7 @@ export const DonationModal: React.FC<Props> = ({
               onShowCustomInputField={onShowCustomInputField}
               onSubmit={onSubmitDonation}
               numberOfUnits={numberOfUnits}
-              pricePerUnit={1.5}
+              pricePerUnit={pricePerUnit}
               tip={tip}
               showCustomInputField={userRequestsCustomAmount || numberOfUnits === null}
             />

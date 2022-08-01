@@ -14,7 +14,7 @@ export const defaultLabelBundle: LabelBundleType = {
 
   // common
   admin: "admin",
-  custom: "Custom",
+  // custom: "Custom",
   dark: "Dark",
   donation: "donation",
   items: "Items",
@@ -34,7 +34,7 @@ export const defaultLabelBundle: LabelBundleType = {
     confirm: "Confirm",
     confirmAdding: "Confirm Adding {} Item(s)",
     contact: "Contact",
-    custom: "Custom",
+    // custom: "Custom",
     donate: "Donate Now",
     finish: "Finish",
     forgotPassword: "Forgot Password",

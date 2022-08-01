@@ -16,11 +16,18 @@ const getReplaceMatchesFn = (replacementValues: replacementValue[]) => {
 
 export const makeGetLabelFromBundle =
   (bundleToUse: LabelBundle) =>
-  (value: string, ...replacementValues: replacementValue[]) => {
-    const templateString = get(bundleToUse, value) ?? value;
+  (
+    valueArg: string | { value: string; modifier?: string },
+    ...replacementValues: replacementValue[]
+  ) => {
+    const { modifier = "", value } = typeof valueArg === "object" ? valueArg : { value: valueArg };
+    const valuePath = modifier ? `${value}.${modifier}` : value;
 
-    if (!templateString) {
-      return "";
+    const templateString = get(bundleToUse, valuePath) ?? value;
+    console.log("templateString TEST", { templateString, bundleToUse, valuePath });
+    if (typeof templateString !== "string") {
+      console.log("templateString", { valuePath, value, modifier });
+      return templateString.default ?? value;
     }
 
     return templateString.replace(regex, getReplaceMatchesFn(replacementValues));

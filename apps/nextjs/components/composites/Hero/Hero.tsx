@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { MoreButtons, MORE_BUTTONS_BACK_ID } from "@josulliv101/composites";
 import {
@@ -12,8 +12,7 @@ import {
   useDisclosure,
   useTheme,
 } from "@josulliv101/core";
-import { useLabelBundle } from "@josulliv101/labelbundles";
-import { formatNumber } from "@josulliv101/formatting";
+import { formatNumber, getCurrency } from "@josulliv101/formatting";
 import {
   addCampaignDonationThunk,
   paymentSlice,
@@ -22,6 +21,7 @@ import {
   selectUser,
   FORM_STEPS,
 } from "store";
+import { useLabelBundle } from "hooks";
 import { GoalCountUp } from "./GoalCountUp";
 import { DonationModal } from "./DonationModal";
 
@@ -41,7 +41,15 @@ export const options = [
   { label: "custom", value: "custom" },
 ];
 
-const Hero = ({ campaignId, beneficiary, goalAmount, currentAmount }): JSX.Element => {
+const Hero = ({
+  campaignId,
+  customLabels,
+  options = [],
+  pricePerUnit = 0,
+  beneficiary,
+  goalAmount,
+  currentAmount,
+}): JSX.Element => {
   const dispatch = useDispatch();
   const {
     userTheme: { bgImage },
@@ -50,13 +58,26 @@ const Hero = ({ campaignId, beneficiary, goalAmount, currentAmount }): JSX.Eleme
   const chesterAnimation = useSelector(selectChesterAnimation());
   const { activeFormStep } = useSelector(selectPaymentState());
   const landscapeImage = `url(${bgImage})`;
-  const { getLabel, getLabelForQuantity } = useLabelBundle();
+  // const { getLabel, getLabelForQuantity } = useLabelBundle(customLabels);
   const [userRequestsCustomAmount, setUserRequestsCustomAmount] = useState(false);
   const [startAnimation, setStartAnimation] = useState(false);
   const [numberOfUnits, setNumberOfUnits] = useState<number | null>(null);
   const [tip, setTip] = useState(0);
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const { getLabel, getLabelForQuantity } = useLabelBundle();
 
+  const quantityOptions = useMemo(() => {
+    const rawOptions = options.map(
+      (n: number): [{ value: number | string; price?: number; label: string }] => ({
+        value: n,
+        price: getCurrency(n * pricePerUnit),
+        label: `${n} ${getLabelForQuantity({ one: "item.alt", many: "items.alt" }, n)}`,
+      })
+    );
+    rawOptions.splice(4, 0, { label: getLabel("back"), value: MORE_BUTTONS_BACK_ID });
+    return [...rawOptions, { label: getLabel("custom"), value: "custom" }];
+  }, [options]);
+  console.log("quantityOptions", quantityOptions);
   useEffect(() => {
     setTimeout(() => setStartAnimation(true), 7000);
   }, []);
@@ -117,7 +138,7 @@ const Hero = ({ campaignId, beneficiary, goalAmount, currentAmount }): JSX.Eleme
         beneficiary={beneficiary}
         landscapeImage={landscapeImage}
         isOpen={isOpen}
-        itemsLabel={(n) => getLabelForQuantity("donationItems", n)}
+        itemsLabel={(n) => getLabelForQuantity({ one: "item", many: "items" }, n)}
         numberOfUnits={numberOfUnits}
         onChangeCustomInputField={handleChangeCustomInputField}
         onChangeTip={handleChangeTip}
@@ -128,6 +149,7 @@ const Hero = ({ campaignId, beneficiary, goalAmount, currentAmount }): JSX.Eleme
         onSubmitAdditionalInfo={handleSubmitAdditionalInfo}
         tip={tip}
         userRequestsCustomAmount={userRequestsCustomAmount}
+        pricePerUnit={pricePerUnit}
       />
       <Container
         pos="relative"
@@ -147,9 +169,9 @@ const Hero = ({ campaignId, beneficiary, goalAmount, currentAmount }): JSX.Eleme
           noOfLines={{ base: undefined, md: "5" }}
         >
           {getLabel(
-            "campaign.heroTitle",
+            "Help us donate {{amount}} {{itemType}} to {{org}}",
             formatNumber(goalAmount),
-            getLabelForQuantity("donationItems", goalAmount),
+            getLabel("items"),
             beneficiary
           )}
         </Heading>
@@ -176,7 +198,11 @@ const Hero = ({ campaignId, beneficiary, goalAmount, currentAmount }): JSX.Eleme
             {getLabel("custom amount")}.
           </Button>
         </Heading>
-        <MoreButtons mt={{ base: "3", sm: "12" }} options={options} onButtonClick={onClick} />
+        <MoreButtons
+          mt={{ base: "3", sm: "12" }}
+          options={quantityOptions}
+          onButtonClick={onClick}
+        />
         <AbsoluteCenter top={{ base: "75%", md: "80%" }}>
           <Chester animate={startAnimation} animationType={chesterAnimation} />
         </AbsoluteCenter>

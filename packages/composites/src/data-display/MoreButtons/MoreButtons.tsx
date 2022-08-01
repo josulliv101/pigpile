@@ -46,7 +46,7 @@ const ButtonMore = ({ label, price, ...props }) => (
         fontWeight="normal"
         ml="1"
       >
-        / ${price}
+        / {price}
       </chakra.span>
     ) : null}
   </Button>
@@ -55,7 +55,7 @@ const ButtonMore = ({ label, price, ...props }) => (
 export const MoreButtons: React.FC<MoreButtonsProps> = ({
   limit = 3,
   options = [],
-  moreTooltipLabel = "",
+  moreTooltipLabel = "more options",
   onButtonClick,
   ...props
 }) => {
@@ -77,7 +77,7 @@ export const MoreButtons: React.FC<MoreButtonsProps> = ({
       spacing="4"
       justifyContent="center"
       flexWrap="wrap"
-      maxW="560px"
+      maxW="618px"
       {...props}
     >
       {displayedOptions.map((btnProps) => (

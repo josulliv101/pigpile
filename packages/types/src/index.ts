@@ -1,3 +1,5 @@
+import { LabelBundleMap } from "./LabelBundle";
+
 export * from "./LabelBundle";
 export * from "./Settings";
 
@@ -72,6 +74,7 @@ export interface Campaign {
     type: "FUNDS" | "IN-KIND";
     label: string;
   };
+  customLabels: LabelBundleMap;
 }
 
 export interface AuthState {

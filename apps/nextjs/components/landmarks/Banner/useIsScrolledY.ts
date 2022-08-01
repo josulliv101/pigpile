@@ -11,17 +11,14 @@ export default function useIsScrolledY() {
 
   useEffect(() => {
     return scrollY.onChange(
-      debounce(() => setY(scrollY.get()), 150, {
+      debounce(() => setY(scrollY.get()), 300, {
         leading: true,
         trailing: true,
       })
     );
   }, [scrollY]);
 
-  const resetWindowScrollPosition = useCallback(
-    () => window?.scrollTo(0, 0),
-    []
-  );
+  const resetWindowScrollPosition = useCallback(() => window?.scrollTo(0, 0), []);
 
   useEffect(() => {
     window.onbeforeunload = function () {

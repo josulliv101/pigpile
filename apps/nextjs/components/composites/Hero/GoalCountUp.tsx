@@ -1,5 +1,5 @@
 import { CountUpBox, Progress } from "@josulliv101/core";
-import { useLabelBundle } from "@josulliv101/labelbundles";
+import { useLabelBundle } from "hooks";
 
 interface Props {
   currentAmount: number;
@@ -18,7 +18,7 @@ export const GoalCountUp: React.FC<Props> = ({ currentAmount = 0, goalAmount = 1
       right={{ base: "-10px", md: "20px" }}
       countUpValue={currentAmount}
       limit={goalAmount}
-      label={`${currentAmount} of ${goalAmount} ${getLabel("items")}`}
+      label={`${currentAmount} of ${goalAmount} ${getLabel("items.alt")}`}
       showLabelOnEnd
       sx={{
         "@media screen and (min-width: 200px) and (max-width: 768px)": {

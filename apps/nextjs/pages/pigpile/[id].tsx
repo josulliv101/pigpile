@@ -51,6 +51,8 @@ export function Campaign({ id }): JSX.Element {
     tags,
     organizer,
     organization,
+    customLabels,
+    donation,
   } = useSelector(selectCampaign(id)) || {};
   const {
     userTheme: { bgImage },
@@ -82,6 +84,8 @@ export function Campaign({ id }): JSX.Element {
         beneficiary={beneficiary}
         goalAmount={goal?.amount}
         currentAmount={currentAmount}
+        customLabels={customLabels}
+        {...donation}
       />
       <StickyBar />
       <CampaignOverviewBar

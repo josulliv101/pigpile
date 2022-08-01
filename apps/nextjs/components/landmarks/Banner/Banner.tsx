@@ -1,6 +1,6 @@
 import NextLink from "next/link";
 import { useDispatch, useSelector } from "react-redux";
-import { useCallback, useEffect, useRef } from "react";
+import { memo, useCallback, useEffect, useRef } from "react";
 import debounce from "lodash.debounce";
 import {
   chakra,
@@ -75,32 +75,57 @@ export const Banner: React.FC<HTMLChakraProps<"div">> = ({ children: nav, ...pro
   }, []);
 
   return (
-    <Background as="header" bgColor={bgColor} {...props}>
-      <Container>
-        <Flex align="center" justify="space-between">
-          <NextLink href="/" passHref>
-            <BrandText as="a">Pigpile</BrandText>
-          </NextLink>
-          <NextLink href="/" passHref>
-            <a>
-              <Center
-                as={Logo}
-                boxSize={{ base: 9, md: 10 }}
-                transform={logoTransform}
-                cursor="pointer"
-              />
-            </a>
-          </NextLink>
-          {nav}
-          <MobileNavButton
-            ref={mobileNavBtnRef}
-            aria-label="Open Menu"
-            onClick={handleOpenMobileNav}
-            mr="1"
-          />
-        </Flex>
-      </Container>
-      <MobileNavContent isOpen={isMobileNavOpen} onClose={handleCloseMobileNav} />
-    </Background>
+    <BannerContent
+      bgColor={bgColor}
+      isMobileNavOpen={isMobileNavOpen}
+      logoTransform={logoTransform}
+      mobileNavBtnRef={mobileNavBtnRef}
+      nav={nav}
+      handleCloseMobileNav={handleCloseMobileNav}
+      handleOpenMobileNav={handleOpenMobileNav}
+    />
   );
 };
+
+export const BannerContent = memo(
+  ({
+    bgColor,
+    isMobileNavOpen,
+    logoTransform,
+    mobileNavBtnRef,
+    nav,
+    handleCloseMobileNav,
+    handleOpenMobileNav,
+    ...props
+  }) => {
+    return (
+      <Background as="header" bgColor={bgColor} {...props}>
+        <Container>
+          <Flex align="center" justify="space-between">
+            <NextLink href="/" passHref>
+              <BrandText as="a">Pigpile</BrandText>
+            </NextLink>
+            <NextLink href="/" passHref>
+              <a>
+                <Center
+                  as={Logo}
+                  boxSize={{ base: 9, md: 10 }}
+                  transform={logoTransform}
+                  cursor="pointer"
+                />
+              </a>
+            </NextLink>
+            {nav}
+            <MobileNavButton
+              ref={mobileNavBtnRef}
+              aria-label="Open Menu"
+              onClick={handleOpenMobileNav}
+              mr="1"
+            />
+          </Flex>
+        </Container>
+        <MobileNavContent isOpen={isMobileNavOpen} onClose={handleCloseMobileNav} />
+      </Background>
+    );
+  }
+);
