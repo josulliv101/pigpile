@@ -24,9 +24,14 @@ export const SecurePayment: React.FC<HTMLChakraProps<"div">> = (props) => {
           "Stripe is certified to PCI Service Provider Level 1 – the most stringent level in the industry"
         )}
         .{" "}
-        <a target="_blank" href="https://stripe.com/docs/security/stripe">
+        <Box
+          as="a"
+          textDecoration="underline"
+          target="_blank"
+          href="https://stripe.com/docs/security/stripe"
+        >
           {getLabel("Learn more")}
-        </a>
+        </Box>
         .
       </Text>
     </Stack>
