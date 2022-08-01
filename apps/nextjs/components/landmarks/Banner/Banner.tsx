@@ -83,6 +83,7 @@ export const Banner: React.FC<HTMLChakraProps<"div">> = ({ children: nav, ...pro
       nav={nav}
       handleCloseMobileNav={handleCloseMobileNav}
       handleOpenMobileNav={handleOpenMobileNav}
+      {...props}
     />
   );
 };

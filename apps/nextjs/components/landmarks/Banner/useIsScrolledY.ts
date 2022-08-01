@@ -2,7 +2,7 @@ import { useCallback, useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useViewportScroll } from "framer-motion";
 import debounce from "lodash.debounce";
-import { selectAppState, appSlice } from "../../../store";
+import { selectAppState, appSlice } from "store";
 
 export default function useIsScrolledY() {
   const { scrollY } = useViewportScroll();

@@ -15,6 +15,7 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.17.0",
+    "@josulliv101/core": "*",
     "lodash.get": "^4.4.2",
     "react": "18.2.0"
   },
