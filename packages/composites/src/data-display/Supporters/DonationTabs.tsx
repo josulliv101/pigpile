@@ -63,6 +63,8 @@ export const DonationTabs: React.FC<DonationTabsProps> = ({ queryType, viewType,
               w="20px"
               onChange={(ev) => onChange("isSortDesc", !ev.target.checked)}
               size="md"
+              _dark={{ opacity: 0.8 }}
+              color="gray.500"
               sx={{
                 "[data-checked]>svg": { transform: "rotate(-180deg)" },
                 ".chakra-switch__track": { w: "auto" },

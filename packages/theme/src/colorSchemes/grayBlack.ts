@@ -9,9 +9,9 @@ export const colorSchemeGrayBlack: ColorScheme = {
   },
   componentsByColorScheme: [
     { colorScheme: "gray", components: ["Background"] },
-    { colorScheme: "red", components: ["Button", "Card", "CardBadge"] },
-    { colorScheme: "gray", components: ["AccentButton", "Logo", "Progress"] },
-    { colorScheme: "whiteAlpha", components: ["NavButton"] },
+    { colorScheme: "red", components: ["AccentButton", "Button", "Card", "CardBadge"] },
+    { colorScheme: "gray", components: ["Progress"] },
+    { colorScheme: "black", components: ["Logo"] },
     { colorScheme: "blue", components: ["BackgroundContent"] },
   ],
 };

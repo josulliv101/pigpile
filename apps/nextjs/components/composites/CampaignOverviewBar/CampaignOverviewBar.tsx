@@ -31,7 +31,13 @@ export const CampaignOverviewBar: React.FC<Props> = ({
         <Tags items={tags} />
         <Stack direction={{ base: "column", md: "row" }} spacing={{ base: 0, md: 6, lg: 10 }}>
           <IntroBlurb title={beneficiary} blurb={overview} />
-          <Box flex="1">
+          <Box
+            flex="1"
+            borderWidth="0"
+            p="3"
+            bgColor="blackAlpha.100"
+            _dark={{ bgColor: "whiteAlpha.200" }}
+          >
             {initWistia && (
               <WistiaVideo
                 videoId={videoId}
@@ -39,7 +45,7 @@ export const CampaignOverviewBar: React.FC<Props> = ({
                 onLoad={() => setIsWistiaReady(true)}
               />
             )}
-            <Text color="gray.500" py="2" fontSize="xs">
+            <Text color="inherit" pt="2" fontSize="xs">
               {caption}
             </Text>
           </Box>

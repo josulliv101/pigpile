@@ -79,6 +79,7 @@ export const DonationsGrid: React.FC<DonationsGridProps> = ({
                         },
                       }}
                       tabIndex="0"
+                      _dark={{ color: "gray.500" }}
                     >
                       <FaComment
                         _focus={{ outline: "none" }}

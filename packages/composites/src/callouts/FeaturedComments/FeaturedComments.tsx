@@ -82,7 +82,15 @@ export const FeaturedComments = ({ comments = [] }: Props) => {
           ))}
         </HStack>
       )}
-      <Text align="right" fontSize="xs" bgColor="gray.200" color="gray.500" px="3" py="2">
+      <Text
+        align="right"
+        fontSize="xs"
+        bgColor="gray.200"
+        color="gray.500"
+        _dark={{ bgColor: "gray.700", color: "gray.300" }}
+        px="3"
+        py="2"
+      >
         Featured Comments
       </Text>
     </Box>

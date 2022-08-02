@@ -22,11 +22,12 @@ function About(props: PageProps): JSX.Element {
       </Text>
       <Text mb="4">
         Some of the technologies used include react, typescript, nextjs, firbase
-        auth/hosting/db/functions, and chakra-ui. The code is structured as a monorepo using yarn
-        workspaces paired with preconstruct. It's fully responsive. I am responsible for the design
-        of the app, though the farm & city park bg images associated with each theme were purchased
-        from iStock. Chester the pig is my own creation as is the animation of Lewis (the character
-        seen in the video on fundraiser pages).
+        auth/hosting/db/functions, chakra-ui and Stripe. The code is structured as a monorepo using
+        yarn workspaces paired with preconstruct. It's fully responsive. I am responsible for the
+        design of the app, though the farm & city park bg images associated with each theme were
+        purchased from iStock. Chester the pig is my own creation as is the animation of Lewis (the
+        character seen in the video on fundraiser pages). Lewis was animated using iClone 8 and his
+        voice was created using tools by Replica Studios.
       </Text>
       <Text mb="4">
         Donations for fundraisers are hooked into firebase's subscription snapshots so any new

@@ -4,7 +4,7 @@ export const colorSchemePurpleGray: ColorScheme = {
   id: "purple-gray",
   swatch: {
     color1: "purple.500",
-    color2: "gray.400",
+    color2: "green.500",
   },
   componentsByColorScheme: [
     {

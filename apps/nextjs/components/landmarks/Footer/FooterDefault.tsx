@@ -1,4 +1,5 @@
 import NextLink from "next/link";
+import { forwardRef } from "react";
 import {
   Box,
   Button,
@@ -12,13 +13,15 @@ import {
   Logo,
   Stack,
   Text,
+  HTMLChakraProps,
 } from "@josulliv101/core";
 import { FaGithub, FaFacebook, FaInstagram, FaTwitter } from "react-icons/fa";
 import { useLabelBundle } from "@josulliv101/labelbundles";
 
-function Link({ children, icon, ...props }) {
+const Link: React.FC<HTMLChakraProps<"div">> = forwardRef(({ children, ...props }, ref) => {
   return (
     <Button
+      ref={ref}
       size="sm"
       variant="link"
       fontWeight="normal"
@@ -29,7 +32,7 @@ function Link({ children, icon, ...props }) {
       {children}
     </Button>
   );
-}
+});
 
 export const FooterDefault = () => {
   const { getLabel, setLabelBundleId } = useLabelBundle();

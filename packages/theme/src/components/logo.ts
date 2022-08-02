@@ -13,7 +13,7 @@ const baseStyle: SystemStyleFunction = (props) => {
   )(props);
 
   return {
-    bgColor,
+    bgColor: colorScheme === "black" ? mode("white", "gray.300")(props) : bgColor,
     borderColor: bgColor,
     fill,
     transform: "translateZ(0)",
