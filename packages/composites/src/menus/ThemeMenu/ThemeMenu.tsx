@@ -44,6 +44,7 @@ export const ThemeMenu: React.FC<ThemeMenuProps> = ({
           icon={<PaintBrushIcon boxSize="5" color="gray.200" />}
           _hover={{ bgColor: "blackAlpha.50" }}
           _active={{ bgColor: "blackAlpha.50" }}
+          _focusVisible={{ outlineColor: "white" }}
         />
       </PopoverTrigger>
       <PopoverContent>

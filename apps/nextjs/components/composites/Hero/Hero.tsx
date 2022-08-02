@@ -194,6 +194,7 @@ const Hero = ({
             pl="1"
             borderRadius="none"
             _active={{ color: "inherit" }}
+            _focusVisible={{ outlineColor: "white" }}
           >
             {getLabel("custom amount")}.
           </Button>

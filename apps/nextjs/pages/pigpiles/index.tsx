@@ -31,7 +31,13 @@ function Pigpiles({ campaignIds }: PageProps): JSX.Element {
         <List spacing={3}>
           {campaignIds.map((id) => (
             <NextLink key={id} href={`/pigpile/${id}`} passHref>
-              <ListItem as={Button} boxShadow="md" display="flex" w="full">
+              <ListItem
+                as={Button}
+                boxShadow="md"
+                display="flex"
+                w="full"
+                _focusVisible={{ outlineColor: "white" }}
+              >
                 <ListIcon as={Logo} color="green.500" boxShadow="none" />
                 {formatIdAsText(id, { capitalizeAll: true })}
               </ListItem>

@@ -47,6 +47,7 @@ function Home({}: PageProps): JSX.Element {
             size="lg"
             fontWeight="semibold"
             variant="solid"
+            _focusVisible={{ outlineColor: "white" }}
           >
             View Active Pigpiles
           </Button>

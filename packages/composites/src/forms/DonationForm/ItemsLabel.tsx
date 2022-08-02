@@ -67,6 +67,7 @@ export const ItemsLabel: React.FC<ItemsLabelProps> = ({
         justifyContent="space-between"
         fontWeight="normal"
         color="gray.100"
+        _focusVisible={{ outlineColor: "white" }}
       >
         <Box as="span">
           Donate {activeNumberOfUnits}
@@ -110,6 +111,7 @@ export const ItemsLabel: React.FC<ItemsLabelProps> = ({
             disabled={numberOfUnits !== null && !isCustomInputDirty}
             w={numberOfUnits === null ? "full" : undefined}
             maxW="calc(100% - 40px)"
+            _focusVisible={{ outlineColor: "white" }}
           >
             Confirm
           </Button>
@@ -122,6 +124,7 @@ export const ItemsLabel: React.FC<ItemsLabelProps> = ({
                 onCloseCustomInputField();
                 setIsCustomInputDirty(false);
               }}
+              _focusVisible={{ outlineColor: "white" }}
             >
               Cancel
             </Button>

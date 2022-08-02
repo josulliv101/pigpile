@@ -1,11 +1,6 @@
 import NextLink from "next/link";
 import { FaUserAlt } from "react-icons/fa";
-import {
-  ButtonGroup,
-  HTMLChakraProps,
-  IconButton,
-  useBreakpointValue,
-} from "@josulliv101/core";
+import { ButtonGroup, HTMLChakraProps, IconButton, useBreakpointValue } from "@josulliv101/core";
 import { ThemeMenu, UserProfileMenu } from "@josulliv101/composites";
 import { themeOptions } from "@josulliv101/theme";
 
@@ -66,6 +61,7 @@ export const Nav: React.FC<NavProps> = ({
             aria-label="Theme"
             color="gray.50"
             icon={<FaUserAlt color="gray.300" />}
+            _focusVisible={{ outlineColor: "white" }}
           />
         </NextLink>
       ) : (

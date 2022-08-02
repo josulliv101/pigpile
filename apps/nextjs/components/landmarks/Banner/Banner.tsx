@@ -5,6 +5,7 @@ import debounce from "lodash.debounce";
 import {
   chakra,
   AbsoluteCenter as Center,
+  Box,
   Container,
   Flex,
   Text,
@@ -34,6 +35,9 @@ const BrandText = chakra(Text, {
     fontFamily: "brand",
     fontSize: [20, 24],
     fontWeight: "normal",
+    _focusVisible: {
+      outlineColor: "white",
+    },
   },
 });
 
@@ -106,16 +110,13 @@ export const BannerContent = memo(
             <NextLink href="/" passHref>
               <BrandText as="a">Pigpile</BrandText>
             </NextLink>
-            <NextLink href="/" passHref>
-              <a>
-                <Center
-                  as={Logo}
-                  boxSize={{ base: 9, md: 10 }}
-                  transform={logoTransform}
-                  cursor="pointer"
-                />
-              </a>
-            </NextLink>
+            <Box as={Center} transform={logoTransform}>
+              <NextLink href="/" passHref>
+                <chakra.a _focusVisible={{ outlineColor: "white" }}>
+                  <Logo boxSize={{ base: 9, md: 10 }} cursor="pointer" />
+                </chakra.a>
+              </NextLink>
+            </Box>
             {nav}
             <MobileNavButton
               ref={mobileNavBtnRef}

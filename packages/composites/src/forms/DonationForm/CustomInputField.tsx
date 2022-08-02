@@ -39,7 +39,11 @@ export const CustomInputField: React.FC<CustomInputFieldProps> = ({
       borderColor="whiteAlpha.500"
       bgColor="blackAlpha.200"
     >
-      <NumberInputField ref={inputEl} arial-label="update number of units" />
+      <NumberInputField
+        ref={inputEl}
+        arial-label="update number of units"
+        _focusVisible={{ outlineColor: "white" }}
+      />
       <NumberInputStepper borderColor="whiteAlpha.500">
         <NumberIncrementStepper
           borderColor="whiteAlpha.500"

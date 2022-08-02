@@ -35,6 +35,7 @@ const ButtonMore = ({ label, price, ...props }) => (
     leftIcon={props.value === MORE_BUTTONS_BACK_ID ? <Icon as={FaArrowCircleLeft} /> : null}
     sx={{ ">span": { pointerEvents: "none" } }}
     boxShadow="md"
+    _focusVisible={{ outlineColor: "white" }}
   >
     {label}
     {price && props.value !== MORE_BUTTONS_BACK_ID ? (
@@ -107,6 +108,7 @@ export const MoreButtons: React.FC<MoreButtonsProps> = ({
               onClick={onOpen}
               borderRadius="full"
               boxShadow="md"
+              _focusVisible={{ outlineColor: "white" }}
             >
               <Icon as={FaEllipsisH} />
             </Button>
