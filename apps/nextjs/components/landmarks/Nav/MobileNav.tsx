@@ -38,7 +38,7 @@ export function MobileNavContent(props: MobileNavContentProps) {
   const closeBtnRef = useRef<HTMLButtonElement>();
   const { themeState, onThemeOptionChange } = useNavProps();
   const {
-    userTheme: { bgImage },
+    userTheme: { bgImage, bgPosition },
   } = useTheme();
   const chesterAnimation = useSelector(selectChesterAnimation());
   const landscapeImage = `url(${bgImage})`;
@@ -69,7 +69,7 @@ export function MobileNavContent(props: MobileNavContentProps) {
             exit={{ opacity: 0 }}
           >
             <Background
-              bgPosition="10% 50%"
+              bgPosition={bgPosition}
               variant="gradient"
               direction="column"
               w="100%"
@@ -102,6 +102,7 @@ export function MobileNavContent(props: MobileNavContentProps) {
                   justifyContent="center"
                   variant="solid"
                   w="full"
+                  _dark={{ color: "gray.700" }}
                 >
                   <NextLink href="/" passHref>
                     <Button color="inherit">Home</Button>

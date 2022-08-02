@@ -1,3 +1,4 @@
+import NextLink from "next/link";
 import {
   Box,
   Button,
@@ -65,9 +66,15 @@ export const FooterDefault = () => {
                   Quick Links
                 </Text>
                 <Stack spacing={{ base: 1, sm: 2 }} shouldWrapChildren>
-                  <Link>Home</Link>
-                  <Link>About</Link>
-                  <Link>View Pigpiles</Link>
+                  <NextLink href="/" passHref>
+                    <Link>Home</Link>
+                  </NextLink>
+                  <NextLink href="/pigpiles" passHref>
+                    <Link>View Pigpiles</Link>
+                  </NextLink>
+                  <NextLink href="/about" passHref>
+                    <Link>About</Link>
+                  </NextLink>
                 </Stack>
               </Stack>
               <Stack
@@ -133,10 +140,9 @@ export const FooterDefault = () => {
                 </Text>
               </HStack>
               <Text fontSize="md">
-                Founded in 2018, Pigpile Corporation provides a comprehensive range of services to
-                nearly 2,000 homeless men and women each day. We are the largest homeless services
-                provider in New England, and could not do this important work without the support of
-                our donors and local community.
+                Founded in 2018, Pigpile Corporation is an online fund-raising app dedicated to
+                helping good causes raise funds & in-kind donations. The app is free to use &ndash;
+                no charges or service fees for creating a fundraiser.
               </Text>
             </Stack>
           </Stack>

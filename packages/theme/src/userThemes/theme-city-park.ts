@@ -5,12 +5,12 @@ export const funUserTheme: UserTheme = {
   label: "City Park",
   bgImage: "/city-park.png",
   chesterPosition: {
-    left: "8%",
-    bottom: { base: "32%", lg: "28%" },
+    left: "68%",
+    bottom: { base: "32%", lg: "30%" },
     top: "auto",
     right: "auto",
   },
-  bgPosition: "20% 80%",
+  bgPosition: { base: "50% 80%", lg: "50% 80%" },
   componentsByVariant: [
     { variant: "ghost", components: ["NavButtonFoo", "NavButtonGroup"] },
     { variant: "outline", components: ["Card"] },

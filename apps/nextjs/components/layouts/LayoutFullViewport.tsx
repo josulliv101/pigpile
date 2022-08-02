@@ -7,7 +7,7 @@ const bgImage = "url(/landscape.png)";
 
 export const LayoutFullViewport: React.FC<LayoutProps> = ({ children }) => {
   const {
-    userTheme: { bgImage },
+    userTheme: { bgImage, bgPosition },
   } = useTheme();
   const landscapeImage = `url(${bgImage})`;
   console.log("LayoutFullViewport", Background);
@@ -19,20 +19,13 @@ export const LayoutFullViewport: React.FC<LayoutProps> = ({ children }) => {
       <Background
         as="main"
         bgImage={landscapeImage}
-        bgPosition="10% 50%"
+        bgPosition={bgPosition}
         variant="gradient"
         w="100vw"
       >
         <Main as="div">{children}</Main>
       </Background>
-      <Footer
-        pos="fixed"
-        bottom="0"
-        left="50%"
-        transform="translateX(-50%)"
-        w="100vw"
-        size="sm"
-      />
+      <Footer pos="fixed" bottom="0" left="50%" transform="translateX(-50%)" w="100vw" size="sm" />
     </>
   );
 };
