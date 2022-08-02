@@ -21,7 +21,7 @@ function About(props: PageProps): JSX.Element {
         fund-raising app. This site is a re-imagining of that work but just for demo purposes.
       </Text>
       <Text mb="4">
-        Some of the technologies used include react, typescript, nextjs, firbase
+        Some of the technologies used include react, typescript, nextjs, firebase
         auth/hosting/db/functions, chakra-ui and Stripe. The code is structured as a monorepo using
         yarn workspaces paired with preconstruct. It's fully responsive. I am responsible for the
         design of the app, though the farm & city park bg images associated with each theme were

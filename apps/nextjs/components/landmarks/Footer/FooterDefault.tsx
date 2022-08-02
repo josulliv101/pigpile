@@ -143,9 +143,9 @@ export const FooterDefault = () => {
                 </Text>
               </HStack>
               <Text fontSize="md">
-                Founded in 2018, Pigpile Corporation is an online fund-raising app dedicated to
-                helping good causes raise funds & in-kind donations. The app is free to use &ndash;
-                no charges or service fees for creating a fundraiser.
+                Founded in 2018, Pigpile Corporation provides an online fund-raising app dedicated
+                to helping good causes raise funds & in-kind donations. The app is free to use
+                &ndash; no charges or service fees for creating a fundraiser.
               </Text>
             </Stack>
           </Stack>
