@@ -35,7 +35,7 @@ export const LoginForm: React.FC<LoginFormProps> = ({
         bg={useBreakpointValue({ base: "transparent", sm: "gray.200" })}
         boxShadow={{ base: "none", sm: useColorModeValue("md", "md-dark") }}
         borderRadius={{ base: "none", sm: "xl" }}
-        _dark={{ bg: "gray.700", color: "gray.100" }}
+        _dark={{ bg: { base: "transparent", sm: "gray.700" }, color: "gray.100" }}
         color={{ base: "white", sm: "gray.600" }}
       >
         <Stack spacing="6">
