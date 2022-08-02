@@ -14,6 +14,7 @@ export const Quotee = (props: Props) => {
       <Avatar
         size="xl"
         bgColor="gray.200"
+        opacity=".8"
         icon={
           <Box as="span" fontSize="48px">
             {emoji}

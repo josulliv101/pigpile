@@ -1,3 +1,4 @@
+import { Button } from "@chakra-ui/react";
 import { extendThemedComponent } from "./extendThemedComponent";
 import { Background } from "./Background";
 
@@ -30,6 +31,10 @@ export * from "./Swatch";
 
 // Extending gives the ability for the new component to have its own defaults (colorScheme, size, variants) set in the theme
 // Any default not set will inherit that of the parent component.
+export const AccentButton = extendThemedComponent("AccentButton", {
+  Button,
+});
+
 export const BackgroundContent = extendThemedComponent("BackgroundContent", {
   Background,
 });

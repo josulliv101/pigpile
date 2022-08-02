@@ -52,7 +52,7 @@ const Hero = ({
 }): JSX.Element => {
   const dispatch = useDispatch();
   const {
-    userTheme: { bgImage },
+    userTheme: { bgImage, bgPosition },
   } = useTheme();
   const user = useSelector(selectUser());
   const chesterAnimation = useSelector(selectChesterAnimation());
@@ -132,7 +132,7 @@ const Hero = ({
   };
 
   return (
-    <Background bgImage={landscapeImage} bgPosition="20% 50%" variant="gradient" h="500px">
+    <Background bgImage={landscapeImage} bgPosition={bgPosition} variant="gradient" h="500px">
       <DonationModal
         activeFormStep={activeFormStep}
         beneficiary={beneficiary}

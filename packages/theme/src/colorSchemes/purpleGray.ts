@@ -10,10 +10,10 @@ export const colorSchemePurpleGray: ColorScheme = {
     {
       colorScheme: "purple",
       components: [
-        "Background",
         "Button",
         "Card",
         "Logo",
+        "Background",
         "BackgroundBar",
         "BackgroundLandscape",
         "Modal",
@@ -21,10 +21,11 @@ export const colorSchemePurpleGray: ColorScheme = {
       ],
     },
     {
-      colorScheme: "gray",
-      components: ["ActionButton", "CardBadge"],
+      colorScheme: "green",
+      components: ["AccentButton", "CardBadge"],
     },
-    { colorScheme: "whiteAlpha", components: ["NavButton"] },
-    { colorScheme: "yellow", components: ["BackgroundContent"] },
+    { colorScheme: "blackAlpha", components: ["NavButton"] },
+    { colorScheme: "yellow", components: [] },
+    { colorScheme: "gray", components: ["Progress"] },
   ],
 };

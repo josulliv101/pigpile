@@ -17,7 +17,14 @@ import { useLabelBundle } from "@josulliv101/labelbundles";
 
 function Link({ children, icon, ...props }) {
   return (
-    <Button size="sm" variant="link" fontWeight="normal" color="gray.500" {...props}>
+    <Button
+      size="sm"
+      variant="link"
+      fontWeight="normal"
+      color="gray.500"
+      _dark={{ bgColor: "gray.500", color: "gray.200" }}
+      {...props}
+    >
       {children}
     </Button>
   );
@@ -26,7 +33,7 @@ function Link({ children, icon, ...props }) {
 export const FooterDefault = () => {
   const { getLabel, setLabelBundleId } = useLabelBundle();
   return (
-    <Box bgColor="gray.200" color="gray.500">
+    <Box bgColor="gray.200" color="gray.500" _dark={{ bgColor: "gray.500", color: "gray.200" }}>
       <Container as="footer" mt={{ base: 4, md: 0 }} role="contentinfo" px="8">
         <Stack
           spacing="8"
@@ -120,6 +127,7 @@ export const FooterDefault = () => {
                   color="gray.500"
                   fontWeight="normal"
                   fontSize={{ base: "lg", sm: "2xl" }}
+                  _dark={{ bgColor: "gray.500", color: "gray.200" }}
                 >
                   {getLabel("tagline")}.
                 </Text>

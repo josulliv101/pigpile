@@ -1,6 +1,6 @@
 import { useDispatch } from "react-redux";
 import { FaShareAlt } from "react-icons/fa";
-import { Box, Button, Heading, Text } from "@josulliv101/core";
+import { AccentButton, Box, Button, Heading, Text } from "@josulliv101/core";
 import { useLabelBundle } from "@josulliv101/labelbundles";
 import { statusSlice } from "store";
 
@@ -26,7 +26,7 @@ export const IntroBlurb: React.FC<Props> = ({ title, blurb }) => {
       <Text fontSize={{ base: "lg", md: "1.06rem", lg: "xl" }} noOfLines={{ base: 20, md: 5 }}>
         {blurb}
       </Text>
-      <Button
+      <AccentButton
         onClick={() =>
           dispatch(
             statusSlice.actions.setStatus({
@@ -48,7 +48,7 @@ export const IntroBlurb: React.FC<Props> = ({ title, blurb }) => {
         boxShadow="md"
       >
         {getLabel("Share")}
-      </Button>
+      </AccentButton>
     </Box>
   );
 };

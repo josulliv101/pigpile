@@ -30,7 +30,6 @@ export const MORE_BUTTONS_BACK_ID = "back-button";
 const ButtonMore = ({ label, price, ...props }) => (
   <Button
     mb="4"
-    // children={label}
     {...props}
     borderRadius="full"
     leftIcon={props.value === MORE_BUTTONS_BACK_ID ? <Icon as={FaArrowCircleLeft} /> : null}
@@ -41,9 +40,10 @@ const ButtonMore = ({ label, price, ...props }) => (
     {price && props.value !== MORE_BUTTONS_BACK_ID ? (
       <chakra.span
         transform="scale(.8)"
-        color="gray.200"
+        color="inherit"
         fontSize={props.size}
         fontWeight="normal"
+        opacity=".7"
         ml="1"
       >
         / {price}

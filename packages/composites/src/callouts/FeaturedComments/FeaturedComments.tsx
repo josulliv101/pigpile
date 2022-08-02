@@ -1,15 +1,6 @@
 import { useState } from "react";
 import { useSwipeable } from "react-swipeable";
-import {
-  Box,
-  Callout,
-  Circle,
-  Flex,
-  HStack,
-  IconButton,
-  Text,
-  useColorModeValue,
-} from "@josulliv101/core";
+import { Box, HStack, IconButton, Text, useColorModeValue } from "@josulliv101/core";
 import { Comment as CommentType } from "@josulliv101/types";
 import { Quotee } from "./Quotee";
 import { QuoteIcon } from "./QuoteIcon";
@@ -64,7 +55,7 @@ export const FeaturedComments = ({ comments = [] }: Props) => {
       {comments.length > 1 && (
         <HStack
           justify="center"
-          spacing="4"
+          spacing={{ base: 4, md: 3 }}
           mt="8"
           mb="4"
           color={useColorModeValue("gray.300", "gray.600")}
@@ -74,31 +65,24 @@ export const FeaturedComments = ({ comments = [] }: Props) => {
               key={`btn-${index}${activeIndex === index ? "-active" : ""}`}
               aria-label="View comment"
               borderWidth="2px"
-              borderColor={index === activeIndex ? "blue.500" : "gray.100"}
+              borderColor={index === activeIndex ? "inherit" : "gray.100"}
               // border={index === activeIndex ? "2px #000 solid" : "2px red solid"}
               size="3xs"
               // size={index === activeIndex ? "2xs" : "3xs"}
-              bgColor={index === activeIndex ? "blue.500" : "gray.300"}
+              bgColor={index === activeIndex ? undefined : "gray.300"}
               _dark={{
-                bgColor: index === activeIndex ? "blue.600" : "gray.400",
+                bgColor: index === activeIndex ? undefined : "gray.400",
               }}
               borderRadius="full"
               onClick={() => setActiveIndex(index)}
               _active={{
-                bgColor: index === activeIndex ? "blue.500" : "gray.300",
+                bgColor: index === activeIndex ? undefined : "gray.300",
               }}
             />
           ))}
         </HStack>
       )}
-      <Text
-        align="right"
-        fontSize="xs"
-        bgColor="gray.200"
-        color="gray.500"
-        px="3"
-        py="2"
-      >
+      <Text align="right" fontSize="xs" bgColor="gray.200" color="gray.500" px="3" py="2">
         Featured Comments
       </Text>
     </Box>

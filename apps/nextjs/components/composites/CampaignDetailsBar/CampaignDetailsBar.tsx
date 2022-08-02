@@ -1,5 +1,6 @@
 import { FaMapMarkerAlt as FaMapMarker } from "react-icons/fa";
 import {
+  AccentButton,
   Box,
   Button,
   Center,
@@ -68,9 +69,9 @@ export const CampaignDetailsBar: React.FC<Props> = ({
             {description?.split("::").join("\n\n")}
           </Text>
           <Center>
-            <Button size="sm" variant="ghost" onClick={onToggle}>
+            <AccentButton size="sm" variant="ghost" onClick={onToggle}>
               {isOpen ? getLabel("less") : getLabel("read more")}
-            </Button>
+            </AccentButton>
           </Center>
         </Box>
       </Stack>

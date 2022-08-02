@@ -35,17 +35,13 @@ export const ItemsLabel: React.FC<ItemsLabelProps> = ({
   ...props
 }) => {
   const [isCustomInputDirty, setIsCustomInputDirty] = useState(false);
-  const [updatedNumberOfUnits, setUpdatedNumberOfUnits] = useState(
-    numberOfUnits || 1
-  );
+  const [updatedNumberOfUnits, setUpdatedNumberOfUnits] = useState(numberOfUnits || 1);
   const handleCommitInputChange = () => {
     onChangeCustomInputField(updatedNumberOfUnits);
     onCloseCustomInputField();
     setIsCustomInputDirty(false);
   };
-  const activeNumberOfUnits = showCustomInputField
-    ? updatedNumberOfUnits
-    : numberOfUnits;
+  const activeNumberOfUnits = showCustomInputField ? updatedNumberOfUnits : numberOfUnits;
   return (
     <Flex
       justifyContent="space-between"
@@ -70,6 +66,7 @@ export const ItemsLabel: React.FC<ItemsLabelProps> = ({
         w="full"
         justifyContent="space-between"
         fontWeight="normal"
+        color="gray.100"
       >
         <Box as="span">
           Donate {activeNumberOfUnits}

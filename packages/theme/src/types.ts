@@ -48,6 +48,7 @@ export interface UserTheme {
   id: string;
   label: string;
   bgImage: string;
+  bgPosition: string;
   chesterPosition?: ChesterAbsolutePosition;
   componentsByVariant: ComponentsByVariant[];
   componentsBySize: ComponentsBySize[];

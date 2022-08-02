@@ -5,7 +5,7 @@ const parts = anatomy("countUpBox").parts("container", "countUpLabel", "label");
 const baseStyle: SystemStyleFunction = (props) => {
   const { colorScheme: c } = props;
   const bgColor = props.bgColor || mode(`${c}.50`, `${c}.500`)(props);
-  const color = mode(`${c}.500`, `${c}.100`)(props);
+  const color = mode(`${c}.600`, `${c}.100`)(props);
   return {
     container: {
       bgColor,
