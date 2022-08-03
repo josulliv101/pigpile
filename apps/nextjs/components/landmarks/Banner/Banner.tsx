@@ -115,7 +115,7 @@ export const BannerContent = memo<BannerContentProps>(
             {nav}
             <MobileNavButton
               ref={mobileNavBtnRef}
-              aria-label="Open Menu"
+              aria-label="Open menu"
               onClick={handleOpenMobileNav}
               mr="1"
             />

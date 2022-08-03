@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 import { Background, Box, Chester, useTheme } from "@josulliv101/core";
 import { selectChesterAnimation } from "store";
-import { Banner, Footer, Main } from "../landmarks";
+import { Banner, FooterSmall, Main } from "../landmarks";
 import { NavConnected as Nav } from "./NavConnected";
 import { LayoutProps } from "./LayoutProps";
 
@@ -37,7 +37,7 @@ export const LayoutFullViewport: React.FC<LayoutProps> = ({ children }) => {
           <Chester animationType={chesterAnimationType} opacity=".9" />
         </Box>
       </Background>
-      <Footer pos="fixed" bottom="0" left="50%" transform="translateX(-50%)" w="100vw" size="sm" />
+      <FooterSmall pos="fixed" bottom="0" left="50%" transform="translateX(-50%)" w="100vw" />
     </>
   );
 };

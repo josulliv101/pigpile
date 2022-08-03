@@ -22,11 +22,9 @@ export const makeGetLabelFromBundle =
   ) => {
     const { modifier = "", value } = typeof valueArg === "object" ? valueArg : { value: valueArg };
     const valuePath = modifier ? `${value}.${modifier}` : value;
-
     const templateString = get(bundleToUse, valuePath) ?? value;
-    console.log("templateString TEST", { templateString, bundleToUse, valuePath });
+
     if (typeof templateString !== "string") {
-      console.log("templateString", { valuePath, value, modifier });
       return templateString.default ?? value;
     }
 

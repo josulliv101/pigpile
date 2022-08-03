@@ -175,7 +175,6 @@ export const MobileNavButton = forwardRef((props: IconButtonProps, ref: Ref<HTML
     <IconButton
       ref={ref}
       display={{ base: "flex", md: "none" }}
-      aria-label="Open menu"
       fontSize="20px"
       color="white"
       variant="ghost"

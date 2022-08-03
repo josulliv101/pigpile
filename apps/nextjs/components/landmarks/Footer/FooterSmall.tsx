@@ -1,19 +1,25 @@
 import NextLink from "next/link";
-import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
+import { ReactChild } from "react";
+import { FaGithub } from "react-icons/fa";
 import {
   Box,
   ButtonGroup,
   Button,
   Container,
   HStack,
+  HTMLChakraProps,
   IconButton,
-  Logo,
   Show,
   Stack,
   Text,
 } from "@josulliv101/core";
 
-const NavLink = ({ href, children }) => (
+interface NavLinkProps {
+  href: string;
+  children: ReactChild;
+}
+
+const NavLink: React.FC<NavLinkProps> = ({ href, children }) => (
   <NextLink href={href} passHref>
     <Button size="sm" color="gray.200" fontWeight="normal">
       {children}
@@ -34,7 +40,6 @@ export const FooterSmall: React.FC<HTMLChakraProps<"footer">> = (props) => {
                   All rights reserved.
                 </Box>
               </Text>
-              {/*<Logo boxSize={5} bgColor="gray.600" fill="gray.500" shadow="none" borderWidth="0" opacity=".4" />*/}
             </HStack>
             <Show above="sm">
               <ButtonGroup variant="ghost" spacing="0" colorScheme="blackAlpha">

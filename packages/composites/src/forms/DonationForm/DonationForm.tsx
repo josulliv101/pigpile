@@ -1,8 +1,6 @@
 import { useEffect } from "react";
 import { Box, Callout, HTMLChakraProps, Stack, Text } from "@josulliv101/core";
 import { Elements } from "@stripe/react-stripe-js";
-// import { PaymentIntent } from "@stripe/stripe-js";
-// import { getStripe } from "./getStripe";
 import { ItemsLabel } from "./ItemsLabel";
 import { TipInput } from "./TipInput";
 import { TotalLabel } from "./TotalLabel";
@@ -38,7 +36,7 @@ export const DonationForm: React.FC<DonationFormProps> = ({
   const { paymentIntent, stripeObj, setPaymentIntentAmount } = useStripePaymentIntent(
     numberOfUnits !== null ? numberOfUnits * pricePerUnit + tip : 0
   );
-  console.log("stripeObj", paymentIntent, stripeObj);
+
   const showCustomInputField = showCustomInputFieldProp || numberOfUnits === null;
 
   useEffect(() => {
@@ -61,7 +59,6 @@ export const DonationForm: React.FC<DonationFormProps> = ({
         <Box opacity={showCustomInputField ? 0 : 1}>
           <TipInput tip={tip} onChange={onChangeTip} isDisabled={showCustomInputField} />
           <TotalLabel amount={numberOfUnits * pricePerUnit} tip={tip} />
-          {/*<PaymentTabs />*/}
           <Elements
             stripe={stripeObj}
             options={{
