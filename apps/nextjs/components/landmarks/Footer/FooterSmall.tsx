@@ -32,8 +32,8 @@ export const FooterSmall: React.FC<HTMLChakraProps<"footer">> = (props) => {
             <Show above="sm">
               <ButtonGroup variant="ghost" spacing="0" colorScheme="blackAlpha">
                 <FooterNavLink href="/about">About</FooterNavLink>
-                <FooterNavLink href="/about">Privacy</FooterNavLink>
-                <FooterNavLink href="/about">Terms of Use</FooterNavLink>
+                <FooterNavLink href="/">Privacy</FooterNavLink>
+                <FooterNavLink href="/">Terms of Use</FooterNavLink>
                 <GitHubExternalLink color="gray.200" size="sm" />
               </ButtonGroup>
             </Show>
