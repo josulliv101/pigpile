@@ -1,19 +1,8 @@
-import NextLink from "next/link";
-import { forwardRef } from "react";
-import {
-  Box,
-  Button,
-  Container,
-  HStack,
-  IconButton,
-  Logo,
-  Stack,
-  Text,
-  HTMLChakraProps,
-} from "@josulliv101/core";
-import { FaGithub, FaFacebook, FaInstagram, FaTwitter } from "react-icons/fa";
+import { Box, Container, HStack, Logo, Stack, Text, HTMLChakraProps } from "@josulliv101/core";
+import { FaFacebook, FaInstagram, FaTwitter } from "react-icons/fa";
 import { useLabelBundle } from "@josulliv101/labelbundles";
 import { FooterNavLink, NavLinkProps } from "components/landmarks";
+import { GitHubExternalLink } from "./GitHubExternalLink";
 
 const Link: React.FC<NavLinkProps> = (props) => {
   return (
@@ -156,16 +145,7 @@ export const Footer: React.FC<HTMLChakraProps<"div">> = (props) => {
               &copy; {new Date().getFullYear()} {getLabel("orgFormal")}. {getLabel("copyright")}
             </Text>
           </Stack>
-          <IconButton
-            as="a"
-            href="#"
-            aria-label="GitHub"
-            fontSize={{ base: "1.5rem", md: "1.25rem" }}
-            icon={<FaGithub fontSize="inherit" />}
-            color="gray.500"
-            variant="ghost"
-            colorScheme="blackAlpha"
-          />
+          <GitHubExternalLink />
         </Stack>
       </Container>
     </Box>

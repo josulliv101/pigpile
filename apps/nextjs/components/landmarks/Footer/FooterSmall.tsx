@@ -1,19 +1,15 @@
-import NextLink from "next/link";
-import { ReactChild } from "react";
-import { FaGithub } from "react-icons/fa";
 import {
   Box,
   ButtonGroup,
-  Button,
   Container,
   HStack,
   HTMLChakraProps,
-  IconButton,
   Show,
   Stack,
   Text,
 } from "@josulliv101/core";
 import { NavLink, NavLinkProps } from "components/landmarks";
+import { GitHubExternalLink } from "./GitHubExternalLink";
 
 export const FooterNavLink: React.FC<NavLinkProps> = (props) => (
   <NavLink size="sm" color="gray.200" fontWeight="normal" {...props} />
@@ -38,15 +34,7 @@ export const FooterSmall: React.FC<HTMLChakraProps<"footer">> = (props) => {
                 <FooterNavLink href="/about">About</FooterNavLink>
                 <FooterNavLink href="/about">Privacy</FooterNavLink>
                 <FooterNavLink href="/about">Terms of Use</FooterNavLink>
-                <IconButton
-                  as="a"
-                  href="https://github.com/josulliv101"
-                  target="_blank"
-                  aria-label="GitHub"
-                  color="gray.200"
-                  size="sm"
-                  icon={<FaGithub fontSize="1.0rem" />}
-                />
+                <GitHubExternalLink color="gray.200" size="sm" />
               </ButtonGroup>
             </Show>
           </Stack>
