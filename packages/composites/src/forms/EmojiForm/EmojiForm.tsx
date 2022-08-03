@@ -22,10 +22,7 @@ import { EmojiField } from "./EmojiField";
 
 const emojis = [
   "❤️",
-  // "💕",
-  // "💙",
   "💚",
-  // "💜",
   "🖤",
   "😊",
   "😎",
@@ -34,16 +31,12 @@ const emojis = [
   "🌹",
   "🌻",
   "🌼",
-  // "💐",
   "🐶",
   "🐱",
   "🐭",
   "🐨",
   "🦊",
   "🐰",
-  // "👏",
-  // "🙌",
-  // "🙏",
   "💪",
   "✌️",
   "🤟",
@@ -51,7 +44,6 @@ const emojis = [
   "🍔",
   "🍕",
   "🍎",
-  "🧁",
   "🍪",
 ];
 
@@ -135,9 +127,7 @@ export const EmojiForm: React.FC<EmojiFormProps> = ({ onSubmit, ...props }) => {
                 <Field name="displayName">
                   {({ field, form }) => (
                     <FormControl
-                      isInvalid={
-                        form.errors.displayName && form.touched.displayName
-                      }
+                      isInvalid={form.errors.displayName && form.touched.displayName}
                       // isDisabled={showCustomInputField}
                     >
                       <InputGroup>
@@ -149,9 +139,7 @@ export const EmojiForm: React.FC<EmojiFormProps> = ({ onSubmit, ...props }) => {
                           aria-label="displayName"
                           placeholder="Name to display"
                           _placeholder={{ color: "whiteAlpha.800" }}
-                          value={
-                            values.anonymous ? "Anonymous" : values.displayName
-                          }
+                          value={values.anonymous ? "Anonymous" : values.displayName}
                         />
                         <InputRightAddon
                           fontSize="xl"
@@ -160,9 +148,7 @@ export const EmojiForm: React.FC<EmojiFormProps> = ({ onSubmit, ...props }) => {
                           children={values.emoji}
                         />
                       </InputGroup>
-                      <FormErrorMessage>
-                        {form.errors.displayName}
-                      </FormErrorMessage>
+                      <FormErrorMessage>{form.errors.displayName}</FormErrorMessage>
                     </FormControl>
                   )}
                 </Field>
@@ -172,9 +158,7 @@ export const EmojiForm: React.FC<EmojiFormProps> = ({ onSubmit, ...props }) => {
                   {({ field, form }) => (
                     <FormControl>
                       <EmojiField {...field} />
-                      <FormErrorMessage>
-                        {form.errors.displayName}
-                      </FormErrorMessage>
+                      <FormErrorMessage>{form.errors.displayName}</FormErrorMessage>
                     </FormControl>
                   )}
                 </Field>
@@ -196,9 +180,7 @@ export const EmojiForm: React.FC<EmojiFormProps> = ({ onSubmit, ...props }) => {
                           value={values.comment}
                         />
                       </InputGroup>
-                      <FormErrorMessage>
-                        {form.errors.displayName}
-                      </FormErrorMessage>
+                      <FormErrorMessage>{form.errors.displayName}</FormErrorMessage>
                     </FormControl>
                   )}
                 </Field>

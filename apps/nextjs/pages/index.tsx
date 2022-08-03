@@ -1,22 +1,8 @@
 import NextLink from "next/link";
-import {
-  Box,
-  Button,
-  AbsoluteCenter as Center,
-  Chester,
-  Heading,
-  Text,
-  useTheme,
-} from "@josulliv101/core";
+import { Button, AbsoluteCenter as Center, Heading, Text } from "@josulliv101/core";
 import { LayoutFullViewport } from "components/layouts";
 
-interface PageProps {}
-
-function Home({}: PageProps): JSX.Element {
-  const {
-    userTheme: { chesterPosition },
-  } = useTheme();
-  const chesterAnimationProps = {};
+function Home(): JSX.Element {
   return (
     <>
       <Center w="80%" textAlign="center" color="white" top={{ base: "38%", sm: "36%" }}>
@@ -53,15 +39,6 @@ function Home({}: PageProps): JSX.Element {
           </Button>
         </NextLink>
       </Center>
-      <Box
-        pos="absolute"
-        bottom="20%"
-        left={{ base: "28%", lg: "16%" }}
-        transform="scale(.46)"
-        {...chesterPosition}
-      >
-        <Chester {...chesterAnimationProps} opacity=".8" />
-      </Box>
     </>
   );
 }

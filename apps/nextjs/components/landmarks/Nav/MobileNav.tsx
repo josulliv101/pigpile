@@ -158,7 +158,7 @@ export function MobileNavContent(props: MobileNavContentProps) {
                   }}
                   top="auto"
                   bottom="20"
-                  animate
+                  animateOnMount
                   animationType={chesterAnimation}
                 />
               </Box>

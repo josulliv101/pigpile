@@ -1,4 +1,6 @@
-import { Background, useTheme } from "@josulliv101/core";
+import { useSelector } from "react-redux";
+import { Background, Box, Chester, useTheme } from "@josulliv101/core";
+import { selectChesterAnimation } from "store";
 import { Banner, Footer, Main } from "../landmarks";
 import { NavConnected as Nav } from "./NavConnected";
 import { LayoutProps } from "./LayoutProps";
@@ -7,8 +9,9 @@ const bgImage = "url(/landscape.png)";
 
 export const LayoutFullViewport: React.FC<LayoutProps> = ({ children }) => {
   const {
-    userTheme: { bgImage, bgPosition },
+    userTheme: { bgImage, bgPosition, chesterPosition },
   } = useTheme();
+  const chesterAnimationType = useSelector(selectChesterAnimation());
   const landscapeImage = `url(${bgImage})`;
   console.log("LayoutFullViewport", Background);
   return (
@@ -24,6 +27,15 @@ export const LayoutFullViewport: React.FC<LayoutProps> = ({ children }) => {
         w="100vw"
       >
         <Main as="div">{children}</Main>
+        <Box
+          pos="absolute"
+          bottom="20%"
+          left={{ base: "28%", lg: "16%" }}
+          transform="scale(.46)"
+          {...chesterPosition}
+        >
+          <Chester animationType={chesterAnimationType} opacity=".8" />
+        </Box>
       </Background>
       <Footer pos="fixed" bottom="0" left="50%" transform="translateX(-50%)" w="100vw" size="sm" />
     </>

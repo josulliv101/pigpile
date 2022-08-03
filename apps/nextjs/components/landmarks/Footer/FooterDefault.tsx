@@ -3,13 +3,9 @@ import { forwardRef } from "react";
 import {
   Box,
   Button,
-  ButtonGroup,
   Container,
-  Divider,
-  Flex,
   HStack,
   IconButton,
-  Input,
   Logo,
   Stack,
   Text,
@@ -35,7 +31,7 @@ const Link: React.FC<HTMLChakraProps<"div">> = forwardRef(({ children, ...props 
 });
 
 export const FooterDefault = () => {
-  const { getLabel, setLabelBundleId } = useLabelBundle();
+  const { getLabel } = useLabelBundle();
   return (
     <Box bgColor="gray.200" color="gray.500" _dark={{ bgColor: "gray.500", color: "gray.200" }}>
       <Container as="footer" mt={{ base: 4, md: 0 }} role="contentinfo" px="8">
@@ -66,17 +62,17 @@ export const FooterDefault = () => {
                 flex="1"
               >
                 <Text fontSize="sm" fontWeight="semibold">
-                  Quick Links
+                  {getLabel("Quick Links")}
                 </Text>
                 <Stack spacing={{ base: 1, sm: 2 }} shouldWrapChildren>
                   <NextLink href="/" passHref>
-                    <Link>Home</Link>
+                    <Link>{getLabel("Home")}</Link>
                   </NextLink>
                   <NextLink href="/pigpiles" passHref>
-                    <Link>View Pigpiles</Link>
+                    <Link>{getLabel("View Pigpiles")}</Link>
                   </NextLink>
                   <NextLink href="/about" passHref>
-                    <Link>About</Link>
+                    <Link>{getLabel("About")}</Link>
                   </NextLink>
                 </Stack>
               </Stack>
@@ -89,17 +85,17 @@ export const FooterDefault = () => {
                 flex="1"
               >
                 <Text fontSize="sm" fontWeight="semibold">
-                  Legal
+                  {getLabel("Legal")}
                 </Text>
                 <Stack spacing={{ base: 1, sm: 2 }} shouldWrapChildren>
-                  <Link>Privacy</Link>
-                  <Link>Terms</Link>
-                  <Link>License</Link>
+                  <Link>{getLabel("Privacy")}</Link>
+                  <Link>{getLabel("Terms")}</Link>
+                  <Link>{getLabel("License")}</Link>
                 </Stack>
               </Stack>
               <Stack spacing="4" minW={{ base: 30, md: 36 }} flex="1">
                 <Text fontSize="sm" fontWeight="semibold">
-                  Social
+                  {getLabel("Social")}
                 </Text>
                 <Stack spacing={{ base: 1, sm: 2 }} shouldWrapChildren>
                   <Link
@@ -143,9 +139,9 @@ export const FooterDefault = () => {
                 </Text>
               </HStack>
               <Text fontSize="md">
-                Founded in 2018, Pigpile Corporation provides an online fund-raising app dedicated
-                to helping good causes raise funds & in-kind donations. The app is free to use
-                &ndash; no charges or service fees for creating a fundraiser.
+                Pigpile Corporation provides an online fund-raising app dedicated to helping good
+                causes raise funds & in-kind donations. The app is free to use &ndash; no charges or
+                service fees for creating a fundraiser.
               </Text>
             </Stack>
           </Stack>
@@ -174,7 +170,6 @@ export const FooterDefault = () => {
             color="gray.500"
             variant="ghost"
             colorScheme="blackAlpha"
-            // pb={{ base: "0", md: "0" }}
           />
         </Stack>
       </Container>

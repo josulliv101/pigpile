@@ -31,7 +31,6 @@ export const MeetChester: React.FC<MeetChesterProps> = ({ animationType, ...root
           left="4px"
           animationType={animationType}
           transform="scale(.8)"
-          animate
         />
       </CardAvatar>
       <CardBackground h={{ base: "92px", sm: "132px", md: "92px" }} />

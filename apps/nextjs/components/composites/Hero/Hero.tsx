@@ -24,22 +24,11 @@ import {
 import { useLabelBundle } from "hooks";
 import { GoalCountUp } from "./GoalCountUp";
 import { DonationModal } from "./DonationModal";
+import useDonationQuantityOptions from "./useDonationQuantityOptions";
 
 interface HeroProps {
   beneficiary: string;
 }
-
-export const options = [
-  { label: "2 pairs", value: 2, price: 3 },
-  { label: "4 pairs", value: 4, price: 6 },
-  { label: "6 pairs", value: 6, price: 9 },
-  { label: "12 pairs", value: 12, price: 18 },
-  { label: "back", value: MORE_BUTTONS_BACK_ID },
-  { label: "18 pairs", value: 18, price: 27 },
-  { label: "24 pairs", value: 24, price: 36 },
-  { label: "48 pairs", value: 48, price: 72 },
-  { label: "custom", value: "custom" },
-];
 
 const Hero = ({
   campaignId,
@@ -58,28 +47,16 @@ const Hero = ({
   const chesterAnimation = useSelector(selectChesterAnimation());
   const { activeFormStep } = useSelector(selectPaymentState());
   const landscapeImage = `url(${bgImage})`;
-  // const { getLabel, getLabelForQuantity } = useLabelBundle(customLabels);
   const [userRequestsCustomAmount, setUserRequestsCustomAmount] = useState(false);
   const [startAnimation, setStartAnimation] = useState(false);
   const [numberOfUnits, setNumberOfUnits] = useState<number | null>(null);
   const [tip, setTip] = useState(0);
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { getLabel, getLabelForQuantity } = useLabelBundle();
+  const quantityOptions = useDonationQuantityOptions(options, pricePerUnit);
 
-  const quantityOptions = useMemo(() => {
-    const rawOptions = options.map(
-      (n: number): [{ value: number | string; price?: number; label: string }] => ({
-        value: n,
-        price: getCurrency(n * pricePerUnit),
-        label: `${n} ${getLabelForQuantity({ one: "item.alt", many: "items.alt" }, n)}`,
-      })
-    );
-    rawOptions.splice(4, 0, { label: getLabel("back"), value: MORE_BUTTONS_BACK_ID });
-    return [...rawOptions, { label: getLabel("custom"), value: "custom" }];
-  }, [options]);
-  console.log("quantityOptions", quantityOptions);
   useEffect(() => {
-    setTimeout(() => setStartAnimation(true), 7000);
+    // setTimeout(() => setStartAnimation(true), 7000);
   }, []);
 
   const handleCustomBtnClick = () => {
@@ -161,12 +138,11 @@ const Hero = ({
         pt={{ base: "90px", md: "120px" }}
       >
         <Heading
-          align="center"
           size={{ base: "md", md: "lg" }}
           fontSize="1.6rem"
           fontWeight="500"
-          mb={{ base: "6", md: "3" }}
-          noOfLines={{ base: undefined, md: "5" }}
+          mb={{ base: 6, md: 3 }}
+          noOfLines={{ base: 10, md: 5 }}
         >
           {getLabel(
             "Help us donate {{amount}} {{itemType}} to {{org}}",
@@ -177,7 +153,6 @@ const Hero = ({
         </Heading>
         <Heading
           display={{ base: "block", sm: "block" }}
-          align="center"
           size={{ base: "sm", md: "md" }}
           fontWeight="normal"
           mb={{ base: 6, sm: 0 }}
@@ -205,7 +180,7 @@ const Hero = ({
           onButtonClick={onClick}
         />
         <AbsoluteCenter top={{ base: "75%", md: "80%" }}>
-          <Chester animate={startAnimation} animationType={chesterAnimation} />
+          <Chester animationType={chesterAnimation} />
         </AbsoluteCenter>
         {!!currentAmount && !!goalAmount && (
           <GoalCountUp currentAmount={currentAmount} goalAmount={goalAmount} />

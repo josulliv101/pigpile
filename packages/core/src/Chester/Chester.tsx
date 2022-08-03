@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Box, Fade, HTMLChakraProps, Image, Stack } from "@chakra-ui/react";
+import { Box, Fade, HTMLChakraProps, Image, Stack, useUpdateEffect } from "@chakra-ui/react";
 import {
   jumpAnimation,
   wahooAnimation,
@@ -18,6 +18,7 @@ export enum ChesterAnimations {
 
 export interface ChesterProps extends HTMLChakraProps<"div"> {
   animate?: boolean;
+  animateOnMount?: boolean;
   animationType?: string;
 }
 
@@ -34,26 +35,31 @@ const map = {
 };
 
 export const Chester: React.FC<ChesterProps> = ({
-  animate,
   animationType,
+  animateOnMount = false,
   onClick,
   onAnimationEnd,
   ...props
 }) => {
-  const [animationRequested, setAnimationRequested] = useState(false);
+  const [animationRequested, setAnimationRequested] = useState(animateOnMount);
   const animationStyle = animationType && map[animationType];
-  const animation = animationRequested
-    ? `${animationStyle} ${animationProperties()}`
-    : "";
+  const animation = animationRequested ? `${animationStyle} ${animationProperties()}` : "";
   const shadow = `${shadowAnimation} ${animationProperties()}`;
+  const animate = () => setAnimationRequested(true);
 
-  useEffect(() => setAnimationRequested(true), [animationType]);
+  useUpdateEffect(() => animate(), [animationType]);
+
+  useEffect(() => {
+    if (animateOnMount) {
+      animate();
+    }
+  }, []);
 
   return (
     <Box {...props}>
       <Stack
         role="img"
-        onClick={() => setAnimationRequested(true)}
+        onClick={animate}
         aria-label="Chester the pig"
         as={Fade}
         in
@@ -62,7 +68,7 @@ export const Chester: React.FC<ChesterProps> = ({
       >
         <Box
           pos="relative"
-          animation={animate ? animation : undefined}
+          animation={animationRequested ? animation : undefined}
           onAnimationEnd={() => setAnimationRequested(false)}
           transformOrigin="center bottom"
         >
@@ -84,13 +90,7 @@ export const Chester: React.FC<ChesterProps> = ({
           />
         </Box>
         <Shadow
-          animation={
-            animate &&
-            animationType === ChesterAnimations.JUMP &&
-            animationRequested
-              ? shadow
-              : ""
-          }
+          animation={animationType === ChesterAnimations.JUMP && animationRequested ? shadow : ""}
         />
       </Stack>
     </Box>

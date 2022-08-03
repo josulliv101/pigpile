@@ -3,7 +3,7 @@ import { UserTheme } from "../types";
 export const funUserTheme: UserTheme = {
   id: "fun",
   label: "City Park",
-  bgImage: "/city-park.png",
+  bgImage: "/city-park-tp.png",
   chesterPosition: {
     left: "68%",
     bottom: { base: "32%", lg: "30%" },

@@ -1,15 +1,7 @@
-import { GetStaticProps, GetStaticPaths, GetServerSideProps } from "next";
-import { useRouter } from "next/router";
-import { useSelector } from "react-redux";
 import { Box, Heading, Text } from "@josulliv101/core";
 import { LayoutBasic } from "../../components/layouts";
-import { fetchUser, selectUser, wrapper } from "../../store";
 
-interface PageProps {
-  foo: string;
-}
-
-function About(props: PageProps): JSX.Element {
+function About(): JSX.Element {
   return (
     <Box>
       <Heading size="md" my="4">
@@ -21,10 +13,10 @@ function About(props: PageProps): JSX.Element {
         fund-raising app. This site is a re-imagining of that work but just for demo purposes.
       </Text>
       <Text mb="4">
-        Some of the technologies used include react, typescript, nextjs, firebase
+        Some of the technologies used include react/redux, typescript, nextjs, firebase
         auth/hosting/db/functions, chakra-ui and Stripe. The code is structured as a monorepo using
-        yarn workspaces paired with preconstruct. It's fully responsive. I am responsible for the
-        design of the app, though the farm & city park bg images associated with each theme were
+        yarn workspaces paired with preconstruct. The site is fully responsive. I am responsible for
+        the design of the app, though the farm & city park bg images associated with each theme were
         purchased from iStock. Chester the pig is my own creation as is the animation of Lewis (the
         character seen in the video on fundraiser pages). Lewis was animated using iClone 8 and his
         voice was created using tools by Replica Studios.
@@ -45,16 +37,5 @@ function About(props: PageProps): JSX.Element {
 About.getLayout = (page, layoutProps): JSX.Element => (
   <LayoutBasic {...layoutProps}>{page}</LayoutBasic>
 );
-
-/*export const getServerSideProps: GetServerSideProps = async (context) => {
-  const foobar = await Promise.resolve('foobar');
-  console.log('foobar', foobar, context)
-  return {
-    props: {
-      foo: "bar",
-      locale: context.locale,
-    },
-  };
-};*/
 
 export default About;
