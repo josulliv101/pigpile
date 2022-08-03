@@ -1,13 +1,11 @@
+import { Layout } from "@josulliv101/types";
 import { useSelector } from "react-redux";
 import { Background, Box, Chester, useTheme } from "@josulliv101/core";
 import { selectChesterAnimation } from "store";
 import { Banner, FooterSmall, Main } from "../landmarks";
 import { NavConnected as Nav } from "./NavConnected";
-import { LayoutProps } from "./LayoutProps";
 
-const bgImage = "url(/landscape.png)";
-
-export const LayoutFullViewport: React.FC<LayoutProps> = ({ children }) => {
+export const LayoutFullViewport: React.FC<Layout> = ({ children }) => {
   const {
     userTheme: { bgImage, bgPosition, chesterPosition },
   } = useTheme();

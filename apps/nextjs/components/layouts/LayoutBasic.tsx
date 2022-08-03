@@ -1,15 +1,15 @@
+import { Layout } from "@josulliv101/types";
 import { Banner, Footer, Main } from "../landmarks";
 import { NavConnected as Nav } from "./NavConnected";
-import { LayoutProps } from "./LayoutProps";
 
-export const LayoutBasic: React.FC<LayoutProps> = ({ children }) => {
+export const LayoutBasic: React.FC<Layout> = ({ children }) => {
   return (
     <>
       <Banner bgColor="black">
         <Nav />
       </Banner>
       <Main pb="10">{children}</Main>
-      <Footer bgColor="gray.200" color="gray.700" />
+      <Footer />
     </>
   );
 };

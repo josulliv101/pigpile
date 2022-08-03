@@ -1,14 +1,9 @@
 import NextLink from "next/link";
 import { FaUserAlt } from "react-icons/fa";
+import { User } from "@josulliv101/types";
 import { ButtonGroup, HTMLChakraProps, IconButton, useBreakpointValue } from "@josulliv101/core";
 import { ThemeMenu, UserProfileMenu } from "@josulliv101/composites";
 import { themeOptions } from "@josulliv101/theme";
-
-export interface User {
-  displayName: string;
-  isAdmin: boolean;
-  isAnonymous: boolean;
-}
 
 export interface NavProps extends HTMLChakraProps<"nav"> {
   children?: React.ReactNode;
@@ -16,7 +11,7 @@ export interface NavProps extends HTMLChakraProps<"nav"> {
   themeState: any;
   user?: User | null;
   onLogout: () => void;
-  onThemeOptionChange: () => void;
+  onThemeOptionChange: (s: string, index: number) => void;
 }
 
 export const Nav: React.FC<NavProps> = ({
@@ -45,7 +40,7 @@ export const Nav: React.FC<NavProps> = ({
       {...props}
     >
       <ThemeMenu
-        key={viewportSize} // force close when resize changes to small viewports
+        key={viewportSize} // force close when viewport changes to/from mobile
         boxSize={6}
         themeOptions={themeOptions}
         activeIndexes={themeState}

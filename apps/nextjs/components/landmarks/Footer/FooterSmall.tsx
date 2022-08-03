@@ -13,18 +13,10 @@ import {
   Stack,
   Text,
 } from "@josulliv101/core";
+import { NavLink, NavLinkProps } from "components/landmarks";
 
-interface NavLinkProps {
-  href: string;
-  children: ReactChild;
-}
-
-const NavLink: React.FC<NavLinkProps> = ({ href, children }) => (
-  <NextLink href={href} passHref>
-    <Button size="sm" color="gray.200" fontWeight="normal">
-      {children}
-    </Button>
-  </NextLink>
+export const FooterNavLink: React.FC<NavLinkProps> = (props) => (
+  <NavLink size="sm" color="gray.200" fontWeight="normal" {...props} />
 );
 
 export const FooterSmall: React.FC<HTMLChakraProps<"footer">> = (props) => {
@@ -43,9 +35,9 @@ export const FooterSmall: React.FC<HTMLChakraProps<"footer">> = (props) => {
             </HStack>
             <Show above="sm">
               <ButtonGroup variant="ghost" spacing="0" colorScheme="blackAlpha">
-                <NavLink href="/about">About</NavLink>
-                <NavLink href="/about">Privacy</NavLink>
-                <NavLink href="/about">Terms of Use</NavLink>
+                <FooterNavLink href="/about">About</FooterNavLink>
+                <FooterNavLink href="/about">Privacy</FooterNavLink>
+                <FooterNavLink href="/about">Terms of Use</FooterNavLink>
                 <IconButton
                   as="a"
                   href="https://github.com/josulliv101"

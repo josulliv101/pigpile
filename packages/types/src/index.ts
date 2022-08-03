@@ -87,3 +87,11 @@ export interface AuthState {
   isReady: boolean;
   error?: string;
 }
+
+export interface Layout {
+  children: React.ReactNode;
+  user: User;
+  onLogin: () => void;
+  onLogout: () => void;
+  onThemeOptionChange: () => void;
+}

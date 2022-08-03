@@ -136,6 +136,7 @@ const Hero: React.FC<Props> = ({
         pt={{ base: "90px", md: "120px" }}
       >
         <Heading
+          textAlign="center"
           size={{ base: "md", md: "lg" }}
           fontSize="1.6rem"
           fontWeight="500"
@@ -150,6 +151,7 @@ const Hero: React.FC<Props> = ({
           )}
         </Heading>
         <Heading
+          textAlign="center"
           display={{ base: "block", sm: "block" }}
           size={{ base: "sm", md: "md" }}
           fontWeight="normal"

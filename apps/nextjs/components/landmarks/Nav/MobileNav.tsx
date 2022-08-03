@@ -1,6 +1,5 @@
 import NextLink from "next/link";
 import { forwardRef, Ref, useEffect, useRef } from "react";
-import { useSelector } from "react-redux";
 import {
   AbsoluteCenter,
   Background,
@@ -23,15 +22,22 @@ import {
 import { themeOptions } from "@josulliv101/theme";
 import { ThemeTabs } from "@josulliv101/composites";
 import { AnimatePresence, motion } from "framer-motion";
-import { AiOutlineMenu } from "react-icons/ai";
+import { FaBars } from "react-icons/fa";
 import { RemoveScroll } from "react-remove-scroll";
 import { selectChesterAnimation } from "store";
-import { useNavProps } from "hooks";
+import { useAppSelector, useNavProps } from "hooks";
+import { NavLink } from "components/landmarks";
 
 interface MobileNavContentProps {
   isOpen?: boolean;
   onClose?: () => void;
 }
+
+const NavButton: React.FC<typeof NextLink> = ({ href, children }) => (
+  <NextLink href="/" passHref>
+    <Button color="inherit">Home</Button>
+  </NextLink>
+);
 
 export function MobileNavContent(props: MobileNavContentProps) {
   const { isOpen, onClose } = props;
@@ -40,7 +46,7 @@ export function MobileNavContent(props: MobileNavContentProps) {
   const {
     userTheme: { bgImage, bgPosition },
   } = useTheme();
-  const chesterAnimation = useSelector(selectChesterAnimation());
+  const chesterAnimation = useAppSelector(selectChesterAnimation());
   const landscapeImage = `url(${bgImage})`;
   const showOnBreakpoint = useBreakpointValue({ base: true, lg: false });
 
@@ -63,7 +69,7 @@ export function MobileNavContent(props: MobileNavContentProps) {
       {isOpen && (
         <RemoveScroll forwardProps>
           <motion.div
-            transition={{ duration: 0.08 }}
+            transition={{ duration: 0.18 }}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -71,9 +77,7 @@ export function MobileNavContent(props: MobileNavContentProps) {
             <Background
               bgPosition={bgPosition}
               variant="gradient"
-              direction="column"
               w="100%"
-              // bg={bgColor}
               h="100vh"
               overflow="auto"
               pos="absolute"
@@ -92,7 +96,12 @@ export function MobileNavContent(props: MobileNavContentProps) {
                     top="0"
                     transform="translate(-50%, 27%)"
                   />
-                  <CloseButton color="white" ref={closeBtnRef} onClick={onClose} />
+                  <CloseButton
+                    color="white"
+                    ref={closeBtnRef}
+                    onClick={onClose}
+                    _focusVisible={{ outlineColor: "white" }}
+                  />
                 </Flex>
                 <ButtonGroup
                   size={{ base: "sm", sm: "md" }}
@@ -104,22 +113,14 @@ export function MobileNavContent(props: MobileNavContentProps) {
                   w="full"
                   _dark={{ color: "gray.700" }}
                 >
-                  <NextLink href="/" passHref>
-                    <Button color="inherit">Home</Button>
-                  </NextLink>
-                  <NextLink href="/pigpiles" passHref>
-                    <Button color="inherit">View Pigpiles</Button>
-                  </NextLink>
-                  <NextLink href="/about" passHref>
-                    <Button color="inherit">About</Button>
-                  </NextLink>
-                  <NextLink href="/login" passHref>
-                    <Button color="inherit">Login</Button>
-                  </NextLink>
+                  <NavLink href="/">Home</NavLink>
+                  <NavLink href="/pigpiles">View Pigpiles</NavLink>
+                  <NavLink href="/about">About</NavLink>
+                  <NavLink href="/login">Login</NavLink>
                 </ButtonGroup>
                 <Flex flexDirection="column" alignItems="center">
                   <Heading
-                    align="center"
+                    textAlign="center"
                     bgColor="blackAlpha.200"
                     w={{ base: "90%", sm: "64%" }}
                     mt="10"
@@ -179,7 +180,8 @@ export const MobileNavButton = forwardRef((props: IconButtonProps, ref: Ref<HTML
       color="white"
       variant="ghost"
       colorScheme="blackAlpha"
-      icon={<AiOutlineMenu />}
+      icon={<FaBars />}
+      _focusVisible={{ outlineColor: "white" }}
       {...props}
     />
   );

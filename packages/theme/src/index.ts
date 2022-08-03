@@ -6,7 +6,6 @@ import { ColorScheme, UserTheme } from "./types";
 import * as colorSchemes from "./colorSchemes";
 import * as userThemes from "./userThemes";
 
-export * from "./useThemeWithDefaults";
 export * as colorSchemes from "./colorSchemes";
 export * as userThemes from "./userThemes";
 export * from "./themeOptions";

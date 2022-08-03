@@ -13,27 +13,28 @@ import {
 } from "@josulliv101/core";
 import { FaGithub, FaFacebook, FaInstagram, FaTwitter } from "react-icons/fa";
 import { useLabelBundle } from "@josulliv101/labelbundles";
+import { FooterNavLink, NavLinkProps } from "components/landmarks";
 
-const Link: React.FC<HTMLChakraProps<"div">> = forwardRef(({ children, ...props }, ref) => {
+const Link: React.FC<NavLinkProps> = (props) => {
   return (
-    <Button
-      ref={ref}
-      size="sm"
+    <FooterNavLink
       variant="link"
-      fontWeight="normal"
+      color="gray.500"
+      _dark={{ bgColor: "gray.500", color: "gray.200" }}
+      {...props}
+    />
+  );
+};
+
+export const Footer: React.FC<HTMLChakraProps<"div">> = (props) => {
+  const { getLabel } = useLabelBundle();
+  return (
+    <Box
+      bgColor="gray.200"
       color="gray.500"
       _dark={{ bgColor: "gray.500", color: "gray.200" }}
       {...props}
     >
-      {children}
-    </Button>
-  );
-});
-
-export const Footer = () => {
-  const { getLabel } = useLabelBundle();
-  return (
-    <Box bgColor="gray.200" color="gray.500" _dark={{ bgColor: "gray.500", color: "gray.200" }}>
       <Container as="footer" mt={{ base: 4, md: 0 }} role="contentinfo" px="8">
         <Stack
           spacing="8"
@@ -65,15 +66,9 @@ export const Footer = () => {
                   {getLabel("Quick Links")}
                 </Text>
                 <Stack spacing={{ base: 1, sm: 2 }} shouldWrapChildren>
-                  <NextLink href="/" passHref>
-                    <Link>{getLabel("Home")}</Link>
-                  </NextLink>
-                  <NextLink href="/pigpiles" passHref>
-                    <Link>{getLabel("View Pigpiles")}</Link>
-                  </NextLink>
-                  <NextLink href="/about" passHref>
-                    <Link>{getLabel("About")}</Link>
-                  </NextLink>
+                  <Link href="/">{getLabel("Home")}</Link>
+                  <Link href="/pigpiles">{getLabel("View Pigpiles")}</Link>
+                  <Link href="/about">{getLabel("About")}</Link>
                 </Stack>
               </Stack>
               <Stack
@@ -88,9 +83,9 @@ export const Footer = () => {
                   {getLabel("Legal")}
                 </Text>
                 <Stack spacing={{ base: 1, sm: 2 }} shouldWrapChildren>
-                  <Link>{getLabel("Privacy")}</Link>
-                  <Link>{getLabel("Terms")}</Link>
-                  <Link>{getLabel("License")}</Link>
+                  <Link href="/">{getLabel("Privacy")}</Link>
+                  <Link href="/">{getLabel("Terms")}</Link>
+                  <Link href="/">{getLabel("License")}</Link>
                 </Stack>
               </Stack>
               <Stack spacing="4" minW={{ base: 30, md: 36 }} flex="1">
