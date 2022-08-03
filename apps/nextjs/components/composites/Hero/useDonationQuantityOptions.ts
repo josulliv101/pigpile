@@ -16,7 +16,7 @@ function addMoreButton(options: Option[], label = "") {
   return options;
 }
 
-export default function useDonationQuantityOptions(options = [], pricePerUnit: number) {
+export default function useDonationQuantityOptions(options: number[], pricePerUnit: number) {
   const { getLabel, getLabelForQuantity } = useLabelBundle();
   return useMemo(() => {
     const tranformedOptions = options.map((n: number): Option => {

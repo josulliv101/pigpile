@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import { AddedDonation, Donation } from "@josulliv101/types";
 import { MoreButtons } from "@josulliv101/composites";
 import {
@@ -40,55 +40,55 @@ const Hero: React.FC<Props> = ({
   onActiveFormStepChange,
   onAdditionalInfoSubmit,
 }): JSX.Element => {
-  const {
-    userTheme: { bgImage, bgPosition },
-  } = useTheme();
   const user = useAppSelector(selectUser());
   const chesterAnimation = useAppSelector(selectChesterAnimation());
   const { activeFormStep } = useAppSelector(selectPaymentState());
-  const landscapeImage = `url(${bgImage})`;
   const [userRequestsCustomAmount, setUserRequestsCustomAmount] = useState(false);
   const [numberOfUnits, setNumberOfUnits] = useState<number | null>(null);
   const [tip, setTip] = useState(0);
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { getLabel, getLabelForQuantity } = useLabelBundle();
   const quantityOptions = useDonationQuantityOptions(options, pricePerUnit);
+  const {
+    userTheme: { bgImage, bgPosition },
+  } = useTheme();
+  const landscapeImage = `url(${bgImage})`;
 
   const handleCustomBtnClick = () => {
     setUserRequestsCustomAmount(true);
     onOpen();
   };
 
-  const onDonateQuantityBtnClick = (payload: number | string | null) => {
+  const onDonateQuantityBtnClick = useCallback((payload: number | string | null) => {
     if (payload === "custom") {
       return handleCustomBtnClick();
     } else if (typeof Number(payload) === "number") {
       setNumberOfUnits(Number(payload));
       onOpen();
     }
-  };
+  }, []);
 
-  const handleCloseModal = () => {
+  const handleCloseModal = useCallback(() => {
     setUserRequestsCustomAmount(false);
     setNumberOfUnits(null);
     onActiveFormStepChange(FORM_STEPS.Donate);
     onClose();
-  };
+  }, []);
 
-  const handleChangeCustomInputField = (n) => {
+  const handleChangeCustomInputField = useCallback((n) => {
     setNumberOfUnits(n);
     setUserRequestsCustomAmount(false);
-  };
+  }, []);
 
-  const handleChangeTip = (n) => {
+  const handleChangeTip = useCallback((n) => {
     setTip(Number(n));
-  };
+  }, []);
 
-  const handleSubmitDonation = () => {
+  const handleSubmitDonation = useCallback(() => {
     onActiveFormStepChange(FORM_STEPS.AdditionalInfo);
-  };
+  }, []);
 
-  const handleSubmitAdditionalInfo = (donation: Partial<Donation>) => {
+  const handleSubmitAdditionalInfo = useCallback((donation: Partial<Donation>) => {
     onAdditionalInfoSubmit({
       campaignId,
       quantity: numberOfUnits ?? 0,
@@ -97,7 +97,14 @@ const Hero: React.FC<Props> = ({
       ...donation,
     });
     handleCloseModal();
-  };
+  }, []);
+
+  const getDonationLabel = useCallback(
+    (n) => getLabelForQuantity({ one: "item", many: "items" }, n),
+    []
+  );
+  const handleShowCustomInputField = useCallback(() => setUserRequestsCustomAmount(true), []);
+  const handleCloseCustomInputField = useCallback(() => setUserRequestsCustomAmount(false), []);
 
   return (
     <Background bgImage={landscapeImage} bgPosition={bgPosition} variant="gradient" h="500px">
@@ -106,13 +113,13 @@ const Hero: React.FC<Props> = ({
         beneficiary={beneficiary}
         landscapeImage={landscapeImage}
         isOpen={isOpen}
-        itemsLabel={(n) => getLabelForQuantity({ one: "item", many: "items" }, n)}
+        getLabel={getDonationLabel}
         numberOfUnits={numberOfUnits}
         onChangeCustomInputField={handleChangeCustomInputField}
         onChangeTip={handleChangeTip}
-        onCloseCustomInputField={() => setUserRequestsCustomAmount(false)}
+        onCloseCustomInputField={handleCloseCustomInputField}
         onCloseModal={handleCloseModal}
-        onShowCustomInputField={() => setUserRequestsCustomAmount(true)}
+        onShowCustomInputField={handleShowCustomInputField}
         onSubmitDonation={handleSubmitDonation}
         onSubmitAdditionalInfo={handleSubmitAdditionalInfo}
         tip={tip}

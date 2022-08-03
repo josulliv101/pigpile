@@ -21,7 +21,7 @@ export interface ItemsLabelProps extends HTMLChakraProps<"div"> {
   showCustomInputField: boolean;
   onCloseCustomInputField: () => void;
   onShowCustomInputField: () => void;
-  onChangeCustomInputField: (n) => void;
+  onChangeCustomInputField: (n: number) => void;
 }
 
 export const ItemsLabel: React.FC<ItemsLabelProps> = ({

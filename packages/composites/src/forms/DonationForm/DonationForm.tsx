@@ -10,8 +10,8 @@ import { CreditCardForm } from "./CreditCardForm";
 import { useStripePaymentIntent } from "./useStripePaymentIntent";
 
 export interface DonationFormProps extends HTMLChakraProps<"div"> {
-  onChangeTip: () => void;
-  onChangeCustomInputField: () => void;
+  onChangeTip: (n: number) => void;
+  onChangeCustomInputField: (n: number) => void;
   onCloseCustomInputField?: () => void;
   onShowCustomInputField: () => void;
   onSubmit: () => void;
@@ -19,14 +19,14 @@ export interface DonationFormProps extends HTMLChakraProps<"div"> {
   pricePerUnit: number;
   tip: number;
   showCustomInputField: boolean;
-  itemsLabel: (n: number | null) => string;
+  getLabel: (n: number | null) => string;
 }
 
 export const DonationForm: React.FC<DonationFormProps> = ({
   tip,
   numberOfUnits = 1,
   pricePerUnit = 1,
-  itemsLabel,
+  getLabel,
   showCustomInputField: showCustomInputFieldProp,
   onChangeTip,
   onChangeCustomInputField,
@@ -54,7 +54,7 @@ export const DonationForm: React.FC<DonationFormProps> = ({
         onChangeCustomInputField={onChangeCustomInputField}
         numberOfUnits={numberOfUnits}
         pricePerUnit={pricePerUnit}
-        label={itemsLabel}
+        label={getLabel}
         showCustomInputField={showCustomInputField}
       />
       {numberOfUnits !== null && (

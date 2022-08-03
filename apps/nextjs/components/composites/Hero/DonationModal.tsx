@@ -1,4 +1,4 @@
-import { Campaign } from "@josulliv101/types";
+import { Campaign, Donation } from "@josulliv101/types";
 import {
   Modal,
   ModalOverlay,
@@ -13,16 +13,16 @@ import { FORM_STEPS } from "store";
 interface Props extends Pick<Campaign, "beneficiary"> {
   activeFormStep: FORM_STEPS;
   isOpen: boolean;
-  itemsLabel: (n: number | null) => string;
+  getLabel: (n: number | null) => string;
   landscapeImage: string;
   numberOfUnits: number | null;
   onCloseModal: () => void;
-  onChangeTip: () => void;
-  onChangeCustomInputField: () => void;
+  onChangeTip: (n: number) => void;
+  onChangeCustomInputField: (n: number) => void;
   onCloseCustomInputField: () => void;
   onShowCustomInputField: () => void;
   onSubmitDonation: () => void;
-  onSubmitAdditionalInfo: () => void;
+  onSubmitAdditionalInfo: (d: Partial<Donation>) => void;
   pricePerUnit: number;
   tip: number;
   userRequestsCustomAmount: boolean;
@@ -33,7 +33,7 @@ export const DonationModal: React.FC<Props> = ({
   beneficiary,
   landscapeImage,
   isOpen,
-  itemsLabel,
+  getLabel,
   numberOfUnits,
   onChangeCustomInputField,
   onChangeTip,
@@ -65,7 +65,7 @@ export const DonationModal: React.FC<Props> = ({
             <DonationForm
               bgColor="transparent"
               p="0"
-              itemsLabel={itemsLabel}
+              getLabel={getLabel}
               onChangeTip={onChangeTip}
               onChangeCustomInputField={onChangeCustomInputField}
               onCloseCustomInputField={onCloseCustomInputField}
