@@ -1,6 +1,6 @@
-import { useEffect, useMemo, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { MoreButtons, MORE_BUTTONS_BACK_ID } from "@josulliv101/composites";
+import { useState } from "react";
+import { AddedDonation, Donation } from "@josulliv101/types";
+import { MoreButtons } from "@josulliv101/composites";
 import {
   AbsoluteCenter,
   Background,
@@ -12,60 +12,54 @@ import {
   useDisclosure,
   useTheme,
 } from "@josulliv101/core";
-import { formatNumber, getCurrency } from "@josulliv101/formatting";
-import {
-  addCampaignDonationThunk,
-  paymentSlice,
-  selectChesterAnimation,
-  selectPaymentState,
-  selectUser,
-  FORM_STEPS,
-} from "store";
-import { useLabelBundle } from "hooks";
+import { formatNumber } from "@josulliv101/formatting";
+import { selectChesterAnimation, selectPaymentState, selectUser, FORM_STEPS } from "store";
+import { useAppSelector, useLabelBundle } from "hooks";
 import { GoalCountUp } from "./GoalCountUp";
 import { DonationModal } from "./DonationModal";
 import useDonationQuantityOptions from "./useDonationQuantityOptions";
 
-interface HeroProps {
+interface Props {
   beneficiary: string;
+  campaignId: string;
+  currentAmount: number;
+  goalAmount: number;
+  options: number[];
+  pricePerUnit: number;
+  onActiveFormStepChange: (s: FORM_STEPS) => void;
+  onAdditionalInfoSubmit: (d: AddedDonation) => void;
 }
 
-const Hero = ({
+const Hero: React.FC<Props> = ({
   campaignId,
-  customLabels,
   options = [],
   pricePerUnit = 0,
   beneficiary,
   goalAmount,
   currentAmount,
+  onActiveFormStepChange,
+  onAdditionalInfoSubmit,
 }): JSX.Element => {
-  const dispatch = useDispatch();
   const {
     userTheme: { bgImage, bgPosition },
   } = useTheme();
-  const user = useSelector(selectUser());
-  const chesterAnimation = useSelector(selectChesterAnimation());
-  const { activeFormStep } = useSelector(selectPaymentState());
+  const user = useAppSelector(selectUser());
+  const chesterAnimation = useAppSelector(selectChesterAnimation());
+  const { activeFormStep } = useAppSelector(selectPaymentState());
   const landscapeImage = `url(${bgImage})`;
   const [userRequestsCustomAmount, setUserRequestsCustomAmount] = useState(false);
-  const [startAnimation, setStartAnimation] = useState(false);
   const [numberOfUnits, setNumberOfUnits] = useState<number | null>(null);
   const [tip, setTip] = useState(0);
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { getLabel, getLabelForQuantity } = useLabelBundle();
   const quantityOptions = useDonationQuantityOptions(options, pricePerUnit);
 
-  useEffect(() => {
-    // setTimeout(() => setStartAnimation(true), 7000);
-  }, []);
-
   const handleCustomBtnClick = () => {
     setUserRequestsCustomAmount(true);
     onOpen();
   };
 
-  const onClick = (payload: number | string | null) => {
-    console.log("payload", payload);
+  const onDonateQuantityBtnClick = (payload: number | string | null) => {
     if (payload === "custom") {
       return handleCustomBtnClick();
     } else if (typeof Number(payload) === "number") {
@@ -77,7 +71,7 @@ const Hero = ({
   const handleCloseModal = () => {
     setUserRequestsCustomAmount(false);
     setNumberOfUnits(null);
-    dispatch(paymentSlice.actions.setActiveFormStep(FORM_STEPS.Donate));
+    onActiveFormStepChange(FORM_STEPS.Donate);
     onClose();
   };
 
@@ -91,20 +85,17 @@ const Hero = ({
   };
 
   const handleSubmitDonation = () => {
-    dispatch(paymentSlice.actions.setActiveFormStep(FORM_STEPS.AdditionalInfo));
+    onActiveFormStepChange(FORM_STEPS.AdditionalInfo);
   };
 
-  const handleSubmitAdditionalInfo = (donation, ...rest) => {
-    console.log("handleSubmitAdddditionalInfo", { numberOfUnits, tip, user, donation }, ...rest);
-    dispatch(
-      addCampaignDonationThunk({
-        campaignId,
-        quantity: numberOfUnits,
-        tip,
-        userId: user?.uid,
-        ...donation,
-      })
-    );
+  const handleSubmitAdditionalInfo = (donation: Partial<Donation>) => {
+    onAdditionalInfoSubmit({
+      campaignId,
+      quantity: numberOfUnits ?? 0,
+      tip,
+      userId: user?.uid ?? "",
+      ...donation,
+    });
     handleCloseModal();
   };
 
@@ -177,7 +168,7 @@ const Hero = ({
         <MoreButtons
           mt={{ base: "3", sm: "12" }}
           options={quantityOptions}
-          onButtonClick={onClick}
+          onButtonClick={onDonateQuantityBtnClick}
         />
         <AbsoluteCenter top={{ base: "75%", md: "80%" }}>
           <Chester animationType={chesterAnimation} />

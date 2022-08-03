@@ -1,9 +1,7 @@
 import Script from "next/script";
-import { useMemo } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { Comment, Donation } from "@josulliv101/types";
+import { useCallback, useMemo } from "react";
+import { AddedDonation, Comment, Donation } from "@josulliv101/types";
 import { adminDb } from "@josulliv101/connect-admin";
-import { useSubscribeToCampaignDonations } from "@josulliv101/connect-client";
 import { Box, Container, HStack, Spacer, Stack, StickyBar, useTheme } from "@josulliv101/core";
 import {
   FeaturedComments,
@@ -13,14 +11,14 @@ import {
   SecurePayment,
   Supporters,
 } from "@josulliv101/composites";
-import { LayoutCampaign } from "../../components/layouts";
-import { useDonationsSubscription } from "hooks";
+import { LayoutCampaign } from "components/layouts";
+import { useAppDispatch, useAppSelector, useDonationsSubscription } from "hooks";
 import {
+  addCampaignDonationThunk,
   campaignsSlice,
-  donationsSlice,
-  selectCampaign,
-  selectIsAppReady,
   donationFilterSlice,
+  paymentSlice,
+  selectCampaign,
   selectCampaignDonations,
   selectChesterAnimation,
   selectDonationFilterState,
@@ -40,7 +38,11 @@ const getCommentFromDonation = ({
   createdAtInMS,
 }: Donation): Comment => ({ displayName, emoji, comment, createdAtInMS });
 
-export function Campaign({ id }): JSX.Element {
+interface Props {
+  id: string;
+}
+
+export const Campaign: React.FC<Props> = ({ id }): JSX.Element => {
   useDonationsSubscription(id);
   const { getLabelForQuantity } = useLabelBundle();
   const {
@@ -53,17 +55,31 @@ export function Campaign({ id }): JSX.Element {
     tags,
     organizer,
     organization,
-    customLabels,
     donation,
-  } = useSelector(selectCampaign(id)) || {};
+  } = useAppSelector(selectCampaign(id)) || {};
   const {
     userTheme: { bgImage },
   } = useTheme();
   const landscapeImage = `url(${bgImage})`;
-  const dispatch = useDispatch();
-  const { isSortDesc, ...donationFilter } = useSelector(selectDonationFilterState());
-  const chesterAnimationType = useSelector(selectChesterAnimation());
-  const donations = useSelector(selectCampaignDonations(id));
+  const dispatch = useAppDispatch();
+  const { isSortDesc, ...donationFilter } = useAppSelector(selectDonationFilterState());
+  const chesterAnimationType = useAppSelector(selectChesterAnimation());
+  const donations = useAppSelector(selectCampaignDonations(id));
+
+  const handleAdditionalInfoSubmit = useCallback(
+    (d: AddedDonation) => dispatch(addCampaignDonationThunk(d)),
+    []
+  );
+
+  const handleActiveFormStepChange = useCallback(
+    (s: string) => dispatch(paymentSlice.actions.setActiveFormStep(s)),
+    []
+  );
+
+  const handleDonationFilterChange = useCallback(
+    (id: string, index: number) => dispatch(donationFilterSlice.actions.setState({ [id]: index })),
+    []
+  );
 
   const comments = useMemo(() => {
     if (!donations) {
@@ -74,9 +90,6 @@ export function Campaign({ id }): JSX.Element {
 
   const currentAmount = donations?.reduce((acc, d) => acc + (d.quantity || 0), 0);
 
-  const handleDonationFilterChange = (id: string, index: number) =>
-    dispatch(donationFilterSlice.actions.setState({ [id]: index }));
-
   return (
     <>
       <Script src="https://fast.wistia.com/embed/medias/1wpb65qwkz.jsonp" strategy="lazyOnload" />
@@ -86,7 +99,8 @@ export function Campaign({ id }): JSX.Element {
         beneficiary={beneficiary}
         goalAmount={goal?.amount}
         currentAmount={currentAmount}
-        customLabels={customLabels}
+        onAdditionalInfoSubmit={handleAdditionalInfoSubmit}
+        onActiveFormStepChange={handleActiveFormStepChange}
         {...donation}
       />
       <StickyBar />
@@ -148,10 +162,10 @@ export function Campaign({ id }): JSX.Element {
       </Container>
     </>
   );
-}
+};
 
 export const getServerSideProps = wrapper.getServerSideProps((store) => async ({ params, res }) => {
-  const { id } = params;
+  const { id } = params as { id: string };
 
   res.setHeader("Cache-Control", "public, s-maxage=600, stale-while-revalidate=1800");
 

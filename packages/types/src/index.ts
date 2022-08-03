@@ -3,6 +3,8 @@ import { LabelBundleMap } from "./LabelBundle";
 export * from "./LabelBundle";
 export * from "./Settings";
 
+type Currency = "usd";
+
 export interface Status {
   id?: string;
   status?: "info" | "warning" | "error" | "success";
@@ -28,6 +30,11 @@ export interface Organizer {
   isEmployee?: boolean;
 }
 
+export interface Organization {
+  description: string;
+  url?: string;
+}
+
 export interface Donation {
   id: string;
   userId: string;
@@ -49,6 +56,14 @@ export type Comment = Pick<Donation, "comment" | "displayName" | "emoji" | "crea
 export interface Campaign {
   id: string;
   beneficiary: string;
+  createdAtInMS: number;
+  organizer: Organizer;
+  organization: Organization;
+  donation: {
+    currency: Currency;
+    pricePerUnit: number;
+    options: number[];
+  };
   campaign: {
     name: string;
     descr: string;
@@ -56,19 +71,9 @@ export interface Campaign {
     createdBy: string;
     createdOn: number;
   };
-  location: {
-    city: string;
-    state: string;
-    country: string;
-  };
+  location: string;
   tags: string[];
-  media: {
-    imageUri: string;
-    video: {
-      id: string | number;
-      type: "WISTIA" | "YOUTUBE";
-    };
-  };
+  media: Media;
   goal: {
     amount: number;
     type: "FUNDS" | "IN-KIND";

@@ -1,44 +1,23 @@
+import { NextPage } from "next";
 import { AppProps } from "next/app";
-import { useRouter } from "next/router";
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { ReactElement, ReactNode } from "react";
 import { ChakraProvider, CSSReset, localStorageManager } from "@josulliv101/core";
-import { userThemes } from "@josulliv101/theme";
 import { LayoutBasic } from "components/layouts";
-import { appSlice, selectAppState, wrapper } from "store";
-import { useConnectClient, useStatusManager, useTheme } from "hooks";
-import * as ga from "../analytics";
+import { wrapper } from "store";
+import { useConnectClient, useRouteChangeListeners, useStatusManager, useTheme } from "hooks";
 
-function PigpileApp({ Component, pageProps }: AppProps): JSX.Element {
+export type Page<P = {}> = NextPage<P> & {
+  getLayout?: (page: ReactElement) => ReactNode;
+};
+
+type Props = AppProps & {
+  Component: Page;
+};
+
+function PigpileApp({ Component, pageProps }: Props): JSX.Element {
   const { error } = useConnectClient();
-  const { isUnloading, isMobileNavOpen } = useSelector(selectAppState());
-  const router = useRouter();
-  const dispatch = useDispatch();
+  const { isUnloading } = useRouteChangeListeners();
   useStatusManager();
-
-  console.log("useConnectClient returned from hook", error || "no error returned");
-
-  useEffect(() => {
-    const handleStart = (url) => {
-      console.log(`Loading: ${url}`);
-    };
-    const handleStop = (url) => {
-      if (isMobileNavOpen) {
-        setTimeout(() => dispatch(appSlice.actions.closeMobileNav()), 0);
-      }
-      ga.pageview(url);
-    };
-
-    router.events.on("routeChangeStart", handleStart);
-    router.events.on("routeChangeComplete", handleStop);
-    router.events.on("routeChangeError", handleStop);
-
-    return () => {
-      router.events.off("routeChangeStart", handleStart);
-      router.events.off("routeChangeComplete", handleStop);
-      router.events.off("routeChangeError", handleStop);
-    };
-  }, [router]);
 
   const { theme } = useTheme();
   const getLayout = Component.getLayout ?? ((page) => <LayoutBasic>{page}</LayoutBasic>);
@@ -52,7 +31,6 @@ function PigpileApp({ Component, pageProps }: AppProps): JSX.Element {
       <CSSReset />
       {error && <div>ERROR: {error}</div>}
       {getLayout(<Component {...pageProps} />)}
-      {/*<ToastContainer />*/}
     </ChakraProvider>
   );
 }

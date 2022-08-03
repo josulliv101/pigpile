@@ -1,11 +1,11 @@
 import { UserTheme } from "../types";
 
 export const funUserTheme: UserTheme = {
-  id: "fun",
+  id: "city-park",
   label: "City Park",
   bgImage: "/city-park-tp.png",
   chesterPosition: {
-    left: "68%",
+    left: { base: "77%", md: "68%" },
     bottom: { base: "32%", lg: "30%" },
     top: "auto",
     right: "auto",

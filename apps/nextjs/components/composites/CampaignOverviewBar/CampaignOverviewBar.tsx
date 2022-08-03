@@ -5,17 +5,13 @@ import { Tags } from "./Tags";
 import { IntroBlurb } from "./IntroBlurb";
 import { WistiaVideo } from "./WistiaVideo";
 
-interface Props
-  extends Media,
-    Pick<Campaign, "beneficiary" | "tags" | "location">,
-    HTMLChakraProps<"div"> {
+interface Props extends Media, Pick<Campaign, "beneficiary" | "tags">, HTMLChakraProps<"div"> {
   overview: string;
 }
 
 export const CampaignOverviewBar: React.FC<Props> = ({
   caption,
   overview,
-  location,
   beneficiary,
   tags = [],
   videoId,
