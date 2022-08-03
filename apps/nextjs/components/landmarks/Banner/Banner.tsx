@@ -1,7 +1,6 @@
 import NextLink from "next/link";
 import { useDispatch, useSelector } from "react-redux";
-import { memo, useCallback, useEffect, useRef } from "react";
-import debounce from "lodash.debounce";
+import { memo, useCallback, ReactNode, RefObject, useRef } from "react";
 import {
   chakra,
   AbsoluteCenter as Center,
@@ -12,10 +11,10 @@ import {
   Logo,
   HTMLChakraProps,
   useUpdateEffect,
-  useBreakpointValue,
 } from "@josulliv101/core";
 import { MobileNavButton, MobileNavContent } from "components/landmarks";
 import { appSlice, selectAppState } from "store";
+import { useResizeListener } from "hooks";
 import useIsScrolledY from "./useIsScrolledY";
 
 const Background = chakra("div", {
@@ -41,14 +40,14 @@ const BrandText = chakra(Text, {
   },
 });
 
-const getLogoTransform = ({ scale }) => `translate3d(-50%, -50%, 0) scale(${scale})`;
+const getLogoTransformScale = (scale: number) => `translate3d(-50%, -50%, 0) scale(${scale})`;
 
 export const Banner: React.FC<HTMLChakraProps<"div">> = ({ children: nav, ...props }) => {
   const dispatch = useDispatch();
   const { isMobileNavOpen } = useSelector(selectAppState());
   const mobileNavBtnRef = useRef<HTMLButtonElement>();
   const isScrolledY = useIsScrolledY();
-  const logoTransform = getLogoTransform({ scale: isScrolledY ? 0.9 : 1 });
+  const logoTransform = getLogoTransformScale(isScrolledY ? 0.9 : 1);
   const bgColor = isScrolledY ? "black" : "transparent";
 
   const handleOpenMobileNav = useCallback(() => {
@@ -59,24 +58,11 @@ export const Banner: React.FC<HTMLChakraProps<"div">> = ({ children: nav, ...pro
     dispatch(appSlice.actions.closeMobileNav());
   }, [dispatch]);
 
-  console.log("isMobileNavOpen", isMobileNavOpen);
   useUpdateEffect(() => {
     mobileNavBtnRef.current?.focus();
   }, [isMobileNavOpen]);
 
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      const handleResize = debounce(
-        () => {
-          handleCloseMobileNav();
-        },
-        300,
-        { leading: true, trailing: false }
-      );
-      window.addEventListener("resize", handleResize);
-      return () => window.removeEventListener("resize", handleResize);
-    }
-  }, []);
+  useResizeListener(handleCloseMobileNav);
 
   return (
     <BannerContent
@@ -92,7 +78,16 @@ export const Banner: React.FC<HTMLChakraProps<"div">> = ({ children: nav, ...pro
   );
 };
 
-export const BannerContent = memo(
+interface BannerContentProps extends HTMLChakraProps<"div"> {
+  isMobileNavOpen: boolean;
+  logoTransform: string;
+  mobileNavBtnRef: RefObject<HTMLButtonElement | undefined>;
+  nav?: ReactNode;
+  handleCloseMobileNav: () => void;
+  handleOpenMobileNav: () => void;
+}
+
+export const BannerContent = memo<BannerContentProps>(
   ({
     bgColor,
     isMobileNavOpen,

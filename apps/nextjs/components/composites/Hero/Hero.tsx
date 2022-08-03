@@ -163,11 +163,11 @@ const Hero: React.FC<Props> = ({
             onClick={handleCustomBtnClick}
             fontSize={{ base: "1rem", md: "1.25rem" }}
             fontWeight="normal"
-            _hover={{ textDecoration: "none", bgColor: "blackAlpha.300" }}
             pl="1"
             borderRadius="none"
             _active={{ color: "inherit" }}
             _focusVisible={{ outlineColor: "white" }}
+            _hover={{ textDecoration: "none", bgColor: "blackAlpha.300" }}
           >
             {getLabel("custom amount")}.
           </Button>

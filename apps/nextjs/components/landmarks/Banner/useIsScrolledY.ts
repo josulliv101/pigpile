@@ -1,13 +1,13 @@
 import { useCallback, useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
 import { useViewportScroll } from "framer-motion";
 import debounce from "lodash.debounce";
-import { selectAppState, appSlice } from "store";
+import { appSlice } from "store";
+import { useAppDispatch } from "hooks";
 
 export default function useIsScrolledY() {
   const { scrollY } = useViewportScroll();
   const [y, setY] = useState(0);
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
     return scrollY.onChange(
