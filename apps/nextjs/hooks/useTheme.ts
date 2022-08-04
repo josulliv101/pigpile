@@ -1,5 +1,4 @@
 import { useCallback, useMemo } from "react";
-import { useDispatch, useSelector } from "react-redux";
 import {
   extendTheme,
   withDefaultColorScheme,
@@ -13,19 +12,13 @@ import {
   ColorScheme,
   UserTheme,
 } from "@josulliv101/theme";
-import { selectThemeState, themeSlice } from "../store";
+import { selectThemeState, themeSlice } from "store";
+import { useAppDispatch, useAppSelector } from "hooks";
 
 // TODO on-demand loading of themes
 
-export const getThemeWithDefaults = (
-  colorScheme: ColorScheme,
-  userTheme: UserTheme
-) => {
-  const {
-    componentsByVariant = [],
-    componentsBySize = [],
-    ...rest
-  } = userTheme;
+export const getThemeWithDefaults = (colorScheme: ColorScheme, userTheme: UserTheme) => {
+  const { componentsByVariant = [], componentsBySize = [], ...rest } = userTheme;
 
   const colorSchemes = colorScheme.componentsByColorScheme.map((item) =>
     withDefaultColorScheme(item)
@@ -40,8 +33,8 @@ export const getThemeWithDefaults = (
 };
 
 export const useTheme = () => {
-  const dispatch = useDispatch();
-  const activeIndexes = useSelector(selectThemeState());
+  const dispatch = useAppDispatch();
+  const activeIndexes = useAppSelector(selectThemeState());
   const colorScheme = getColorSchemeByIndex(activeIndexes.colorScheme);
   const userTheme = getUserThemeByIndex(activeIndexes.userTheme);
 

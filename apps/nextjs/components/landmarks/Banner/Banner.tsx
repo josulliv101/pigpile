@@ -1,5 +1,4 @@
 import NextLink from "next/link";
-import { useDispatch, useSelector } from "react-redux";
 import { memo, useCallback, ReactNode, RefObject, useRef } from "react";
 import {
   chakra,
@@ -14,7 +13,7 @@ import {
 } from "@josulliv101/core";
 import { MobileNavButton, MobileNavContent } from "components/landmarks";
 import { appSlice, selectAppState } from "store";
-import { useResizeListener } from "hooks";
+import { useAppDispatch, useResizeListener, useAppSelector } from "hooks";
 import useIsScrolledY from "./useIsScrolledY";
 
 const Background = chakra("div", {
@@ -43,8 +42,8 @@ const BrandText = chakra(Text, {
 const getLogoTransformScale = (scale: number) => `translate3d(-50%, -50%, 0) scale(${scale})`;
 
 export const Banner: React.FC<HTMLChakraProps<"div">> = ({ children: nav, ...props }) => {
-  const dispatch = useDispatch();
-  const { isMobileNavOpen } = useSelector(selectAppState());
+  const dispatch = useAppDispatch();
+  const { isMobileNavOpen } = useAppSelector(selectAppState());
   const mobileNavBtnRef = useRef<HTMLButtonElement>();
   const isScrolledY = useIsScrolledY();
   const logoTransform = getLogoTransformScale(isScrolledY ? 0.9 : 1);

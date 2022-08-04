@@ -5,14 +5,10 @@ import {
   isAnyOf,
   isAsyncThunkAction,
 } from "@reduxjs/toolkit";
-import { useDispatch } from "react-redux";
 import { useToast } from "@josulliv101/core";
 import { Status } from "@josulliv101/types";
-import {
-  listenerMiddleware,
-  statusSlice,
-  addCampaignDonationThunk,
-} from "store";
+import { listenerMiddleware, statusSlice, addCampaignDonationThunk } from "store";
+import { useAppDispatch } from "hooks";
 
 function getStatusPayloadFromAction(
   action: ActionCreatorWithPayload<Status | { message: string }>
@@ -30,9 +26,8 @@ function getStatusPayloadFromAction(
 
 export function useStatusManager() {
   const toast = useToast();
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   useEffect(() => {
-    console.log("useStatusManager add listener: ");
     const effect = async (
       action: ActionCreatorWithOptionalPayload<Status | { error: any }, string>
     ) => {
@@ -48,14 +43,10 @@ export function useStatusManager() {
       }
     };
     listenerMiddleware.startListening({
-      matcher: isAnyOf(
-        statusSlice.actions.setStatus,
-        isAsyncThunkAction(addCampaignDonationThunk)
-      ),
+      matcher: isAnyOf(statusSlice.actions.setStatus, isAsyncThunkAction(addCampaignDonationThunk)),
       effect,
     });
     return () => {
-      console.log("useStatusManager remove listener: ");
       listenerMiddleware.clearListeners();
     };
   }, []);

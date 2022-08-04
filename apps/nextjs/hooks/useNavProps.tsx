@@ -1,13 +1,12 @@
 import { useCallback } from "react";
-import { useDispatch, useSelector } from "react-redux";
 import { selectUser, selectIsAppReady, signOutUserThunk } from "../store";
-import { useTheme } from "../hooks";
+import { useAppDispatch, useAppSelector, useTheme } from "../hooks";
 
 export function useNavProps() {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const { themeState, onThemeOptionChange } = useTheme();
-  const user = useSelector(selectUser());
-  const isAppReady = useSelector(selectIsAppReady());
+  const user = useAppSelector(selectUser());
+  const isAppReady = useAppSelector(selectIsAppReady());
   const onLogout = useCallback(() => dispatch(signOutUserThunk()), [dispatch]);
 
   return {

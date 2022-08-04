@@ -1,8 +1,8 @@
-import { useDispatch } from "react-redux";
 import { FaShareAlt } from "react-icons/fa";
-import { AccentButton, Box, Button, Heading, Text } from "@josulliv101/core";
+import { AccentButton, Box, Heading, Text } from "@josulliv101/core";
 import { useLabelBundle } from "@josulliv101/labelbundles";
 import { statusSlice } from "store";
+import { useAppDispatch } from "hooks";
 
 interface Props {
   title: string;
@@ -10,7 +10,7 @@ interface Props {
 }
 
 export const IntroBlurb: React.FC<Props> = ({ title, blurb }) => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const { getLabel } = useLabelBundle();
   return (
     <Box

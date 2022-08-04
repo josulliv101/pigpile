@@ -1,26 +1,25 @@
-import { useDispatch } from "react-redux";
+import { Provider } from "@josulliv101/types";
 import { AbsoluteCenter as Center } from "@josulliv101/core";
 import { LoginForm } from "@josulliv101/composites";
 import { LayoutFullViewport } from "../../components/layouts";
 import { signInUserThunk, statusSlice } from "store";
+import { useAppDispatch } from "hooks";
 
 interface PageProps {}
 
 function Login({}: PageProps): JSX.Element {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   const showFeatureNotImplementedStatus = () => {
     dispatch(
       statusSlice.actions.setStatus({
         title: `Feature not implemented yet.`,
-        // description: "Only Github currently works as a provider.",
         status: "info",
         isCloseable: true,
       })
     );
   };
-  const handleSignIn = (provider) => {
-    console.log("handleSignIn", provider.providerId, provider);
+  const handleSignIn = (provider: Provider) => {
     if (provider.providerId !== "github.com") {
       dispatch(
         statusSlice.actions.setStatus({
@@ -32,7 +31,7 @@ function Login({}: PageProps): JSX.Element {
       );
       return;
     }
-    dispatch(signInUserThunk({ provider, cb: () => console.log("cb here") }));
+    dispatch(signInUserThunk({ provider, cb: () => console.log("cb triggered.") }));
   };
   return (
     <>

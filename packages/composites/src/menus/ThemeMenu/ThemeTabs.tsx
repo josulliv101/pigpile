@@ -1,21 +1,16 @@
 import * as React from "react";
 import {
   BoxProps,
-  HStack,
-  Icon,
   Tabs,
-  TabsProps,
-  UseTabProps,
   TabList,
   Tab,
   TabIndicator,
-  TabPanels,
   TabPanel,
   Text,
   VisuallyHidden,
   SwatchProps,
 } from "@josulliv101/core";
-import { TabContent } from "./TabContent";
+import { TabContent, TabContentProps } from "./TabContent";
 
 type Option = {
   label: string;
@@ -65,12 +60,7 @@ const ThemeTabs_ = (props: TabContentProps): JSX.Element => {
               <TabContent isActive={isActive} {...option} />
             </Tab>,
           ],
-          [
-            ...panels,
-            <HiddenPanel key={key}>
-              {isActive ? `${key} ${label}` : ""}
-            </HiddenPanel>,
-          ],
+          [...panels, <HiddenPanel key={key}>{isActive ? `${key} ${label}` : ""}</HiddenPanel>],
         ];
       },
       [[], []]

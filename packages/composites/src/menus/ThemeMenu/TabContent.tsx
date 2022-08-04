@@ -1,27 +1,20 @@
 import * as React from "react";
-import {
-  BoxProps,
-  HStack,
-  Icon,
-  Text,
-  SwatchAnimated,
-  SwatchProps,
-} from "@josulliv101/core";
+import { BoxProps, HStack, Icon, Text, SwatchAnimated, SwatchProps } from "@josulliv101/core";
 
 export interface TabContentProps extends BoxProps {
   label: string;
   icon?: JSX.Element;
   swatch?: SwatchProps;
   isActive?: boolean;
+  includeTabIndicator?: boolean;
+  index: number;
+  options: any;
 }
 
 const TabContent_ = (props: TabContentProps): JSX.Element => {
   const { icon, label, swatch, isActive } = props;
-  // console.log("TabContent", props)
   if (swatch) {
-    return (
-      <SwatchAnimated variant="round-curved" {...swatch} isActive={isActive} />
-    );
+    return <SwatchAnimated variant="round-curved" {...swatch} isActive={isActive} />;
   }
   if (icon) {
     return (

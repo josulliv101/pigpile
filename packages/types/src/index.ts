@@ -10,6 +10,7 @@ export interface Status {
   status?: "info" | "warning" | "error" | "success";
   title: string;
   description?: string;
+  isCloseable?: boolean;
 }
 
 export interface Media {
@@ -86,6 +87,10 @@ export interface AuthState {
   user?: User | null;
   isReady: boolean;
   error?: string;
+}
+
+export interface Provider {
+  providerId: string;
 }
 
 export interface Layout {
