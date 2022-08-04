@@ -1,12 +1,11 @@
-import { useCallback, useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
+import { useCallback, useEffect } from "react";
 import { User } from "@josulliv101/types";
 import { connectClientApp } from "@josulliv101/connect-client";
-import { authSlice, statusSlice } from "../store";
+import { authSlice, statusSlice } from "store";
+import { useAppDispatch } from "hooks";
 
 export function useConnectClient() {
-  const [error, setError] = useState("");
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   const onAuthStateChanged = useCallback(
     (user: User) => dispatch(authSlice.actions.autheniticate(user)),
@@ -17,20 +16,16 @@ export function useConnectClient() {
     try {
       connectClientApp(onAuthStateChanged);
     } catch (error: unknown) {
-      const msg = getErrorMessage(error);
+      const errorMsg = getErrorMessage(error);
       dispatch(
         statusSlice.actions.setStatus({
           title: "Error Connecting",
-          description: "Issue connecting to services.",
-          type: "error",
+          description: errorMsg,
+          status: "error",
         })
       );
     }
   }, [dispatch]);
-
-  return {
-    error,
-  };
 }
 
 const getErrorMessage = (error: unknown) =>

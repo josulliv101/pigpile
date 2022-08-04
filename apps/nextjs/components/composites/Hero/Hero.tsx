@@ -88,16 +88,20 @@ const Hero: React.FC<Props> = ({
     onActiveFormStepChange(FORM_STEPS.AdditionalInfo);
   }, []);
 
-  const handleSubmitAdditionalInfo = useCallback((donation: Partial<Donation>) => {
-    onAdditionalInfoSubmit({
-      campaignId,
-      quantity: numberOfUnits ?? 0,
-      tip,
-      userId: user?.uid ?? "",
-      ...donation,
-    });
-    handleCloseModal();
-  }, []);
+  const handleSubmitAdditionalInfo = useCallback(
+    (donation: Partial<Donation>) => {
+      console.log("numberOfUnits@@", numberOfUnits);
+      onAdditionalInfoSubmit({
+        campaignId,
+        quantity: numberOfUnits ?? 0,
+        tip,
+        userId: user?.uid ?? "",
+        ...donation,
+      });
+      handleCloseModal();
+    },
+    [campaignId, numberOfUnits, tip, user?.uid]
+  );
 
   const getDonationLabel = useCallback(
     (n) => getLabelForQuantity({ one: "item", many: "items" }, n),

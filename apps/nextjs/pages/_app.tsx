@@ -15,9 +15,9 @@ type Props = AppProps & {
 };
 
 function PigpileApp({ Component, pageProps }: Props): JSX.Element {
-  const { error } = useConnectClient();
-  const { isUnloading } = useRouteChangeListeners();
+  useConnectClient();
   useStatusManager();
+  const { isUnloading } = useRouteChangeListeners();
 
   const { theme } = useTheme();
   const getLayout = Component.getLayout ?? ((page) => <LayoutBasic>{page}</LayoutBasic>);
@@ -29,7 +29,6 @@ function PigpileApp({ Component, pageProps }: Props): JSX.Element {
   return (
     <ChakraProvider theme={theme} colorModeManager={localStorageManager}>
       <CSSReset />
-      {error && <div>ERROR: {error}</div>}
       {getLayout(<Component {...pageProps} />)}
     </ChakraProvider>
   );
