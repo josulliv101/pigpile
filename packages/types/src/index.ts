@@ -36,7 +36,7 @@ export interface Organization {
 }
 
 export interface Donation {
-  id: string;
+  id?: string;
   userId: string;
   displayName: string;
   emoji: string;

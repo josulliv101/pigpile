@@ -29,8 +29,6 @@ export * from "./CountUpBox";
 export * from "./Logo";
 export * from "./Swatch";
 
-// Extending gives the ability for the new component to have its own defaults (colorScheme, size, variants) set in the theme
-// Any default not set will inherit that of the parent component.
 export const AccentButton = extendThemedComponent("AccentButton", {
   Button,
 });
