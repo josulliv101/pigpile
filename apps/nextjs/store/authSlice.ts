@@ -1,25 +1,28 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { signOut } from "firebase/auth";
-import { AuthState, User } from "@josulliv101/types";
+import { Provider, User } from "@josulliv101/types";
 import { auth, signInWithPopup } from "@josulliv101/connect-client";
 import { AppState } from "./";
 
-export const signInUserThunk = createAsyncThunk<
-  void,
-  { provider: any; cb: () => void }
->("auth/signInUser", async (options) => {
-  if (!options?.provider) {
-    throw new Error("An auth provider is required.");
-  }
-  await signInWithPopup(auth, options.provider);
-});
+export interface AuthState {
+  user?: User | null;
+  isReady: boolean;
+  error?: string;
+}
 
-export const signOutUserThunk = createAsyncThunk<void>(
-  "auth/signOutUser",
-  async () => {
-    await signOut(auth);
+export const signInUserThunk = createAsyncThunk<void, Provider>(
+  "auth/signInUser",
+  async (provider) => {
+    if (!provider) {
+      throw new Error("An auth provider is required.");
+    }
+    await signInWithPopup(auth, provider);
   }
 );
+
+export const signOutUserThunk = createAsyncThunk<void>("auth/signOutUser", async () => {
+  await signOut(auth);
+});
 
 export const authSlice = createSlice({
   name: "auth",
@@ -34,8 +37,6 @@ export const authSlice = createSlice({
   },
 });
 
-export const selectUser = () => (state: AppState) =>
-  state?.[authSlice.name]?.user;
+export const selectUser = () => (state: AppState) => state?.[authSlice.name]?.user;
 
-export const selectIsAppReady = () => (state: AppState) =>
-  state?.[authSlice.name]?.isReady;
+export const selectIsAppReady = () => (state: AppState) => state?.[authSlice.name].isReady;

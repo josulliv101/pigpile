@@ -3,7 +3,7 @@ export * from "./authSlice";
 export * from "./campaignsSlice";
 export * from "./donationsSlice";
 export * from "./donationFilterSlice";
-export * from "./paymentSlice";
+export * from "./donationStepsSlice";
 export * from "./statusSlice";
 export * from "./store";
 export * from "./themeSlice";

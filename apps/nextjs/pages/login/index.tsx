@@ -29,7 +29,7 @@ function Login(): JSX.Element {
       );
       return;
     }
-    dispatch(signInUserThunk({ provider, cb: () => console.log("cb triggered.") }));
+    dispatch(signInUserThunk(provider));
   };
   return (
     <>

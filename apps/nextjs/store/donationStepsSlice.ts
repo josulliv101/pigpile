@@ -6,18 +6,18 @@ export enum FORM_STEPS {
   AdditionalInfo = "additional_info",
 }
 
-export interface PaymentState {
+export interface DonationStepsState {
   activeFormStep: FORM_STEPS;
   error: string;
 }
 
-export const paymentSlice = createSlice({
-  name: "payment",
+export const donationStepsSlice = createSlice({
+  name: "donationSteps",
 
   initialState: {
     activeFormStep: FORM_STEPS.Donate,
     error: "",
-  } as PaymentState,
+  } as DonationStepsState,
 
   reducers: {
     setActiveFormStep: (state, action: PayloadAction<FORM_STEPS>) => {
@@ -26,5 +26,4 @@ export const paymentSlice = createSlice({
   },
 });
 
-export const selectPaymentState = () => (state: AppState) =>
-  state[paymentSlice.name];
+export const selectPaymentState = () => (state: AppState) => state[donationStepsSlice.name];

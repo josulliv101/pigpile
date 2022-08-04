@@ -17,7 +17,7 @@ import {
   addCampaignDonationThunk,
   campaignsSlice,
   donationFilterSlice,
-  paymentSlice,
+  donationStepsSlice,
   selectCampaign,
   selectCampaignDonations,
   selectChesterAnimation,
@@ -72,7 +72,7 @@ export const Campaign: React.FC<Props> = ({ id }): JSX.Element => {
   );
 
   const handleActiveFormStepChange = useCallback(
-    (s: string) => dispatch(paymentSlice.actions.setActiveFormStep(s)),
+    (s: string) => dispatch(donationStepsSlice.actions.setActiveFormStep(s)),
     []
   );
 

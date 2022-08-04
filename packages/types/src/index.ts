@@ -83,12 +83,6 @@ export interface Campaign {
   customLabels: LabelBundleMap;
 }
 
-export interface AuthState {
-  user?: User | null;
-  isReady: boolean;
-  error?: string;
-}
-
 export interface Provider {
   providerId: string;
 }
