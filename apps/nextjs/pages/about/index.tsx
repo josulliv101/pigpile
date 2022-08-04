@@ -1,5 +1,6 @@
 import { Box, Heading, Text } from "@josulliv101/core";
 import { LayoutBasic } from "../../components/layouts";
+import { Page } from "../_app";
 
 function About(): JSX.Element {
   return (
@@ -34,7 +35,7 @@ function About(): JSX.Element {
   );
 }
 
-About.getLayout = (page, layoutProps): JSX.Element => (
+About.getLayout = (page: Page, layoutProps): JSX.Element => (
   <LayoutBasic {...layoutProps}>{page}</LayoutBasic>
 );
 

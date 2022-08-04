@@ -1,6 +1,6 @@
 import { useCallback } from "react";
-import { selectUser, selectIsAppReady, signOutUserThunk } from "../store";
-import { useAppDispatch, useAppSelector, useTheme } from "../hooks";
+import { selectUser, selectIsAppReady, signOutUserThunk } from "store";
+import { useAppDispatch, useAppSelector, useTheme } from "hooks";
 
 export function useNavProps() {
   const dispatch = useAppDispatch();

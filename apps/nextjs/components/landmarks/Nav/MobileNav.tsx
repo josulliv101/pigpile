@@ -1,10 +1,11 @@
-import NextLink from "next/link";
 import { forwardRef, Ref, useEffect, useRef } from "react";
+import { AnimatePresence, motion } from "framer-motion";
+import { FaBars } from "react-icons/fa";
+import { RemoveScroll } from "react-remove-scroll";
 import {
   AbsoluteCenter,
   Background,
   Box,
-  Button,
   ButtonGroup,
   CloseButton,
   Flex,
@@ -21,9 +22,6 @@ import {
 } from "@josulliv101/core";
 import { themeOptions } from "@josulliv101/theme";
 import { ThemeTabs } from "@josulliv101/composites";
-import { AnimatePresence, motion } from "framer-motion";
-import { FaBars } from "react-icons/fa";
-import { RemoveScroll } from "react-remove-scroll";
 import { selectChesterAnimation } from "store";
 import { useAppSelector, useNavProps } from "hooks";
 import { NavLink } from "components/landmarks";
@@ -32,12 +30,6 @@ interface MobileNavContentProps {
   isOpen?: boolean;
   onClose?: () => void;
 }
-
-const NavButton: React.FC<typeof NextLink> = ({ href, children }) => (
-  <NextLink href="/" passHref>
-    <Button color="inherit">Home</Button>
-  </NextLink>
-);
 
 export function MobileNavContent(props: MobileNavContentProps) {
   const { isOpen, onClose } = props;

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import {
   IconButton,
   Popover,
@@ -15,7 +15,7 @@ import { PaintBrushIcon, ThemeTabs } from "./";
 export interface ThemeMenuProps {
   activeIndexes: ActiveThemeOptionIds;
   themeOptions: ThemeOptions;
-  onThemeOptionChange: () => void;
+  onThemeOptionChange: (s: string, i: number) => void;
 }
 
 export const ThemeMenu: React.FC<ThemeMenuProps> = ({

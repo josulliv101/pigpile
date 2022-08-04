@@ -8,7 +8,7 @@ export * from "./useNavProps";
 export * from "./useDonationsSubscription";
 export * from "./useResizeListener";
 export * from "./useRouteChangeListeners";
-export * from "./useStatusManager";
+export * from "./useStatusListenererMiddleware";
 export * from "./useTheme";
 
 export const useAppDispatch: () => AppDispatch = useDispatch;

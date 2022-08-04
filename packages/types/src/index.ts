@@ -95,8 +95,4 @@ export interface Provider {
 
 export interface Layout {
   children: React.ReactNode;
-  user: User;
-  onLogin: () => void;
-  onLogout: () => void;
-  onThemeOptionChange: () => void;
 }

@@ -10,9 +10,7 @@ import { Status } from "@josulliv101/types";
 import { listenerMiddleware, statusSlice, addCampaignDonationThunk } from "store";
 import { useAppDispatch } from "hooks";
 
-function getStatusPayloadFromAction(
-  action: ActionCreatorWithPayload<Status | { message: string }>
-) {
+function getStatusPayloadFromAction(action: ActionCreatorWithPayload<Status, string>) {
   if (action?.error) {
     return {
       id: action.payload.id,
@@ -24,14 +22,11 @@ function getStatusPayloadFromAction(
   return action.payload;
 }
 
-export function useStatusManager() {
+export function useStatusListenererMiddleware() {
   const toast = useToast();
   const dispatch = useAppDispatch();
   useEffect(() => {
-    const effect = async (
-      action: ActionCreatorWithOptionalPayload<Status | { error: any }, string>
-    ) => {
-      console.log("Middleware: ", action);
+    const effect = async (action: ActionCreatorWithOptionalPayload<Status, string>) => {
       if (action.type === "status/setStatus" || action.error) {
         toast({
           ...getStatusPayloadFromAction(action),
