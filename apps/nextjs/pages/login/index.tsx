@@ -13,7 +13,6 @@ function Login(): JSX.Element {
       statusSlice.actions.setStatus({
         title: `Feature not implemented yet.`,
         status: "info",
-        isCloseable: true,
       })
     );
   };
@@ -24,7 +23,6 @@ function Login(): JSX.Element {
           title: `${provider.providerId} provider not implemented yet.`,
           description: "Only Github currently works as a provider.",
           status: "info",
-          isCloseable: true,
         })
       );
       return;

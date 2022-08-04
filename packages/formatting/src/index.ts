@@ -1,6 +1,6 @@
 import ago from "s-ago";
 
-let currencyType = "USD";
+let currencyType = "usd";
 let locale = "en-US";
 
 const currencyWithDecimals = new Intl.NumberFormat(locale, {
@@ -65,4 +65,20 @@ export function formatIdAsText(s, options) {
       .join(" ");
   }
   return formatted;
+}
+
+export function formatPaymentAmount(amount: number): number {
+  let numberFormat = new Intl.NumberFormat([locale], {
+    style: "currency",
+    currency: currencyType,
+    currencyDisplay: "symbol",
+  });
+  const parts = numberFormat.formatToParts(amount);
+  let zeroDecimalCurrency: boolean = true;
+  for (let part of parts) {
+    if (part.type === "decimal") {
+      zeroDecimalCurrency = false;
+    }
+  }
+  return zeroDecimalCurrency ? amount : Math.round(amount * 100);
 }

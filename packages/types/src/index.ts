@@ -10,7 +10,7 @@ export interface Status {
   status?: "info" | "warning" | "error" | "success";
   title: string;
   description?: string;
-  isCloseable?: boolean;
+  isClosable?: boolean;
 }
 
 export interface Media {
