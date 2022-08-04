@@ -43,8 +43,6 @@ function Home(): JSX.Element {
   );
 }
 
-Home.getLayout = (page, layoutProps): JSX.Element => (
-  <LayoutFullViewport {...layoutProps}>{page}</LayoutFullViewport>
-);
+Home.getLayout = (page): JSX.Element => <LayoutFullViewport>{page}</LayoutFullViewport>;
 
 export default Home;
