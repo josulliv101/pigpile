@@ -51,9 +51,11 @@ function Pigpiles({ campaignIds }: Props): JSX.Element {
 
 export const getServerSideProps = wrapper.getServerSideProps((store) => async ({ res }) => {
   const snapshot = await adminDb.collection("campaigns-meta").doc("campaign").get();
+  const data = snapshot.data();
   let ids = [];
-  if (snapshot && snapshot.data()) {
-    ids = snapshot.data().ids || [];
+
+  if (data?.ids) {
+    ids = data.ids;
   }
   return {
     props: {
