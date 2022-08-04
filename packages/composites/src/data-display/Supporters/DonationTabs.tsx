@@ -17,8 +17,8 @@ import {
 } from "@josulliv101/core";
 
 export interface DonationTabsProps {
-  queryType: number;
-  viewType: number;
+  queryType?: number;
+  viewType?: number;
   onChange: (id: string, i: number) => void;
 }
 

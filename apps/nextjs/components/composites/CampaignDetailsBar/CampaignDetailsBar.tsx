@@ -43,10 +43,10 @@ export const CampaignDetailsBar: React.FC<Props> = ({
           createdAtInMS={createdAtInMS}
           {...organizer}
         >
-          <Text mt="2" fontSize="xs" noOfLines={2}>
+          <Text mt="3" fontSize="xs" noOfLines={2}>
             {getLabel("Join us as we pigpile on:")}
           </Text>
-          <Text fontSize="xs" noOfLines={2} fontStyle="oblique">
+          <Text mt="1" fontSize="xs" noOfLines={2} fontStyle="oblique">
             {beneficiary}
           </Text>
           <Box display="flex" alignItems="center">

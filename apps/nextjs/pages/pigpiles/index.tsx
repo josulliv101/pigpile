@@ -12,10 +12,11 @@ import { formatIdAsText } from "@josulliv101/formatting";
 import { LayoutFullViewport } from "../../components/layouts";
 import { wrapper } from "../../store";
 
-interface PageProps {}
+interface Props {
+  campaignIds: string[];
+}
 
-function Pigpiles({ campaignIds }: PageProps): JSX.Element {
-  console.log("campaignIds render", campaignIds);
+function Pigpiles({ campaignIds }: Props): JSX.Element {
   return (
     <>
       <Center
@@ -23,7 +24,6 @@ function Pigpiles({ campaignIds }: PageProps): JSX.Element {
         color="white"
         top={{ base: "30%" }}
         w="max-content"
-        textAlign="left"
         display="flex"
         h="full"
         alignItems="center"
@@ -50,14 +50,11 @@ function Pigpiles({ campaignIds }: PageProps): JSX.Element {
 }
 
 export const getServerSideProps = wrapper.getServerSideProps((store) => async ({ res }) => {
-  console.log("PIGPILE");
   const snapshot = await adminDb.collection("campaigns-meta").doc("campaign").get();
   let ids = [];
-  if (snapshot.data()) {
-    //store.dispatch(campaignsSlice.actions.setCampaign(snapshot.data()));
+  if (snapshot && snapshot.data()) {
     ids = snapshot.data().ids || [];
   }
-  console.log("getServerSideProps entriesData!", snapshot.data());
   return {
     props: {
       campaignIds: ids,
@@ -65,8 +62,6 @@ export const getServerSideProps = wrapper.getServerSideProps((store) => async ({
   };
 });
 
-Pigpiles.getLayout = (page, layoutProps): JSX.Element => (
-  <LayoutFullViewport {...layoutProps}>{page}</LayoutFullViewport>
-);
+Pigpiles.getLayout = (page): JSX.Element => <LayoutFullViewport>{page}</LayoutFullViewport>;
 
 export default Pigpiles;

@@ -7,6 +7,7 @@ import { DonationsTable } from "./DonationsTable";
 
 export interface SupportersProps extends DonationTabsProps {
   donations: Donations[];
+  getLabel: (n: number) => string;
 }
 
 export const Supporters: React.FC<SupportersProps> = ({

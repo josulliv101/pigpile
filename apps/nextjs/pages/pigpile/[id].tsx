@@ -164,11 +164,8 @@ export const Campaign: React.FC<Props> = ({ id }): JSX.Element => {
   );
 };
 
-export const getServerSideProps = wrapper.getServerSideProps((store) => async ({ params, res }) => {
+export const getServerSideProps = wrapper.getServerSideProps((store) => async ({ params }) => {
   const { id } = params as { id: string };
-
-  res.setHeader("Cache-Control", "public, s-maxage=600, stale-while-revalidate=1800");
-
   const snapshot = await adminDb.collection("campaigns").doc(id).get();
 
   if (snapshot.data()) {
@@ -182,8 +179,6 @@ export const getServerSideProps = wrapper.getServerSideProps((store) => async ({
   };
 });
 
-Campaign.getLayout = (page, layoutProps): JSX.Element => (
-  <LayoutCampaign {...layoutProps}>{page}</LayoutCampaign>
-);
+Campaign.getLayout = (page): JSX.Element => <LayoutCampaign>{page}</LayoutCampaign>;
 
 export default Campaign;

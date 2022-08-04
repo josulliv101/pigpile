@@ -5,9 +5,7 @@ import { LayoutFullViewport } from "../../components/layouts";
 import { signInUserThunk, statusSlice } from "store";
 import { useAppDispatch } from "hooks";
 
-interface PageProps {}
-
-function Login({}: PageProps): JSX.Element {
+function Login(): JSX.Element {
   const dispatch = useAppDispatch();
 
   const showFeatureNotImplementedStatus = () => {
@@ -47,8 +45,6 @@ function Login({}: PageProps): JSX.Element {
   );
 }
 
-Login.getLayout = (page, layoutProps): JSX.Element => (
-  <LayoutFullViewport {...layoutProps}>{page}</LayoutFullViewport>
-);
+Login.getLayout = (page): JSX.Element => <LayoutFullViewport>{page}</LayoutFullViewport>;
 
 export default Login;
