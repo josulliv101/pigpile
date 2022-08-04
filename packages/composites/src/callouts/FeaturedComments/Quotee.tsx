@@ -1,16 +1,15 @@
-import { Avatar, Box, BoxProps, Img, Text } from "@josulliv101/core";
-import * as React from "react";
+import { Avatar, Box, BoxProps, Text } from "@josulliv101/core";
 
 interface Props extends BoxProps {
   name: string;
-  jobTitle: string;
-  imageSrc: string;
+  createAt: string;
+  emoji: string;
 }
 
 export const Quotee = (props: Props) => {
-  const { name, jobTitle, emoji, ...boxProps } = props;
+  const { name, createAt, emoji, ...styleProps } = props;
   return (
-    <Box {...boxProps}>
+    <Box {...styleProps}>
       <Avatar
         size="xl"
         bgColor="gray.200"
@@ -25,7 +24,7 @@ export const Quotee = (props: Props) => {
         <Text as="cite" fontStyle="normal" fontWeight="bold">
           {name}
         </Text>
-        <Text fontSize="sm">{jobTitle}</Text>
+        <Text fontSize="sm">{createAt}</Text>
       </Box>
     </Box>
   );

@@ -90,7 +90,6 @@ const Hero: React.FC<Props> = ({
 
   const handleSubmitAdditionalInfo = useCallback(
     (donation: Partial<Donation>) => {
-      console.log("numberOfUnits@@", numberOfUnits);
       onAdditionalInfoSubmit({
         campaignId,
         quantity: numberOfUnits ?? 0,

@@ -1,17 +1,16 @@
-import {
-  Box,
-  Circle,
-  Fade,
-  Flex,
-  HStack,
-  Text,
-  useColorModeValue,
-} from "@josulliv101/core";
+import { Box, Fade, Flex, Text, useColorModeValue } from "@josulliv101/core";
 import { relativeDays } from "@josulliv101/formatting";
 import { Quotee } from "./Quotee";
 import { QuoteIcon } from "./QuoteIcon";
 
-export const Comment = ({ displayName, comment, emoji, createdAtInMS }) => (
+interface Props {
+  displayName: string;
+  comment: string;
+  emoji: string;
+  createdAtInMS: number;
+}
+
+export const Comment: React.FC<Props> = ({ displayName, comment, emoji, createdAtInMS }) => (
   <Box as="section">
     <Box maxW="3xl" mx="auto" px={{ base: "6", md: "8" }}>
       <Flex direction="column" align="center" textAlign="center">
@@ -22,19 +21,14 @@ export const Comment = ({ displayName, comment, emoji, createdAtInMS }) => (
         <Fade key={createdAtInMS} in>
           <Text
             fontSize={{ base: "md", md: "lg" }}
-            fontWeight="medium"
+            fontWeight="semibold"
             mt="3"
-            color="gray.600"
+            color="gray.500"
             _dark={{ color: "gray.200" }}
           >
             &ldquo;{comment}&rdquo;
           </Text>
-          <Quotee
-            name={displayName}
-            jobTitle={relativeDays(createdAtInMS)}
-            emoji={emoji}
-            mt="4"
-          />
+          <Quotee name={displayName} createAt={relativeDays(createdAtInMS)} emoji={emoji} mt="4" />
         </Fade>
       </Flex>
     </Box>
