@@ -19,46 +19,20 @@ exports.nextjsFunc = https.onRequest((req, res) => {
 const endpointSecret = process.env.STRIPE_EVENTS_SIGNING_SECRET;
 
 exports.events = https.onRequest((request, response) => {
-  console.log("adminDb keys", Object.keys(adminDb));
   let sig = request.headers["stripe-signature"];
 
   try {
-    console.log("tryinging to validate secret");
-    let event = stripe.webhooks.constructEvent(
-      request.rawBody,
-      sig,
-      endpointSecret
-    ); // Validate the request
-    console.log("validate secret", event);
+    let event = stripe.webhooks.constructEvent(request.rawBody, sig, endpointSecret);
     return adminDb
       .collection("donations")
-      .add(event) // Add the event to the database
+      .add(event)
       .then((snapshot) => {
-        console.log("in snapshot", snapshot);
-        // Return a successful response to acknowledge the event was processed successfully
         return response.json({ received: true, ref: snapshot.ref.toString() });
       })
       .catch((err) => {
-        console.error(err); // Catch any errors saving to the database
         return response.status(500).end();
       });
   } catch (err) {
-    return response.status(400).end(); // Signing signature failure, return an error 400
+    return response.status(400).end();
   }
 });
-
-/*exports.exampleDatabaseTrigger = adminDb.collection('donations/{eventId}').onCreate((snapshot, context) => {
-  return console.log({
-    eventId: context.params.eventId,
-    data: snapshot.val()
-  });
-});*/
-
-exports.exampleDatabaseTrigger = firestore
-  .document("donations/{eventId}")
-  .onCreate((snapshot, context) => {
-    return console.log({
-      eventId: context.params.eventId,
-      data: snapshot.val(),
-    });
-  });

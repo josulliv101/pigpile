@@ -1,28 +1,12 @@
 import { useState } from "react";
 import { useSwipeable } from "react-swipeable";
-import { Box, HStack, IconButton, Text, useColorModeValue } from "@josulliv101/core";
 import { Comment as CommentType } from "@josulliv101/types";
-import { Quotee } from "./Quotee";
-import { QuoteIcon } from "./QuoteIcon";
+import { Box, HStack, IconButton, Text, useColorModeValue } from "@josulliv101/core";
+import { getNextIndexOnSwipe } from "./getNextIndexOnSwipe";
 import { Comment } from "./Comment";
 
 interface Props {
   comments: CommentType[];
-}
-
-function getNextIndexOnSwipe({
-  activeIndex = 0,
-  comments = [],
-  direction = "forward",
-}: {
-  activeIndex: number;
-  comments: CommentType[];
-  direction?: string;
-}) {
-  if (direction !== "forward") {
-    return activeIndex ? activeIndex - 1 : comments.length - 1;
-  }
-  return activeIndex < comments.length - 1 ? activeIndex + 1 : 0;
 }
 
 export const FeaturedComments = ({ comments = [] }: Props) => {
@@ -48,8 +32,8 @@ export const FeaturedComments = ({ comments = [] }: Props) => {
       display="flex"
       flexDirection="column"
       bgColor="gray.100"
-      _dark={{ bgColor: "gray.500" }}
       pt="4"
+      _dark={{ bgColor: "gray.500" }}
     >
       {comment && <Comment {...comment} />}
       {comments.length > 1 && (
@@ -66,17 +50,15 @@ export const FeaturedComments = ({ comments = [] }: Props) => {
               aria-label="View comment"
               borderWidth="2px"
               borderColor={index === activeIndex ? "inherit" : "gray.100"}
-              // border={index === activeIndex ? "2px #000 solid" : "2px red solid"}
               size="3xs"
-              // size={index === activeIndex ? "2xs" : "3xs"}
               bgColor={index === activeIndex ? undefined : "gray.300"}
-              _dark={{
-                bgColor: index === activeIndex ? undefined : "gray.400",
-              }}
               borderRadius="full"
               onClick={() => setActiveIndex(index)}
               _active={{
                 bgColor: index === activeIndex ? undefined : "gray.300",
+              }}
+              _dark={{
+                bgColor: index === activeIndex ? undefined : "gray.400",
               }}
             />
           ))}

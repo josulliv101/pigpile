@@ -40,12 +40,13 @@ describe("Organization", () => {
           <div
             class="chakra-stack css-2nt6bn"
           >
-            <button
+            <a
               class="chakra-button css-145nilc"
-              type="button"
+              href="http://pigpile.org"
+              target="_blank"
             >
               Visit Website
-            </button>
+            </a>
           </div>
         </div>
       </aside>

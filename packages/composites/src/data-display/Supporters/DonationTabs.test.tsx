@@ -5,9 +5,7 @@ import { DonationTabs } from "./DonationTabs";
 
 describe("Donation Tabs", () => {
   it("renders correctly", () => {
-    const { container } = render(
-      <DonationTabs queryType={1} viewType={0} onChange={jest.fn()} />
-    );
+    const { container } = render(<DonationTabs queryType={1} viewType={0} onChange={jest.fn()} />);
     expect(container.firstChild).toMatchInlineSnapshot(`
       <div
         class="chakra-stack css-3hqcgi"
@@ -70,7 +68,7 @@ describe("Donation Tabs", () => {
             class="css-9n3bbc"
           >
             <label
-              class="chakra-switch css-1gj0gtr"
+              class="chakra-switch css-g7q7ji"
             >
               <input
                 class="chakra-switch__input"
@@ -110,6 +108,73 @@ describe("Donation Tabs", () => {
           align="center"
           class="css-1g2bmhh"
         >
+          <div
+            class="chakra-tabs css-svp406"
+          >
+            <div
+              aria-orientation="horizontal"
+              class="chakra-tabs__tablist css-k008qs"
+              role="tablist"
+            >
+              <button
+                aria-controls="tabs-:r3:--tabpanel-0"
+                aria-selected="true"
+                class="chakra-tabs__tab css-5wl5ud"
+                data-index="0"
+                id="tabs-:r3:--tab-0"
+                role="tab"
+                tabindex="0"
+                type="button"
+              >
+                <svg
+                  color="#999"
+                  fill="currentColor"
+                  height="1em"
+                  stroke="currentColor"
+                  stroke-width="0"
+                  style="color: rgb(153, 153, 153);"
+                  viewBox="0 0 512 512"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M149.333 56v80c0 13.255-10.745 24-24 24H24c-13.255 0-24-10.745-24-24V56c0-13.255 10.745-24 24-24h101.333c13.255 0 24 10.745 24 24zm181.334 240v-80c0-13.255-10.745-24-24-24H205.333c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24h101.333c13.256 0 24.001-10.745 24.001-24zm32-240v80c0 13.255 10.745 24 24 24H488c13.255 0 24-10.745 24-24V56c0-13.255-10.745-24-24-24H386.667c-13.255 0-24 10.745-24 24zm-32 80V56c0-13.255-10.745-24-24-24H205.333c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24h101.333c13.256 0 24.001-10.745 24.001-24zm-205.334 56H24c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24h101.333c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24zM0 376v80c0 13.255 10.745 24 24 24h101.333c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H24c-13.255 0-24 10.745-24 24zm386.667-56H488c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H386.667c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24zm0 160H488c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H386.667c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24zM181.333 376v80c0 13.255 10.745 24 24 24h101.333c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H205.333c-13.255 0-24 10.745-24 24z"
+                  />
+                </svg>
+              </button>
+              <button
+                aria-controls="tabs-:r3:--tabpanel-1"
+                aria-selected="false"
+                class="chakra-tabs__tab css-5wl5ud"
+                data-index="1"
+                id="tabs-:r3:--tab-1"
+                role="tab"
+                tabindex="-1"
+                type="button"
+              >
+                <svg
+                  color="#999"
+                  fill="currentColor"
+                  height="1em"
+                  stroke="currentColor"
+                  stroke-width="0"
+                  style="color: rgb(153, 153, 153);"
+                  viewBox="0 0 512 512"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M149.333 216v80c0 13.255-10.745 24-24 24H24c-13.255 0-24-10.745-24-24v-80c0-13.255 10.745-24 24-24h101.333c13.255 0 24 10.745 24 24zM0 376v80c0 13.255 10.745 24 24 24h101.333c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H24c-13.255 0-24 10.745-24 24zM125.333 32H24C10.745 32 0 42.745 0 56v80c0 13.255 10.745 24 24 24h101.333c13.255 0 24-10.745 24-24V56c0-13.255-10.745-24-24-24zm80 448H488c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H205.333c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24zm-24-424v80c0 13.255 10.745 24 24 24H488c13.255 0 24-10.745 24-24V56c0-13.255-10.745-24-24-24H205.333c-13.255 0-24 10.745-24 24zm24 264H488c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H205.333c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24z"
+                  />
+                </svg>
+              </button>
+            </div>
+            <div
+              class="chakra-tabs__tab-indicator css-18cxrpd"
+              role="presentation"
+              style="position: absolute; transition-property: left, right, top, bottom, height, width; transition-duration: 0ms; transition-timing-function: cubic-bezier(0, 0, 0.2, 1); left: 0px; width: 0px;"
+            />
+          </div>
           <div
             class="chakra-button__group css-19th3sd"
             role="group"

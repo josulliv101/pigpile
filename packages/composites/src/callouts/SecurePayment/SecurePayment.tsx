@@ -11,6 +11,7 @@ export const SecurePayment: React.FC<HTMLChakraProps<"div">> = (props) => {
       _dark={{ color: "gray.100", bgColor: "gray.600" }}
       px="10"
       py="6"
+      {...props}
     >
       <HStack alignItems="center" justifyContent="flex-start" color="gray.900" spacing="4">
         <Box opacity=".4">

@@ -6,7 +6,7 @@ interface Props extends BoxProps {
   emoji: string;
 }
 
-export const Quotee = (props: Props) => {
+export const Quotee: React.FC<Props> = (props) => {
   const { name, createAt, emoji, ...styleProps } = props;
   return (
     <Box {...styleProps}>

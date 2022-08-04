@@ -39,7 +39,7 @@ describe("Organization", () => {
                 style="opacity: 0;"
               >
                 <p
-                  class="chakra-text css-bi50ei"
+                  class="chakra-text css-1pdgstn"
                 >
                   “
                   Quia consequuntur magni dolores eos qui ratione.
@@ -49,7 +49,7 @@ describe("Organization", () => {
                   class="css-1fhgjcy"
                 >
                   <span
-                    class="chakra-avatar css-1x2qf3a"
+                    class="chakra-avatar css-1jd64ef"
                   >
                     <span
                       aria-label=" avatar"
@@ -70,7 +70,7 @@ describe("Organization", () => {
                     <p
                       class="chakra-text css-g5hezf"
                     >
-                      4 days ago
+                      2 weeks ago
                     </p>
                   </div>
                 </div>
@@ -79,11 +79,11 @@ describe("Organization", () => {
           </div>
         </section>
         <div
-          class="chakra-stack css-9kt6bf"
+          class="chakra-stack css-1kctkj7"
         >
           <button
             aria-label="View comment"
-            class="chakra-button css-ztyxll"
+            class="chakra-button css-1bsoay3"
             type="button"
           />
           <button
@@ -98,7 +98,7 @@ describe("Organization", () => {
           />
         </div>
         <p
-          class="chakra-text css-1y1r9u8"
+          class="chakra-text css-cmvs0v"
         >
           Featured Comments
         </p>
