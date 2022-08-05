@@ -1,7 +1,11 @@
 import { useEffect } from "react";
 import { Donation } from "@josulliv101/types";
 import { subscribeToCampaignDonations } from "@josulliv101/connect-client";
-import { donationsSlice, selectIsAppReady, selectDonationFilterState } from "store";
+import {
+  donationsSlice,
+  selectIsAppReady,
+  selectDonationFilterState,
+} from "store";
 import { useAppDispatch, useAppSelector } from "hooks";
 
 export function useDonationsSubscription(campaignId: string) {
@@ -17,7 +21,9 @@ export function useDonationsSubscription(campaignId: string) {
       campaignId,
       { queryType, isSortDesc },
       (donations: Donation[]) => {
-        dispatch(donationsSlice.actions.setCampaignDonations({ campaignId, donations }));
+        dispatch(
+          donationsSlice.actions.setCampaignDonations({ campaignId, donations })
+        );
       }
     );
     return unsubscribe;

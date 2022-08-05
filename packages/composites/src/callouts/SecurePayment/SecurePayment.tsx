@@ -1,5 +1,13 @@
 import { FaLock } from "react-icons/fa";
-import { Avatar, Box, Heading, HStack, Stack, Text, HTMLChakraProps } from "@josulliv101/core";
+import {
+  Avatar,
+  Box,
+  Heading,
+  HStack,
+  Stack,
+  Text,
+  HTMLChakraProps,
+} from "@josulliv101/core";
 import { useLabelBundle } from "@josulliv101/labelbundles";
 
 export const SecurePayment: React.FC<HTMLChakraProps<"div">> = (props) => {
@@ -13,7 +21,12 @@ export const SecurePayment: React.FC<HTMLChakraProps<"div">> = (props) => {
       py="6"
       {...props}
     >
-      <HStack alignItems="center" justifyContent="flex-start" color="gray.900" spacing="4">
+      <HStack
+        alignItems="center"
+        justifyContent="flex-start"
+        color="gray.900"
+        spacing="4"
+      >
         <Box opacity=".4">
           <Avatar
             color="#cac5bc"
@@ -22,7 +35,12 @@ export const SecurePayment: React.FC<HTMLChakraProps<"div">> = (props) => {
             size="sm"
           />
         </Box>
-        <Heading color="gray.500" _dark={{ color: "gray.200" }} size="xs" mb="1">
+        <Heading
+          color="gray.500"
+          _dark={{ color: "gray.200" }}
+          size="xs"
+          mb="1"
+        >
           {getLabel("Stripe Secure Payment Processing")}
         </Heading>
       </HStack>

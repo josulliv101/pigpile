@@ -25,7 +25,10 @@ export const makeStore = () =>
       [themeSlice.name]: themeSlice.reducer,
     },
     middleware: (getDefaultMiddleware) => {
-      return getDefaultMiddleware().concat(addUniqueIdMiddleware, listenerMiddleware.middleware);
+      return getDefaultMiddleware().concat(
+        addUniqueIdMiddleware,
+        listenerMiddleware.middleware
+      );
     },
     devTools: process.env.NODE_ENV !== "production",
   });

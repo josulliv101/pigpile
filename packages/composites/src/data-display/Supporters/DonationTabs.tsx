@@ -1,5 +1,11 @@
 import * as React from "react";
-import { FaChevronRight, FaChevronLeft, FaChevronDown, FaTh, FaThList } from "react-icons/fa";
+import {
+  FaChevronRight,
+  FaChevronLeft,
+  FaChevronDown,
+  FaTh,
+  FaThList,
+} from "react-icons/fa";
 import {
   Box,
   ButtonGroup,
@@ -22,7 +28,11 @@ export interface DonationTabsProps {
   onChange: (id: string, i: number) => void;
 }
 
-export const DonationTabs: React.FC<DonationTabsProps> = ({ queryType, viewType, onChange }) => {
+export const DonationTabs: React.FC<DonationTabsProps> = ({
+  queryType,
+  viewType,
+  onChange,
+}) => {
   return (
     <HStack
       bg="gray.100"
@@ -32,7 +42,12 @@ export const DonationTabs: React.FC<DonationTabsProps> = ({ queryType, viewType,
       justify="space-between"
       align="center"
     >
-      <Box pos="relative" w="full" display={{ base: "flex", md: "flex" }} alignItems="center">
+      <Box
+        pos="relative"
+        w="full"
+        display={{ base: "flex", md: "flex" }}
+        alignItems="center"
+      >
         <Tabs
           size="sm"
           index={queryType}
@@ -56,7 +71,12 @@ export const DonationTabs: React.FC<DonationTabsProps> = ({ queryType, viewType,
             }}
           />
         </Tabs>
-        <Divider ml="2" orientation="vertical" h="20px" borderColor="gray.400" />
+        <Divider
+          ml="2"
+          orientation="vertical"
+          h="20px"
+          borderColor="gray.400"
+        />
         <Tooltip label="Sort Order" placement="top">
           <Box ml="3">
             <Switch
@@ -93,9 +113,10 @@ export const DonationTabs: React.FC<DonationTabsProps> = ({ queryType, viewType,
         </Tooltip>
       </Box>
       <Box
+        id="foobar"
         pos="relative"
         display="flex"
-        align="center"
+        textAlign="center"
         flexDirection="row"
         sx={{
           "@media screen and (min-width: 200px) and (max-width: 476px)": {

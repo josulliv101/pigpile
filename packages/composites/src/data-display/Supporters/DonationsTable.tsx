@@ -1,5 +1,5 @@
-import * as React from "react";
 import { FaComment } from "react-icons/fa";
+import { Donation } from "@josulliv101/types";
 import {
   Avatar as AvatarBase,
   Badge,
@@ -8,21 +8,15 @@ import {
   Stack,
   StackDivider,
   Text,
+  HTMLChakraProps,
 } from "@josulliv101/core";
 import { relativeDays } from "@josulliv101/formatting";
-
-export interface Donation {
-  name: string;
-  amount: number;
-  donatedAt: string;
-  icon?: string;
-}
 
 export interface DonationsTableProps {
   donations: Donation[];
 }
 
-const Avatar = (props) => (
+const Avatar = (props: HTMLChakraProps<"div">) => (
   <AvatarBase
     sx={{
       bgColor: "gray.100",
@@ -49,68 +43,75 @@ export const DonationsTable: React.FC<DonationsTableProps> = ({
   return (
     <Stack
       w="full"
-      divider={<StackDivider borderColor="gray.200" _dark={{ borderColor: "gray.600" }} />}
+      divider={
+        <StackDivider
+          borderColor="gray.200"
+          _dark={{ borderColor: "gray.600" }}
+        />
+      }
       {...props}
     >
-      {donations.map(({ comment, displayName, emoji, quantity, createdAtInMS }, index) => (
-        <HStack key={`${displayName}-${quantity}-${index}`} flexWrap="wrap">
-          <Avatar size="sm" icon={<EmojiIcon icon={emoji} />} />
-          <Text flex="1" fontSize="sm">
-            {displayName}
-          </Text>
-          {comment ? (
-            <HStack>
-              <Badge
-                my="1"
-                pl="7"
-                position="relative"
-                whiteSpace="unset"
-                fontWeight="normal"
-                textTransform="none"
-                pr="4"
-                fontSize="xs"
-                variant="subtle"
-                noOfLines={1}
-                py="1"
-                _dark={{ bgColor: "gray.500", color: "gray.200" }}
-              >
-                <Box
-                  color="#8d8d8d"
-                  _dark={{ color: "gray.300" }}
-                  position="absolute"
-                  left="9px"
-                  top="7px"
+      {donations.map(
+        ({ comment, displayName, emoji, quantity, createdAtInMS }, index) => (
+          <HStack key={`${displayName}-${quantity}-${index}`} flexWrap="wrap">
+            <Avatar size="sm" icon={<EmojiIcon icon={emoji} />} />
+            <Text flex="1" fontSize="sm">
+              {displayName}
+            </Text>
+            {comment ? (
+              <HStack>
+                <Badge
+                  my="1"
+                  pl="7"
+                  position="relative"
+                  whiteSpace="unset"
+                  fontWeight="normal"
+                  textTransform="none"
+                  pr="4"
+                  fontSize="xs"
+                  variant="subtle"
+                  noOfLines={1}
+                  py="1"
+                  _dark={{ bgColor: "gray.500", color: "gray.200" }}
                 >
-                  <FaComment color="inherit" fontSize=".7rem" />
-                </Box>
-                {comment}
-              </Badge>
-            </HStack>
-          ) : null}
-          <Badge
-            my="1"
-            py="1"
-            px="2"
-            fontWeight="normal"
-            textTransform="none"
-            variant="subtle"
-            _dark={{ bgColor: "gray.500", color: "gray.200" }}
-          >
-            {quantity} {getLabel(quantity)}
-          </Badge>
-          <Badge
-            my="1"
-            py="1"
-            px="2"
-            fontWeight="normal"
-            textTransform="none"
-            variant="subtle"
-            _dark={{ bgColor: "gray.500", color: "gray.200" }}
-          >
-            {relativeDays(createdAtInMS)}
-          </Badge>
-        </HStack>
-      ))}
+                  <Box
+                    color="#8d8d8d"
+                    _dark={{ color: "gray.300" }}
+                    position="absolute"
+                    left="9px"
+                    top="7px"
+                  >
+                    <FaComment color="inherit" fontSize=".7rem" />
+                  </Box>
+                  {comment}
+                </Badge>
+              </HStack>
+            ) : null}
+            <Badge
+              my="1"
+              py="1"
+              px="2"
+              fontWeight="normal"
+              textTransform="none"
+              variant="subtle"
+              _dark={{ bgColor: "gray.500", color: "gray.200" }}
+            >
+              {quantity} {getLabel(quantity)}
+            </Badge>
+            <Badge
+              my="1"
+              py="1"
+              px="2"
+              fontWeight="normal"
+              textTransform="none"
+              variant="subtle"
+              _dark={{ bgColor: "gray.500", color: "gray.200" }}
+            >
+              {relativeDays(createdAtInMS)}
+            </Badge>
+          </HStack>
+        )
+      )}
     </Stack>
   );
 };

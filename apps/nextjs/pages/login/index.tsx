@@ -31,7 +31,12 @@ function Login(): JSX.Element {
   };
   return (
     <>
-      <Center w="80%" textAlign="center" color="white" top={{ base: "45%", sm: "46%" }}>
+      <Center
+        w="80%"
+        textAlign="center"
+        color="white"
+        top={{ base: "45%", sm: "46%" }}
+      >
         <LoginForm
           onSignInWithProvider={handleSignIn}
           onSignIn={showFeatureNotImplementedStatus}
@@ -43,6 +48,8 @@ function Login(): JSX.Element {
   );
 }
 
-Login.getLayout = (page): JSX.Element => <LayoutFullViewport>{page}</LayoutFullViewport>;
+Login.getLayout = (page): JSX.Element => (
+  <LayoutFullViewport>{page}</LayoutFullViewport>
+);
 
 export default Login;

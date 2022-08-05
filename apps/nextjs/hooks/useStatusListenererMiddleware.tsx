@@ -7,10 +7,16 @@ import {
 } from "@reduxjs/toolkit";
 import { useToast } from "@josulliv101/core";
 import { Status } from "@josulliv101/types";
-import { listenerMiddleware, statusSlice, addCampaignDonationThunk } from "store";
+import {
+  listenerMiddleware,
+  statusSlice,
+  addCampaignDonationThunk,
+} from "store";
 import { useAppDispatch } from "hooks";
 
-function getStatusPayloadFromAction(action: ActionCreatorWithPayload<Status, string>) {
+function getStatusPayloadFromAction(
+  action: ActionCreatorWithPayload<Status, string>
+) {
   if (action?.error) {
     return {
       id: action.payload.id,
@@ -26,7 +32,9 @@ export function useStatusListenererMiddleware() {
   const toast = useToast();
   const dispatch = useAppDispatch();
   useEffect(() => {
-    const effect = async (action: ActionCreatorWithOptionalPayload<Status, string>) => {
+    const effect = async (
+      action: ActionCreatorWithOptionalPayload<Status, string>
+    ) => {
       if (action.type === "status/setStatus" || action.error) {
         toast({
           ...getStatusPayloadFromAction(action),
@@ -38,7 +46,10 @@ export function useStatusListenererMiddleware() {
       }
     };
     listenerMiddleware.startListening({
-      matcher: isAnyOf(statusSlice.actions.setStatus, isAsyncThunkAction(addCampaignDonationThunk)),
+      matcher: isAnyOf(
+        statusSlice.actions.setStatus,
+        isAsyncThunkAction(addCampaignDonationThunk)
+      ),
       effect,
     });
     return () => {

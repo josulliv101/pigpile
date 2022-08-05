@@ -1,7 +1,11 @@
 import { NextPage } from "next";
 import { AppProps } from "next/app";
 import { ReactElement, ReactNode } from "react";
-import { ChakraProvider, CSSReset, localStorageManager } from "@josulliv101/core";
+import {
+  ChakraProvider,
+  CSSReset,
+  localStorageManager,
+} from "@josulliv101/core";
 import { LayoutBasic } from "components/layouts";
 import { wrapper } from "store";
 import {
@@ -25,7 +29,8 @@ function PigpileApp({ Component, pageProps }: Props): JSX.Element {
   const { isUnloading } = useRouteChangeListeners();
 
   const { theme } = useTheme();
-  const getLayout = Component.getLayout ?? ((page) => <LayoutBasic>{page}</LayoutBasic>);
+  const getLayout =
+    Component.getLayout ?? ((page) => <LayoutBasic>{page}</LayoutBasic>);
 
   if (isUnloading) {
     return <div />;

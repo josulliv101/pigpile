@@ -6,7 +6,10 @@ interface Props {
   goalAmount: number;
 }
 
-export const GoalCountUp: React.FC<Props> = ({ currentAmount = 0, goalAmount = 100 }) => {
+export const GoalCountUp: React.FC<Props> = ({
+  currentAmount = 0,
+  goalAmount = 100,
+}) => {
   const { getLabel } = useLabelBundle();
   return (
     <CountUpBox
@@ -18,7 +21,9 @@ export const GoalCountUp: React.FC<Props> = ({ currentAmount = 0, goalAmount = 1
       right={{ base: "-10px", md: "20px" }}
       countUpValue={currentAmount}
       limit={goalAmount}
-      label={`${currentAmount} ${getLabel("of")} ${goalAmount} ${getLabel("items.alt")}`}
+      label={`${currentAmount} ${getLabel("of")} ${goalAmount} ${getLabel(
+        "items.alt"
+      )}`}
       showLabelOnEnd
       sx={{
         "@media screen and (min-width: 200px) and (max-width: 768px)": {

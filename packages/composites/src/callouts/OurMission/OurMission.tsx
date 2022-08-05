@@ -1,4 +1,9 @@
-import { Background, Container, Text, HTMLChakraProps } from "@josulliv101/core";
+import {
+  Background,
+  Container,
+  Text,
+  HTMLChakraProps,
+} from "@josulliv101/core";
 import { useLabelBundle } from "@josulliv101/labelbundles";
 
 export const OurMission: React.FC<HTMLChakraProps<"div">> = (props) => {

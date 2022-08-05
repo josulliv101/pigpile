@@ -1,5 +1,12 @@
 import { useEffect, useState } from "react";
-import { Box, Fade, HTMLChakraProps, Image, Stack, useUpdateEffect } from "@chakra-ui/react";
+import {
+  Box,
+  Fade,
+  HTMLChakraProps,
+  Image,
+  Stack,
+  useUpdateEffect,
+} from "@chakra-ui/react";
 import {
   jumpAnimation,
   wahooAnimation,
@@ -43,7 +50,9 @@ export const Chester: React.FC<ChesterProps> = ({
 }) => {
   const [animationRequested, setAnimationRequested] = useState(animateOnMount);
   const animationStyle = animationType && map[animationType];
-  const animation = animationRequested ? `${animationStyle} ${animationProperties()}` : "";
+  const animation = animationRequested
+    ? `${animationStyle} ${animationProperties()}`
+    : "";
   const shadow = `${shadowAnimation} ${animationProperties()}`;
   const animate = () => setAnimationRequested(true);
 
@@ -90,7 +99,11 @@ export const Chester: React.FC<ChesterProps> = ({
           />
         </Box>
         <Shadow
-          animation={animationType === ChesterAnimations.JUMP && animationRequested ? shadow : ""}
+          animation={
+            animationType === ChesterAnimations.JUMP && animationRequested
+              ? shadow
+              : ""
+          }
         />
       </Stack>
     </Box>

@@ -163,18 +163,20 @@ export function MobileNavContent(props: MobileNavContentProps) {
   );
 }
 
-export const MobileNavButton = forwardRef((props: IconButtonProps, ref: Ref<HTMLButtonElement>) => {
-  return (
-    <IconButton
-      ref={ref}
-      display={{ base: "flex", md: "none" }}
-      fontSize="20px"
-      color="white"
-      variant="ghost"
-      colorScheme="blackAlpha"
-      icon={<FaBars />}
-      _focusVisible={{ outlineColor: "white" }}
-      {...props}
-    />
-  );
-});
+export const MobileNavButton = forwardRef(
+  (props: IconButtonProps, ref: Ref<HTMLButtonElement>) => {
+    return (
+      <IconButton
+        ref={ref}
+        display={{ base: "flex", md: "none" }}
+        fontSize="20px"
+        color="white"
+        variant="ghost"
+        colorScheme="blackAlpha"
+        icon={<FaBars />}
+        _focusVisible={{ outlineColor: "white" }}
+        {...props}
+      />
+    );
+  }
+);

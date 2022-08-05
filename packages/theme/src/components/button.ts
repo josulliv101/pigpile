@@ -1,4 +1,9 @@
-import { mode, transparentize, SystemStyleObject, SystemStyleFunction } from "@josulliv101/core";
+import {
+  mode,
+  transparentize,
+  SystemStyleObject,
+  SystemStyleFunction,
+} from "@josulliv101/core";
 
 const variantGhost: SystemStyleFunction = (props) => {
   const { colorScheme: c, theme } = props;

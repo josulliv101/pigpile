@@ -1,11 +1,21 @@
 import NextLink from "next/link";
-import { Button, AbsoluteCenter as Center, Heading, Text } from "@josulliv101/core";
+import {
+  Button,
+  AbsoluteCenter as Center,
+  Heading,
+  Text,
+} from "@josulliv101/core";
 import { LayoutFullViewport } from "components/layouts";
 
 function Home(): JSX.Element {
   return (
     <>
-      <Center w="80%" textAlign="center" color="white" top={{ base: "38%", sm: "36%" }}>
+      <Center
+        w="80%"
+        textAlign="center"
+        color="white"
+        top={{ base: "38%", sm: "36%" }}
+      >
         <Heading
           size="lg"
           fontSize={{ base: "2xl", sm: "3xl" }}
@@ -33,7 +43,8 @@ function Home(): JSX.Element {
           borderTop="1px"
           borderColor="whiteAlpha.700"
         >
-          Our mission is to inspire giving and help good causes raise funds/in-kind donations.
+          Our mission is to inspire giving and help good causes raise
+          funds/in-kind donations.
         </Text>
         <NextLink href="/pigpiles" passHref>
           <Button
@@ -53,6 +64,8 @@ function Home(): JSX.Element {
   );
 }
 
-Home.getLayout = (page): JSX.Element => <LayoutFullViewport>{page}</LayoutFullViewport>;
+Home.getLayout = (page): JSX.Element => (
+  <LayoutFullViewport>{page}</LayoutFullViewport>
+);
 
 export default Home;

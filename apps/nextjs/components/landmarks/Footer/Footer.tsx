@@ -1,4 +1,12 @@
-import { Box, Container, HStack, Logo, Stack, Text, HTMLChakraProps } from "@josulliv101/core";
+import {
+  Box,
+  Container,
+  HStack,
+  Logo,
+  Stack,
+  Text,
+  HTMLChakraProps,
+} from "@josulliv101/core";
 import { FaFacebook, FaInstagram, FaTwitter } from "react-icons/fa";
 import { useLabelBundle } from "@josulliv101/labelbundles";
 import { FooterNavLink, NavLinkProps } from "components/landmarks";
@@ -111,7 +119,12 @@ export const Footer: React.FC<HTMLChakraProps<"div">> = (props) => {
             </Stack>
             <Stack pt="" spacing="4" flexBasis="42%">
               <HStack spacing="3" align="center">
-                <Logo bgColor="gray.500" fill="gray.200" boxSize="8" boxShadow="none" />
+                <Logo
+                  bgColor="gray.500"
+                  fill="gray.200"
+                  boxSize="8"
+                  boxShadow="none"
+                />
                 <Text
                   fontFamily="brand"
                   color="gray.500"
@@ -123,9 +136,10 @@ export const Footer: React.FC<HTMLChakraProps<"div">> = (props) => {
                 </Text>
               </HStack>
               <Text fontSize="md">
-                Pigpile Corporation provides an online fund-raising app dedicated to helping good
-                causes raise funds & in-kind donations. The app is free to use &ndash; no charges or
-                service fees for creating a fundraiser.
+                Pigpile Corporation provides an online fund-raising app
+                dedicated to helping good causes raise funds & in-kind
+                donations. The app is free to use &ndash; no charges or service
+                fees for creating a fundraiser.
               </Text>
             </Stack>
           </Stack>
@@ -137,12 +151,17 @@ export const Footer: React.FC<HTMLChakraProps<"div">> = (props) => {
           direction={{ base: "column-reverse", md: "row" }}
           align="center"
         >
-          <Stack alignItems={{ base: "center", md: "flex-start" }} direction="column" spacing="0">
+          <Stack
+            alignItems={{ base: "center", md: "flex-start" }}
+            direction="column"
+            spacing="0"
+          >
             <Text align="center" fontSize="xs" color="subtle">
               {getLabel("address")}
             </Text>
             <Text align="center" fontSize="xs" color="subtle">
-              &copy; {new Date().getFullYear()} {getLabel("orgFormal")}. {getLabel("copyright")}
+              &copy; {new Date().getFullYear()} {getLabel("orgFormal")}.{" "}
+              {getLabel("copyright")}
             </Text>
           </Stack>
           <GitHubExternalLink />

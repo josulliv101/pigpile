@@ -1,0 +1,5 @@
+.yarn
+.next
+.github
+.firebase
+yarn.lock

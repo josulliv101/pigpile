@@ -26,4 +26,5 @@ export const donationStepsSlice = createSlice({
   },
 });
 
-export const selectPaymentState = () => (state: AppState) => state[donationStepsSlice.name];
+export const selectPaymentState = () => (state: AppState) =>
+  state[donationStepsSlice.name];

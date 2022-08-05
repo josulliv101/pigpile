@@ -22,7 +22,11 @@ exports.events = https.onRequest((request, response) => {
   let sig = request.headers["stripe-signature"];
 
   try {
-    let event = stripe.webhooks.constructEvent(request.rawBody, sig, endpointSecret);
+    let event = stripe.webhooks.constructEvent(
+      request.rawBody,
+      sig,
+      endpointSecret
+    );
     return adminDb
       .collection("donations")
       .add(event)

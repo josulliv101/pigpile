@@ -1,12 +1,11 @@
-import * as React from "react";
-import { Donations } from "@josulliv101/types";
+import { Donation } from "@josulliv101/types";
 import { Box } from "@josulliv101/core";
 import { DonationTabs, DonationTabsProps } from "./DonationTabs";
 import { DonationsGrid } from "./DonationsGrid";
 import { DonationsTable } from "./DonationsTable";
 
 export interface SupportersProps extends DonationTabsProps {
-  donations: Donations[];
+  donations: Donation[];
   getLabel: (n: number) => string;
 }
 
@@ -18,14 +17,15 @@ export const Supporters: React.FC<SupportersProps> = ({
   getLabel,
   ...props
 }) => {
+  const DisplayComponent = viewType === 1 ? DonationsTable : DonationsGrid;
   return (
     <Box {...props}>
-      <DonationTabs queryType={queryType} viewType={viewType} onChange={onChange} />
-      {!!viewType ? (
-        <DonationsTable donations={donations} getLabel={getLabel} />
-      ) : (
-        <DonationsGrid donations={donations} getLabel={getLabel} />
-      )}
+      <DonationTabs
+        queryType={queryType}
+        viewType={viewType}
+        onChange={onChange}
+      />
+      <DisplayComponent donations={donations} getLabel={getLabel} />
     </Box>
   );
 };

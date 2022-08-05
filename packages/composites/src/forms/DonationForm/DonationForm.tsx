@@ -33,11 +33,13 @@ export const DonationForm: React.FC<DonationFormProps> = ({
   onSubmit,
   ...props
 }) => {
-  const { paymentIntent, stripeObj, setPaymentIntentAmount } = useStripePaymentIntent(
-    numberOfUnits !== null ? numberOfUnits * pricePerUnit + tip : 0
-  );
+  const { paymentIntent, stripeObj, setPaymentIntentAmount } =
+    useStripePaymentIntent(
+      numberOfUnits !== null ? numberOfUnits * pricePerUnit + tip : 0
+    );
 
-  const showCustomInputField = showCustomInputFieldProp || numberOfUnits === null;
+  const showCustomInputField =
+    showCustomInputFieldProp || numberOfUnits === null;
 
   useEffect(() => {
     if (numberOfUnits) {
@@ -57,7 +59,11 @@ export const DonationForm: React.FC<DonationFormProps> = ({
       />
       {numberOfUnits !== null && (
         <Box opacity={showCustomInputField ? 0 : 1}>
-          <TipInput tip={tip} onChange={onChangeTip} isDisabled={showCustomInputField} />
+          <TipInput
+            tip={tip}
+            onChange={onChangeTip}
+            isDisabled={showCustomInputField}
+          />
           <TotalLabel amount={numberOfUnits * pricePerUnit} tip={tip} />
           <Elements
             stripe={stripeObj}

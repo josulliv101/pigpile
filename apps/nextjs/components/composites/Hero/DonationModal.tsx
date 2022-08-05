@@ -47,7 +47,11 @@ export const DonationModal: React.FC<Props> = ({
   userRequestsCustomAmount,
 }) => {
   return (
-    <Modal isOpen={isOpen} size={{ base: "full", md: "md" }} onClose={onCloseModal}>
+    <Modal
+      isOpen={isOpen}
+      size={{ base: "full", md: "md" }}
+      onClose={onCloseModal}
+    >
       <ModalOverlay />
       <ModalContent
         minH="640px"
@@ -74,11 +78,17 @@ export const DonationModal: React.FC<Props> = ({
               numberOfUnits={numberOfUnits}
               pricePerUnit={pricePerUnit}
               tip={tip}
-              showCustomInputField={userRequestsCustomAmount || numberOfUnits === null}
+              showCustomInputField={
+                userRequestsCustomAmount || numberOfUnits === null
+              }
             />
           )}
           {activeFormStep === FORM_STEPS.AdditionalInfo && (
-            <EmojiForm p="0" bgColor="transparent" onSubmit={onSubmitAdditionalInfo} />
+            <EmojiForm
+              p="0"
+              bgColor="transparent"
+              onSubmit={onSubmitAdditionalInfo}
+            />
           )}
         </ModalBody>
       </ModalContent>

@@ -39,9 +39,13 @@ const BrandText = chakra(Text, {
   },
 });
 
-const getLogoTransformScale = (scale: number) => `translate3d(-50%, -50%, 0) scale(${scale})`;
+const getLogoTransformScale = (scale: number) =>
+  `translate3d(-50%, -50%, 0) scale(${scale})`;
 
-export const Banner: React.FC<HTMLChakraProps<"div">> = ({ children: nav, ...props }) => {
+export const Banner: React.FC<HTMLChakraProps<"div">> = ({
+  children: nav,
+  ...props
+}) => {
   const dispatch = useAppDispatch();
   const { isMobileNavOpen } = useAppSelector(selectAppState());
   const mobileNavBtnRef = useRef<HTMLButtonElement>();
@@ -120,7 +124,10 @@ export const BannerContent = memo<BannerContentProps>(
             />
           </Flex>
         </Container>
-        <MobileNavContent isOpen={isMobileNavOpen} onClose={handleCloseMobileNav} />
+        <MobileNavContent
+          isOpen={isMobileNavOpen}
+          onClose={handleCloseMobileNav}
+        />
       </Background>
     );
   }

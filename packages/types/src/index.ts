@@ -52,7 +52,10 @@ export type AddedDonation = Omit<Donation, "createdAtInMS"> & {
   campaignId: string;
 };
 
-export type Comment = Pick<Donation, "comment" | "displayName" | "emoji" | "createdAtInMS">;
+export type Comment = Pick<
+  Donation,
+  "comment" | "displayName" | "emoji" | "createdAtInMS"
+>;
 
 export interface Campaign {
   id: string;

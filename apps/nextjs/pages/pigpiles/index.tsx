@@ -49,21 +49,29 @@ function Pigpiles({ campaignIds }: Props): JSX.Element {
   );
 }
 
-export const getServerSideProps = wrapper.getServerSideProps((store) => async ({ res }) => {
-  const snapshot = await adminDb.collection("campaigns-meta").doc("campaign").get();
-  const data = snapshot.data();
-  let ids = [];
+export const getServerSideProps = wrapper.getServerSideProps(
+  (store) =>
+    async ({ res }) => {
+      const snapshot = await adminDb
+        .collection("campaigns-meta")
+        .doc("campaign")
+        .get();
+      const data = snapshot.data();
+      let ids = [];
 
-  if (data?.ids) {
-    ids = data.ids;
-  }
-  return {
-    props: {
-      campaignIds: ids,
-    },
-  };
-});
+      if (data?.ids) {
+        ids = data.ids;
+      }
+      return {
+        props: {
+          campaignIds: ids,
+        },
+      };
+    }
+);
 
-Pigpiles.getLayout = (page): JSX.Element => <LayoutFullViewport>{page}</LayoutFullViewport>;
+Pigpiles.getLayout = (page): JSX.Element => (
+  <LayoutFullViewport>{page}</LayoutFullViewport>
+);
 
 export default Pigpiles;

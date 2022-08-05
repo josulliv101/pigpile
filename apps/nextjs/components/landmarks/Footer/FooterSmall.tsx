@@ -17,7 +17,11 @@ export const FooterNavLink: React.FC<NavLinkProps> = (props) => (
 
 export const FooterSmall: React.FC<HTMLChakraProps<"footer">> = (props) => {
   return (
-    <Box pt="8" bg="linear-gradient(rgba(0,0,0,0), rgba(28,41,29,.6))" {...props}>
+    <Box
+      pt="8"
+      bg="linear-gradient(rgba(0,0,0,0), rgba(28,41,29,.6))"
+      {...props}
+    >
       <Container as="footer" role="contentinfo" py="2">
         <Stack spacing={{ base: "4", md: "5" }} opacity=".9">
           <Stack justify="space-between" direction="row" align="center">

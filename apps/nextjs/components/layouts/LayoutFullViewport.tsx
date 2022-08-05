@@ -35,7 +35,13 @@ export const LayoutFullViewport: React.FC<Layout> = ({ children }) => {
           <Chester animationType={chesterAnimationType} opacity=".9" />
         </Box>
       </Background>
-      <FooterSmall pos="fixed" bottom="0" left="50%" transform="translateX(-50%)" w="100vw" />
+      <FooterSmall
+        pos="fixed"
+        bottom="0"
+        left="50%"
+        transform="translateX(-50%)"
+        w="100vw"
+      />
     </>
   );
 };

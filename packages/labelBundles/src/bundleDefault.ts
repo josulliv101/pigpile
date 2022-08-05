@@ -5,7 +5,8 @@ export const defaultLabelBundle: LabelBundleType = {
   org: "Pigpile",
   orgFormal: "Pigpile Corporation",
   tagline: "Pigpile on good causes",
-  mission: "Our mission is to inspire giving and help good causes raise funds/in-kind donations",
+  mission:
+    "Our mission is to inspire giving and help good causes raise funds/in-kind donations",
   platform: "an online fund-raising platform",
   address: "1770 Massachusetts Ave, Cambridge, MA 02140, suite 128",
 

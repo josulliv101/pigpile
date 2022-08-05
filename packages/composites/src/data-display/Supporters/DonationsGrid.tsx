@@ -79,6 +79,8 @@ export const DonationsGrid: React.FC<DonationsGridProps> = ({
                     children={
                       <Box
                         sx={{ svg: { outline: "none" } }}
+                        tabIndex={0}
+                        _dark={{ color: "gray.500" }}
                         _focusVisible={{
                           outline: "none",
                           boxShadow: "outline",
@@ -87,15 +89,13 @@ export const DonationsGrid: React.FC<DonationsGridProps> = ({
                             _focus: { border: "none" },
                           },
                         }}
-                        tabIndex="0"
-                        _dark={{ color: "gray.500" }}
                       >
                         <FaComment
-                          _focus={{ outline: "none" }}
-                          tabIndex="-1"
+                          tabIndex={-1}
                           border="none"
                           color="inherit"
                           fontSize=".9rem"
+                          _focus={{ outline: "none" }}
                         />
                       </Box>
                     }

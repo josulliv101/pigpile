@@ -2,7 +2,15 @@ import Script from "next/script";
 import { useCallback, useMemo } from "react";
 import { AddedDonation, Comment, Donation } from "@josulliv101/types";
 import { adminDb } from "@josulliv101/connect-admin";
-import { Box, Container, HStack, Spacer, Stack, StickyBar, useTheme } from "@josulliv101/core";
+import {
+  Box,
+  Container,
+  HStack,
+  Spacer,
+  Stack,
+  StickyBar,
+  useTheme,
+} from "@josulliv101/core";
 import {
   FeaturedComments,
   MeetChester,
@@ -12,7 +20,11 @@ import {
   Supporters,
 } from "@josulliv101/composites";
 import { LayoutCampaign } from "components/layouts";
-import { useAppDispatch, useAppSelector, useDonationsSubscription } from "hooks";
+import {
+  useAppDispatch,
+  useAppSelector,
+  useDonationsSubscription,
+} from "hooks";
 import {
   addCampaignDonationThunk,
   campaignsSlice,
@@ -62,7 +74,9 @@ export const Campaign: React.FC<Props> = ({ id }): JSX.Element => {
   } = useTheme();
   const landscapeImage = `url(${bgImage})`;
   const dispatch = useAppDispatch();
-  const { isSortDesc, ...donationFilter } = useAppSelector(selectDonationFilterState());
+  const { isSortDesc, ...donationFilter } = useAppSelector(
+    selectDonationFilterState()
+  );
   const chesterAnimationType = useAppSelector(selectChesterAnimation());
   const donations = useAppSelector(selectCampaignDonations(id));
 
@@ -77,7 +91,8 @@ export const Campaign: React.FC<Props> = ({ id }): JSX.Element => {
   );
 
   const handleDonationFilterChange = useCallback(
-    (id: string, index: number) => dispatch(donationFilterSlice.actions.setState({ [id]: index })),
+    (id: string, index: number) =>
+      dispatch(donationFilterSlice.actions.setState({ [id]: index })),
     []
   );
 
@@ -88,12 +103,21 @@ export const Campaign: React.FC<Props> = ({ id }): JSX.Element => {
     return donations.filter((d) => !!d.comment).map(getCommentFromDonation);
   }, [donations]);
 
-  const currentAmount = donations?.reduce((acc, d) => acc + (d.quantity || 0), 0);
+  const currentAmount = donations?.reduce(
+    (acc, d) => acc + (d.quantity || 0),
+    0
+  );
 
   return (
     <>
-      <Script src="https://fast.wistia.com/embed/medias/1wpb65qwkz.jsonp" strategy="lazyOnload" />
-      <Script src="https://fast.wistia.com/assets/external/E-v1.js" strategy="lazyOnload" />
+      <Script
+        src="https://fast.wistia.com/embed/medias/1wpb65qwkz.jsonp"
+        strategy="lazyOnload"
+      />
+      <Script
+        src="https://fast.wistia.com/assets/external/E-v1.js"
+        strategy="lazyOnload"
+      />
       <Hero
         campaignId={id}
         beneficiary={beneficiary}
@@ -131,7 +155,9 @@ export const Campaign: React.FC<Props> = ({ id }): JSX.Element => {
               {...donationFilter}
               donations={donations}
               onChange={handleDonationFilterChange}
-              getLabel={(n) => getLabelForQuantity({ one: "item", many: "items" }, n)}
+              getLabel={(n) =>
+                getLabelForQuantity({ one: "item", many: "items" }, n)
+              }
             />
             <Box display={{ base: "block", md: "none" }} h="6" w="0" />
             <HStack
@@ -164,21 +190,26 @@ export const Campaign: React.FC<Props> = ({ id }): JSX.Element => {
   );
 };
 
-export const getServerSideProps = wrapper.getServerSideProps((store) => async ({ params }) => {
-  const { id } = params as { id: string };
-  const snapshot = await adminDb.collection("campaigns").doc(id).get();
+export const getServerSideProps = wrapper.getServerSideProps(
+  (store) =>
+    async ({ params }) => {
+      const { id } = params as { id: string };
+      const snapshot = await adminDb.collection("campaigns").doc(id).get();
 
-  if (snapshot.data()) {
-    store.dispatch(campaignsSlice.actions.setCampaign(snapshot.data()));
-  }
+      if (snapshot.data()) {
+        store.dispatch(campaignsSlice.actions.setCampaign(snapshot.data()));
+      }
 
-  return {
-    props: {
-      id,
-    },
-  };
-});
+      return {
+        props: {
+          id,
+        },
+      };
+    }
+);
 
-Campaign.getLayout = (page): JSX.Element => <LayoutCampaign>{page}</LayoutCampaign>;
+Campaign.getLayout = (page): JSX.Element => (
+  <LayoutCampaign>{page}</LayoutCampaign>
+);
 
 export default Campaign;

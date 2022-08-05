@@ -19,7 +19,7 @@
     "build": "yarn build-preconstruct && yarn build-nextjs",
     "build-preconstruct": "preconstruct build",
     "build-nextjs": "yarn workspace @josulliv101/nextjs build",
-    "format": "prettier",
+    "format": "prettier --write .",
     "serve": "yarn build && firebase emulators:start --only functions,hosting",
     "deploy": "firebase deploy --only functions,hosting",
     "test": "jest"
@@ -49,7 +49,7 @@
     "jest": "^28.1.3",
     "jest-axe": "^6.0.0",
     "jest-environment-jsdom": "^28.1.3",
-    "prettier": "^2.5.1",
+    "prettier": "^2.7.1",
     "typescript": "^4.5.5"
   }
 }

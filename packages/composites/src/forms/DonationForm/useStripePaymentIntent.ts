@@ -5,7 +5,9 @@ import { loadStripe } from "@stripe/stripe-js/pure";
 let stripePromise: Promise<Stripe | null>;
 
 export function useStripePaymentIntent(initialPaymentIntentAmount = 0) {
-  const [paymentIntentAmount, setPaymentIntentAmount] = useState(initialPaymentIntentAmount);
+  const [paymentIntentAmount, setPaymentIntentAmount] = useState(
+    initialPaymentIntentAmount
+  );
   const [paymentIntent, setPaymentIntentObj] = useState(null);
   const stripeObj = getStripe();
 

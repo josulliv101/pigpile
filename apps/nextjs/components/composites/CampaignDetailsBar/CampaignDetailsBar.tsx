@@ -57,7 +57,11 @@ export const CampaignDetailsBar: React.FC<Props> = ({
           </Box>
         </Organizer>
         <Box>
-          <Heading fontSize={{ base: "xl", md: "xl", lg: "2xl" }} fontWeight="semibold" mb="2">
+          <Heading
+            fontSize={{ base: "xl", md: "xl", lg: "2xl" }}
+            fontWeight="semibold"
+            mb="2"
+          >
             {getLabel("The Details")}
           </Heading>
           <Text

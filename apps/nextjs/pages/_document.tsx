@@ -8,7 +8,11 @@ export default class MyDocument extends Document {
           <meta name="theme-color" content="#000000" />
           <link rel="icon" type="image/png" href="/favicon.ico" />
           <link rel="preconnect" href="https://fonts.googleapis.com" />
-          <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true" />
+          <link
+            rel="preconnect"
+            href="https://fonts.gstatic.com"
+            crossOrigin="true"
+          />
           <link
             href="//fonts.googleapis.com/css?family=Sriracha:400&text=Pigpleongdcaus&display=block"
             rel="stylesheet"

@@ -9,7 +9,10 @@ const labelBundlesById: LabelBundleMap = {
   fr: frLabelBundle,
 };
 
-export function useLabelBundle({ initialId = "default", customLabels = {} } = {}) {
+export function useLabelBundle({
+  initialId = "default",
+  customLabels = {},
+} = {}) {
   const [labelBundleId, setLabelBundleId] = useState(initialId);
 
   return useMemo(() => {

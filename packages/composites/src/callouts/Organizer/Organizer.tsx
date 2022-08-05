@@ -40,14 +40,25 @@ export const Organizer: React.FC<OrganizerProps> = ({
       w="full"
       {...rootStyle}
     >
-      <CardAvatar as={Avatar} size={{ base: "xl", md: "xl" }} src={imageUrl} maxW="96px" />
+      <CardAvatar
+        as={Avatar}
+        size={{ base: "xl", md: "xl" }}
+        src={imageUrl}
+        maxW="96px"
+      />
       <CardBackground h={{ base: "92px", sm: "132px", md: "92px" }} />
       <CardContent pt="2">
         <Heading size="xs" noOfLines={2} mb="3">
           {displayName} {getLabel("is organizing this fundraiser")}.
         </Heading>
         {isEmployee && (
-          <Badge mt="1" mb="1" fontSize="0.6rem" fontWeight="normal" textTransform="none">
+          <Badge
+            mt="1"
+            mb="1"
+            fontSize="0.6rem"
+            fontWeight="normal"
+            textTransform="none"
+          >
             Pigpile {getLabel("Employee")}
           </Badge>
         )}

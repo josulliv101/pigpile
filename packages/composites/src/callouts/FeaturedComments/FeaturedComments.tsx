@@ -1,7 +1,13 @@
 import { useState } from "react";
 import { useSwipeable } from "react-swipeable";
 import { Comment as CommentType } from "@josulliv101/types";
-import { Box, HStack, IconButton, Text, useColorModeValue } from "@josulliv101/core";
+import {
+  Box,
+  HStack,
+  IconButton,
+  Text,
+  useColorModeValue,
+} from "@josulliv101/core";
 import { getNextIndexOnSwipe } from "./getNextIndexOnSwipe";
 import { Comment } from "./Comment";
 
