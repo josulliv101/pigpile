@@ -15,8 +15,6 @@ export interface CustomInputFieldProps extends HTMLChakraProps<"div"> {
 }
 
 export const CustomInputField: React.FC<CustomInputFieldProps> = ({
-  amount = 0,
-  label = "Donate how many?",
   numberOfUnits,
   onChange,
 }) => {

@@ -1,5 +1,4 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-import { screen, userEvent } from "@storybook/testing-library";
 import { Box } from "@josulliv101/core";
 import { Banner } from "./Banner";
 
@@ -18,10 +17,6 @@ export default {
     ),
   ],
 } as ComponentMeta<typeof Banner>;
-
-function sleep(ms: number) {
-  return new Promise((resolve) => setTimeout(resolve, ms));
-}
 
 const Template: ComponentStory<typeof Banner> = (args) => {
   return <Banner {...args} />;

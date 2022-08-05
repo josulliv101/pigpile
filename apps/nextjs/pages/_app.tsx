@@ -15,7 +15,7 @@ import {
   useTheme,
 } from "hooks";
 
-export type Page<P = {}> = NextPage<P> & {
+export type Page<P> = NextPage<P> & {
   getLayout?: (page: ReactElement) => ReactNode;
 };
 

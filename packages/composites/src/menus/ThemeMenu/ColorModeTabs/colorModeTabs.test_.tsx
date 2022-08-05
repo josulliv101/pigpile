@@ -1,6 +1,4 @@
-import * as React from "react";
-import userEvent from "@testing-library/user-event";
-import { render, screen } from "../../../../../../../testUtils";
+import { render } from "../../../../../../testUtils";
 import { axe } from "jest-axe";
 import { ColorModeTabs } from "./ColorModeTabs";
 

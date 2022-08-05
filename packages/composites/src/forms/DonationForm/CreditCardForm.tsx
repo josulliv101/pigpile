@@ -1,5 +1,12 @@
 import { useEffect, useState } from "react";
 import {
+  useElements,
+  CardElement,
+  useStripe as useStripeObject,
+} from "@stripe/react-stripe-js";
+import { Formik, Field, Form } from "formik";
+import { PaymentIntent } from "@josulliv101/types";
+import {
   Box,
   Button,
   FormControl,
@@ -9,26 +16,17 @@ import {
   Spacer,
   Stack,
 } from "@josulliv101/core";
-import {
-  useElements,
-  CardElement,
-  useStripe as useStripeObject,
-} from "@stripe/react-stripe-js";
-import { Formik, Field, Form } from "formik";
 
 export interface CreditCardFormProps extends HTMLChakraProps<"div"> {
-  paymentIntent: any; // PaymentIntent;
+  paymentIntent: PaymentIntent;
   showCustomInputField: boolean;
   onSubmit: () => void;
 }
 
 export const CreditCardForm: React.FC<CreditCardFormProps> = ({
-  currencyAmount,
-  numberOfUnits,
   onSubmit,
   paymentIntent,
   showCustomInputField,
-  ...props
 }) => {
   const stripeObj = useStripeObject();
   const elements = useElements();
@@ -43,8 +41,7 @@ export const CreditCardForm: React.FC<CreditCardFormProps> = ({
   }, [showCustomInputField]);
 
   const handleSubmit: React.FormEventHandler<HTMLFormElement> = async (
-    values,
-    actions
+    values
   ) => {
     if (process.env.IS_STORYBOOK) {
       console.warn("Credit card submission is disabled within Storybook.");
@@ -85,14 +82,14 @@ export const CreditCardForm: React.FC<CreditCardFormProps> = ({
         return errors;
       }}
     >
-      {({ dirty, isValid, isSubmitting, setStatus, status, ...rest }) => {
+      {({ dirty, isValid, isSubmitting, setStatus, status }) => {
         const handleCardChange = (event) =>
           setStatus({ ...status, ccComplete: event.complete });
-        const handleCardBlur = (event) => {
+        const handleCardBlur = () => {
           setStatus({ ...status, userUnfocusedCard: true });
           setIsCardFocused(false);
         };
-        const handleCardFocus = (event) => setIsCardFocused(true);
+        const handleCardFocus = () => setIsCardFocused(true);
         const handleReady = (cardApi) => {
           setCardApi(cardApi);
           setIsCardReady(true);

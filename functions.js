@@ -1,5 +1,4 @@
-const { join } = require("path");
-const { firestore, https } = require("firebase-functions");
+const { https } = require("firebase-functions");
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 const { adminDb } = require("@josulliv101/connect-admin");
 const { default: next } = require("next");
@@ -19,10 +18,10 @@ exports.nextjsFunc = https.onRequest((req, res) => {
 const endpointSecret = process.env.STRIPE_EVENTS_SIGNING_SECRET;
 
 exports.events = https.onRequest((request, response) => {
-  let sig = request.headers["stripe-signature"];
+  const sig = request.headers["stripe-signature"];
 
   try {
-    let event = stripe.webhooks.constructEvent(
+    const event = stripe.webhooks.constructEvent(
       request.rawBody,
       sig,
       endpointSecret
@@ -33,7 +32,7 @@ exports.events = https.onRequest((request, response) => {
       .then((snapshot) => {
         return response.json({ received: true, ref: snapshot.ref.toString() });
       })
-      .catch((err) => {
+      .catch(() => {
         return response.status(500).end();
       });
   } catch (err) {

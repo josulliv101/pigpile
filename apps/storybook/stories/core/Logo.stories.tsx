@@ -3,7 +3,7 @@ import { Logo, Tail, Box, HStack } from "@josulliv101/core";
 export default {
   title: "Media and Icons / Logo",
   decorators: [
-    (Story: any) => (
+    (Story) => (
       <HStack
         p="4"
         spacing="4"
@@ -30,7 +30,12 @@ export const CustomColor = () => (
 );
 
 export const ColorSchemes = (_, { parameters }) =>
-  parameters.chakra.colorSchemes.map((color) => <Logo colorScheme={color} />);
+  parameters.chakra.colorSchemes.map((color) => (
+    <Logo
+      key={color}
+      colorScheme={color}
+    />
+  ));
 
 export const monochromatic = () => (
   <Box

@@ -1,11 +1,6 @@
 import { useState } from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-import {
-  screen,
-  userEvent,
-  waitFor,
-  fireEvent,
-} from "@storybook/testing-library";
+import { screen, userEvent } from "@storybook/testing-library";
 import { DonationForm } from "./DonationForm";
 import { mockPaymentIntent } from "./mock";
 

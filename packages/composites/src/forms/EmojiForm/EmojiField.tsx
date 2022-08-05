@@ -3,7 +3,7 @@ import { Flex, useRadioGroup } from "@josulliv101/core";
 import { RadioCard } from "./RadioCard";
 import { defaultEmojis } from "./defaultEmojis";
 
-export function EmojiField({ name, value, onChange, onBlur }) {
+export function EmojiField({ name, value }) {
   const [field, , { setValue }] = useField({ name, value });
   const { getRootProps, getRadioProps } = useRadioGroup({
     ...field,

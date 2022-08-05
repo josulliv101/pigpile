@@ -4,7 +4,7 @@ import { axe } from "jest-axe";
 import { Chester } from "./Chester";
 
 describe("Chester", () => {
-  /*  it("should not have basic accessibility issues", async () => {
+  it("should not have basic accessibility issues", async () => {
     const { container } = render(<Chester />);
     const results = await axe(container);
     expect(results).toHaveNoViolations();
@@ -14,7 +14,7 @@ describe("Chester", () => {
     render(<Chester onClick={clickHandler} />);
     userEvent.click(screen.getByRole("img"));
     expect(clickHandler).toHaveBeenCalled();
-  });*/
+  });
   it("renders correctly", () => {
     const { container } = render(<Chester />);
     expect(container.firstChild).toMatchInlineSnapshot(`

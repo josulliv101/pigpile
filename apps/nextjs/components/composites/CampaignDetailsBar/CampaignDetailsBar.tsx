@@ -2,7 +2,6 @@ import { FaMapMarkerAlt as FaMapMarker } from "react-icons/fa";
 import {
   AccentButton,
   Box,
-  Button,
   Center,
   Container,
   Heading,

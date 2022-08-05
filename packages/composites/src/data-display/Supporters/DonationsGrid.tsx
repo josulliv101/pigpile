@@ -45,7 +45,7 @@ export const DonationsGrid: React.FC<DonationsGridProps> = ({
   ...props
 }) => {
   if (!donations.length) {
-    return <Text>There's no donations yet. Be the first!</Text>;
+    return <Text>There&apos;s no donations yet. Be the first!</Text>;
   }
 
   return (
@@ -78,34 +78,33 @@ export const DonationsGrid: React.FC<DonationsGridProps> = ({
               >
                 {comment && (
                   <AvatarBadge
-                    children={
-                      <Box
-                        _dark={{ color: "gray.500" }}
-                        _focusVisible={{
-                          outline: "none",
-                          boxShadow: "outline",
-                          svg: {
-                            transform: "scale(1.2)",
-                            _focus: { border: "none" },
-                          },
-                        }}
-                        sx={{ svg: { outline: "none" } }}
-                        tabIndex={0}
-                      >
-                        <FaComment
-                          _focus={{ outline: "none" }}
-                          border="none"
-                          color="inherit"
-                          fontSize=".9rem"
-                          tabIndex={-1}
-                        />
-                      </Box>
-                    }
                     borderColor="transparent"
                     bottom="auto"
                     color="#979b9e"
                     top="0"
-                  />
+                  >
+                    <Box
+                      _dark={{ color: "gray.500" }}
+                      _focusVisible={{
+                        outline: "none",
+                        boxShadow: "outline",
+                        svg: {
+                          transform: "scale(1.2)",
+                          _focus: { border: "none" },
+                        },
+                      }}
+                      sx={{ svg: { outline: "none" } }}
+                      tabIndex={0}
+                    >
+                      <FaComment
+                        _focus={{ outline: "none" }}
+                        border="none"
+                        color="inherit"
+                        fontSize=".9rem"
+                        tabIndex={-1}
+                      />
+                    </Box>
+                  </AvatarBadge>
                 )}
               </CardAvatar>
               <CardBackground />

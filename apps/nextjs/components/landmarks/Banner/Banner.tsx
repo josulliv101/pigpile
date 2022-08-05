@@ -151,3 +151,5 @@ export const BannerContent = memo<BannerContentProps>(
     );
   }
 );
+
+BannerContent.displayName = "Banner";

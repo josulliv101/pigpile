@@ -40,7 +40,7 @@ export const DonationsTable: React.FC<DonationsTableProps> = ({
   ...props
 }) => {
   if (!donations.length) {
-    return <Text>There's no donations yet. Be the first!</Text>;
+    return <Text>There&apos;s no donations yet. Be the first!</Text>;
   }
 
   return (

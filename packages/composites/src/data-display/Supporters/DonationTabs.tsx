@@ -12,7 +12,6 @@ import {
   Divider,
   IconButton,
   HStack,
-  Hide,
   Switch,
   Tab,
   Tabs,

@@ -1,7 +1,7 @@
 import { Styles } from "@josulliv101/core";
 
 const styles: Styles = {
-  global: (props) => ({
+  global: () => ({
     body: {
       overflowX: "hidden",
       _light: {

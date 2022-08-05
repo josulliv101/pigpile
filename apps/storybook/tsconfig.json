@@ -26,7 +26,11 @@
   },
   "include": ["./src/**/*.tsx", "./src/**/*.ts"],
   "exclude": ["node_modules"],
-  "references": [{ "path": "../../packages/theme" }, { "path": "../nextjs" }],
+  "references": [
+    { "path": "../../packages/core" },
+    { "path": "../../packages/theme" },
+    { "path": "../nextjs" }
+  ],
   "compilerOptions": {
     "module": "commonjs"
   }

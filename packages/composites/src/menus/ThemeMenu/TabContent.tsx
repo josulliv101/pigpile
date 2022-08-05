@@ -15,7 +15,6 @@ export interface TabContentProps extends BoxProps {
   isActive?: boolean;
   includeTabIndicator?: boolean;
   index: number;
-  options: any;
 }
 
 const TabContent_ = (props: TabContentProps): JSX.Element => {

@@ -1,6 +1,4 @@
-import { render, screen } from "../../../../../testUtils";
-import { act } from "react-dom/test-utils";
-import { axe } from "jest-axe";
+import { render } from "../../../../../testUtils";
 import { DonationTabs } from "./DonationTabs";
 
 describe("Donation Tabs", () => {

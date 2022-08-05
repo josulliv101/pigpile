@@ -4,7 +4,6 @@ import {
   Button,
   ButtonGroup,
   Flex,
-  HStack,
   HTMLChakraProps,
   IconButton,
   Text,
@@ -32,7 +31,6 @@ export const ItemsLabel: React.FC<ItemsLabelProps> = ({
   onCloseCustomInputField,
   onShowCustomInputField,
   onChangeCustomInputField,
-  ...props
 }) => {
   const [isCustomInputDirty, setIsCustomInputDirty] = useState(false);
   const [updatedNumberOfUnits, setUpdatedNumberOfUnits] = useState(
@@ -133,7 +131,7 @@ export const ItemsLabel: React.FC<ItemsLabelProps> = ({
               _focusVisible={{ outlineColor: "white" }}
               color="white"
               colorScheme="whiteAlpha"
-              onClick={(n) => {
+              onClick={() => {
                 onCloseCustomInputField();
                 setIsCustomInputDirty(false);
               }}

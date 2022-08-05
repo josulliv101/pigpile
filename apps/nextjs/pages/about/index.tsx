@@ -28,7 +28,7 @@ function About(): JSX.Element {
         using tools by Replica Studios.
       </Text>
       <Text mb="4">
-        Donations for fundraisers are hooked into firebase's subscription
+        Donations for fundraisers are hooked into firebase&apos;s subscription
         snapshots so any new incoming donations will be displayed in realtime to
         users on the site.
       </Text>

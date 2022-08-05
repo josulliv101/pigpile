@@ -3,7 +3,7 @@ import Stripe from "stripe";
 import { formatPaymentAmount } from "@josulliv101/formatting";
 import { CURRENCY } from "../../config";
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
   apiVersion: "2020-08-27",
 });
 
@@ -44,7 +44,7 @@ export default async function handler(
         return;
       }
     } catch (e) {
-      if ((e as any).code !== "resource_missing") {
+      if ((e as unknown).code !== "resource_missing") {
         const errorMessage =
           e instanceof Error ? e.message : "Internal server error";
         res.status(500).json({ statusCode: 500, message: errorMessage });

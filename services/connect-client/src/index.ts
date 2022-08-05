@@ -4,5 +4,4 @@ export { signInWithPopup, signOut, GithubAuthProvider } from "firebase/auth";
 export * from "./subscribeToCampaignDonations";
 export * from "./isClient";
 export * from "./connectClientApp";
-export * from "./addEmojiLove";
 export * from "./addDonation";

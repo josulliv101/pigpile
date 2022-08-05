@@ -93,3 +93,7 @@ export interface Provider {
 export interface Layout {
   children: React.ReactNode;
 }
+
+export interface PaymentIntent {
+  client_secret: string;
+}

@@ -4,7 +4,7 @@ import { CountUpBox, Progress, VStack } from "@josulliv101/core";
 export default {
   title: "Data Display / CountUpBox",
   decorators: [
-    (story: Function) => (
+    (story) => (
       <VStack
         alignItems="flex-start"
         spacing="6"
@@ -56,6 +56,7 @@ export const ColorSchemes = (
 ) =>
   colorSchemes.map((color) => (
     <CountUpBox
+      key={color}
       {...props}
       colorScheme={color}
     />

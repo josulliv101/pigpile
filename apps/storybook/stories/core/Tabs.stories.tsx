@@ -1,20 +1,9 @@
-import * as React from "react";
-import {
-  chakra,
-  Tabs,
-  TabIndicator,
-  Tab,
-  TabList,
-  TabPanels,
-  TabPanel,
-  Text,
-  VStack,
-} from "@josulliv101/core";
+import { Tabs, TabIndicator, Tab, TabList, VStack } from "@josulliv101/core";
 
 export default {
   title: "Disclosure / Tabs variant=[raised]",
   decorators: [
-    (story: Function) => (
+    (story) => (
       <VStack
         alignItems="flex-start"
         spacing="6"

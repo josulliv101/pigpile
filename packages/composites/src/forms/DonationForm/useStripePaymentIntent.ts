@@ -46,7 +46,7 @@ export function useStripePaymentIntent(initialPaymentIntentAmount = 0) {
 
 export const getStripe = () => {
   if (!stripePromise) {
-    stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_API_KEY!);
+    stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_API_KEY);
   }
   return stripePromise;
 };

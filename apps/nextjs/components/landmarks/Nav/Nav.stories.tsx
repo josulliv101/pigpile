@@ -1,5 +1,4 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-import { screen, userEvent } from "@storybook/testing-library";
 import { Box } from "@josulliv101/core";
 import { Nav } from "./Nav";
 
@@ -19,10 +18,6 @@ export default {
     ),
   ],
 } as ComponentMeta<typeof Nav>;
-
-function sleep(ms: number) {
-  return new Promise((resolve) => setTimeout(resolve, ms));
-}
 
 const Template: ComponentStory<typeof Nav> = (args) => {
   return <Nav {...args} />;

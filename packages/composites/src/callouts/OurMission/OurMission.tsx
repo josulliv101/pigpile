@@ -21,7 +21,6 @@ export const OurMission: React.FC<HTMLChakraProps<"div">> = (props) => {
         color="white"
         flexDirection="column"
         h="full"
-        h="full"
         justifyContent="flex-start"
         pos="relative"
         pt={{ base: 0, md: 4 }}

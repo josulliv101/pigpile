@@ -109,7 +109,7 @@ export const LoginForm: React.FC<LoginFormProps> = ({
             justify="center"
             spacing="1"
           >
-            <Text color="muted">Don't have an account?</Text>
+            <Text color="muted">Don&apos;t have an account?</Text>
             <Button
               color="white"
               onClick={onSignUp}

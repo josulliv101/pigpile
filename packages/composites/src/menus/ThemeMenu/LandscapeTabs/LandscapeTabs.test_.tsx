@@ -1,15 +1,13 @@
-import * as React from "react";
-import userEvent from "@testing-library/user-event";
-import { render, screen } from "../../../../../../../testUtils";
+import { render } from "../../../../../../testUtils";
 import { axe } from "jest-axe";
 import { LandscapeTabs } from "./LandscapeTabs";
 
 describe("LandscapeTabs", () => {
-  /*  it("should not have basic accessibility issues", async () => {
+  it("should not have basic accessibility issues", async () => {
     const { container } = render(<LandscapeTabs />);
     const results = await axe(container);
     expect(results).toHaveNoViolations();
-  });*/
+  });
   it("renders correctly", () => {
     const { container } = render(<LandscapeTabs />);
     expect(container.firstChild).toMatchInlineSnapshot(`

@@ -18,18 +18,6 @@ export interface TipInputProps extends HTMLChakraProps<"div"> {
   onChange?: () => void;
 }
 
-const formatter = new Intl.NumberFormat("en-US", {
-  style: "currency",
-  currency: "USD",
-});
-
-const formatAsUSD = (n) => {
-  if (!n) {
-    return "$0";
-  }
-  return formatter.format(n);
-};
-
 export const TipInput: React.FC<TipInputProps> = ({
   label,
   options = [0, 0.5, 1.0, 1.5],
@@ -45,7 +33,7 @@ export const TipInput: React.FC<TipInputProps> = ({
       fontWeight="200"
       {...props}
     >
-      We're a free service and rely on donor love. Any contribution is
+      We&apos;re a free service and rely on donor love. Any contribution is
       appreciated. Include a tip of &nbsp;
       <Menu placement="bottom-end">
         <MenuButton

@@ -1,10 +1,5 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-import {
-  screen,
-  userEvent,
-  waitFor,
-  fireEvent,
-} from "@storybook/testing-library";
+import { screen, userEvent } from "@storybook/testing-library";
 import { Box, Center } from "@josulliv101/core";
 import { MoreButtons } from "./MoreButtons";
 import { options, moreOptions } from "./mock";
@@ -19,7 +14,7 @@ export default {
     },
   },
   decorators: [
-    (story: Function) => (
+    (story) => (
       <Center>
         <Box maxW="536px">{story()}</Box>
       </Center>
@@ -34,9 +29,6 @@ function sleep(ms: number) {
 const Template: ComponentStory<typeof MoreButtons> = (args) => {
   return <MoreButtons {...args} />;
 };
-
-const onClick = () => console.info("click");
-const onCustomClick = () => console.info("custom click");
 
 export const Basic = Template.bind({});
 

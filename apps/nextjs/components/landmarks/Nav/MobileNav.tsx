@@ -188,3 +188,5 @@ export const MobileNavButton = forwardRef(
     );
   }
 );
+
+MobileNavButton.displayName = "MobileNavButton";

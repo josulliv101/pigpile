@@ -1,4 +1,4 @@
-import { Swatch, SwatchButton, Button, Stack } from "@josulliv101/core";
+import { Swatch, SwatchButton, Stack } from "@josulliv101/core";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import { FaHeart } from "react-icons/fa";
 

@@ -9,11 +9,12 @@ import {
 } from "@josulliv101/core";
 import { ThemeMenu, UserProfileMenu } from "@josulliv101/composites";
 import { themeOptions } from "@josulliv101/theme";
+import { ThemeState } from "store";
 
 export interface NavProps extends HTMLChakraProps<"nav"> {
   children?: React.ReactNode;
   isAppReady?: boolean;
-  themeState: any;
+  themeState: ThemeState;
   user?: User | null;
   onLogout: () => void;
   onThemeOptionChange: (s: string, index: number) => void;

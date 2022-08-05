@@ -50,7 +50,7 @@ export const ColorSchemeTabs = (props): JSX.Element => {
         })}
       </TabList>
       <TabPanels>
-        {Object.entries(colorSchemes).map(([key, colorScheme], index) => {
+        {Object.keys(colorSchemes).map((key, index) => {
           const isActive = tabsProps.index === index;
           return (
             <TabPanel key={key}>

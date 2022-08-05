@@ -10,7 +10,7 @@ import { memoizedGet, mergeWith } from "@chakra-ui/utils";
  */
 export const extendThemedComponent = (
   extendedName: string,
-  BaseComponentRecord: any,
+  BaseComponentRecord: Record<string, ChakraComponent<any>>, // eslint-disable-line @typescript-eslint/no-explicit-any
   defaultProps = {}
 ): ChakraComponent<"div"> => {
   const [[baseName, BaseComponent]] = Object.entries(BaseComponentRecord);

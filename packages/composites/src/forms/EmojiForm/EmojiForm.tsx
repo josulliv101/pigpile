@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Formik, Field, FieldProps, Form } from "formik";
 import {
   Button,
@@ -35,7 +35,7 @@ const FieldAnonymousCheckBox = () => {
               size="sm"
               {...field}
             >
-              Don't display my name on the site.
+              Don&apos;t display my name on the site.
             </Checkbox>
             <FormErrorMessage>{form.errors.anonymous}</FormErrorMessage>
           </FormControl>
@@ -46,7 +46,7 @@ const FieldAnonymousCheckBox = () => {
 };
 
 export const EmojiForm: React.FC<EmojiFormProps> = ({ onSubmit, ...props }) => {
-  const [activeEmoji, setActiveEmoji] = useState(defaultEmojis[0]);
+  const [activeEmoji] = useState(defaultEmojis[0]);
   return (
     <Callout
       as={Stack}
@@ -95,11 +95,12 @@ export const EmojiForm: React.FC<EmojiFormProps> = ({ onSubmit, ...props }) => {
                           }
                         />
                         <InputRightAddon
-                          children={values.emoji}
                           bgColor="gray.50"
                           fontSize="xl"
                           px="2"
-                        />
+                        >
+                          {values.emoji}
+                        </InputRightAddon>
                       </InputGroup>
                       <FormErrorMessage>
                         {form.errors.displayName}

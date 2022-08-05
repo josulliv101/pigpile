@@ -4,7 +4,7 @@ import { Progress, VStack } from "@josulliv101/core";
 export default {
   title: "Feedback / Progress",
   decorators: [
-    (story: Function) => (
+    (story) => (
       <VStack
         alignItems="flex-start"
         spacing="6"

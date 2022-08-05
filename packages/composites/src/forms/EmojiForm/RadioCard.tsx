@@ -31,3 +31,5 @@ export const RadioCard = forwardRef((props, ref) => {
     </Box>
   );
 });
+
+RadioCard.displayName = "RadioCard";

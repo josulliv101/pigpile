@@ -14,7 +14,7 @@ export const parts = anatomy("card").parts(
   "content"
 );
 
-const baseStyleBadge: SystemStyleFunction = (props) => {
+const baseStyleBadge: SystemStyleFunction = () => {
   return {
     position: "absolute",
     display: "flex",
@@ -35,7 +35,7 @@ const baseStyleContent: SystemStyleFunction = (props) => {
   };
 };
 
-const baseStyleAvatar: SystemStyleFunction = (props) => {
+const baseStyleAvatar: SystemStyleFunction = () => {
   return {
     alignItems: "center",
     color: "white",
@@ -47,7 +47,7 @@ const baseStyleAvatar: SystemStyleFunction = (props) => {
   };
 };
 
-const baseStyleBackground: SystemStyleFunction = (props) => {
+const baseStyleBackground: SystemStyleFunction = () => {
   return {
     pos: "absolute",
     top: 0,
@@ -58,7 +58,7 @@ const baseStyleBackground: SystemStyleFunction = (props) => {
   };
 };
 
-const baseStyleContainer: SystemStyleFunction = (props) => {
+const baseStyleContainer: SystemStyleFunction = () => {
   return {
     pos: "relative",
   };
@@ -132,13 +132,10 @@ const variantOutline: PartsStyleFunction<typeof parts> = (props) => {
 const variants = {
   outline: variantOutline,
   solid: variantSolid,
-  // avatar: baseStyleAvatar(props),
-  // container: baseStyleContainer(props),
 };
 
 const sizes = {
   sm: {
-    // avatar: {},
     background: {
       h: "52px",
     },

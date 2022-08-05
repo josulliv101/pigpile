@@ -1,7 +1,5 @@
-import * as React from "react";
 import {
   Tabs,
-  TabsProps,
   TabList,
   Tab,
   TabIndicator,
@@ -13,13 +11,13 @@ import {
 import { TabContent } from "../TabContent";
 
 type Option = {
-  icon: JSX.Element;
+  icon?: JSX.Element;
   label: string;
 };
 
 const options: Option[] = [{ label: "Farm" }, { label: "Park" }];
 
-export const LandscapeTabs = (props: TabsProps): JSX.Element => {
+export const LandscapeTabs = (): JSX.Element => {
   return (
     <Tabs
       isManual
@@ -34,9 +32,9 @@ export const LandscapeTabs = (props: TabsProps): JSX.Element => {
         Landscape
       </Text>
       <TabList>
-        {options.map((props) => (
-          <Tab key={props.label}>
-            <TabContent {...props} />
+        {options.map((option) => (
+          <Tab key={option.label}>
+            <TabContent {...option} />
           </Tab>
         ))}
       </TabList>

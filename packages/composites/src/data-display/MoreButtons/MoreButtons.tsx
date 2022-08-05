@@ -4,7 +4,6 @@ import {
   Button,
   ButtonGroup,
   chakra,
-  Hide,
   Icon,
   Tooltip,
   useDisclosure,

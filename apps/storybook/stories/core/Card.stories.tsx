@@ -7,21 +7,23 @@ import {
   CardContent,
   Avatar,
   Badge,
-  Heading,
   Text,
   VStack,
 } from "@josulliv101/core";
 
 export default {
   title: "Data Display / Card",
-  decorators: [(story: Function) => <VStack spacing={4}>{story()}</VStack>],
+  decorators: [(story) => <VStack spacing={4}>{story()}</VStack>],
 };
 
 const sizes = ["sm", "md", "lg"];
 
 export const Sizes = () =>
   sizes.map((size) => (
-    <Card size={size}>
+    <Card
+      key={size}
+      size={size}
+    >
       <CardAvatar
         as={Avatar}
         size={size}
@@ -32,7 +34,10 @@ export const Sizes = () =>
 
 export const WithBackground = () =>
   sizes.map((size) => (
-    <Card size={size}>
+    <Card
+      key={size}
+      size={size}
+    >
       <CardBackground />
       <CardAvatar
         as={Avatar}
@@ -44,7 +49,10 @@ export const WithBackground = () =>
 
 export const WithBadge = () =>
   sizes.map((size) => (
-    <Card size={size}>
+    <Card
+      key={size}
+      size={size}
+    >
       <CardBackground />
       <CardBadge
         as={Badge}
@@ -63,7 +71,10 @@ export const WithBadge = () =>
 
 export const SolidVariant = (_, { parameters }) =>
   parameters.chakra.colorSchemes.map((color) => (
-    <Card colorScheme={color}>
+    <Card
+      key={color}
+      colorScheme={color}
+    >
       <CardAvatar as={Avatar} />
       <CardBackground />
       <CardBadge
@@ -100,6 +111,7 @@ const EmojiIcon = () => (
 export const OutlineVariant = (_, { parameters }) =>
   parameters.chakra.colorSchemes.map((color) => (
     <Card
+      key={color}
       colorScheme={color}
       variant="outline"
     >
@@ -120,10 +132,10 @@ export const OutlineVariant = (_, { parameters }) =>
     </Card>
   ));
 
-// CardMedia, CardAside
 export const WithEmoji = () =>
   sizes.map((size) => (
     <Card
+      key={size}
       colorScheme="blue"
       size={size}
       variant="outline"
