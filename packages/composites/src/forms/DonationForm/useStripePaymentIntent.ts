@@ -1,14 +1,12 @@
 import { useState, useEffect } from "react";
+import type { Stripe } from "@stripe/stripe-js";
 import { loadStripe } from "@stripe/stripe-js/pure";
 
 let stripePromise: Promise<Stripe | null>;
 
 export function useStripePaymentIntent(initialPaymentIntentAmount = 0) {
-  const [paymentIntentAmount, setPaymentIntentAmount] = useState(
-    initialPaymentIntentAmount
-  );
+  const [paymentIntentAmount, setPaymentIntentAmount] = useState(initialPaymentIntentAmount);
   const [paymentIntent, setPaymentIntentObj] = useState(null);
-  // const [amount, setPaymentIntentAmount] = useState(10);
   const stripeObj = getStripe();
 
   useEffect(() => {
@@ -31,7 +29,6 @@ export function useStripePaymentIntent(initialPaymentIntentAmount = 0) {
       setPaymentIntentObj(json);
     };
 
-    console.log("FETCHING");
     if (initialPaymentIntentAmount) {
       fetchData().catch(console.error);
     }
@@ -45,16 +42,9 @@ export function useStripePaymentIntent(initialPaymentIntentAmount = 0) {
   };
 }
 
-console.log("GET STRIPE IMPORT");
 export const getStripe = () => {
-  console.log("GET STRIPE FN");
-  console.log(
-    "process.env.NEXT_PUBLIC_STRIPE_API_KEY",
-    process.env.NEXT_PUBLIC_STRIPE_API_KEY
-  );
   if (!stripePromise) {
     stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_API_KEY!);
   }
-  console.log("return stripePromise", stripePromise);
   return stripePromise;
 };

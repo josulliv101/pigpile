@@ -10,7 +10,6 @@ const labelBundlesById: LabelBundleMap = {
 };
 
 export function useLabelBundle({ initialId = "default", customLabels = {} } = {}) {
-  console.log("useLabelBundle", customLabels);
   const [labelBundleId, setLabelBundleId] = useState(initialId);
 
   return useMemo(() => {
@@ -20,14 +19,12 @@ export function useLabelBundle({ initialId = "default", customLabels = {} } = {}
       labelBundlesById[labelBundleId],
       customLabels[labelBundleId]
     );
-    console.log("labelBundleWithOverrides", customLabels, labelBundleWithOverrides);
     const getLabel = makeGetLabelFromBundle(labelBundleWithOverrides);
     const getLabelForQuantity = (
       { one, many }: { one: string; many: string },
       quantity: number,
       ...replacementValues: string[]
     ) => {
-      console.log("getLabelForQuantity", one, many, quantity);
       const label = quantity && quantity > 1 ? many : one;
       return getLabel(label, ...replacementValues);
     };

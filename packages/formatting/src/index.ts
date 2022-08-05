@@ -25,7 +25,6 @@ const digits = new Intl.NumberFormat(locale, {
 });
 
 export const getCurrency = (n: number) => {
-  console.log("getCurrency", typeof n, n, currencyWithoutDecimals.format(0));
   if (!n) {
     return currencyWithoutDecimals.format(0);
   }

@@ -22,7 +22,6 @@ export function subscribeToCampaignDonations(
   const unsubscribe = onSnapshot(q, (querySnapshot) => {
     const donations = [] as Donation[];
     querySnapshot.forEach((doc) => {
-      console.log("querySnapshot");
       const data = doc.data();
       donations.push({ id: doc.id, ...data });
     });
