@@ -67,27 +67,27 @@ export const Chester: React.FC<ChesterProps> = ({
   return (
     <Box {...props}>
       <Stack
-        role="img"
-        onClick={animate}
+        align="center"
         aria-label="Chester the pig"
         as={Fade}
         in
-        align="center"
+        onClick={animate}
+        role="img"
         spacing="0"
       >
         <Box
-          pos="relative"
           animation={animationRequested ? animation : undefined}
           onAnimationEnd={() => setAnimationRequested(false)}
+          pos="relative"
           transformOrigin="center bottom"
         >
           <Image
-            role="presentation"
-            sx={{ cursor: "pointer" }}
-            maxH="80px"
-            src={chesterDataUrl}
-            pos="relative"
             left="-4px"
+            maxH="80px"
+            pos="relative"
+            role="presentation"
+            src={chesterDataUrl}
+            sx={{ cursor: "pointer" }}
             top="7px"
             zIndex="100"
           />

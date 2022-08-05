@@ -45,13 +45,13 @@ export const DonationsTable: React.FC<DonationsTableProps> = ({
 
   return (
     <Stack
-      w="full"
       divider={
         <StackDivider
-          borderColor="gray.200"
           _dark={{ borderColor: "gray.600" }}
+          borderColor="gray.200"
         />
       }
+      w="full"
       {...props}
     >
       {donations.map(
@@ -61,8 +61,8 @@ export const DonationsTable: React.FC<DonationsTableProps> = ({
             flexWrap="wrap"
           >
             <Avatar
-              size="sm"
               icon={<EmojiIcon icon={emoji} />}
+              size="sm"
             />
             <Text
               flex="1"
@@ -73,24 +73,24 @@ export const DonationsTable: React.FC<DonationsTableProps> = ({
             {comment ? (
               <HStack>
                 <Badge
+                  _dark={{ bgColor: "gray.500", color: "gray.200" }}
+                  fontSize="xs"
+                  fontWeight="normal"
                   my="1"
+                  noOfLines={1}
                   pl="7"
                   position="relative"
-                  whiteSpace="unset"
-                  fontWeight="normal"
-                  textTransform="none"
                   pr="4"
-                  fontSize="xs"
-                  variant="subtle"
-                  noOfLines={1}
                   py="1"
-                  _dark={{ bgColor: "gray.500", color: "gray.200" }}
+                  textTransform="none"
+                  variant="subtle"
+                  whiteSpace="unset"
                 >
                   <Box
-                    color="#8d8d8d"
                     _dark={{ color: "gray.300" }}
-                    position="absolute"
+                    color="#8d8d8d"
                     left="9px"
+                    position="absolute"
                     top="7px"
                   >
                     <FaComment
@@ -103,24 +103,24 @@ export const DonationsTable: React.FC<DonationsTableProps> = ({
               </HStack>
             ) : null}
             <Badge
-              my="1"
-              py="1"
-              px="2"
+              _dark={{ bgColor: "gray.500", color: "gray.200" }}
               fontWeight="normal"
+              my="1"
+              px="2"
+              py="1"
               textTransform="none"
               variant="subtle"
-              _dark={{ bgColor: "gray.500", color: "gray.200" }}
             >
               {quantity} {getLabel(quantity)}
             </Badge>
             <Badge
-              my="1"
-              py="1"
-              px="2"
+              _dark={{ bgColor: "gray.500", color: "gray.200" }}
               fontWeight="normal"
+              my="1"
+              px="2"
+              py="1"
               textTransform="none"
               variant="subtle"
-              _dark={{ bgColor: "gray.500", color: "gray.200" }}
             >
               {relativeDays(createdAtInMS)}
             </Badge>

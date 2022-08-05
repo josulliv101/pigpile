@@ -6,22 +6,22 @@ export default class MyDocument extends Document {
       <Html lang="en">
         <Head>
           <meta
-            name="theme-color"
             content="#000000"
+            name="theme-color"
           />
           <link
+            href="/favicon.ico"
             rel="icon"
             type="image/png"
-            href="/favicon.ico"
           />
           <link
-            rel="preconnect"
             href="https://fonts.googleapis.com"
+            rel="preconnect"
           />
           <link
-            rel="preconnect"
-            href="https://fonts.gstatic.com"
             crossOrigin="true"
+            href="https://fonts.gstatic.com"
+            rel="preconnect"
           />
           <link
             href="//fonts.googleapis.com/css?family=Sriracha:400&text=Pigpleongdcaus&display=block"

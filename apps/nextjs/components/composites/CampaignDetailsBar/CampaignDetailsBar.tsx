@@ -33,37 +33,37 @@ export const CampaignDetailsBar: React.FC<Props> = ({
   const { getLabel } = useLabelBundle();
   return (
     <Container
-      pt={{ base: "12", md: "20" }}
       mb={{ base: 6, md: 10 }}
+      pt={{ base: "12", md: "20" }}
     >
       <Stack
+        alignItems="flex-start"
         direction={{ base: "column-reverse", md: "row" }}
         spacing={{ base: 6, md: 12 }}
-        alignItems="flex-start"
       >
         <Organizer
-          maxW={{ base: "full", md: "272px" }}
           createdAtInMS={createdAtInMS}
+          maxW={{ base: "full", md: "272px" }}
           {...organizer}
         >
           <Text
-            mt="3"
             fontSize="xs"
+            mt="3"
             noOfLines={2}
           >
             {getLabel("Join us as we pigpile on:")}
           </Text>
           <Text
-            mt="1"
             fontSize="xs"
-            noOfLines={2}
             fontStyle="oblique"
+            mt="1"
+            noOfLines={2}
           >
             {beneficiary}
           </Text>
           <Box
-            display="flex"
             alignItems="center"
+            display="flex"
           >
             <FaMapMarker
               fontSize=".75rem"
@@ -89,16 +89,16 @@ export const CampaignDetailsBar: React.FC<Props> = ({
           <Text
             fontSize={{ base: "lg", md: "1.06rem", lg: "xl" }}
             mb="10"
-            whiteSpace="pre-wrap"
             noOfLines={isOpen ? undefined : 7}
+            whiteSpace="pre-wrap"
           >
             {description?.split("::").join("\n\n")}
           </Text>
           <Center>
             <AccentButton
+              onClick={onToggle}
               size="sm"
               variant="ghost"
-              onClick={onToggle}
             >
               {isOpen ? getLabel("less") : getLabel("read more")}
             </AccentButton>

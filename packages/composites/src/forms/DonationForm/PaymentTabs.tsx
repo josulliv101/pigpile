@@ -1,7 +1,7 @@
 import type * as React from "react";
 import { HTMLChakraProps, Tab, Tabs, TabList } from "@chakra-ui/react";
 
-export interface PaymentTabsProps extends HTMLChakraProps<"div"> {}
+export type PaymentTabsProps = HTMLChakraProps<"div">;
 
 export const PaymentTabs: React.FC<PaymentTabsProps> = ({ ...props }) => {
   return (
@@ -10,20 +10,20 @@ export const PaymentTabs: React.FC<PaymentTabsProps> = ({ ...props }) => {
       {...props}
     >
       <TabList
-        borderSize="0"
         borderBottomWidth="0"
+        borderSize="0"
       >
         <Tab
+          _selected={{ opacity: 1, bgColor: "whiteAlpha.200" }}
           borderRadius="full"
           opacity={0.6}
-          _selected={{ opacity: 1, bgColor: "whiteAlpha.200" }}
         >
           Credit Card
         </Tab>
         <Tab
+          _selected={{ opacity: 1, bgColor: "whiteAlphaopacity: 1, .200" }}
           borderRadius="full"
           opacity={0.6}
-          _selected={{ opacity: 1, bgColor: "whiteAlphaopacity: 1, .200" }}
         >
           Paypal
         </Tab>

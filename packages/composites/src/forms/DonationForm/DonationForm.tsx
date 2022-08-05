@@ -53,27 +53,26 @@ export const DonationForm: React.FC<DonationFormProps> = ({
       {...props}
     >
       <ItemsLabel
+        label={getLabel}
+        numberOfUnits={numberOfUnits}
+        onChangeCustomInputField={onChangeCustomInputField}
         onCloseCustomInputField={onCloseCustomInputField}
         onShowCustomInputField={onShowCustomInputField}
-        onChangeCustomInputField={onChangeCustomInputField}
-        numberOfUnits={numberOfUnits}
         pricePerUnit={pricePerUnit}
-        label={getLabel}
         showCustomInputField={showCustomInputField}
       />
       {numberOfUnits !== null && (
         <Box opacity={showCustomInputField ? 0 : 1}>
           <TipInput
-            tip={tip}
-            onChange={onChangeTip}
             isDisabled={showCustomInputField}
+            onChange={onChangeTip}
+            tip={tip}
           />
           <TotalLabel
             amount={numberOfUnits * pricePerUnit}
             tip={tip}
           />
           <Elements
-            stripe={stripeObj}
             options={{
               appearance: {
                 theme: "night",
@@ -89,20 +88,21 @@ export const DonationForm: React.FC<DonationFormProps> = ({
               },
               clientSecret: paymentIntent?.client_secret,
             }}
+            stripe={stripeObj}
           >
             <CreditCardForm
-              showCustomInputField={showCustomInputField}
-              paymentIntent={paymentIntent}
               onSubmit={onSubmit}
+              paymentIntent={paymentIntent}
+              showCustomInputField={showCustomInputField}
             />
           </Elements>
         </Box>
       )}
       {numberOfUnits === null && (
         <Text
-          textAlign="center"
           mt="2"
           opacity=".8"
+          textAlign="center"
         >
           Thank you for supporting this pigpile 🤍
         </Text>

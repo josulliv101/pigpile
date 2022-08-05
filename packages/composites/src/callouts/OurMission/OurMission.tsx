@@ -10,20 +10,20 @@ export const OurMission: React.FC<HTMLChakraProps<"div">> = (props) => {
   const { getLabel } = useLabelBundle();
   return (
     <Background
-      flex="1"
       bgPosition="20% 50%"
-      variant="gradient"
+      flex="1"
       minH="360px"
       p={{ base: 10, sm: 20, md: 10 }}
+      variant="gradient"
       {...props}
     >
       <Container
-        pos="relative"
-        h="full"
-        flexDirection="column"
         color="white"
-        justifyContent="flex-start"
+        flexDirection="column"
         h="full"
+        h="full"
+        justifyContent="flex-start"
+        pos="relative"
         pt={{ base: 0, md: 4 }}
       >
         <Text

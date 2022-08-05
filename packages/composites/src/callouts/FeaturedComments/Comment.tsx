@@ -23,8 +23,8 @@ export const Comment: React.FC<Props> = ({
       px={{ base: "6", md: "8" }}
     >
       <Flex
-        direction="column"
         align="center"
+        direction="column"
         textAlign="center"
       >
         <QuoteIcon
@@ -36,19 +36,19 @@ export const Comment: React.FC<Props> = ({
           in
         >
           <Text
+            _dark={{ color: "gray.200" }}
+            color="gray.500"
             fontSize="md"
             fontWeight="semibold"
             mt="3"
-            color="gray.500"
-            _dark={{ color: "gray.200" }}
           >
             &ldquo;{comment}&rdquo;
           </Text>
           <Quotee
-            name={displayName}
             createAt={relativeDays(createdAtInMS)}
             emoji={emoji}
             mt="4"
+            name={displayName}
           />
         </Fade>
       </Flex>

@@ -12,8 +12,8 @@ export const ColorSchemeTabs_ = () => {
   const ids = Object.keys(colorSchemes);
   return (
     <ColorSchemeTabs
-      index={activeIndex}
       colorSchemes={colorSchemes}
+      index={activeIndex}
       onChange={setActiveIndex}
     />
   );

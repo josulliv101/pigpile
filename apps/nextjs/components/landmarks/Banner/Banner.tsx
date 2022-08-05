@@ -70,12 +70,12 @@ export const Banner: React.FC<HTMLChakraProps<"div">> = ({
   return (
     <BannerContent
       bgColor={bgColor}
+      handleCloseMobileNav={handleCloseMobileNav}
+      handleOpenMobileNav={handleOpenMobileNav}
       isMobileNavOpen={isMobileNavOpen}
       logoTransform={logoTransform}
       mobileNavBtnRef={mobileNavBtnRef}
       nav={nav}
-      handleCloseMobileNav={handleCloseMobileNav}
-      handleOpenMobileNav={handleOpenMobileNav}
       {...props}
     />
   );
@@ -138,8 +138,8 @@ export const BannerContent = memo<BannerContentProps>(
             <MobileNavButton
               ref={mobileNavBtnRef}
               aria-label="Open menu"
-              onClick={handleOpenMobileNav}
               mr="1"
+              onClick={handleOpenMobileNav}
             />
           </Flex>
         </Container>

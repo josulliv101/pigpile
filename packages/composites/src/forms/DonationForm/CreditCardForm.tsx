@@ -76,7 +76,7 @@ export const CreditCardForm: React.FC<CreditCardFormProps> = ({
       initialValues={{ email: "" }}
       onSubmit={handleSubmit}
       validate={(values) => {
-        let errors = {};
+        const errors = {};
         if (!values.email) {
           errors.email = "Required";
         } else if (!values.email.includes(".com")) {
@@ -101,23 +101,23 @@ export const CreditCardForm: React.FC<CreditCardFormProps> = ({
         return (
           <Form>
             <Stack
-              spacing="4"
               opacity={isCardReady ? 1 : 0}
+              spacing="4"
             >
               <Field name="email">
                 {({ field, form }) => (
                   <FormControl
-                    isInvalid={form.errors.email && form.touched.email}
                     isDisabled={showCustomInputField}
+                    isInvalid={form.errors.email && form.touched.email}
                   >
                     <Input
                       {...field}
-                      isRequired
-                      id="email"
-                      aria-label="Email"
-                      placeholder="Email"
-                      _placeholder={{ color: "whiteAlpha.800" }}
                       _disabled={{ opacity: 1, cursor: "default" }}
+                      _placeholder={{ color: "whiteAlpha.800" }}
+                      aria-label="Email"
+                      id="email"
+                      isRequired
+                      placeholder="Email"
                     />
                     <FormErrorMessage>{form.errors.email}</FormErrorMessage>
                   </FormControl>
@@ -125,16 +125,6 @@ export const CreditCardForm: React.FC<CreditCardFormProps> = ({
               </Field>
               <FormControl isInvalid={isCardInvalid}>
                 <Box
-                  pl="16px"
-                  pr="4px"
-                  lineHeight="40px"
-                  boxShadow={
-                    isCardInvalid
-                      ? "0 0 0 1px #e53e3e"
-                      : isCardFocused
-                      ? "0 0 0 1px #3182ce"
-                      : "none"
-                  }
                   border={`1px ${
                     isCardInvalid
                       ? "#E53E3E"
@@ -143,12 +133,22 @@ export const CreditCardForm: React.FC<CreditCardFormProps> = ({
                       : "#e2e8f0"
                   } solid`}
                   borderRadius="md"
+                  boxShadow={
+                    isCardInvalid
+                      ? "0 0 0 1px #e53e3e"
+                      : isCardFocused
+                      ? "0 0 0 1px #3182ce"
+                      : "none"
+                  }
+                  lineHeight="40px"
+                  pl="16px"
+                  pr="4px"
                 >
                   <CardElement
-                    onFocus={handleCardFocus}
                     onBlur={handleCardBlur}
-                    onReady={handleReady}
                     onChange={handleCardChange}
+                    onFocus={handleCardFocus}
+                    onReady={handleReady}
                     options={{
                       iconStyle: "solid",
                       style: {
@@ -180,8 +180,6 @@ export const CreditCardForm: React.FC<CreditCardFormProps> = ({
               </FormControl>
               {!showCustomInputField && <Spacer p="20" />}
               <Button
-                type="submit"
-                variant="solid"
                 colorScheme="pink"
                 disabled={
                   showCustomInputField ||
@@ -191,6 +189,8 @@ export const CreditCardForm: React.FC<CreditCardFormProps> = ({
                   isSubmitting
                 }
                 isLoading={isSubmitting}
+                type="submit"
+                variant="solid"
               >
                 Donate Now
               </Button>

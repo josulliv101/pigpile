@@ -26,9 +26,9 @@ export const LayoutFullViewport: React.FC<Layout> = ({ children }) => {
       >
         <Main as="div">{children}</Main>
         <Box
-          pos="absolute"
           bottom="20%"
           left={{ base: "28%", lg: "16%" }}
+          pos="absolute"
           transform="scale(.46)"
           {...chesterPosition}
         >
@@ -39,9 +39,9 @@ export const LayoutFullViewport: React.FC<Layout> = ({ children }) => {
         </Box>
       </Background>
       <FooterSmall
-        pos="fixed"
         bottom="0"
         left="50%"
+        pos="fixed"
         transform="translateX(-50%)"
         w="100vw"
       />

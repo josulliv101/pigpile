@@ -6,8 +6,8 @@ export default {
   decorators: [
     (story: Function) => (
       <VStack
-        spacing="6"
         alignItems="flex-start"
+        spacing="6"
       >
         {story()}
       </VStack>

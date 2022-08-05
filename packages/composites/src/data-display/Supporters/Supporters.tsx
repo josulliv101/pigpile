@@ -21,9 +21,9 @@ export const Supporters: React.FC<SupportersProps> = ({
   return (
     <Box {...props}>
       <DonationTabs
+        onChange={onChange}
         queryType={queryType}
         viewType={viewType}
-        onChange={onChange}
       />
       <DisplayComponent
         donations={donations}

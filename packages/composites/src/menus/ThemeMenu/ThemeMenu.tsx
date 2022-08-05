@@ -44,32 +44,32 @@ export const ThemeMenu: React.FC<ThemeMenuProps> = ({
       <PopoverTrigger>
         <IconButton
           // colorScheme="blackAlpha"
+          _active={{ bgColor: "blackAlpha.50" }}
+          _focusVisible={{ outlineColor: "white" }}
+          _hover={{ bgColor: "blackAlpha.50" }}
+          aria-label="Theme"
           bgColor="transparent"
           borderColor="transparent"
-          aria-label="Theme"
           icon={
             <PaintBrushIcon
               boxSize="5"
               color="gray.200"
             />
           }
-          _hover={{ bgColor: "blackAlpha.50" }}
-          _active={{ bgColor: "blackAlpha.50" }}
-          _focusVisible={{ outlineColor: "white" }}
         />
       </PopoverTrigger>
       <PopoverContent>
         <PopoverCloseButton />
         <PopoverHeader
-          bgColor="gray.200"
           _dark={{ bgColor: "gray.600" }}
+          bgColor="gray.200"
         >
           Theme Options
         </PopoverHeader>
         <PopoverBody
-          pt="4"
-          bgColor="gray.50"
           _dark={{ bgColor: "gray.700" }}
+          bgColor="gray.50"
+          pt="4"
         >
           {Object.keys(themeOptions).map((key) => (
             <ThemeTabs

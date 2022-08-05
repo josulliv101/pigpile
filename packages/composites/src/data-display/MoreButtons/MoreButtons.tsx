@@ -32,25 +32,25 @@ const ButtonMore = ({ label, price, a, b, c, ...props }) => (
   <Button
     mb="4"
     {...props}
+    _focusVisible={{ outlineColor: "white" }}
     borderRadius="full"
+    boxShadow="md"
     leftIcon={
       props.value === MORE_BUTTONS_BACK_ID ? (
         <Icon as={FaArrowCircleLeft} />
       ) : null
     }
     sx={{ ">span": { pointerEvents: "none" } }}
-    boxShadow="md"
-    _focusVisible={{ outlineColor: "white" }}
   >
     {label}
     {price && props.value !== MORE_BUTTONS_BACK_ID ? (
       <chakra.span
-        transform="scale(.8)"
         color="inherit"
         fontSize={props.size}
         fontWeight="normal"
-        opacity=".7"
         ml="1"
+        opacity=".7"
+        transform="scale(.8)"
       >
         / {price}
       </chakra.span>
@@ -79,11 +79,11 @@ export const MoreButtons: React.FC<MoreButtonsProps> = ({
   };
   return (
     <ButtonGroup
+      flexWrap="wrap"
+      justifyContent="center"
+      maxW="618px"
       pos="relative"
       spacing="4"
-      justifyContent="center"
-      flexWrap="wrap"
-      maxW="618px"
       {...props}
     >
       {displayedOptions.map((btnProps) => (
@@ -103,21 +103,21 @@ export const MoreButtons: React.FC<MoreButtonsProps> = ({
           }}
         >
           <Tooltip
-            placement="top"
-            label={moreTooltipLabel}
             isDisabled={!moreTooltipLabel}
+            label={moreTooltipLabel}
+            placement="top"
           >
             <Button
+              _focusVisible={{ outlineColor: "white" }}
               aria-label="more"
-              pos="absolute"
-              top="0"
-              right="0"
-              transform="translateX(140%)"
-              size="xs"
-              onClick={onOpen}
               borderRadius="full"
               boxShadow="md"
-              _focusVisible={{ outlineColor: "white" }}
+              onClick={onOpen}
+              pos="absolute"
+              right="0"
+              size="xs"
+              top="0"
+              transform="translateX(140%)"
             >
               <Icon as={FaEllipsisH} />
             </Button>

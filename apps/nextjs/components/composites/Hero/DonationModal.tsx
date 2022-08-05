@@ -49,22 +49,22 @@ export const DonationModal: React.FC<Props> = ({
   return (
     <Modal
       isOpen={isOpen}
-      size={{ base: "full", md: "md" }}
       onClose={onCloseModal}
+      size={{ base: "full", md: "md" }}
     >
       <ModalOverlay />
       <ModalContent
-        minH="640px"
         bgImage={landscapeImage}
-        bgSize="cover"
         bgPosition="27% 50%"
+        bgSize="cover"
+        minH="640px"
         mt="10%"
       >
         <ModalHeader
-          position="relative"
-          mr="6"
-          top="-4px"
           mb="4"
+          mr="6"
+          position="relative"
+          top="-4px"
         >
           {beneficiary}
         </ModalHeader>
@@ -76,26 +76,26 @@ export const DonationModal: React.FC<Props> = ({
           {activeFormStep === FORM_STEPS.Donate && (
             <DonationForm
               bgColor="transparent"
-              p="0"
               getLabel={getLabel}
-              onChangeTip={onChangeTip}
+              numberOfUnits={numberOfUnits}
               onChangeCustomInputField={onChangeCustomInputField}
+              onChangeTip={onChangeTip}
               onCloseCustomInputField={onCloseCustomInputField}
               onShowCustomInputField={onShowCustomInputField}
               onSubmit={onSubmitDonation}
-              numberOfUnits={numberOfUnits}
+              p="0"
               pricePerUnit={pricePerUnit}
-              tip={tip}
               showCustomInputField={
                 userRequestsCustomAmount || numberOfUnits === null
               }
+              tip={tip}
             />
           )}
           {activeFormStep === FORM_STEPS.AdditionalInfo && (
             <EmojiForm
-              p="0"
               bgColor="transparent"
               onSubmit={onSubmitAdditionalInfo}
+              p="0"
             />
           )}
         </ModalBody>

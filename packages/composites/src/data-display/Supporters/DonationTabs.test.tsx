@@ -7,9 +7,9 @@ describe("Donation Tabs", () => {
   it("renders correctly", () => {
     const { container } = render(
       <DonationTabs
+        onChange={jest.fn()}
         queryType={1}
         viewType={0}
-        onChange={jest.fn()}
       />
     );
     expect(container.firstChild).toMatchInlineSnapshot(`

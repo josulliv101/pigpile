@@ -18,7 +18,7 @@ export interface TipInputProps extends HTMLChakraProps<"div"> {
   onChange?: () => void;
 }
 
-var formatter = new Intl.NumberFormat("en-US", {
+const formatter = new Intl.NumberFormat("en-US", {
   style: "currency",
   currency: "USD",
 });
@@ -49,30 +49,30 @@ export const TipInput: React.FC<TipInputProps> = ({
       appreciated. Include a tip of &nbsp;
       <Menu placement="bottom-end">
         <MenuButton
+          _disabled={{ cursor: "default" }}
           as={Button}
-          rightIcon={<FaChevronDown />}
-          colorScheme="whiteAlpha"
-          color="inherit"
           borderColor="whiteAlpha.500"
-          variant="outline"
-          size="xs"
+          color="inherit"
+          colorScheme="whiteAlpha"
           data-testid="updatetip"
           disabled={isDisabled}
-          _disabled={{ cursor: "default" }}
           opacity=".8"
+          rightIcon={<FaChevronDown />}
+          size="xs"
+          variant="outline"
         >
           {getCurrency(tip)}
         </MenuButton>
         <MenuList
-          color="gray.700"
           _dark={{ color: "gray.200" }}
+          color="gray.700"
           fontSize="xs"
           minW="8"
         >
           <MenuOptionGroup
             defaultValue={String(tip)}
-            type="radio"
             onChange={(id) => onChange(id)}
+            type="radio"
           >
             {options.map((option) => (
               <MenuItemOption

@@ -40,13 +40,13 @@ const Template: ComponentStory<typeof DonationForm> = ({
     <DonationForm
       {...args}
       numberOfUnits={numberOfUnits}
-      paymentIntent={mockPaymentIntent}
-      tip={tip}
-      showCustomInputField={showCustomInputField}
+      onChangeCustomInputField={setNumberOfUnits}
       onChangeTip={setTip}
       onCloseCustomInputField={() => setShowCustomInputField(false)}
       onShowCustomInputField={() => setShowCustomInputField(true)}
-      onChangeCustomInputField={setNumberOfUnits}
+      paymentIntent={mockPaymentIntent}
+      showCustomInputField={showCustomInputField}
+      tip={tip}
     />
   );
 };

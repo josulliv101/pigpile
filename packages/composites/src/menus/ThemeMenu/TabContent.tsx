@@ -32,8 +32,8 @@ const TabContent_ = (props: TabContentProps): JSX.Element => {
   if (icon) {
     return (
       <HStack
-        spacing=".4rem"
         align="center"
+        spacing=".4rem"
       >
         <Icon
           as={icon}

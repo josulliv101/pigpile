@@ -72,9 +72,9 @@ export const CountUpBox: React.FC<CountUpBoxProps> = ({
   const labelProps = showLabelOnEnd ? { as: Fade, in: isCountUpComplete } : {};
   return (
     <VStack
-      role="figure"
       aria-label={label}
       className={cx("chakra-count-up-box", className)}
+      role="figure"
       spacing="5"
       sx={{
         ...styles.container,
@@ -85,18 +85,18 @@ export const CountUpBox: React.FC<CountUpBoxProps> = ({
       {children}
       <StylesProvider value={styles}>
         <HStack
+          align="flex-end"
+          justifyContent="space-between"
           pos="relative"
           w="full"
-          justifyContent="space-between"
-          align="flex-end"
         >
           <Label {...labelProps}>{label}</Label>
           <CountUpLabel>
             <CountUp
-              useEasing
-              end={countUpValue}
               duration={duration}
+              end={countUpValue}
               onEnd={() => setIsCountUpComplete(true)}
+              useEasing
             />
           </CountUpLabel>
         </HStack>

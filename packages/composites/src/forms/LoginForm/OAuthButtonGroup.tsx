@@ -20,26 +20,26 @@ export const OAuthButtonGroup: React.FC<OAuthButtonGroupProps> = ({
   return (
     <ButtonGroup
       size="md"
-      variant="outline"
       spacing="4"
+      variant="outline"
       width="full"
     >
       {providers.map(({ name, icon }) => (
         <Button
           key={name}
-          width="full"
-          borderColor="gray.300"
-          bgColor={{ base: "whiteAlpha.100", sm: "blackAlpha.50" }}
-          color="inherit"
+          _dark={{ borderColor: "gray.600" }}
           _hover={{ bgColor: "blackAlpha.100" }}
+          bgColor={{ base: "whiteAlpha.100", sm: "blackAlpha.50" }}
+          borderColor="gray.300"
+          color="inherit"
           // TODO Add google & twitter providers
+          colorScheme="whiteAlpha"
           onClick={() =>
             onSignInWithProvider(
               name === "GitHub" ? githubAuthProvider : { providerId: name }
             )
           }
-          colorScheme="whiteAlpha"
-          _dark={{ borderColor: "gray.600" }}
+          width="full"
         >
           <VisuallyHidden>Sign in with {name}</VisuallyHidden>
           {icon}

@@ -28,26 +28,26 @@ export const CustomInputField: React.FC<CustomInputFieldProps> = ({
   }, []);
   return (
     <NumberInput
-      mx="3"
-      display="inline-flex"
-      maxW="100px"
-      size="lg"
-      onChange={onChange}
-      defaultValue={numberOfUnits}
-      min={1}
-      max={500}
-      borderColor="whiteAlpha.500"
       bgColor="blackAlpha.200"
+      borderColor="whiteAlpha.500"
+      defaultValue={numberOfUnits}
+      display="inline-flex"
+      max={500}
+      maxW="100px"
+      min={1}
+      mx="3"
+      onChange={onChange}
+      size="lg"
     >
       <NumberInputField
         ref={inputEl}
-        arial-label="update number of units"
         _focusVisible={{ outlineColor: "white" }}
+        arial-label="update number of units"
       />
       <NumberInputStepper borderColor="whiteAlpha.500">
         <NumberIncrementStepper
-          borderColor="whiteAlpha.500"
           arial-label="increment number of units"
+          borderColor="whiteAlpha.500"
         />
         <NumberDecrementStepper borderColor="whiteAlpha.500" />
       </NumberInputStepper>

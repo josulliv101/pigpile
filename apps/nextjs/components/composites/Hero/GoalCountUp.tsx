@@ -13,31 +13,31 @@ export const GoalCountUp: React.FC<Props> = ({
   const { getLabel } = useLabelBundle();
   return (
     <CountUpBox
-      minW={{ base: "120px", md: "160px" }}
-      maxW="201px"
+      _dark={{ bgColor: "rgb(88 88 88 / 80%)" }}
       bgColor="rgb(203 211 183 / 85%)"
-      pos="absolute"
       bottom={{ base: "2px", md: "10px" }}
-      right={{ base: "-10px", md: "20px" }}
       countUpValue={currentAmount}
-      limit={goalAmount}
       label={`${currentAmount} ${getLabel("of")} ${goalAmount} ${getLabel(
         "items.alt"
       )}`}
+      limit={goalAmount}
+      maxW="201px"
+      minW={{ base: "120px", md: "160px" }}
+      pos="absolute"
+      right={{ base: "-10px", md: "20px" }}
       showLabelOnEnd
       sx={{
         "@media screen and (min-width: 200px) and (max-width: 768px)": {
           transform: "scale(.8)",
         },
       }}
-      _dark={{ bgColor: "rgb(88 88 88 / 80%)" }}
     >
       <Progress
+        h="4px"
         pos="relative"
         top="10px"
-        w="full"
-        h="4px"
         value={Math.round((currentAmount / goalAmount) * 100)}
+        w="full"
       />
     </CountUpBox>
   );

@@ -33,8 +33,8 @@ export const CampaignOverviewBar: React.FC<Props> = ({
   useEffect(() => setInitWistia(true), []);
   return (
     <BackgroundContent
-      pt="4"
       pb={{ base: "20", md: "8" }}
+      pt="4"
       {...rootStyle}
     >
       <Container>
@@ -44,27 +44,27 @@ export const CampaignOverviewBar: React.FC<Props> = ({
           spacing={{ base: 0, md: 6, lg: 10 }}
         >
           <IntroBlurb
-            title={beneficiary}
             blurb={overview}
+            title={beneficiary}
           />
           <Box
-            flex="1"
-            borderWidth="0"
-            p="3"
-            bgColor="blackAlpha.100"
             _dark={{ bgColor: "whiteAlpha.200" }}
+            bgColor="blackAlpha.100"
+            borderWidth="0"
+            flex="1"
+            p="3"
           >
             {initWistia && (
               <WistiaVideo
-                videoId={videoId}
                 isWistiaReady={isWistiaReady}
                 onLoad={() => setIsWistiaReady(true)}
+                videoId={videoId}
               />
             )}
             <Text
               color="inherit"
-              pt="2"
               fontSize="xs"
+              pt="2"
             >
               {caption}
             </Text>

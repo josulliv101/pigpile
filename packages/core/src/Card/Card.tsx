@@ -30,8 +30,8 @@ export const Card = forwardRef<CardProps, "div">((props, ref) => {
       <chakra.div
         ref={ref}
         {...containerProps}
-        className={cx("chakra-card", props.className)}
         __css={containerStyles}
+        className={cx("chakra-card", props.className)}
       />
     </StylesProvider>
   );
@@ -45,8 +45,8 @@ export const CardContent = forwardRef<CardContentProps, "div">((props, ref) => {
     <chakra.div
       ref={ref}
       {...props}
-      className={cx("chakra-card__content", props.className)}
       __css={styles.content}
+      className={cx("chakra-card__content", props.className)}
     />
   );
 });
@@ -60,8 +60,8 @@ export const CardBadge = forwardRef<CardBadgeProps, "div">((props, ref) => {
   return (
     <Box
       ref={ref}
-      className={cx("chakra-card__badge", props.className)}
       __css={styles.badge}
+      className={cx("chakra-card__badge", props.className)}
       {...props}
     />
   );

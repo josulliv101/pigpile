@@ -62,10 +62,10 @@ export const Swatch = forwardRef<SwatchProps, "div">((props, ref) => {
     `swatch colors ${getColorNames(color1, color2, color3)}`;
   return (
     <Square
-      role={!isButton ? "img" : undefined}
-      aria-label={label}
       ref={ref}
+      aria-label={label}
       className={cx("chakra-swatch", className)}
+      role={!isButton ? "img" : undefined}
       sx={{
         ...swatchStyles,
         ...sx,
@@ -113,8 +113,8 @@ export type SwatchButtonProps = BaseButtonProps &
 export const SwatchButton_ = forwardRef<SwatchButtonProps, "button">(
   ({ sx, ...props }, ref) => (
     <Swatch
-      as={Button}
       ref={ref}
+      as={Button}
       sx={{
         minW: 0,
         padding: 0,
@@ -130,15 +130,15 @@ const MotionSwatch = motion<SwatchButtonProps>(Swatch);
 
 export const SwatchAnimated: React.FC<SwatchButtonProps> = (props) => (
   <MotionSwatch
-    whileHover={{
-      scale: [null, 1.05, 1],
-      transition: { duration: 0.2 },
-    }}
+    transformOrigin="center"
     transformTemplate={(_, transform) =>
       // Disable GPU acceleration to prevent blurriness
       transform.replace(" translateZ(0)", "")
     }
-    transformOrigin="center"
+    whileHover={{
+      scale: [null, 1.05, 1],
+      transition: { duration: 0.2 },
+    }}
     {...props}
   />
 );
@@ -147,15 +147,15 @@ const MotionSwatchButton = motion<SwatchButtonProps>(SwatchButton_);
 
 export const SwatchButton: React.FC<SwatchButtonProps> = (props) => (
   <MotionSwatchButton
-    whileHover={{
-      scale: [null, 1.2, 1],
-      transition: { duration: 0.2 },
-    }}
+    transformOrigin="center"
     transformTemplate={(_, transform) =>
       // Disable GPU acceleration to prevent blurriness
       transform.replace(" translateZ(0)", "")
     }
-    transformOrigin="center"
+    whileHover={{
+      scale: [null, 1.2, 1],
+      transition: { duration: 0.2 },
+    }}
     {...props}
   />
 );

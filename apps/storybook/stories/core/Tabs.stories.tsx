@@ -16,8 +16,8 @@ export default {
   decorators: [
     (story: Function) => (
       <VStack
-        spacing="6"
         alignItems="flex-start"
+        spacing="6"
       >
         {story()}
       </VStack>
@@ -28,8 +28,8 @@ export default {
 export const Sizes = () => (
   <>
     <Tabs
-      variant="raised"
       size="xs"
+      variant="raised"
     >
       <TabList>
         <Tab>One</Tab>
@@ -39,8 +39,8 @@ export const Sizes = () => (
       <TabIndicator />
     </Tabs>
     <Tabs
-      variant="raised"
       size="sm"
+      variant="raised"
     >
       <TabList>
         <Tab>One</Tab>
@@ -50,8 +50,8 @@ export const Sizes = () => (
       <TabIndicator />
     </Tabs>
     <Tabs
-      variant="raised"
       size="md"
+      variant="raised"
     >
       <TabList>
         <Tab>One</Tab>
@@ -61,8 +61,8 @@ export const Sizes = () => (
       <TabIndicator />
     </Tabs>
     <Tabs
-      variant="raised"
       size="lg"
+      variant="raised"
     >
       <TabList>
         <Tab>One</Tab>

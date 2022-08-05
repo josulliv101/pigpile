@@ -21,10 +21,10 @@ export const Callout: React.FC<CalloutProps> = (props) => {
   const { children, __css, ...rest } = omitThemingProps(props);
   return (
     <Box
-      as="aside"
-      className="chakra-callout"
-      // padding={{ base: 10, md: 10 }}
       __css={{ ...baseStyle, ...styles, ...__css }}
+      as="aside"
+      // padding={{ base: 10, md: 10 }}
+      className="chakra-callout"
       {...rest}
     >
       {children}

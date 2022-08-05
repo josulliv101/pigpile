@@ -35,25 +35,25 @@ export const DonationTabs: React.FC<DonationTabsProps> = ({
 }) => {
   return (
     <HStack
-      bg="gray.100"
       _dark={{ bgColor: "gray.600" }}
-      w="full"
-      mb="3"
-      justify="space-between"
       align="center"
+      bg="gray.100"
+      justify="space-between"
+      mb="3"
+      w="full"
     >
       <Box
+        alignItems="center"
+        display={{ base: "flex", md: "flex" }}
         pos="relative"
         w="full"
-        display={{ base: "flex", md: "flex" }}
-        alignItems="center"
       >
         <Tabs
-          size="sm"
           index={queryType}
           isManual
-          variant="raised"
           onChange={(index: number) => onChange("queryType", index)}
+          size="sm"
+          variant="raised"
         >
           <TabList>
             <Tab>
@@ -72,10 +72,10 @@ export const DonationTabs: React.FC<DonationTabsProps> = ({
           />
         </Tabs>
         <Divider
+          borderColor="gray.400"
+          h="20px"
           ml="2"
           orientation="vertical"
-          h="20px"
-          borderColor="gray.400"
         />
         <Tooltip
           label="Sort Order"
@@ -83,11 +83,10 @@ export const DonationTabs: React.FC<DonationTabsProps> = ({
         >
           <Box ml="3">
             <Switch
-              w="20px"
-              onChange={(ev) => onChange("isSortDesc", !ev.target.checked)}
-              size="md"
               _dark={{ opacity: 0.8 }}
               color="gray.500"
+              onChange={(ev) => onChange("isSortDesc", !ev.target.checked)}
+              size="md"
               sx={{
                 "[data-checked]>svg": { transform: "rotate(-180deg)" },
                 ".chakra-switch__track": { w: "auto" },
@@ -109,6 +108,7 @@ export const DonationTabs: React.FC<DonationTabsProps> = ({
                   },
                 },
               }}
+              w="20px"
             >
               <FaChevronDown />
             </Switch>
@@ -116,25 +116,25 @@ export const DonationTabs: React.FC<DonationTabsProps> = ({
         </Tooltip>
       </Box>
       <Box
+        display="flex"
+        flexDirection="row"
         id="foobar"
         pos="relative"
-        display="flex"
-        textAlign="center"
-        flexDirection="row"
         sx={{
           "@media screen and (min-width: 200px) and (max-width: 476px)": {
             display: "none",
           },
         }}
+        textAlign="center"
       >
         <Tabs
           display={{ base: "block", lg: "block" }}
-          mr="0"
-          size="sm"
           index={viewType}
           isManual
-          variant="raised"
+          mr="0"
           onChange={(index: number) => onChange("viewType", index)}
+          size="sm"
+          variant="raised"
         >
           <TabList>
             <Tab>
@@ -150,11 +150,11 @@ export const DonationTabs: React.FC<DonationTabsProps> = ({
           />
         </Tabs>
         <ButtonGroup
+          alignItems="center"
+          borderLeftWidth={1}
           display="none"
           ml="0"
           px="2"
-          borderLeftWidth={1}
-          alignItems="center"
           size="xs"
           variant="ghost"
         >

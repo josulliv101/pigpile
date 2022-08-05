@@ -50,27 +50,27 @@ export const DonationsGrid: React.FC<DonationsGridProps> = ({
 
   return (
     <SimpleGrid
-      w="full"
       columns={{ base: 2, sm: 3, md: 4, lg: 5 }}
       spacing="10px"
+      w="full"
       {...props}
     >
       {donations.map(
         ({ comment, displayName, emoji, quantity, createdAtInMS }, index) => (
           <Tooltip
             key={`${displayName}-${quantity}-${index}`}
-            placement="top"
             label={comment}
+            placement="top"
           >
             <Card
               key={`${displayName}-${quantity}`}
               colorScheme="blue"
-              variant="outline"
               size="sm"
               sx={{
                 svg: { transition: "transform 300ms" },
                 _hover: { svg: { transform: "scale(1.2)" } },
               }}
+              variant="outline"
             >
               <CardAvatar
                 as={Avatar}
@@ -78,14 +78,8 @@ export const DonationsGrid: React.FC<DonationsGridProps> = ({
               >
                 {comment && (
                   <AvatarBadge
-                    borderColor="transparent"
-                    color="#979b9e"
-                    top="0"
-                    bottom="auto"
                     children={
                       <Box
-                        sx={{ svg: { outline: "none" } }}
-                        tabIndex={0}
                         _dark={{ color: "gray.500" }}
                         _focusVisible={{
                           outline: "none",
@@ -95,24 +89,30 @@ export const DonationsGrid: React.FC<DonationsGridProps> = ({
                             _focus: { border: "none" },
                           },
                         }}
+                        sx={{ svg: { outline: "none" } }}
+                        tabIndex={0}
                       >
                         <FaComment
-                          tabIndex={-1}
+                          _focus={{ outline: "none" }}
                           border="none"
                           color="inherit"
                           fontSize=".9rem"
-                          _focus={{ outline: "none" }}
+                          tabIndex={-1}
                         />
                       </Box>
                     }
+                    borderColor="transparent"
+                    bottom="auto"
+                    color="#979b9e"
+                    top="0"
                   />
                 )}
               </CardAvatar>
               <CardBackground />
               <CardContent>
                 <Heading
-                  size="xs"
                   noOfLines={1}
+                  size="xs"
                 >
                   {displayName}
                 </Heading>

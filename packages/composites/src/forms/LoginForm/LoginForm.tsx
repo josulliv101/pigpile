@@ -29,65 +29,65 @@ export const LoginForm: React.FC<LoginFormProps> = ({
 }) => (
   <Box>
     <Stack
-      w="full"
-      spacing="8"
       alignItems="center"
+      spacing="8"
+      w="full"
     >
       <Box
-        maxW="md"
-        py={{ base: "0", sm: "8" }}
-        px={{ base: "4", sm: "10" }}
-        bg={useBreakpointValue({ base: "transparent", sm: "gray.200" })}
-        boxShadow={{ base: "none", sm: useColorModeValue("md", "md-dark") }}
-        borderRadius={{ base: "none", sm: "xl" }}
         _dark={{
           bg: { base: "transparent", sm: "gray.700" },
           color: "gray.100",
         }}
+        bg={useBreakpointValue({ base: "transparent", sm: "gray.200" })}
+        borderRadius={{ base: "none", sm: "xl" }}
+        boxShadow={{ base: "none", sm: useColorModeValue("md", "md-dark") }}
         color={{ base: "white", sm: "gray.600" }}
+        maxW="md"
+        px={{ base: "4", sm: "10" }}
+        py={{ base: "0", sm: "8" }}
       >
         <Stack spacing="6">
           <Stack spacing="5">
             <FormControl>
               <FormLabel htmlFor="email">Email</FormLabel>
               <Input
+                bgColor="whiteAlpha.500"
+                borderColor="gray.300"
                 id="email"
                 type="email"
-                borderColor="gray.300"
-                bgColor="whiteAlpha.500"
               />
             </FormControl>
             <PasswordField
-              borderColor="gray.300"
               bgColor="whiteAlpha.500"
+              borderColor="gray.300"
             />
           </Stack>
           <HStack justify="flex-end">
             <Button
-              variant="link"
-              colorScheme="blue"
-              size="sm"
-              onClick={onForgotPassword}
               color={{ base: "gray.200", sm: "gray.500" }}
+              colorScheme="blue"
               fontWeight="normal"
+              onClick={onForgotPassword}
+              size="sm"
+              variant="link"
             >
               Forgot password?
             </Button>
           </HStack>
           <Stack spacing="6">
             <Button
+              onClick={onSignIn}
               size="md"
               variant="solid"
-              onClick={onSignIn}
             >
               Sign in
             </Button>
             <HStack borderColor="gray.300">
               <Divider borderColor="gray.400" />
               <Text
+                color="muted"
                 fontSize="sm"
                 whiteSpace="nowrap"
-                color="muted"
               >
                 or continue with
               </Text>
@@ -98,22 +98,22 @@ export const LoginForm: React.FC<LoginFormProps> = ({
         </Stack>
       </Box>
       <Stack
-        spacing="6"
         color="white"
+        spacing="6"
       >
         <Stack
           spacing={{ base: "2", md: "3" }}
           textAlign="center"
         >
           <HStack
-            spacing="1"
             justify="center"
+            spacing="1"
           >
             <Text color="muted">Don't have an account?</Text>
             <Button
-              variant="link"
               color="white"
               onClick={onSignUp}
+              variant="link"
             >
               Sign up
             </Button>

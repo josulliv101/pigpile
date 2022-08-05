@@ -15,9 +15,9 @@ import { GitHubExternalLink } from "./GitHubExternalLink";
 const Link: React.FC<NavLinkProps> = (props) => {
   return (
     <FooterNavLink
-      variant="link"
-      color="gray.500"
       _dark={{ bgColor: "gray.500", color: "gray.200" }}
+      color="gray.500"
+      variant="link"
       {...props}
     />
   );
@@ -27,42 +27,42 @@ export const Footer: React.FC<HTMLChakraProps<"div">> = (props) => {
   const { getLabel } = useLabelBundle();
   return (
     <Box
+      _dark={{ bgColor: "gray.500", color: "gray.200" }}
       bgColor="gray.200"
       color="gray.500"
-      _dark={{ bgColor: "gray.500", color: "gray.200" }}
       {...props}
     >
       <Container
         as="footer"
         mt={{ base: 4, md: 0 }}
-        role="contentinfo"
         px="8"
+        role="contentinfo"
       >
         <Stack
-          spacing="8"
           direction={{ base: "column", md: "row" }}
           justify="space-between"
           py={{ base: "4", md: "12" }}
+          spacing="8"
         >
           <Stack
             direction={{ base: "column-reverse", lg: "row" }}
-            spacing={{ base: "12", md: "8" }}
             justifyContent="space-between"
+            spacing={{ base: "12", md: "8" }}
           >
             <Stack
               bgColor={{ base: "blackAlpha.50", md: "transparent" }}
+              direction={{ base: "column", sm: "row" }}
               px={{ base: 10, md: 0 }}
               py={{ base: 6, md: 0 }}
-              direction={{ base: "column", sm: "row" }}
               spacing="6"
             >
               <Stack
                 borderBottomWidth={{ base: "1px", sm: 0 }}
                 borderColor="blackAlpha.200"
+                flex="1"
+                minW={{ base: 30, md: 36 }}
                 pb={{ base: 6, sm: 0 }}
                 spacing="4"
-                minW={{ base: 30, md: 36 }}
-                flex="1"
               >
                 <Text
                   fontSize="sm"
@@ -71,8 +71,8 @@ export const Footer: React.FC<HTMLChakraProps<"div">> = (props) => {
                   {getLabel("Quick Links")}
                 </Text>
                 <Stack
-                  spacing={{ base: 1, sm: 2 }}
                   shouldWrapChildren
+                  spacing={{ base: 1, sm: 2 }}
                 >
                   <Link href="/">{getLabel("Home")}</Link>
                   <Link href="/pigpiles">{getLabel("View Pigpiles")}</Link>
@@ -82,10 +82,10 @@ export const Footer: React.FC<HTMLChakraProps<"div">> = (props) => {
               <Stack
                 borderBottomWidth={{ base: "1px", sm: 0 }}
                 borderColor="blackAlpha.200"
+                flex="1"
+                minW={{ base: 30, md: 36 }}
                 pb={{ base: 6, sm: 0 }}
                 spacing="4"
-                minW={{ base: 30, md: 36 }}
-                flex="1"
               >
                 <Text
                   fontSize="sm"
@@ -94,8 +94,8 @@ export const Footer: React.FC<HTMLChakraProps<"div">> = (props) => {
                   {getLabel("Legal")}
                 </Text>
                 <Stack
-                  spacing={{ base: 1, sm: 2 }}
                   shouldWrapChildren
+                  spacing={{ base: 1, sm: 2 }}
                 >
                   <Link href="/">{getLabel("Privacy")}</Link>
                   <Link href="/">{getLabel("Terms")}</Link>
@@ -103,9 +103,9 @@ export const Footer: React.FC<HTMLChakraProps<"div">> = (props) => {
                 </Stack>
               </Stack>
               <Stack
-                spacing="4"
-                minW={{ base: 30, md: 36 }}
                 flex="1"
+                minW={{ base: 30, md: 36 }}
+                spacing="4"
               >
                 <Text
                   fontSize="sm"
@@ -114,29 +114,29 @@ export const Footer: React.FC<HTMLChakraProps<"div">> = (props) => {
                   {getLabel("Social")}
                 </Text>
                 <Stack
-                  spacing={{ base: 1, sm: 2 }}
                   shouldWrapChildren
+                  spacing={{ base: 1, sm: 2 }}
                 >
                   <Link
                     as="a"
-                    leftIcon={<FaTwitter />}
                     href="http://www.twitter.com"
+                    leftIcon={<FaTwitter />}
                     target="_blank"
                   >
                     Twitter
                   </Link>
                   <Link
                     as="a"
-                    leftIcon={<FaFacebook />}
                     href="http://www.facebook.com"
+                    leftIcon={<FaFacebook />}
                     target="_blank"
                   >
                     Facebook
                   </Link>
                   <Link
                     as="a"
-                    leftIcon={<FaInstagram />}
                     href="http://www.instagram.com.com"
+                    leftIcon={<FaInstagram />}
                     target="_blank"
                   >
                     Instagram
@@ -145,26 +145,26 @@ export const Footer: React.FC<HTMLChakraProps<"div">> = (props) => {
               </Stack>
             </Stack>
             <Stack
+              flexBasis="42%"
               pt=""
               spacing="4"
-              flexBasis="42%"
             >
               <HStack
-                spacing="3"
                 align="center"
+                spacing="3"
               >
                 <Logo
                   bgColor="gray.500"
-                  fill="gray.200"
-                  boxSize="8"
                   boxShadow="none"
+                  boxSize="8"
+                  fill="gray.200"
                 />
                 <Text
-                  fontFamily="brand"
-                  color="gray.500"
-                  fontWeight="normal"
-                  fontSize={{ base: "lg", sm: "2xl" }}
                   _dark={{ bgColor: "gray.500", color: "gray.200" }}
+                  color="gray.500"
+                  fontFamily="brand"
+                  fontSize={{ base: "lg", sm: "2xl" }}
+                  fontWeight="normal"
                 >
                   {getLabel("tagline")}.
                 </Text>
@@ -179,11 +179,11 @@ export const Footer: React.FC<HTMLChakraProps<"div">> = (props) => {
           </Stack>
         </Stack>
         <Stack
-          pt="0"
-          pb="12"
-          justify="space-between"
-          direction={{ base: "column-reverse", md: "row" }}
           align="center"
+          direction={{ base: "column-reverse", md: "row" }}
+          justify="space-between"
+          pb="12"
+          pt="0"
         >
           <Stack
             alignItems={{ base: "center", md: "flex-start" }}
@@ -192,15 +192,15 @@ export const Footer: React.FC<HTMLChakraProps<"div">> = (props) => {
           >
             <Text
               align="center"
-              fontSize="xs"
               color="subtle"
+              fontSize="xs"
             >
               {getLabel("address")}
             </Text>
             <Text
               align="center"
-              fontSize="xs"
               color="subtle"
+              fontSize="xs"
             >
               &copy; {new Date().getFullYear()} {getLabel("orgFormal")}.{" "}
               {getLabel("copyright")}

@@ -15,9 +15,9 @@ export const Basic = () => {
 export const Bounce = () => {
   return (
     <Chester
-      onClick={clickHandler}
-      animationType="jump"
       animate
+      animationType="jump"
+      onClick={clickHandler}
     />
   );
 };
@@ -25,9 +25,9 @@ export const Bounce = () => {
 export const Wiggle = () => {
   return (
     <Chester
-      onClick={clickHandler}
-      animationType="wiggle"
       animate
+      animationType="wiggle"
+      onClick={clickHandler}
     />
   );
 };
@@ -35,9 +35,9 @@ export const Wiggle = () => {
 export const Wahoo = () => {
   return (
     <Chester
-      onClick={clickHandler}
-      animationType="wahoo"
       animate
+      animationType="wahoo"
+      onClick={clickHandler}
     />
   );
 };

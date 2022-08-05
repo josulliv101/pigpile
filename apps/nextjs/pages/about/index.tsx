@@ -5,8 +5,8 @@ function About(): JSX.Element {
   return (
     <Box>
       <Heading
-        size="md"
         my="4"
+        size="md"
       >
         About
       </Heading>

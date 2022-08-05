@@ -48,30 +48,30 @@ export const ItemsLabel: React.FC<ItemsLabelProps> = ({
     : numberOfUnits;
   return (
     <Flex
-      justifyContent="space-between"
       alignItems={{
         base: "flex-start",
         md: !showCustomInputField ? "center" : "flex-start",
       }}
+      bgColor="blackAlpha.200"
       flexDirection={{
         base: showCustomInputField ? "column" : "row", // showCustomInputField ? "column" : "row",
         // md: "row",
       }}
-      bgColor="blackAlpha.200"
+      justifyContent="space-between"
     >
       <Button
-        sx={{ svg: { transition: "opacity 200ms", opacity: 0.7 } }}
         _active={{ background: "transparent" }}
-        _hover={{ svg: { opacity: 0.9 }, background: "transparent" }}
         _disabled={{ opacity: 1, cursor: "default" }}
-        disabled={showCustomInputField}
-        onClick={onShowCustomInputField}
-        background={showCustomInputField ? "transparent" : "blackAlpha.50"}
-        w="full"
-        justifyContent="space-between"
-        fontWeight="normal"
-        color="gray.100"
         _focusVisible={{ outlineColor: "white" }}
+        _hover={{ svg: { opacity: 0.9 }, background: "transparent" }}
+        background={showCustomInputField ? "transparent" : "blackAlpha.50"}
+        color="gray.100"
+        disabled={showCustomInputField}
+        fontWeight="normal"
+        justifyContent="space-between"
+        onClick={onShowCustomInputField}
+        sx={{ svg: { transition: "opacity 200ms", opacity: 0.7 } }}
+        w="full"
       >
         <Box as="span">
           Donate {activeNumberOfUnits}
@@ -79,8 +79,8 @@ export const ItemsLabel: React.FC<ItemsLabelProps> = ({
           {typeof label === "function" ? label(activeNumberOfUnits) : label}
           &nbsp;
           <Text
-            fontSize="sm"
             as="span"
+            fontSize="sm"
             opacity=".8"
           >
             / {getCurrency(activeNumberOfUnits * pricePerUnit)}
@@ -90,10 +90,10 @@ export const ItemsLabel: React.FC<ItemsLabelProps> = ({
       </Button>
       {showCustomInputField && (
         <Box
-          w="full"
-          pt="6"
           display="flex"
           justifyContent="center"
+          pt="6"
+          w="full"
         >
           <CustomInputField
             numberOfUnits={updatedNumberOfUnits}
@@ -107,37 +107,37 @@ export const ItemsLabel: React.FC<ItemsLabelProps> = ({
 
       {showCustomInputField && (
         <ButtonGroup
-          pt={{ base: 6 }} // , md: 0
+          justifyContent={{ base: "center" }} // , md: 0
           pb="4"
-          justifyContent={{ base: "center" }} // md: "flex-start"
-          w={{ base: "full" }} // , md: "auto"
+          pt={{ base: 6 }} // md: "flex-start"
+          size="md" // , md: "auto"
           // mx="3"
-          size="md"
+          w={{ base: "full" }}
         >
           <Button
-            variant="outline"
-            colorScheme="whiteAlpha"
-            color="white"
-            onClick={handleCommitInputChange}
-            borderColor="whiteAlpha.500"
-            size={numberOfUnits === null ? "md" : "md"}
-            disabled={numberOfUnits !== null && !isCustomInputDirty}
-            w={numberOfUnits === null ? "full" : undefined}
-            maxW="calc(100% - 40px)"
             _focusVisible={{ outlineColor: "white" }}
+            borderColor="whiteAlpha.500"
+            color="white"
+            colorScheme="whiteAlpha"
+            disabled={numberOfUnits !== null && !isCustomInputDirty}
+            maxW="calc(100% - 40px)"
+            onClick={handleCommitInputChange}
+            size={numberOfUnits === null ? "md" : "md"}
+            variant="outline"
+            w={numberOfUnits === null ? "full" : undefined}
           >
             Confirm
           </Button>
           {numberOfUnits !== null && (
             <Button
-              colorScheme="whiteAlpha"
+              _focusVisible={{ outlineColor: "white" }}
               color="white"
-              variant="ghost"
+              colorScheme="whiteAlpha"
               onClick={(n) => {
                 onCloseCustomInputField();
                 setIsCustomInputDirty(false);
               }}
-              _focusVisible={{ outlineColor: "white" }}
+              variant="ghost"
             >
               Cancel
             </Button>
@@ -150,13 +150,13 @@ export const ItemsLabel: React.FC<ItemsLabelProps> = ({
           placement="top"
         >
           <IconButton
-            color="gray.200"
-            variant="ghost"
-            colorScheme="whiteAlpha"
-            size="sm"
             aria-label="edit donation amount"
+            color="gray.200"
+            colorScheme="whiteAlpha"
             icon={<FaPencilAlt />}
             onClick={onShowCustomInputField}
+            size="sm"
+            variant="ghost"
           />
         </Tooltip>
       )}

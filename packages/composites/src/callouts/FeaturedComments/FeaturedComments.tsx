@@ -34,48 +34,48 @@ export const FeaturedComments = ({ comments = [] }: Props) => {
   return (
     <Box
       {...swipeHandlers}
+      _dark={{ bgColor: "gray.500" }}
       as="section"
+      bgColor="gray.100"
       display="flex"
       flexDirection="column"
-      bgColor="gray.100"
       pt="4"
-      _dark={{ bgColor: "gray.500" }}
     >
       {comment && <Comment {...comment} />}
       {comments.length > 1 && (
         <HStack
-          justify="center"
-          spacing={{ base: 4, md: 3 }}
-          mt="8"
-          mb="4"
           color={useColorModeValue("gray.300", "gray.600")}
+          justify="center"
+          mb="4"
+          mt="8"
+          spacing={{ base: 4, md: 3 }}
         >
           {comments.map((_, index) => (
             <IconButton
               key={`btn-${index}${activeIndex === index ? "-active" : ""}`}
-              aria-label="View comment"
-              borderWidth="2px"
-              borderColor={index === activeIndex ? "inherit" : "gray.100"}
-              size="3xs"
-              bgColor={index === activeIndex ? undefined : "gray.300"}
-              borderRadius="full"
-              onClick={() => setActiveIndex(index)}
               _active={{
                 bgColor: index === activeIndex ? undefined : "gray.300",
               }}
               _dark={{
                 bgColor: index === activeIndex ? undefined : "gray.400",
               }}
+              aria-label="View comment"
+              bgColor={index === activeIndex ? undefined : "gray.300"}
+              borderColor={index === activeIndex ? "inherit" : "gray.100"}
+              borderRadius="full"
+              borderWidth="2px"
+              onClick={() => setActiveIndex(index)}
+              size="3xs"
             />
           ))}
         </HStack>
       )}
       <Text
+        _dark={{ bgColor: "gray.700", color: "gray.300" }}
         align="right"
-        fontSize="xs"
         bgColor="gray.200"
         color="gray.500"
-        _dark={{ bgColor: "gray.700", color: "gray.300" }}
+        fontSize="xs"
         px="3"
         py="2"
       >

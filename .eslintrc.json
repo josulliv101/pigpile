@@ -28,6 +28,13 @@
   "rules": {
     "react/react-in-jsx-scope": "off",
     "react/prop-types": "off",
+    "react/jsx-sort-props": [
+      "error",
+      {
+        "ignoreCase": true,
+        "reservedFirst": true
+      }
+    ],
     "@typescript-eslint/no-unused-vars": [
       "error",
       { "ignoreRestSiblings": true }
@@ -36,7 +43,6 @@
   "overrides": [
     {
       "files": "*.js",
-      // rule overrides for js config files (next.config.js, etc.)
       "rules": {
         "@typescript-eslint/no-var-requires": "off"
       }

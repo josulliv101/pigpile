@@ -22,8 +22,8 @@ const Template: ComponentStory<typeof Swatch> = (
 ) => {
   return (
     <Stack
-      direction="row"
       align="center"
+      direction="row"
       spacing="3"
     >
       <Swatch
@@ -81,8 +81,8 @@ const clickHandler = () => console.info("click");
 
 export const SwatchButton_ = () => (
   <Stack
-    direction="row"
     align="center"
+    direction="row"
     spacing="3"
   >
     <SwatchButton
@@ -92,8 +92,8 @@ export const SwatchButton_ = () => (
     />
     <SwatchButton
       {...colors[2]}
-      variant="round-curved"
       onClick={clickHandler}
+      variant="round-curved"
     />
   </Stack>
 );

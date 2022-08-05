@@ -61,54 +61,54 @@ export function MobileNavContent(props: MobileNavContentProps) {
       {isOpen && (
         <RemoveScroll forwardProps>
           <motion.div
-            transition={{ duration: 0.18 }}
-            initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
+            initial={{ opacity: 0 }}
+            transition={{ duration: 0.18 }}
           >
             <Background
+              bgImage={landscapeImage}
               bgPosition={bgPosition}
-              variant="gradient"
-              w="100%"
               h="100vh"
+              left="0"
               overflow="auto"
+              pb="8"
               pos="absolute"
               top="0"
-              left="0"
+              variant="gradient"
+              w="100%"
               zIndex={20}
-              pb="8"
-              bgImage={landscapeImage}
             >
               <Box color="white">
                 <Flex
                   justify="flex-end"
-                  px="6"
-                  pt="3"
                   pb="4"
+                  pt="3"
+                  px="6"
                 >
                   <Logo
                     boxSize="9"
-                    position="absolute"
                     left="50%"
+                    position="absolute"
                     top="0"
                     transform="translate(-50%, 27%)"
                   />
                   <CloseButton
-                    color="white"
                     ref={closeBtnRef}
-                    onClick={onClose}
                     _focusVisible={{ outlineColor: "white" }}
+                    color="white"
+                    onClick={onClose}
                   />
                 </Flex>
                 <ButtonGroup
+                  _dark={{ color: "gray.700" }}
+                  justifyContent="center"
+                  mb="4"
+                  mt="8"
                   size={{ base: "sm", sm: "md" }}
                   spacing="4"
-                  mt="8"
-                  mb="4"
-                  justifyContent="center"
                   variant="solid"
                   w="full"
-                  _dark={{ color: "gray.700" }}
                 >
                   <NavLink href="/">Home</NavLink>
                   <NavLink href="/pigpiles">View Pigpiles</NavLink>
@@ -116,27 +116,27 @@ export function MobileNavContent(props: MobileNavContentProps) {
                   <NavLink href="/login">Login</NavLink>
                 </ButtonGroup>
                 <Flex
-                  flexDirection="column"
                   alignItems="center"
+                  flexDirection="column"
                 >
                   <Heading
-                    textAlign="center"
                     bgColor="blackAlpha.200"
-                    w={{ base: "90%", sm: "64%" }}
-                    mt="10"
-                    pt="6"
-                    pb="0"
                     fontSize="lg"
+                    mt="10"
+                    pb="0"
+                    pt="6"
+                    textAlign="center"
+                    w={{ base: "90%", sm: "64%" }}
                   >
                     Theming Options
                   </Heading>
                   <Grid
+                    bgColor="blackAlpha.200"
+                    gap="4"
                     px="4"
                     py="6"
                     templateColumns="repeat(2, 1fr)"
-                    gap="4"
                     w={{ base: "90%", sm: "64%" }}
-                    bgColor="blackAlpha.200"
                   >
                     {Object.keys(themeOptions).map((key) => (
                       <GridItem key={key}>
@@ -151,16 +151,16 @@ export function MobileNavContent(props: MobileNavContentProps) {
                   </Grid>
                 </Flex>
                 <Chester
+                  animateOnMount
+                  animationType={chesterAnimation}
                   as={AbsoluteCenter}
+                  bottom="20"
                   sx={{
                     "@media screen and (max-height: 660px)": {
                       display: "none",
                     },
                   }}
                   top="auto"
-                  bottom="20"
-                  animateOnMount
-                  animationType={chesterAnimation}
                 />
               </Box>
             </Background>
@@ -176,13 +176,13 @@ export const MobileNavButton = forwardRef(
     return (
       <IconButton
         ref={ref}
+        _focusVisible={{ outlineColor: "white" }}
+        color="white"
+        colorScheme="blackAlpha"
         display={{ base: "flex", md: "none" }}
         fontSize="20px"
-        color="white"
-        variant="ghost"
-        colorScheme="blackAlpha"
         icon={<FaBars />}
-        _focusVisible={{ outlineColor: "white" }}
+        variant="ghost"
         {...props}
       />
     );

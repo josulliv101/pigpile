@@ -63,7 +63,7 @@ export const EmojiForm: React.FC<EmojiFormProps> = ({ onSubmit, ...props }) => {
         }}
         onSubmit={onSubmit}
         validate={(values) => {
-          let errors = {};
+          const errors = {};
           if (!values.anonymous && !values.displayName) {
             errors.displayName =
               "Add a name (it does not need to match the name on your credit card).";
@@ -85,20 +85,20 @@ export const EmojiForm: React.FC<EmojiFormProps> = ({ onSubmit, ...props }) => {
                       <InputGroup>
                         <Input
                           {...field}
-                          isDisabled={values.anonymous}
-                          id="displayName"
-                          aria-label="displayName"
-                          placeholder="Name to display"
                           _placeholder={{ color: "whiteAlpha.800" }}
+                          aria-label="displayName"
+                          id="displayName"
+                          isDisabled={values.anonymous}
+                          placeholder="Name to display"
                           value={
                             values.anonymous ? "Anonymous" : values.displayName
                           }
                         />
                         <InputRightAddon
+                          children={values.emoji}
+                          bgColor="gray.50"
                           fontSize="xl"
                           px="2"
-                          bgColor="gray.50"
-                          children={values.emoji}
                         />
                       </InputGroup>
                       <FormErrorMessage>
@@ -127,11 +127,11 @@ export const EmojiForm: React.FC<EmojiFormProps> = ({ onSubmit, ...props }) => {
                       <InputGroup>
                         <Textarea
                           {...field}
-                          id="comment"
-                          aria-label="comment"
-                          placeholder="Include a comment"
                           _placeholder={{ color: "whiteAlpha.800" }}
+                          aria-label="comment"
+                          id="comment"
                           mt="7"
+                          placeholder="Include a comment"
                           value={values.comment}
                         />
                       </InputGroup>
@@ -143,10 +143,10 @@ export const EmojiForm: React.FC<EmojiFormProps> = ({ onSubmit, ...props }) => {
                 </Field>
                 <Spacer p="1" />
                 <Button
-                  type="submit"
-                  variant="solid"
                   colorScheme="blue"
                   disabled={!dirty || !isValid}
+                  type="submit"
+                  variant="solid"
                 >
                   Finish
                 </Button>

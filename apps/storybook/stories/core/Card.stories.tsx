@@ -47,9 +47,9 @@ export const WithBadge = () =>
     <Card size={size}>
       <CardBackground />
       <CardBadge
+        as={Badge}
         colorScheme="pink"
         variant="solid"
-        as={Badge}
       >
         10
       </CardBadge>
@@ -67,8 +67,8 @@ export const SolidVariant = (_, { parameters }) =>
       <CardAvatar as={Avatar} />
       <CardBackground />
       <CardBadge
-        variant="solid"
         as={Badge}
+        variant="solid"
       >
         10
       </CardBadge>
@@ -100,15 +100,15 @@ const EmojiIcon = () => (
 export const OutlineVariant = (_, { parameters }) =>
   parameters.chakra.colorSchemes.map((color) => (
     <Card
-      variant="outline"
       colorScheme={color}
+      variant="outline"
     >
       <CardAvatar as={MockAvatar} />
       <CardBackground />
       <CardBadge
-        variant="solid"
-        colorScheme={color}
         as={Badge}
+        colorScheme={color}
+        variant="solid"
       >
         10
       </CardBadge>
@@ -125,8 +125,8 @@ export const WithEmoji = () =>
   sizes.map((size) => (
     <Card
       colorScheme="blue"
-      variant="outline"
       size={size}
+      variant="outline"
     >
       <CardAvatar
         as={MockAvatar}
@@ -134,8 +134,8 @@ export const WithEmoji = () =>
       />
       <CardBackground />
       <CardBadge
-        variant="solid"
         as={Badge}
+        variant="solid"
       >
         10
       </CardBadge>

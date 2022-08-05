@@ -119,19 +119,19 @@ export const Campaign: React.FC<Props> = ({ id }): JSX.Element => {
         strategy="lazyOnload"
       />
       <Hero
-        campaignId={id}
         beneficiary={beneficiary}
-        goalAmount={goal?.amount}
+        campaignId={id}
         currentAmount={currentAmount}
-        onAdditionalInfoSubmit={handleAdditionalInfoSubmit}
+        goalAmount={goal?.amount}
         onActiveFormStepChange={handleActiveFormStepChange}
+        onAdditionalInfoSubmit={handleAdditionalInfoSubmit}
         {...donation}
       />
       <StickyBar />
       <CampaignOverviewBar
         beneficiary={beneficiary}
-        tags={tags}
         overview={campaign?.descrShort}
+        tags={tags}
         {...media}
       />
       <CampaignDetailsBar
@@ -143,24 +143,24 @@ export const Campaign: React.FC<Props> = ({ id }): JSX.Element => {
       />
       <Container minH="100px">
         <HStack
-          id="grid-container"
-          w="full"
-          flexDirection={{ base: "column-reverse", md: "row" }}
-          spacing={{ base: 0, md: SPACING }}
           align="flex-start"
+          flexDirection={{ base: "column-reverse", md: "row" }}
+          id="grid-container"
           mb={SPACING}
+          spacing={{ base: 0, md: SPACING }}
+          w="full"
         >
           <Stack
-            w={{ base: "full", md: "76%" }}
             spacing={{ base: 0, md: 8 }}
+            w={{ base: "full", md: "76%" }}
           >
             <Supporters
               {...donationFilter}
               donations={donations}
-              onChange={handleDonationFilterChange}
               getLabel={(n) =>
                 getLabelForQuantity({ one: "item", many: "items" }, n)
               }
+              onChange={handleDonationFilterChange}
             />
             <Box
               display={{ base: "block", md: "none" }}
@@ -168,11 +168,11 @@ export const Campaign: React.FC<Props> = ({ id }): JSX.Element => {
               w="0"
             />
             <HStack
-              w="full"
               alignItems="stretch"
               flexDirection={{ base: "column", lg: "row" }}
-              spacing={{ base: 0, lg: 10 }}
               p="0"
+              spacing={{ base: 0, lg: 10 }}
+              w="full"
             >
               <Organization
                 flex="1"
@@ -190,8 +190,8 @@ export const Campaign: React.FC<Props> = ({ id }): JSX.Element => {
             </HStack>
           </Stack>
           <Stack
-            w={{ base: "full", md: "24%" }}
             spacing={{ base: 4, md: 4 }}
+            w={{ base: "full", md: "24%" }}
           >
             {comments?.length && <FeaturedComments comments={comments} />}
             <MeetChester animationType={chesterAnimationType} />

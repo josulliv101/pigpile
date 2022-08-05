@@ -21,34 +21,34 @@ export const MeetChester: React.FC<MeetChesterProps> = ({
   const { getLabel } = useLabelBundle();
   return (
     <Card
-      p={{ base: 10, sm: 20, md: 10 }}
       colorScheme="gray"
-      variant="solid"
-      size="sm"
+      p={{ base: 10, sm: 20, md: 10 }}
       pt="36px"
+      size="sm"
+      variant="solid"
       {...rootStyle}
     >
       <CardAvatar
         bgColor="#84a3b2"
-        w="24"
+        borderRadius="full"
         h="24"
         p="4"
-        borderRadius="full"
         position="relative"
+        w="24"
       >
         <Chester
-          position="relative"
-          left="4px"
           animationType={animationType}
+          left="4px"
+          position="relative"
           transform="scale(.8)"
         />
       </CardAvatar>
       <CardBackground h={{ base: "92px", sm: "132px", md: "92px" }} />
       <CardContent pt="2">
         <Heading
-          size="xs"
-          noOfLines={2}
           mb="1"
+          noOfLines={2}
+          size="xs"
         >
           {getLabel("Say hello to Chester")}
         </Heading>
@@ -58,10 +58,10 @@ export const MeetChester: React.FC<MeetChesterProps> = ({
           )}
         </Text>
         <Text
-          opacity=".7"
-          mt="3"
-          fontSize="xs"
           color="subtle"
+          fontSize="xs"
+          mt="3"
+          opacity=".7"
         >
           {getLabel("Hint: he's clickable.")}
         </Text>

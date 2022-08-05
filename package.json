@@ -20,6 +20,8 @@
     "build-preconstruct": "preconstruct build",
     "build-nextjs": "yarn workspace @josulliv101/nextjs build",
     "format": "prettier --write .",
+    "lint": "yarn run eslint .",
+    "lint:fix": "yarn run eslint . --fix",
     "serve": "yarn build && firebase emulators:start --only functions,hosting",
     "deploy": "firebase deploy --only functions,hosting",
     "test": "jest"

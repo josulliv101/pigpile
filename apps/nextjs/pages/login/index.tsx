@@ -32,16 +32,16 @@ function Login(): JSX.Element {
   return (
     <>
       <Center
-        w="80%"
-        textAlign="center"
         color="white"
+        textAlign="center"
         top={{ base: "45%", sm: "46%" }}
+        w="80%"
       >
         <LoginForm
-          onSignInWithProvider={handleSignIn}
-          onSignIn={showFeatureNotImplementedStatus}
-          onSignUp={showFeatureNotImplementedStatus}
           onForgotPassword={showFeatureNotImplementedStatus}
+          onSignIn={showFeatureNotImplementedStatus}
+          onSignInWithProvider={handleSignIn}
+          onSignUp={showFeatureNotImplementedStatus}
         />
       </Center>
     </>

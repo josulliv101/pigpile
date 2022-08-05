@@ -18,11 +18,11 @@ export const WistiaVideo: React.FC<Props> = ({
   }
   return (
     <Box
-      maxH="348px"
-      flex="1"
       className="wistia_responsive_padding"
-      position="relative"
+      flex="1"
+      maxH="348px"
       padding="56.25% 0 0 0"
+      position="relative"
     >
       <Box
         className="wistia_responsive_wrapper"
@@ -42,22 +42,22 @@ export const WistiaVideo: React.FC<Props> = ({
             className="wistia_swatch"
             height="100%"
             left="0"
-            position="absolute"
-            top="0"
-            width="100%"
             opacity={isWistiaReady ? 1 : 0}
             overflow="hidden"
+            position="absolute"
+            top="0"
             transition="opacity 200ms"
+            width="100%"
           >
             <Image
-              src={`https://fast.wistia.com/embed/medias/${videoId}/swatch`}
-              filter="blur(5px)"
-              objectFit="contain"
-              height="100%"
-              width="100%"
               alt=""
               aria-hidden="true"
+              filter="blur(5px)"
+              height="100%"
+              objectFit="contain"
               onLoad={onLoad}
+              src={`https://fast.wistia.com/embed/medias/${videoId}/swatch`}
+              width="100%"
             />
           </Box>
         </Box>

@@ -128,48 +128,48 @@ const Hero: React.FC<Props> = ({
     <Background
       bgImage={landscapeImage}
       bgPosition={bgPosition}
-      variant="gradient"
       h="500px"
       sx={{
         "@media screen and (min-height: 200px) and (max-height: 484px)": {
           h: 480,
         },
       }}
+      variant="gradient"
     >
       <DonationModal
         activeFormStep={activeFormStep}
         beneficiary={beneficiary}
-        landscapeImage={landscapeImage}
-        isOpen={isOpen}
         getLabel={getDonationLabel}
+        isOpen={isOpen}
+        landscapeImage={landscapeImage}
         numberOfUnits={numberOfUnits}
         onChangeCustomInputField={handleChangeCustomInputField}
         onChangeTip={handleChangeTip}
         onCloseCustomInputField={handleCloseCustomInputField}
         onCloseModal={handleCloseModal}
         onShowCustomInputField={handleShowCustomInputField}
-        onSubmitDonation={handleSubmitDonation}
         onSubmitAdditionalInfo={handleSubmitAdditionalInfo}
+        onSubmitDonation={handleSubmitDonation}
+        pricePerUnit={pricePerUnit}
         tip={tip}
         userRequestsCustomAmount={userRequestsCustomAmount}
-        pricePerUnit={pricePerUnit}
       />
       <Container
-        pos="relative"
         as={Center}
-        h="full"
-        flexDirection="column"
         color="white"
+        flexDirection="column"
+        h="full"
         justifyContent="flex-start"
+        pos="relative"
         pt={{ base: "90px", md: "120px" }}
       >
         <Heading
-          textAlign="center"
-          size={{ base: "md", md: "lg" }}
           fontSize="1.6rem"
           fontWeight="500"
           mb={{ base: 6, md: 3 }}
           noOfLines={{ base: 10, md: 5 }}
+          size={{ base: "md", md: "lg" }}
+          textAlign="center"
         >
           {getLabel(
             "Help us donate {{amount}} {{itemType}} to {{org}}",
@@ -179,33 +179,33 @@ const Hero: React.FC<Props> = ({
           )}
         </Heading>
         <Heading
-          textAlign="center"
           display={{ base: "block", sm: "block" }}
-          size={{ base: "sm", md: "md" }}
           fontWeight="normal"
           mb={{ base: 6, sm: 0 }}
+          size={{ base: "sm", md: "md" }}
+          textAlign="center"
         >
           {getLabel("Select a donation amount below or choose a")}{" "}
           <Button
-            variant="link"
-            color="gray.50"
-            borderBottom="1px rgba(255,255,255,.7) dashed"
-            onClick={handleCustomBtnClick}
-            fontSize={{ base: "1rem", md: "1.25rem" }}
-            fontWeight="normal"
-            pl="1"
-            borderRadius="none"
             _active={{ color: "inherit" }}
             _focusVisible={{ outlineColor: "white" }}
             _hover={{ textDecoration: "none", bgColor: "blackAlpha.300" }}
+            borderBottom="1px rgba(255,255,255,.7) dashed"
+            borderRadius="none"
+            color="gray.50"
+            fontSize={{ base: "1rem", md: "1.25rem" }}
+            fontWeight="normal"
+            onClick={handleCustomBtnClick}
+            pl="1"
+            variant="link"
           >
             {getLabel("custom amount")}.
           </Button>
         </Heading>
         <MoreButtons
           mt={{ base: "3", sm: "12" }}
-          options={quantityOptions}
           onButtonClick={onDonateQuantityBtnClick}
+          options={quantityOptions}
         />
         <AbsoluteCenter top={{ base: "75%", md: "80%" }}>
           <Chester

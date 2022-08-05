@@ -38,18 +38,18 @@ export const Nav: React.FC<NavProps> = ({
   return (
     <ButtonGroup
       as="nav"
-      size="sm"
-      spacing="2"
       display={{ base: "none", md: "flex" }}
       pr="8"
+      size="sm"
+      spacing="2"
       {...props}
     >
       <ThemeMenu
         key={viewportSize} // force close when viewport changes to/from mobile
-        boxSize={6}
-        themeOptions={themeOptions}
         activeIndexes={themeState}
+        boxSize={6}
         onThemeOptionChange={onThemeOptionChange}
+        themeOptions={themeOptions}
       />
       {!isUserAuthenticated ? (
         <NextLink
@@ -57,20 +57,20 @@ export const Nav: React.FC<NavProps> = ({
           passHref
         >
           <IconButton
-            as="a"
-            variant="outline"
-            colorScheme="blackAlpha"
-            borderColor="transparent"
-            aria-label="Theme"
-            color="gray.50"
-            icon={<FaUserAlt color="gray.300" />}
             _focusVisible={{ outlineColor: "white" }}
+            aria-label="Theme"
+            as="a"
+            borderColor="transparent"
+            color="gray.50"
+            colorScheme="blackAlpha"
+            icon={<FaUserAlt color="gray.300" />}
+            variant="outline"
           />
         </NextLink>
       ) : (
         <UserProfileMenu
-          user={user}
           onLogout={onLogout}
+          user={user}
         />
       )}
       {children}

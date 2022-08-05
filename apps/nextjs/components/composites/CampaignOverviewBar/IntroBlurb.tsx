@@ -14,8 +14,8 @@ export const IntroBlurb: React.FC<Props> = ({ title, blurb }) => {
   const { getLabel } = useLabelBundle();
   return (
     <Box
-      flex="1"
       display="flex"
+      flex="1"
       flexDirection="column"
       justifyContent="center"
       mb={{ base: 10, md: 0 }}
@@ -34,6 +34,13 @@ export const IntroBlurb: React.FC<Props> = ({ title, blurb }) => {
         {blurb}
       </Text>
       <AccentButton
+        alignSelf="center"
+        borderRadius="full"
+        bottom="5"
+        boxShadow="md"
+        maxW={{ base: "90%", sm: "32%" }}
+        minH="40px"
+        mt={{ base: "10", md: "8%" }}
         onClick={() =>
           dispatch(
             statusSlice.actions.setStatus({
@@ -43,16 +50,9 @@ export const IntroBlurb: React.FC<Props> = ({ title, blurb }) => {
           )
         }
         position={{ base: "absolute", md: "static" }}
-        bottom="5"
         rightIcon={<FaShareAlt fontSize="14px" />}
         size={{ base: "md", md: "sm", lg: "lg" }}
-        borderRadius="full"
-        minH="40px"
-        maxW={{ base: "90%", sm: "32%" }}
         w={{ base: "full", md: "30%" }}
-        mt={{ base: "10", md: "8%" }}
-        alignSelf="center"
-        boxShadow="md"
       >
         {getLabel("Share")}
       </AccentButton>

@@ -13,9 +13,9 @@ import { GitHubExternalLink } from "./GitHubExternalLink";
 
 export const FooterNavLink: React.FC<NavLinkProps> = (props) => (
   <NavLink
-    size="sm"
     color="gray.200"
     fontWeight="normal"
+    size="sm"
     {...props}
   />
 );
@@ -23,28 +23,28 @@ export const FooterNavLink: React.FC<NavLinkProps> = (props) => (
 export const FooterSmall: React.FC<HTMLChakraProps<"footer">> = (props) => {
   return (
     <Box
-      pt="8"
       bg="linear-gradient(rgba(0,0,0,0), rgba(28,41,29,.6))"
+      pt="8"
       {...props}
     >
       <Container
         as="footer"
-        role="contentinfo"
         py="2"
+        role="contentinfo"
       >
         <Stack
-          spacing={{ base: "4", md: "5" }}
           opacity=".9"
+          spacing={{ base: "4", md: "5" }}
         >
           <Stack
-            justify="space-between"
-            direction="row"
             align="center"
+            direction="row"
+            justify="space-between"
           >
             <HStack>
               <Text
-                fontSize="sm"
                 color="gray.300"
+                fontSize="sm"
               >
                 &copy; {new Date().getFullYear()} Pigpile Corporation.{" "}
                 <Box
@@ -57,9 +57,9 @@ export const FooterSmall: React.FC<HTMLChakraProps<"footer">> = (props) => {
             </HStack>
             <Show above="sm">
               <ButtonGroup
-                variant="ghost"
-                spacing="0"
                 colorScheme="blackAlpha"
+                spacing="0"
+                variant="ghost"
               >
                 <FooterNavLink href="/about">About</FooterNavLink>
                 <FooterNavLink href="/">Privacy</FooterNavLink>

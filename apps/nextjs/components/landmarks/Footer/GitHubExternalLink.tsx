@@ -6,15 +6,15 @@ export const GitHubExternalLink: React.FC<
 > = (props) => {
   return (
     <IconButton
-      as="a"
-      href="https://github.com/josulliv101"
-      target="_blank"
-      fontSize={{ base: "1.5rem", md: "1.25rem" }}
-      icon={<FaGithub fontSize="inherit" />}
-      color="gray.500"
-      variant="ghost"
-      colorScheme="blackAlpha"
       aria-label="Check out the code on GitHub"
+      as="a"
+      color="gray.500"
+      colorScheme="blackAlpha"
+      fontSize={{ base: "1.5rem", md: "1.25rem" }}
+      href="https://github.com/josulliv101"
+      icon={<FaGithub fontSize="inherit" />}
+      target="_blank"
+      variant="ghost"
       {...props}
     />
   );

@@ -20,13 +20,13 @@ function Pigpiles({ campaignIds }: Props): JSX.Element {
   return (
     <>
       <Center
-        textAlign="center"
+        alignItems="center"
         color="white"
-        top={{ base: "30%" }}
-        w="max-content"
         display="flex"
         h="full"
-        alignItems="center"
+        textAlign="center"
+        top={{ base: "30%" }}
+        w="max-content"
       >
         <List spacing={3}>
           {campaignIds.map((id) => (
@@ -36,16 +36,16 @@ function Pigpiles({ campaignIds }: Props): JSX.Element {
               passHref
             >
               <ListItem
+                _focusVisible={{ outlineColor: "white" }}
                 as={Button}
                 boxShadow="md"
                 display="flex"
                 w="full"
-                _focusVisible={{ outlineColor: "white" }}
               >
                 <ListIcon
                   as={Logo}
-                  color="green.500"
                   boxShadow="none"
+                  color="green.500"
                 />
                 {formatIdAsText(id, { capitalizeAll: true })}
               </ListItem>

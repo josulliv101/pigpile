@@ -18,35 +18,35 @@ export function UserProfileMenu({ user, onLogout }) {
     <Menu placement="bottom-end">
       <MenuButton
         as={IconButton}
+        cursor={"pointer"}
         margin="0"
+        minW={0}
         rounded={"full"}
         variant={"link"}
-        cursor={"pointer"}
-        minW={0}
       >
         <Avatar
-          size={"xs"}
-          name={user?.displayName || "?"}
           bgColor="red.500"
+          name={user?.displayName || "?"}
+          size={"xs"}
         />
       </MenuButton>
       <MenuList
+        _dark={{ color: "whiteAlpha.700" }}
+        alignItems={"center"}
         bgColor="gray.200"
+        color="blackAlpha.700"
+        minW="300px"
         pb="0"
         rootProps={{ mb: "32px" }}
-        alignItems={"center"}
-        minW="300px"
-        color="blackAlpha.700"
-        _dark={{ color: "whiteAlpha.700" }}
       >
         <Stack
           as={Center}
           my="4"
         >
           <Avatar
-            size={"lg"}
-            name={user?.displayName || "?"}
             bgColor="red.500"
+            name={user?.displayName || "?"}
+            size={"lg"}
           />
           <Text fontWeight="semibold">
             {user?.displayName} {user?.isAdmin ? " (admin)" : ""}

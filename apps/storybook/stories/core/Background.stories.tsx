@@ -101,8 +101,8 @@ const GradientVariantColorSchemesWithImage = (
           key={color}
           {...GradientVariantWithImageAndColorScheme.args}
           colorScheme={color}
-          w="300px"
           minH="120px"
+          w="300px"
         />
       ))}
     </Stack>

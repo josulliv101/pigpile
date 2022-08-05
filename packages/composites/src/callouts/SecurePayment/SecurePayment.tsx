@@ -14,23 +14,23 @@ export const SecurePayment: React.FC<HTMLChakraProps<"div">> = (props) => {
   const { getLabel } = useLabelBundle();
   return (
     <Stack
-      color="gray.600"
-      bgColor="#ececec"
       _dark={{ color: "gray.100", bgColor: "gray.600" }}
+      bgColor="#ececec"
+      color="gray.600"
       px="10"
       py="6"
       {...props}
     >
       <HStack
         alignItems="center"
-        justifyContent="flex-start"
         color="gray.900"
+        justifyContent="flex-start"
         spacing="4"
       >
         <Box opacity=".4">
           <Avatar
-            color="#cac5bc"
             bgColor="gray.600"
+            color="#cac5bc"
             icon={
               <FaLock
                 color="inherit"
@@ -41,18 +41,18 @@ export const SecurePayment: React.FC<HTMLChakraProps<"div">> = (props) => {
           />
         </Box>
         <Heading
-          color="gray.500"
           _dark={{ color: "gray.200" }}
-          size="xs"
+          color="gray.500"
           mb="1"
+          size="xs"
         >
           {getLabel("Stripe Secure Payment Processing")}
         </Heading>
       </HStack>
       <Text
-        fontSize="xs"
-        color="gray.500"
         _dark={{ color: "gray.200" }}
+        color="gray.500"
+        fontSize="xs"
       >
         {getLabel(
           "Stripe is certified to PCI Service Provider Level 1 – the most stringent level in the industry"
@@ -60,9 +60,9 @@ export const SecurePayment: React.FC<HTMLChakraProps<"div">> = (props) => {
         .{" "}
         <Box
           as="a"
-          textDecoration="underline"
-          target="_blank"
           href="https://stripe.com/docs/security/stripe"
+          target="_blank"
+          textDecoration="underline"
         >
           {getLabel("Learn more")}
         </Box>

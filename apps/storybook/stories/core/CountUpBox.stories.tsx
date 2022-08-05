@@ -6,8 +6,8 @@ export default {
   decorators: [
     (story: Function) => (
       <VStack
-        spacing="6"
         alignItems="flex-start"
+        spacing="6"
       >
         {story()}
       </VStack>
@@ -74,11 +74,11 @@ export const WithProgressBarAndLabelDelay = () => (
     showLabelOnEnd
   >
     <Progress
+      h="4px"
       pos="relative"
       top="10px"
-      w="full"
-      h="4px"
       value={80}
+      w="full"
     />
   </CountUpBox>
 );

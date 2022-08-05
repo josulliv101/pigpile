@@ -38,8 +38,8 @@ function PigpileApp({ Component, pageProps }: Props): JSX.Element {
 
   return (
     <ChakraProvider
-      theme={theme}
       colorModeManager={localStorageManager}
+      theme={theme}
     >
       <CSSReset />
       {getLayout(<Component {...pageProps} />)}

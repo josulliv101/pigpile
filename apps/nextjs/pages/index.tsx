@@ -11,16 +11,16 @@ function Home(): JSX.Element {
   return (
     <>
       <Center
-        w="80%"
-        textAlign="center"
         color="white"
+        textAlign="center"
         top={{ base: "38%", sm: "36%" }}
+        w="80%"
       >
         <Heading
-          size="lg"
           fontSize={{ base: "2xl", sm: "3xl" }}
           fontWeight="500"
           mb="3"
+          size="lg"
           sx={{
             "@media screen and (min-height: 200px) and (max-height: 566px)": {
               pt: "30%",
@@ -30,22 +30,22 @@ function Home(): JSX.Element {
           Pigpile on good causes.
         </Heading>
         <Heading
-          size={{ base: "sm", sm: "md" }}
           fontWeight="normal"
           mb="6"
+          size={{ base: "sm", sm: "md" }}
         >
           an online fund-raising platform
         </Heading>
         <Text
-          opacity=".9"
-          maxW="max"
-          px="10px"
-          mx="auto"
-          mb="12"
-          fontSize={{ base: "md", sm: "md" }}
-          pt="4"
-          borderTop="1px"
           borderColor="whiteAlpha.700"
+          borderTop="1px"
+          fontSize={{ base: "md", sm: "md" }}
+          maxW="max"
+          mb="12"
+          mx="auto"
+          opacity=".9"
+          pt="4"
+          px="10px"
         >
           Our mission is to inspire giving and help good causes raise
           funds/in-kind donations.
@@ -55,13 +55,13 @@ function Home(): JSX.Element {
           passHref
         >
           <Button
-            width="full"
-            maxWidth="max-content"
-            boxShadow="md"
-            size="lg"
-            fontWeight="semibold"
-            variant="solid"
             _focusVisible={{ outlineColor: "white" }}
+            boxShadow="md"
+            fontWeight="semibold"
+            maxWidth="max-content"
+            size="lg"
+            variant="solid"
+            width="full"
           >
             View Active Pigpiles
           </Button>

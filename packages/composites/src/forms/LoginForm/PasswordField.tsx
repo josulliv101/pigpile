@@ -31,21 +31,21 @@ export const PasswordField = forwardRef<HTMLInputElement, InputProps>(
         <InputGroup>
           <InputRightElement>
             <IconButton
-              variant="link"
               aria-label={isOpen ? "Mask password" : "Reveal password"}
+              color="inherit"
               icon={isOpen ? <HiEyeOff /> : <HiEye />}
               onClick={onClickReveal}
-              color="inherit"
               opacity={{ base: ".76", sm: ".5" }}
+              variant="link"
             />
           </InputRightElement>
           <Input
-            id="password"
             ref={mergeRef}
-            name="password"
-            type={isOpen ? "text" : "password"}
             autoComplete="current-password"
+            id="password"
+            name="password"
             required
+            type={isOpen ? "text" : "password"}
             {...props}
           />
         </InputGroup>

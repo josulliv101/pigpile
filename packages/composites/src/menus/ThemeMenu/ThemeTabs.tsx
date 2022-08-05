@@ -80,17 +80,17 @@ const ThemeTabs_ = (props: TabContentProps): JSX.Element => {
 
   return (
     <Tabs
-      size="xs"
-      isManual
-      variant="raised"
-      mb="5"
       index={activeIndex}
+      isManual
+      mb="5"
       onChange={(index) => onChange(id, index)}
+      size="xs"
+      variant="raised"
       {...tabsProps}
     >
       <Text
-        mb="1"
         fontSize="sm"
+        mb="1"
       >
         {label}
       </Text>

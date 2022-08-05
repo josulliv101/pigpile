@@ -12,17 +12,17 @@ export const RadioCard = forwardRef((props, ref) => {
       <input {...input} />
       <Box
         {...checkbox}
-        cursor="pointer"
-        // borderWidth='1px'
-        borderRadius="md"
         _checked={{
           bg: "whiteAlpha.400",
           color: "white",
           borderColor: "whiteAlpha.600",
         }}
+        // borderWidth='1px'
         _focus={{
           boxShadow: "outline",
         }}
+        borderRadius="md"
+        cursor="pointer"
         px={2}
         py={1}
       >

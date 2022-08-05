@@ -28,19 +28,19 @@ export const Organization: React.FC<OrganizationProps> = ({
   return (
     <Callout {...rootStyle}>
       <Stack
-        justify="space-between"
         h="full"
+        justify="space-between"
       >
         <Box>
           <Heading
-            mb="0"
             fontSize="xl"
+            mb="0"
           >
             {name}
           </Heading>
           <Text
-            mb="4"
             fontSize="lg"
+            mb="4"
           >
             {location}
           </Text>
@@ -50,12 +50,12 @@ export const Organization: React.FC<OrganizationProps> = ({
           <HStack justify="flex-end">
             <Button
               as="a"
-              target="_blank"
-              href={url}
-              colorScheme="blackAlpha"
-              variant="ghost"
-              size="sm"
               color="inherit"
+              colorScheme="blackAlpha"
+              href={url}
+              size="sm"
+              target="_blank"
+              variant="ghost"
             >
               {getLabel("Visit Website")}
             </Button>

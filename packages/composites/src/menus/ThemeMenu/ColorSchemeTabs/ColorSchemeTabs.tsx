@@ -20,15 +20,15 @@ export const ColorSchemeTabs = (props): JSX.Element => {
   const { colorSchemes, ...tabsProps } = props;
   return (
     <Tabs
-      size="xs"
       isManual
-      variant="raised"
       mb="2"
+      size="xs"
+      variant="raised"
       {...tabsProps}
     >
       <Text
-        mb="2"
         fontSize="sm"
+        mb="2"
       >
         Color Scheme
       </Text>

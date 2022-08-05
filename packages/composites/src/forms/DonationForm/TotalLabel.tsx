@@ -20,18 +20,18 @@ export const TotalLabel: React.FC<TotalLabelProps> = ({
         {...props}
       >
         <Text
-          fontSize={{ base: "md", md: "xl" }}
           alignItems="flex-end"
           display="flex"
+          fontSize={{ base: "md", md: "xl" }}
         >
           Total: {getCurrency(amount + tip)}
         </Text>
         <Text
-          opacity=".8"
-          pb="2px"
-          fontSize="sm"
           alignItems="flex-end"
           display="flex"
+          fontSize="sm"
+          opacity=".8"
+          pb="2px"
         >
           {getCurrency(amount)} donation + {getCurrency(tip)} tip
         </Text>

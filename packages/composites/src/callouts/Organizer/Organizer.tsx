@@ -31,36 +31,36 @@ export const Organizer: React.FC<OrganizerProps> = ({
   const { getLabel } = useLabelBundle();
   return (
     <Card
-      p={{ base: 10, sm: 20, md: 10 }}
       colorScheme="gray"
-      variant="solid"
-      size="sm"
       minW="240px"
+      p={{ base: 10, sm: 20, md: 10 }}
       pt="36px"
+      size="sm"
+      variant="solid"
       w="full"
       {...rootStyle}
     >
       <CardAvatar
         as={Avatar}
+        maxW="96px"
         size={{ base: "xl", md: "xl" }}
         src={imageUrl}
-        maxW="96px"
       />
       <CardBackground h={{ base: "92px", sm: "132px", md: "92px" }} />
       <CardContent pt="2">
         <Heading
-          size="xs"
-          noOfLines={2}
           mb="3"
+          noOfLines={2}
+          size="xs"
         >
           {displayName} {getLabel("is organizing this fundraiser")}.
         </Heading>
         {isEmployee && (
           <Badge
-            mt="1"
-            mb="1"
             fontSize="0.6rem"
             fontWeight="normal"
+            mb="1"
+            mt="1"
             textTransform="none"
           >
             Pigpile {getLabel("Employee")}

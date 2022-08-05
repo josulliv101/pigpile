@@ -5,8 +5,8 @@ export default {
   decorators: [
     (Story: any) => (
       <HStack
-        spacing="4"
         p="4"
+        spacing="4"
       >
         <Story />
       </HStack>
@@ -39,12 +39,12 @@ export const monochromatic = () => (
     overflow="hidden"
   >
     <Logo
-      pos="relative"
-      top="2px"
       bgColor="transparent"
-      fill="white"
       borderWidth="0"
+      fill="white"
+      pos="relative"
       shadow="none"
+      top="2px"
     />
   </Box>
 );

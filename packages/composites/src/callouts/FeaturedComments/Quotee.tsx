@@ -11,9 +11,7 @@ export const Quotee: React.FC<Props> = (props) => {
   return (
     <Box {...styleProps}>
       <Avatar
-        size="xl"
         bgColor="gray.200"
-        opacity=".8"
         icon={
           <Box
             as="span"
@@ -22,11 +20,13 @@ export const Quotee: React.FC<Props> = (props) => {
             {emoji}
           </Box>
         }
+        opacity=".8"
+        size="xl"
       />
       <Box
-        mt="3"
-        color="gray.500"
         _dark={{ color: "gray.200" }}
+        color="gray.500"
+        mt="3"
       >
         <Text
           as="cite"
