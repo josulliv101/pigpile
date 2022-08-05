@@ -24,13 +24,7 @@ export function UserProfileMenu({ user, onLogout }) {
         cursor={"pointer"}
         minW={0}
       >
-        <Avatar
-          size={"xs"}
-          // src={'https://avatars.dicebear.com/api/male/username.svg'}
-          name={user?.displayName || "?"}
-          bgColor="red.500"
-          //  borderRadius="md"
-        />
+        <Avatar size={"xs"} name={user?.displayName || "?"} bgColor="red.500" />
       </MenuButton>
       <MenuList
         bgColor="gray.200"
@@ -44,12 +38,8 @@ export function UserProfileMenu({ user, onLogout }) {
         <Stack as={Center} my="4">
           <Avatar
             size={"lg"}
-            // src={'https://avatars.dicebear.com/api/male/username.svg'}
             name={user?.displayName || "?"}
             bgColor="red.500"
-            // borderWidth="2px"
-            // borderColor="white"
-            // borderRadius="md"
           />
           <Text fontWeight="semibold">
             {user?.displayName} {user?.isAdmin ? " (admin)" : ""}
@@ -57,13 +47,9 @@ export function UserProfileMenu({ user, onLogout }) {
         </Stack>
         <Box bgColor="white" py="3">
           <MenuGroup title="Campaigns">
-            <MenuItem fontSize="xs" onClick={() => console.log("/admin")}>
-              View All
-            </MenuItem>
+            <MenuItem fontSize="xs">View All</MenuItem>
             <MenuDivider my="0" />
-            <MenuItem fontSize="xs" onClick={() => console.log("/")}>
-              Create New
-            </MenuItem>
+            <MenuItem fontSize="xs">Create New</MenuItem>
           </MenuGroup>
           <MenuGroup title="User Profile">
             <MenuItem fontSize="xs">Settings</MenuItem>

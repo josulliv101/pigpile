@@ -1,5 +1,5 @@
 import { useField } from "formik";
-import { Flex, HStack, useRadioGroup } from "@josulliv101/core";
+import { Flex, useRadioGroup } from "@josulliv101/core";
 import { RadioCard } from "./RadioCard";
 import { defaultEmojis } from "./defaultEmojis";
 
@@ -8,7 +8,6 @@ export function EmojiField({ name, value, onChange, onBlur }) {
   const { getRootProps, getRadioProps } = useRadioGroup({
     ...field,
     onChange: (...args) => {
-      console.log("setValue!", onChange, ...args);
       setValue(...args);
     },
   });

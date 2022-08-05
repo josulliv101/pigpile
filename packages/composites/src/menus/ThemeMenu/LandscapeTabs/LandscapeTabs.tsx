@@ -20,7 +20,6 @@ type Option = {
 const options: Option[] = [{ label: "Farm" }, { label: "Park" }];
 
 export const LandscapeTabs = (props: TabsProps): JSX.Element => {
-  console.log("LandscapeTabs", props);
   return (
     <Tabs size="xs" variant="raised" mb="2" isManual>
       <Text mb="2" fontSize="sm">

@@ -17,6 +17,5 @@ export const addDonation = async (addedDonation: AddedDonation) => {
     ...donation,
     createdAtInMS: Timestamp.now().seconds * 1000,
   });
-  console.log("doc updatedDoc!", updatedDoc);
   return updatedDoc;
 };

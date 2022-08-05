@@ -17,13 +17,6 @@ console.log(
 
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
-  /*  backgrounds: {
-    default: "light",
-    values: [
-      { name: "light", value: "#f8f8f8" },
-      { name: "dark", value: "#333" },
-    ],
-  },*/
   chakra: {
     theme: getThemeWithDefaults(
       colorSchemes.colorSchemeBluePink,
@@ -46,7 +39,6 @@ export const parameters = {
       date: /Date$/,
     },
   },
-  // layout: 'centered',
   padded: false,
   nextRouter: {
     Provider: RouterContext.Provider,

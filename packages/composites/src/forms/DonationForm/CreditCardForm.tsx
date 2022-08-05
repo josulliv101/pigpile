@@ -1,5 +1,4 @@
-import { useEffect, useRef, useState } from "react";
-import type * as React from "react";
+import { useEffect, useState } from "react";
 import {
   Box,
   Button,
@@ -9,14 +8,12 @@ import {
   Input,
   Spacer,
   Stack,
-  // useToast,
 } from "@josulliv101/core";
 import {
   useElements,
   CardElement,
   useStripe as useStripeObject,
 } from "@stripe/react-stripe-js";
-// import { PaymentIntent } from "@stripe/stripe-js";
 import { Formik, Field, Form } from "formik";
 
 export interface CreditCardFormProps extends HTMLChakraProps<"div"> {
@@ -33,18 +30,14 @@ export const CreditCardForm: React.FC<CreditCardFormProps> = ({
   showCustomInputField,
   ...props
 }) => {
-  // const toast = useToast();
   const stripeObj = useStripeObject();
   const elements = useElements();
   const [isCardReady, setIsCardReady] = useState(false);
   const [isCardFocused, setIsCardFocused] = useState(false);
   const [cardApi, setCardApi] = useState(null);
 
-  console.log("stripeDetails", { showCustomInputField });
-
   useEffect(() => {
     if (cardApi?.update) {
-      console.log("useEffect", showCustomInputField);
       cardApi.update({ disabled: showCustomInputField });
     }
   }, [showCustomInputField]);
@@ -53,19 +46,11 @@ export const CreditCardForm: React.FC<CreditCardFormProps> = ({
     values,
     actions
   ) => {
-    if (process.env.IS_STORYBOOK === true) {
+    if (process.env.IS_STORYBOOK) {
       console.warn("Credit card submission is disabled within Storybook.");
-      /*      toast({
-        title: "Functionality Disabled",
-        description: "Credit card submission is disabled within Storybook.",
-        status: "info",
-        duration: 5000,
-        isClosable: true,
-        position: "top",
-      });*/
       return;
     }
-    console.log("handleSubmit 1", paymentIntent, values, actions);
+
     if (!stripeObj || !elements || !paymentIntent?.client_secret) return;
 
     const cardElements = elements.getElement(CardElement);
@@ -80,7 +65,6 @@ export const CreditCardForm: React.FC<CreditCardFormProps> = ({
           card: cardElements,
         },
       });
-      console.log("handle submit 2", error, confirmPaymentIntent);
       onSubmit({ values, confirmPaymentIntent, error, rest });
     } catch (error) {
       console.log("error", error);
@@ -134,7 +118,6 @@ export const CreditCardForm: React.FC<CreditCardFormProps> = ({
                       placeholder="Email"
                       _placeholder={{ color: "whiteAlpha.800" }}
                       _disabled={{ opacity: 1, cursor: "default" }}
-                      // sx={{ cursor: "default" }}
                     />
                     <FormErrorMessage>{form.errors.email}</FormErrorMessage>
                   </FormControl>
@@ -160,7 +143,6 @@ export const CreditCardForm: React.FC<CreditCardFormProps> = ({
                       : "#e2e8f0"
                   } solid`}
                   borderRadius="md"
-                  // cursor="crosshair"
                 >
                   <CardElement
                     onFocus={handleCardFocus}
@@ -186,8 +168,6 @@ export const CreditCardForm: React.FC<CreditCardFormProps> = ({
                           },
                         },
                         invalid: {
-                          // iconColor: "#ff0000",
-                          // color: "#ff0000"
                           color: "#ffffff",
                         },
                       },

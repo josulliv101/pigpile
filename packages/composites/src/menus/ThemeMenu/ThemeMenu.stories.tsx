@@ -7,7 +7,6 @@ import {
   fireEvent,
 } from "@storybook/testing-library";
 import { themeOptions } from "@josulliv101/theme";
-import { useColorMode } from "@josulliv101/core";
 import { ThemeMenu } from "./ThemeMenu";
 
 function sleep(ms: number) {
@@ -39,13 +38,7 @@ const Template: ComponentStory<typeof ThemeMenu> = ({
   ...args
 }) => {
   const [state, setState] = useState(themeOptions);
-  const { setColorMode } = useColorMode();
-  console.log("story themeOptions", themeOptions);
   const onChange = (optionId: string, index: number) => {
-    console.log("onChange", state, optionId, index);
-    if (optionId === "colorMode" && state.colorMode.index !== index) {
-      // setColorMode(index === 0 ? 'light' : 'dark')
-    }
     setState({
       ...state,
       [optionId]: { ...state[optionId], index },

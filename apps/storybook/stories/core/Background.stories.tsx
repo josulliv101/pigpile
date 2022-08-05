@@ -73,7 +73,6 @@ const ColorSchemes = (
     },
   }
 ) => {
-  console.log("parameters", colorSchemes);
   return (
     <Stack>
       {colorSchemes.map((color) => (
@@ -91,7 +90,6 @@ const GradientVariantColorSchemesWithImage = (
     },
   }
 ) => {
-  console.log("parameters", colorSchemes);
   return (
     <Stack>
       {colorSchemes.map((color) => (

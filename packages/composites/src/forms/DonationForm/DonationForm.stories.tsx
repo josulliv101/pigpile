@@ -36,7 +36,6 @@ const Template: ComponentStory<typeof DonationForm> = ({
   const [tip, setTip] = useState(undefined);
   const [showCustomInputField, setShowCustomInputField] = useState(false);
   const [numberOfUnits, setNumberOfUnits] = useState(initialNumberOfUnits);
-  console.log("story args", args);
   return (
     <DonationForm
       {...args}

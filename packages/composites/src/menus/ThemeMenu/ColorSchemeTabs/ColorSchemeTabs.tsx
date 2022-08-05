@@ -1,4 +1,3 @@
-import * as React from "react";
 import {
   Tabs,
   TabsProps,
@@ -9,8 +8,7 @@ import {
   Text,
   VisuallyHidden,
 } from "@chakra-ui/react";
-import { SwatchAnimated } from "@josulliv101/components";
-import { ColorSchemeMap } from "@josulliv101/store";
+import { ColorSchemeMap } from "@josulliv101/theme";
 import { TabContent } from "../TabContent";
 
 export interface ColorSchemeTabsProps extends TabsProps {
@@ -18,9 +16,8 @@ export interface ColorSchemeTabsProps extends TabsProps {
   colorSchemes: ColorSchemeMap;
 }
 
-export const ColorSchemeTabs = (props: ThemePanelProps): JSX.Element => {
+export const ColorSchemeTabs = (props): JSX.Element => {
   const { colorSchemes, ...tabsProps } = props;
-  console.log("ColorSchemeTabs", props);
   return (
     <Tabs size="xs" isManual variant="raised" mb="2" {...tabsProps}>
       <Text mb="2" fontSize="sm">

@@ -1,7 +1,4 @@
-import * as React from "react";
 import {
-  HStack,
-  Icon,
   Tabs,
   TabsProps,
   TabList,
@@ -24,17 +21,6 @@ const options: ColorModeOption[] = [
   { icon: FaSun, label: "Light" },
   { icon: FaMoon, label: "Dark" },
 ];
-
-/*const ColorModeTab = ({ icon, label, ...props}) => {
-  return (
-    <Tab>
-      <HStack spacing=".4rem" align="center">
-        <Icon as={icon} fontSize="xs" />
-        <Text>{label}</Text>
-      </HStack>
-    </Tab>
-  );
-}*/
 
 export const ColorModeTabs = (props: TabsProps): JSX.Element => {
   console.log("ColorModeTabs", props);

@@ -61,7 +61,7 @@ CustomIcons.args = {
   isActive: true,
 };
 
-const clickHandler = () => console.log("click");
+const clickHandler = () => console.info("click");
 
 export const SwatchButton_ = () => (
   <Stack direction="row" align="center" spacing="3">

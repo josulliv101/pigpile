@@ -8,6 +8,5 @@ export const addEmojiLove = async (data) => {
   const { campaignId, ...payload } = data;
   const coll = collection(db, `${COLLECTION_ID}/${campaignId}/emojilove`);
   const updatedDoc = await setDoc(doc(coll, Date.now().toString()), payload);
-  console.log("doc updatedDoc!", updatedDoc);
   return updatedDoc;
 };
