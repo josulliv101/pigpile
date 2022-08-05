@@ -19,6 +19,7 @@
     "build": "yarn build-preconstruct && yarn build-nextjs",
     "build-preconstruct": "preconstruct build",
     "build-nextjs": "yarn workspace @josulliv101/nextjs build",
+    "format": "prettier",
     "serve": "yarn build && firebase emulators:start --only functions,hosting",
     "deploy": "firebase deploy --only functions,hosting",
     "test": "jest"

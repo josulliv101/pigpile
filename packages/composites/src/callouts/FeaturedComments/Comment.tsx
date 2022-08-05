@@ -10,7 +10,12 @@ interface Props {
   createdAtInMS: number;
 }
 
-export const Comment: React.FC<Props> = ({ displayName, comment, emoji, createdAtInMS }) => (
+export const Comment: React.FC<Props> = ({
+  displayName,
+  comment,
+  emoji,
+  createdAtInMS,
+}) => (
   <Box as="section">
     <Box maxW="3xl" mx="auto" px={{ base: "6", md: "8" }}>
       <Flex direction="column" align="center" textAlign="center">
@@ -20,7 +25,7 @@ export const Comment: React.FC<Props> = ({ displayName, comment, emoji, createdA
         />
         <Fade key={createdAtInMS} in>
           <Text
-            fontSize={{ base: "md", md: "lg" }}
+            fontSize="md"
             fontWeight="semibold"
             mt="3"
             color="gray.500"
@@ -28,7 +33,12 @@ export const Comment: React.FC<Props> = ({ displayName, comment, emoji, createdA
           >
             &ldquo;{comment}&rdquo;
           </Text>
-          <Quotee name={displayName} createAt={relativeDays(createdAtInMS)} emoji={emoji} mt="4" />
+          <Quotee
+            name={displayName}
+            createAt={relativeDays(createdAtInMS)}
+            emoji={emoji}
+            mt="4"
+          />
         </Fade>
       </Flex>
     </Box>

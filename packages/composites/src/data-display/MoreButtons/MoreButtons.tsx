@@ -22,6 +22,7 @@ interface Option {
 export interface MoreButtonsProps extends HTMLChakraProps<"div"> {
   limit?: number;
   options: Option[];
+  moreTooltipLabel: string;
   onButtonClick: (n: number) => void;
 }
 
@@ -32,7 +33,11 @@ const ButtonMore = ({ label, price, ...props }) => (
     mb="4"
     {...props}
     borderRadius="full"
-    leftIcon={props.value === MORE_BUTTONS_BACK_ID ? <Icon as={FaArrowCircleLeft} /> : null}
+    leftIcon={
+      props.value === MORE_BUTTONS_BACK_ID ? (
+        <Icon as={FaArrowCircleLeft} />
+      ) : null
+    }
     sx={{ ">span": { pointerEvents: "none" } }}
     boxShadow="md"
     _focusVisible={{ outlineColor: "white" }}
@@ -97,7 +102,11 @@ export const MoreButtons: React.FC<MoreButtonsProps> = ({
             },
           }}
         >
-          <Tooltip placement="top" label={moreTooltipLabel} isDisabled={!moreTooltipLabel}>
+          <Tooltip
+            placement="top"
+            label={moreTooltipLabel}
+            isDisabled={!moreTooltipLabel}
+          >
             <Button
               aria-label="more"
               pos="absolute"
