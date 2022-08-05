@@ -35,7 +35,6 @@ const defaultProps = {
 const sizes = {
   sm: {
     container: {
-      // minW: 120,
       px: 4,
       py: 2,
     },
@@ -48,7 +47,6 @@ const sizes = {
   },
   md: {
     container: {
-      // minW: 130,
       px: 4,
       py: 2,
     },
@@ -61,7 +59,6 @@ const sizes = {
   },
   lg: {
     container: {
-      // minW: 160,
       px: 5,
       py: 3,
     },

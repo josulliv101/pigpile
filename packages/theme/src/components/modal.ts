@@ -30,9 +30,6 @@ const baseStyle: SystemStyleFunction = (props) => {
         bgImage: `linear-gradient(180deg,${gradientColor1},${gradientColor2})`,
       },
     },
-    dialogContainer: {
-      // pt: 20,
-    },
     header: {
       fontWeight: "normal",
     },

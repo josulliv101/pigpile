@@ -9,7 +9,6 @@ export const farmUserTheme: UserTheme = {
     top: "auto",
     right: "auto",
   },
-  // bgImage: "https://firebasestorage.googleapis.com/v0/b/fir-abc-a965d.appspot.com/o/stock%2Fmountains.jpg?alt=media&token=3fce726f-2830-4d8e-91ae-c786bf24788a",
   bgImage: "/on-the-farm-tp.png",
   bgPosition: "20% 80%",
   componentsByVariant: [

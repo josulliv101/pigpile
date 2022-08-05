@@ -1,4 +1,3 @@
-import Script from "next/script";
 import { useCallback, useMemo } from "react";
 import { AddedDonation, Comment, Donation } from "@josulliv101/types";
 import { adminDb } from "@josulliv101/connect-admin";
@@ -110,14 +109,6 @@ export const Campaign: React.FC<Props> = ({ id }): JSX.Element => {
 
   return (
     <>
-      <Script
-        src="https://fast.wistia.com/embed/medias/1wpb65qwkz.jsonp"
-        strategy="lazyOnload"
-      />
-      <Script
-        src="https://fast.wistia.com/assets/external/E-v1.js"
-        strategy="lazyOnload"
-      />
       <Hero
         beneficiary={beneficiary}
         campaignId={id}

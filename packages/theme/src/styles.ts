@@ -12,7 +12,6 @@ const styles: Styles = {
       display: "flex",
       flexDirection: "column",
       h: "100vh",
-      // h: "-webkit-fill-available",
 
       ">main": {
         flexGrow: 1,

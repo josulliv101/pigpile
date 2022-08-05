@@ -28,9 +28,7 @@ export const CampaignOverviewBar: React.FC<Props> = ({
   ...rootStyle
 }) => {
   const [isWistiaReady, setIsWistiaReady] = useState(false);
-  const [initWistia, setInitWistia] = useState(false);
 
-  useEffect(() => setInitWistia(true), []);
   return (
     <BackgroundContent
       pb={{ base: "20", md: "8" }}
@@ -54,13 +52,9 @@ export const CampaignOverviewBar: React.FC<Props> = ({
             flex="1"
             p="3"
           >
-            {initWistia && (
-              <WistiaVideo
-                isWistiaReady={isWistiaReady}
-                onLoad={() => setIsWistiaReady(true)}
-                videoId={videoId}
-              />
-            )}
+            <WistiaVideo
+              videoId={videoId}
+            />
             <Text
               color="inherit"
               fontSize="xs"

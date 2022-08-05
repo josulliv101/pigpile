@@ -32,7 +32,7 @@ export const themeOptions = {
   colorMode: {
     index: 0,
     label: "Color Mode",
-    options: convertObjectToOptions(ColorModes), // .map(item => ({ ...item, icon: colorModeIconMap[item.id] }))
+    options: convertObjectToOptions(ColorModes),
   },
   userTheme: {
     index: 0,
