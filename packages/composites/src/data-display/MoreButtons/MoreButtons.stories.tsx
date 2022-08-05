@@ -35,8 +35,8 @@ const Template: ComponentStory<typeof MoreButtons> = (args) => {
   return <MoreButtons {...args} />;
 };
 
-const onClick = () => console.log("click");
-const onCustomClick = () => console.log("custom click");
+const onClick = () => console.info("click");
+const onCustomClick = () => console.info("custom click");
 
 export const Basic = Template.bind({});
 

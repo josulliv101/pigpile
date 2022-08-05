@@ -7,14 +7,6 @@ import {
 } from "@josulliv101/theme";
 import { Box } from "@josulliv101/core";
 
-console.log(
-  "colorSchemes, userThemes",
-  getThemeWithDefaults(
-    colorSchemes.colorSchemeBluePink,
-    userThemes.farmUserTheme
-  )
-);
-
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
   chakra: {

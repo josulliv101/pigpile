@@ -1,11 +1,6 @@
 import { useState } from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-import {
-  screen,
-  userEvent,
-  waitFor,
-  fireEvent,
-} from "@storybook/testing-library";
+import { screen, userEvent } from "@storybook/testing-library";
 import { themeOptions } from "@josulliv101/theme";
 import { ThemeMenu } from "./ThemeMenu";
 
@@ -15,7 +10,6 @@ function sleep(ms: number) {
 
 async function userTab(iterations = 1) {
   for (let i = 0; i < iterations; i++) {
-    console.log("iteration", i);
     await userEvent.tab();
     await sleep(500);
   }

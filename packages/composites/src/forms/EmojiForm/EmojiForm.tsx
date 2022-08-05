@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { Formik, Field, FieldProps, Form } from "formik";
 import {
-  Box,
   Button,
   Callout,
   Checkbox,
@@ -11,42 +10,14 @@ import {
   Input,
   InputGroup,
   InputRightAddon,
-  SimpleGrid,
   Spacer,
   Stack,
   Text,
   Textarea,
-  // useToast,
 } from "@josulliv101/core";
 import { Donation } from "@josulliv101/types";
 import { EmojiField } from "./EmojiField";
-
-const emojis = [
-  "❤️",
-  "💚",
-  "🖤",
-  "😊",
-  "😎",
-  "🥰",
-  "🌷",
-  "🌹",
-  "🌻",
-  "🌼",
-  "🐶",
-  "🐱",
-  "🐭",
-  "🐨",
-  "🦊",
-  "🐰",
-  "💪",
-  "✌️",
-  "🤟",
-  "🤘",
-  "🍔",
-  "🍕",
-  "🍎",
-  "🍪",
-];
+import { defaultEmojis } from "./defaultEmojis";
 
 export interface EmojiFormProps extends HTMLChakraProps<"div"> {
   onSubmit: (d: Partial<Donation>) => void;
@@ -57,11 +28,12 @@ const FieldAnonymousCheckBox = () => {
     <Field name="isAnonymous">
       {({ field, form }: FieldProps) => {
         return (
-          <FormControl isInvalid={!!form.errors.anonymous && !!form.touched.anonymous}>
+          <FormControl
+            isInvalid={!!form.errors.anonymous && !!form.touched.anonymous}
+          >
             <Checkbox size="sm" {...field}>
               Don't display my name on the site.
             </Checkbox>
-            {/*<FormHelperText color="gray.300">Don't display my name publicly on the campaign.</FormHelperText>*/}
             <FormErrorMessage>{form.errors.anonymous}</FormErrorMessage>
           </FormControl>
         );
@@ -71,7 +43,7 @@ const FieldAnonymousCheckBox = () => {
 };
 
 export const EmojiForm: React.FC<EmojiFormProps> = ({ onSubmit, ...props }) => {
-  const [activeEmoji, setActiveEmoji] = useState(emojis[0]);
+  const [activeEmoji, setActiveEmoji] = useState(defaultEmojis[0]);
   return (
     <Callout as={Stack} spacing="8" {...props}>
       <Text>Thank you! One final step below.</Text>
@@ -79,7 +51,7 @@ export const EmojiForm: React.FC<EmojiFormProps> = ({ onSubmit, ...props }) => {
         initialValues={{
           displayName: "",
           comment: "",
-          emoji: "😊",
+          emoji: activeEmoji,
           isAnonymous: false,
         }}
         onSubmit={onSubmit}
@@ -89,7 +61,6 @@ export const EmojiForm: React.FC<EmojiFormProps> = ({ onSubmit, ...props }) => {
             errors.displayName =
               "Add a name (it does not need to match the name on your credit card).";
           }
-          console.log("validating...", values, errors);
           return errors;
         }}
       >
@@ -99,17 +70,22 @@ export const EmojiForm: React.FC<EmojiFormProps> = ({ onSubmit, ...props }) => {
               <Stack spacing="4">
                 <Field name="displayName">
                   {({ field, form }) => (
-                    <FormControl isInvalid={form.errors.displayName && form.touched.displayName}>
+                    <FormControl
+                      isInvalid={
+                        form.errors.displayName && form.touched.displayName
+                      }
+                    >
                       <InputGroup>
                         <Input
                           {...field}
-                          // isRequired={!values.anonymous}
                           isDisabled={values.anonymous}
                           id="displayName"
                           aria-label="displayName"
                           placeholder="Name to display"
                           _placeholder={{ color: "whiteAlpha.800" }}
-                          value={values.anonymous ? "Anonymous" : values.displayName}
+                          value={
+                            values.anonymous ? "Anonymous" : values.displayName
+                          }
                         />
                         <InputRightAddon
                           fontSize="xl"
@@ -118,7 +94,9 @@ export const EmojiForm: React.FC<EmojiFormProps> = ({ onSubmit, ...props }) => {
                           children={values.emoji}
                         />
                       </InputGroup>
-                      <FormErrorMessage>{form.errors.displayName}</FormErrorMessage>
+                      <FormErrorMessage>
+                        {form.errors.displayName}
+                      </FormErrorMessage>
                     </FormControl>
                   )}
                 </Field>
@@ -128,7 +106,9 @@ export const EmojiForm: React.FC<EmojiFormProps> = ({ onSubmit, ...props }) => {
                   {({ field, form }) => (
                     <FormControl>
                       <EmojiField {...field} />
-                      <FormErrorMessage>{form.errors.displayName}</FormErrorMessage>
+                      <FormErrorMessage>
+                        {form.errors.displayName}
+                      </FormErrorMessage>
                     </FormControl>
                   )}
                 </Field>
@@ -136,7 +116,6 @@ export const EmojiForm: React.FC<EmojiFormProps> = ({ onSubmit, ...props }) => {
                   {({ field, form }) => (
                     <FormControl
                       isInvalid={form.errors.comment && form.touched.comment}
-                      // isDisabled={showCustomInputField}
                     >
                       <InputGroup>
                         <Textarea
@@ -149,7 +128,9 @@ export const EmojiForm: React.FC<EmojiFormProps> = ({ onSubmit, ...props }) => {
                           value={values.comment}
                         />
                       </InputGroup>
-                      <FormErrorMessage>{form.errors.displayName}</FormErrorMessage>
+                      <FormErrorMessage>
+                        {form.errors.displayName}
+                      </FormErrorMessage>
                     </FormControl>
                   )}
                 </Field>

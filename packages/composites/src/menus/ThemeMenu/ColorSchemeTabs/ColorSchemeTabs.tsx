@@ -26,7 +26,6 @@ export const ColorSchemeTabs = (props): JSX.Element => {
       <TabList>
         {Object.entries(colorSchemes).map(([key, colorScheme], index) => {
           const isActive = tabsProps.index === index;
-          console.log("colorScheme", key, colorScheme, isActive);
           return (
             <Tab key={key} mx="2" p="2px">
               <TabContent isActive={isActive} {...colorScheme.swatch} />
@@ -37,7 +36,6 @@ export const ColorSchemeTabs = (props): JSX.Element => {
       <TabPanels>
         {Object.entries(colorSchemes).map(([key, colorScheme], index) => {
           const isActive = tabsProps.index === index;
-          console.log("colorScheme panels", key, colorScheme, isActive);
           return (
             <TabPanel key={key}>
               <VisuallyHidden>

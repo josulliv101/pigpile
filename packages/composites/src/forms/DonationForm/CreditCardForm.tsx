@@ -67,7 +67,7 @@ export const CreditCardForm: React.FC<CreditCardFormProps> = ({
       });
       onSubmit({ values, confirmPaymentIntent, error, rest });
     } catch (error) {
-      console.log("error", error);
+      console.error("error", error);
     }
   };
 
@@ -82,12 +82,10 @@ export const CreditCardForm: React.FC<CreditCardFormProps> = ({
         } else if (!values.email.includes(".com")) {
           errors.email = "Invalid Email Address";
         }
-        console.log("validating...", values, errors);
         return errors;
       }}
     >
       {({ dirty, isValid, isSubmitting, setStatus, status, ...rest }) => {
-        console.log("props", { dirty, isValid, setStatus, status }, rest);
         const handleCardChange = (event) =>
           setStatus({ ...status, ccComplete: event.complete });
         const handleCardBlur = (event) => {
@@ -96,7 +94,6 @@ export const CreditCardForm: React.FC<CreditCardFormProps> = ({
         };
         const handleCardFocus = (event) => setIsCardFocused(true);
         const handleReady = (cardApi) => {
-          console.log("handleReady", cardApi);
           setCardApi(cardApi);
           setIsCardReady(true);
         };
