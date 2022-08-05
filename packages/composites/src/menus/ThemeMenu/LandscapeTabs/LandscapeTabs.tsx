@@ -21,8 +21,16 @@ const options: Option[] = [{ label: "Farm" }, { label: "Park" }];
 
 export const LandscapeTabs = (props: TabsProps): JSX.Element => {
   return (
-    <Tabs size="xs" variant="raised" mb="2" isManual>
-      <Text mb="2" fontSize="sm">
+    <Tabs
+      size="xs"
+      variant="raised"
+      mb="2"
+      isManual
+    >
+      <Text
+        mb="2"
+        fontSize="sm"
+      >
         Landscape
       </Text>
       <TabList>

@@ -18,7 +18,12 @@ export const OAuthButtonGroup: React.FC<OAuthButtonGroupProps> = ({
   onSignInWithProvider,
 }) => {
   return (
-    <ButtonGroup size="md" variant="outline" spacing="4" width="full">
+    <ButtonGroup
+      size="md"
+      variant="outline"
+      spacing="4"
+      width="full"
+    >
       {providers.map(({ name, icon }) => (
         <Button
           key={name}

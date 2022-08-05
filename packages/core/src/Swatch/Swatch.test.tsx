@@ -41,13 +41,24 @@ describe("SwatchButton", () => {
     expect(results).toHaveNoViolations();
   });
   it("should automatically set aria-label to colors", async () => {
-    render(<SwatchButton color1="red" color2="green" color3="blue" />);
+    render(
+      <SwatchButton
+        color1="red"
+        color2="green"
+        color3="blue"
+      />
+    );
     expect(
       screen.getByRole("button", { name: "swatch colors red, green, blue" })
     ).toBeInTheDocument();
   });
   it("should respect manually set aria-label", async () => {
-    render(<SwatchButton aria-label="custom swatch colors" {...props} />);
+    render(
+      <SwatchButton
+        aria-label="custom swatch colors"
+        {...props}
+      />
+    );
     expect(
       screen.getByRole("button", { name: "custom swatch colors" })
     ).toBeInTheDocument();
@@ -71,7 +82,12 @@ describe("SwatchButton", () => {
   });
   it("handles click events", () => {
     const clickHandler = jest.fn();
-    render(<SwatchButton {...props} onClick={clickHandler} />);
+    render(
+      <SwatchButton
+        {...props}
+        onClick={clickHandler}
+      />
+    );
     userEvent.click(screen.getByRole("button"));
     expect(clickHandler).toHaveBeenCalled();
   });

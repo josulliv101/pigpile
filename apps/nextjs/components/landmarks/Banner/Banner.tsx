@@ -102,16 +102,35 @@ export const BannerContent = memo<BannerContentProps>(
     ...props
   }) => {
     return (
-      <Background as="header" bgColor={bgColor} {...props}>
+      <Background
+        as="header"
+        bgColor={bgColor}
+        {...props}
+      >
         <Container>
-          <Flex align="center" justify="space-between">
-            <NextLink href="/" passHref>
+          <Flex
+            align="center"
+            justify="space-between"
+          >
+            <NextLink
+              href="/"
+              passHref
+            >
               <BrandText as="a">Pigpile</BrandText>
             </NextLink>
-            <Box as={Center} transform={logoTransform}>
-              <NextLink href="/" passHref>
+            <Box
+              as={Center}
+              transform={logoTransform}
+            >
+              <NextLink
+                href="/"
+                passHref
+              >
                 <chakra.a _focusVisible={{ outlineColor: "white" }}>
-                  <Logo boxSize={{ base: 9, md: 10 }} cursor="pointer" />
+                  <Logo
+                    boxSize={{ base: 9, md: 10 }}
+                    cursor="pointer"
+                  />
                 </chakra.a>
               </NextLink>
             </Box>

@@ -60,10 +60,18 @@ export const DonationModal: React.FC<Props> = ({
         bgPosition="27% 50%"
         mt="10%"
       >
-        <ModalHeader position="relative" mr="6" top="-4px" mb="4">
+        <ModalHeader
+          position="relative"
+          mr="6"
+          top="-4px"
+          mb="4"
+        >
           {beneficiary}
         </ModalHeader>
-        <ModalCloseButton mr="12px" mt={{ base: "2px", md: "4px" }} />
+        <ModalCloseButton
+          mr="12px"
+          mt={{ base: "2px", md: "4px" }}
+        />
         <ModalBody pb="6">
           {activeFormStep === FORM_STEPS.Donate && (
             <DonationForm

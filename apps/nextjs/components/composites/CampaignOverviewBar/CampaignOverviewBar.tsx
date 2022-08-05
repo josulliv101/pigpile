@@ -32,14 +32,21 @@ export const CampaignOverviewBar: React.FC<Props> = ({
 
   useEffect(() => setInitWistia(true), []);
   return (
-    <BackgroundContent pt="4" pb={{ base: "20", md: "8" }} {...rootStyle}>
+    <BackgroundContent
+      pt="4"
+      pb={{ base: "20", md: "8" }}
+      {...rootStyle}
+    >
       <Container>
         <Tags items={tags} />
         <Stack
           direction={{ base: "column", md: "row" }}
           spacing={{ base: 0, md: 6, lg: 10 }}
         >
-          <IntroBlurb title={beneficiary} blurb={overview} />
+          <IntroBlurb
+            title={beneficiary}
+            blurb={overview}
+          />
           <Box
             flex="1"
             borderWidth="0"
@@ -54,7 +61,11 @@ export const CampaignOverviewBar: React.FC<Props> = ({
                 onLoad={() => setIsWistiaReady(true)}
               />
             )}
-            <Text color="inherit" pt="2" fontSize="xs">
+            <Text
+              color="inherit"
+              pt="2"
+              fontSize="xs"
+            >
               {caption}
             </Text>
           </Box>

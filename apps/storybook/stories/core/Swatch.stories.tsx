@@ -21,10 +21,26 @@ const Template: ComponentStory<typeof Swatch> = (
   { parameters: { argsByIndex } = {} }
 ) => {
   return (
-    <Stack direction="row" align="center" spacing="3">
-      <Swatch {...colors[0]} {...args} {...argsByIndex[0]} />
-      <Swatch {...colors[1]} {...args} {...argsByIndex[1]} />
-      <Swatch {...colors[2]} {...args} {...argsByIndex[2]} />
+    <Stack
+      direction="row"
+      align="center"
+      spacing="3"
+    >
+      <Swatch
+        {...colors[0]}
+        {...args}
+        {...argsByIndex[0]}
+      />
+      <Swatch
+        {...colors[1]}
+        {...args}
+        {...argsByIndex[1]}
+      />
+      <Swatch
+        {...colors[2]}
+        {...args}
+        {...argsByIndex[2]}
+      />
     </Stack>
   );
 };
@@ -64,7 +80,11 @@ CustomIcons.args = {
 const clickHandler = () => console.info("click");
 
 export const SwatchButton_ = () => (
-  <Stack direction="row" align="center" spacing="3">
+  <Stack
+    direction="row"
+    align="center"
+    spacing="3"
+  >
     <SwatchButton
       aria-label="custom label"
       {...colors[2]}

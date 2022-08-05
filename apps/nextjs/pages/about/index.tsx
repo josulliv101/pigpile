@@ -4,7 +4,10 @@ import { LayoutBasic } from "../../components/layouts";
 function About(): JSX.Element {
   return (
     <Box>
-      <Heading size="md" my="4">
+      <Heading
+        size="md"
+        my="4"
+      >
         About
       </Heading>
       <Text mb="4">

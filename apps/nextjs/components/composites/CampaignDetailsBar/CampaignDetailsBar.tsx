@@ -32,7 +32,10 @@ export const CampaignDetailsBar: React.FC<Props> = ({
   const { isOpen, onToggle } = useDisclosure();
   const { getLabel } = useLabelBundle();
   return (
-    <Container pt={{ base: "12", md: "20" }} mb={{ base: 6, md: 10 }}>
+    <Container
+      pt={{ base: "12", md: "20" }}
+      mb={{ base: 6, md: 10 }}
+    >
       <Stack
         direction={{ base: "column-reverse", md: "row" }}
         spacing={{ base: 6, md: 12 }}
@@ -43,15 +46,34 @@ export const CampaignDetailsBar: React.FC<Props> = ({
           createdAtInMS={createdAtInMS}
           {...organizer}
         >
-          <Text mt="3" fontSize="xs" noOfLines={2}>
+          <Text
+            mt="3"
+            fontSize="xs"
+            noOfLines={2}
+          >
             {getLabel("Join us as we pigpile on:")}
           </Text>
-          <Text mt="1" fontSize="xs" noOfLines={2} fontStyle="oblique">
+          <Text
+            mt="1"
+            fontSize="xs"
+            noOfLines={2}
+            fontStyle="oblique"
+          >
             {beneficiary}
           </Text>
-          <Box display="flex" alignItems="center">
-            <FaMapMarker fontSize=".75rem" opacity=".5" />
-            <Text fontSize="xs" noOfLines={1} pl="1">
+          <Box
+            display="flex"
+            alignItems="center"
+          >
+            <FaMapMarker
+              fontSize=".75rem"
+              opacity=".5"
+            />
+            <Text
+              fontSize="xs"
+              noOfLines={1}
+              pl="1"
+            >
               {location}
             </Text>
           </Box>
@@ -73,7 +95,11 @@ export const CampaignDetailsBar: React.FC<Props> = ({
             {description?.split("::").join("\n\n")}
           </Text>
           <Center>
-            <AccentButton size="sm" variant="ghost" onClick={onToggle}>
+            <AccentButton
+              size="sm"
+              variant="ghost"
+              onClick={onToggle}
+            >
               {isOpen ? getLabel("less") : getLabel("read more")}
             </AccentButton>
           </Center>

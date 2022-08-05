@@ -15,11 +15,17 @@ export function EmojiField({ name, value, onChange, onBlur }) {
   const group = getRootProps();
 
   return (
-    <Flex flexWrap="wrap" {...group}>
+    <Flex
+      flexWrap="wrap"
+      {...group}
+    >
       {defaultEmojis.map((val) => {
         const radio = getRadioProps({ value: val });
         return (
-          <RadioCard key={val} {...radio}>
+          <RadioCard
+            key={val}
+            {...radio}
+          >
             {val}
           </RadioCard>
         );

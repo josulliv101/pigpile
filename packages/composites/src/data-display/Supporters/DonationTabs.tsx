@@ -77,7 +77,10 @@ export const DonationTabs: React.FC<DonationTabsProps> = ({
           h="20px"
           borderColor="gray.400"
         />
-        <Tooltip label="Sort Order" placement="top">
+        <Tooltip
+          label="Sort Order"
+          placement="top"
+        >
           <Box ml="3">
             <Switch
               w="20px"
@@ -155,8 +158,14 @@ export const DonationTabs: React.FC<DonationTabsProps> = ({
           size="xs"
           variant="ghost"
         >
-          <IconButton aria-label="previous" icon={<FaChevronLeft />} />
-          <IconButton aria-label="next" icon={<FaChevronRight />} />
+          <IconButton
+            aria-label="previous"
+            icon={<FaChevronLeft />}
+          />
+          <IconButton
+            aria-label="next"
+            icon={<FaChevronRight />}
+          />
         </ButtonGroup>
       </Box>
     </HStack>

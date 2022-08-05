@@ -5,8 +5,14 @@ export interface PaymentTabsProps extends HTMLChakraProps<"div"> {}
 
 export const PaymentTabs: React.FC<PaymentTabsProps> = ({ ...props }) => {
   return (
-    <Tabs size="sm" {...props}>
-      <TabList borderSize="0" borderBottomWidth="0">
+    <Tabs
+      size="sm"
+      {...props}
+    >
+      <TabList
+        borderSize="0"
+        borderBottomWidth="0"
+      >
         <Tab
           borderRadius="full"
           opacity={0.6}

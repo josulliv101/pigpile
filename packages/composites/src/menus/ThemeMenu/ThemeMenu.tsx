@@ -37,14 +37,22 @@ export const ThemeMenu: React.FC<ThemeMenuProps> = ({
   }, [colorModeIndex]);
 
   return (
-    <Popover placement="bottom-end" size="10rem">
+    <Popover
+      placement="bottom-end"
+      size="10rem"
+    >
       <PopoverTrigger>
         <IconButton
           // colorScheme="blackAlpha"
           bgColor="transparent"
           borderColor="transparent"
           aria-label="Theme"
-          icon={<PaintBrushIcon boxSize="5" color="gray.200" />}
+          icon={
+            <PaintBrushIcon
+              boxSize="5"
+              color="gray.200"
+            />
+          }
           _hover={{ bgColor: "blackAlpha.50" }}
           _active={{ bgColor: "blackAlpha.50" }}
           _focusVisible={{ outlineColor: "white" }}
@@ -52,10 +60,17 @@ export const ThemeMenu: React.FC<ThemeMenuProps> = ({
       </PopoverTrigger>
       <PopoverContent>
         <PopoverCloseButton />
-        <PopoverHeader bgColor="gray.200" _dark={{ bgColor: "gray.600" }}>
+        <PopoverHeader
+          bgColor="gray.200"
+          _dark={{ bgColor: "gray.600" }}
+        >
           Theme Options
         </PopoverHeader>
-        <PopoverBody pt="4" bgColor="gray.50" _dark={{ bgColor: "gray.700" }}>
+        <PopoverBody
+          pt="4"
+          bgColor="gray.50"
+          _dark={{ bgColor: "gray.700" }}
+        >
           {Object.keys(themeOptions).map((key) => (
             <ThemeTabs
               key={key}

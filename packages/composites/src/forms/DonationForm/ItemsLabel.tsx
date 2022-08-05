@@ -78,14 +78,23 @@ export const ItemsLabel: React.FC<ItemsLabelProps> = ({
           &nbsp;
           {typeof label === "function" ? label(activeNumberOfUnits) : label}
           &nbsp;
-          <Text fontSize="sm" as="span" opacity=".8">
+          <Text
+            fontSize="sm"
+            as="span"
+            opacity=".8"
+          >
             / {getCurrency(activeNumberOfUnits * pricePerUnit)}
           </Text>
         </Box>
         {!showCustomInputField && <FaPencilAlt />}
       </Button>
       {showCustomInputField && (
-        <Box w="full" pt="6" display="flex" justifyContent="center">
+        <Box
+          w="full"
+          pt="6"
+          display="flex"
+          justifyContent="center"
+        >
           <CustomInputField
             numberOfUnits={updatedNumberOfUnits}
             onChange={(n) => {
@@ -136,7 +145,10 @@ export const ItemsLabel: React.FC<ItemsLabelProps> = ({
         </ButtonGroup>
       )}
       {false && onShowCustomInputField && !showCustomInputField && (
-        <Tooltip label="Edit Quantity" placement="top">
+        <Tooltip
+          label="Edit Quantity"
+          placement="top"
+        >
           <IconButton
             color="gray.200"
             variant="ghost"

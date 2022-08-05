@@ -150,7 +150,10 @@ export const Campaign: React.FC<Props> = ({ id }): JSX.Element => {
           align="flex-start"
           mb={SPACING}
         >
-          <Stack w={{ base: "full", md: "76%" }} spacing={{ base: 0, md: 8 }}>
+          <Stack
+            w={{ base: "full", md: "76%" }}
+            spacing={{ base: 0, md: 8 }}
+          >
             <Supporters
               {...donationFilter}
               donations={donations}
@@ -159,7 +162,11 @@ export const Campaign: React.FC<Props> = ({ id }): JSX.Element => {
                 getLabelForQuantity({ one: "item", many: "items" }, n)
               }
             />
-            <Box display={{ base: "block", md: "none" }} h="6" w="0" />
+            <Box
+              display={{ base: "block", md: "none" }}
+              h="6"
+              w="0"
+            />
             <HStack
               w="full"
               alignItems="stretch"
@@ -174,11 +181,18 @@ export const Campaign: React.FC<Props> = ({ id }): JSX.Element => {
                 location={location}
                 name={beneficiary}
               />
-              <Box display={{ base: "block", lg: "none" }} h="6" w="0" />
+              <Box
+                display={{ base: "block", lg: "none" }}
+                h="6"
+                w="0"
+              />
               <OurMission bgImage={landscapeImage} />
             </HStack>
           </Stack>
-          <Stack w={{ base: "full", md: "24%" }} spacing={{ base: 4, md: 4 }}>
+          <Stack
+            w={{ base: "full", md: "24%" }}
+            spacing={{ base: 4, md: 4 }}
+          >
             {comments?.length && <FeaturedComments comments={comments} />}
             <MeetChester animationType={chesterAnimationType} />
             <SecurePayment />

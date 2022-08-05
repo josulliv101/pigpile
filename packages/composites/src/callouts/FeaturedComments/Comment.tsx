@@ -17,13 +17,24 @@ export const Comment: React.FC<Props> = ({
   createdAtInMS,
 }) => (
   <Box as="section">
-    <Box maxW="3xl" mx="auto" px={{ base: "6", md: "8" }}>
-      <Flex direction="column" align="center" textAlign="center">
+    <Box
+      maxW="3xl"
+      mx="auto"
+      px={{ base: "6", md: "8" }}
+    >
+      <Flex
+        direction="column"
+        align="center"
+        textAlign="center"
+      >
         <QuoteIcon
           color={useColorModeValue("gray.300", "gray.200")}
           fontSize={{ base: "3xl", md: "4xl" }}
         />
-        <Fade key={createdAtInMS} in>
+        <Fade
+          key={createdAtInMS}
+          in
+        >
           <Text
             fontSize="md"
             fontWeight="semibold"

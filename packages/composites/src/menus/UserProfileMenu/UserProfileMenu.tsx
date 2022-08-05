@@ -24,7 +24,11 @@ export function UserProfileMenu({ user, onLogout }) {
         cursor={"pointer"}
         minW={0}
       >
-        <Avatar size={"xs"} name={user?.displayName || "?"} bgColor="red.500" />
+        <Avatar
+          size={"xs"}
+          name={user?.displayName || "?"}
+          bgColor="red.500"
+        />
       </MenuButton>
       <MenuList
         bgColor="gray.200"
@@ -35,7 +39,10 @@ export function UserProfileMenu({ user, onLogout }) {
         color="blackAlpha.700"
         _dark={{ color: "whiteAlpha.700" }}
       >
-        <Stack as={Center} my="4">
+        <Stack
+          as={Center}
+          my="4"
+        >
           <Avatar
             size={"lg"}
             name={user?.displayName || "?"}
@@ -45,7 +52,10 @@ export function UserProfileMenu({ user, onLogout }) {
             {user?.displayName} {user?.isAdmin ? " (admin)" : ""}
           </Text>
         </Stack>
-        <Box bgColor="white" py="3">
+        <Box
+          bgColor="white"
+          py="3"
+        >
           <MenuGroup title="Campaigns">
             <MenuItem fontSize="xs">View All</MenuItem>
             <MenuDivider my="0" />
@@ -54,7 +64,10 @@ export function UserProfileMenu({ user, onLogout }) {
           <MenuGroup title="User Profile">
             <MenuItem fontSize="xs">Settings</MenuItem>
             <MenuDivider my="0" />
-            <MenuItem fontSize="xs" onClick={onLogout}>
+            <MenuItem
+              fontSize="xs"
+              onClick={onLogout}
+            >
               Logout
             </MenuItem>
           </MenuGroup>

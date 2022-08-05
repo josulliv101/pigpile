@@ -47,7 +47,11 @@ export const DonationForm: React.FC<DonationFormProps> = ({
     }
   }, [numberOfUnits, pricePerUnit, tip]);
   return (
-    <Callout as={Stack} spacing="8" {...props}>
+    <Callout
+      as={Stack}
+      spacing="8"
+      {...props}
+    >
       <ItemsLabel
         onCloseCustomInputField={onCloseCustomInputField}
         onShowCustomInputField={onShowCustomInputField}
@@ -64,7 +68,10 @@ export const DonationForm: React.FC<DonationFormProps> = ({
             onChange={onChangeTip}
             isDisabled={showCustomInputField}
           />
-          <TotalLabel amount={numberOfUnits * pricePerUnit} tip={tip} />
+          <TotalLabel
+            amount={numberOfUnits * pricePerUnit}
+            tip={tip}
+          />
           <Elements
             stripe={stripeObj}
             options={{
@@ -92,7 +99,11 @@ export const DonationForm: React.FC<DonationFormProps> = ({
         </Box>
       )}
       {numberOfUnits === null && (
-        <Text textAlign="center" mt="2" opacity=".8">
+        <Text
+          textAlign="center"
+          mt="2"
+          opacity=".8"
+        >
           Thank you for supporting this pigpile 🤍
         </Text>
       )}

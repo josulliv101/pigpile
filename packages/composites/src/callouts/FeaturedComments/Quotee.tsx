@@ -15,13 +15,24 @@ export const Quotee: React.FC<Props> = (props) => {
         bgColor="gray.200"
         opacity=".8"
         icon={
-          <Box as="span" fontSize="48px">
+          <Box
+            as="span"
+            fontSize="48px"
+          >
             {emoji}
           </Box>
         }
       />
-      <Box mt="3" color="gray.500" _dark={{ color: "gray.200" }}>
-        <Text as="cite" fontStyle="normal" fontWeight="bold">
+      <Box
+        mt="3"
+        color="gray.500"
+        _dark={{ color: "gray.200" }}
+      >
+        <Text
+          as="cite"
+          fontStyle="normal"
+          fontWeight="bold"
+        >
           {name}
         </Text>
         <Text fontSize="sm">{createAt}</Text>

@@ -31,7 +31,12 @@ export const SecurePayment: React.FC<HTMLChakraProps<"div">> = (props) => {
           <Avatar
             color="#cac5bc"
             bgColor="gray.600"
-            icon={<FaLock color="inherit" fontSize="12px" />}
+            icon={
+              <FaLock
+                color="inherit"
+                fontSize="12px"
+              />
+            }
             size="sm"
           />
         </Box>
@@ -44,7 +49,11 @@ export const SecurePayment: React.FC<HTMLChakraProps<"div">> = (props) => {
           {getLabel("Stripe Secure Payment Processing")}
         </Heading>
       </HStack>
-      <Text fontSize="xs" color="gray.500" _dark={{ color: "gray.200" }}>
+      <Text
+        fontSize="xs"
+        color="gray.500"
+        _dark={{ color: "gray.200" }}
+      >
         {getLabel(
           "Stripe is certified to PCI Service Provider Level 1 – the most stringent level in the industry"
         )}

@@ -12,7 +12,13 @@ export { meta as default };
 
 const Template: ComponentStory<typeof ThemeTabs> = (args) => {
   const [activeIndex, setActiveIndex] = useState(0);
-  return <ThemeTabs index={activeIndex} onChange={setActiveIndex} {...args} />;
+  return (
+    <ThemeTabs
+      index={activeIndex}
+      onChange={setActiveIndex}
+      {...args}
+    />
+  );
 };
 
 export const WithLabels = Template.bind({});

@@ -80,7 +80,12 @@ export function MobileNavContent(props: MobileNavContentProps) {
               bgImage={landscapeImage}
             >
               <Box color="white">
-                <Flex justify="flex-end" px="6" pt="3" pb="4">
+                <Flex
+                  justify="flex-end"
+                  px="6"
+                  pt="3"
+                  pb="4"
+                >
                   <Logo
                     boxSize="9"
                     position="absolute"
@@ -110,7 +115,10 @@ export function MobileNavContent(props: MobileNavContentProps) {
                   <NavLink href="/about">About</NavLink>
                   <NavLink href="/login">Login</NavLink>
                 </ButtonGroup>
-                <Flex flexDirection="column" alignItems="center">
+                <Flex
+                  flexDirection="column"
+                  alignItems="center"
+                >
                   <Heading
                     textAlign="center"
                     bgColor="blackAlpha.200"

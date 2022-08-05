@@ -13,13 +13,31 @@ export const Basic = () => {
 };
 
 export const Bounce = () => {
-  return <Chester onClick={clickHandler} animationType="jump" animate />;
+  return (
+    <Chester
+      onClick={clickHandler}
+      animationType="jump"
+      animate
+    />
+  );
 };
 
 export const Wiggle = () => {
-  return <Chester onClick={clickHandler} animationType="wiggle" animate />;
+  return (
+    <Chester
+      onClick={clickHandler}
+      animationType="wiggle"
+      animate
+    />
+  );
 };
 
 export const Wahoo = () => {
-  return <Chester onClick={clickHandler} animationType="wahoo" animate />;
+  return (
+    <Chester
+      onClick={clickHandler}
+      animationType="wahoo"
+      animate
+    />
+  );
 };

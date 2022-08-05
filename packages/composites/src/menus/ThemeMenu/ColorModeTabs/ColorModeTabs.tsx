@@ -24,8 +24,17 @@ const options: ColorModeOption[] = [
 
 export const ColorModeTabs = (props: TabsProps): JSX.Element => {
   return (
-    <Tabs size="xs" isManual variant="raised" mb="2" {...props}>
-      <Text mb="2" fontSize="sm">
+    <Tabs
+      size="xs"
+      isManual
+      variant="raised"
+      mb="2"
+      {...props}
+    >
+      <Text
+        mb="2"
+        fontSize="sm"
+      >
         Color Mode
       </Text>
       <TabList>

@@ -72,9 +72,24 @@ export const Swatch = forwardRef<SwatchProps, "div">((props, ref) => {
       }}
       {...rest}
     >
-      {color2 && <ColorLayer bgColor={color2} sx={{ ...styles.color2 }} />}
-      {color3 && <ColorLayer bgColor={color3} sx={{ ...styles.color3 }} />}
-      {isActive && <Icon as={activeIcon || FaCheck} sx={styles.icon} />}
+      {color2 && (
+        <ColorLayer
+          bgColor={color2}
+          sx={{ ...styles.color2 }}
+        />
+      )}
+      {color3 && (
+        <ColorLayer
+          bgColor={color3}
+          sx={{ ...styles.color3 }}
+        />
+      )}
+      {isActive && (
+        <Icon
+          as={activeIcon || FaCheck}
+          sx={styles.icon}
+        />
+      )}
     </Square>
   );
 });

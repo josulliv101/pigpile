@@ -45,7 +45,11 @@ export const MeetChester: React.FC<MeetChesterProps> = ({
       </CardAvatar>
       <CardBackground h={{ base: "92px", sm: "132px", md: "92px" }} />
       <CardContent pt="2">
-        <Heading size="xs" noOfLines={2} mb="1">
+        <Heading
+          size="xs"
+          noOfLines={2}
+          mb="1"
+        >
           {getLabel("Say hello to Chester")}
         </Heading>
         <Text fontSize="xs">
@@ -53,7 +57,12 @@ export const MeetChester: React.FC<MeetChesterProps> = ({
             "Chester is our beloved mascot. If we ever get to the point of offering swag - he'll be prominently featured on t-shirts, stickers, mugs, and more."
           )}
         </Text>
-        <Text opacity=".7" mt="3" fontSize="xs" color="subtle">
+        <Text
+          opacity=".7"
+          mt="3"
+          fontSize="xs"
+          color="subtle"
+        >
           {getLabel("Hint: he's clickable.")}
         </Text>
       </CardContent>

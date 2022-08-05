@@ -29,7 +29,11 @@ function Home(): JSX.Element {
         >
           Pigpile on good causes.
         </Heading>
-        <Heading size={{ base: "sm", sm: "md" }} fontWeight="normal" mb="6">
+        <Heading
+          size={{ base: "sm", sm: "md" }}
+          fontWeight="normal"
+          mb="6"
+        >
           an online fund-raising platform
         </Heading>
         <Text
@@ -46,7 +50,10 @@ function Home(): JSX.Element {
           Our mission is to inspire giving and help good causes raise
           funds/in-kind donations.
         </Text>
-        <NextLink href="/pigpiles" passHref>
+        <NextLink
+          href="/pigpiles"
+          passHref
+        >
           <Button
             width="full"
             maxWidth="max-content"

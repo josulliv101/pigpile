@@ -8,7 +8,10 @@ export const LayoutCampaign: React.FC<Layout> = ({ children }) => {
       <Banner>
         <Nav />
       </Banner>
-      <Main maxW="full" p="0">
+      <Main
+        maxW="full"
+        p="0"
+      >
         {children}
       </Main>
       <Footer />

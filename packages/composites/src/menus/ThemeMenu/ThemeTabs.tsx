@@ -56,8 +56,14 @@ const ThemeTabs_ = (props: TabContentProps): JSX.Element => {
         return [
           [
             ...tabs,
-            <Tab key={key} sx={option.swatch ? TAB_STYLE_SWATCH : undefined}>
-              <TabContent isActive={isActive} {...option} />
+            <Tab
+              key={key}
+              sx={option.swatch ? TAB_STYLE_SWATCH : undefined}
+            >
+              <TabContent
+                isActive={isActive}
+                {...option}
+              />
             </Tab>,
           ],
           [
@@ -82,7 +88,10 @@ const ThemeTabs_ = (props: TabContentProps): JSX.Element => {
       onChange={(index) => onChange(id, index)}
       {...tabsProps}
     >
-      <Text mb="1" fontSize="sm">
+      <Text
+        mb="1"
+        fontSize="sm"
+      >
         {label}
       </Text>
       <TabList>

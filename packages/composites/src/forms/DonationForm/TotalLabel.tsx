@@ -14,7 +14,11 @@ export const TotalLabel: React.FC<TotalLabelProps> = ({
 }) => {
   return (
     <Box my="8">
-      <HStack alignItems="flex-end" justifyContent="space-between" {...props}>
+      <HStack
+        alignItems="flex-end"
+        justifyContent="space-between"
+        {...props}
+      >
         <Text
           fontSize={{ base: "md", md: "xl" }}
           alignItems="flex-end"

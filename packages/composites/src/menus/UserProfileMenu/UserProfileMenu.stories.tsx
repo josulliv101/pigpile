@@ -20,7 +20,12 @@ function sleep(ms: number) {
 }
 
 const Template: ComponentStory<typeof UserProfileMenu> = (args) => {
-  return <UserProfileMenu {...args} {...mockProps} />;
+  return (
+    <UserProfileMenu
+      {...args}
+      {...mockProps}
+    />
+  );
 };
 
 export const Basic = Template.bind({});

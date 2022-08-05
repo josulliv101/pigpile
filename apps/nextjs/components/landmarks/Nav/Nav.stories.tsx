@@ -9,7 +9,11 @@ export default {
   argTypes: {},
   decorators: [
     (Story) => (
-      <Box bgColor="blackAlpha.600" h="inherit" p="4">
+      <Box
+        bgColor="blackAlpha.600"
+        h="inherit"
+        p="4"
+      >
         <Story />
       </Box>
     ),

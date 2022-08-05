@@ -27,12 +27,21 @@ export const Organization: React.FC<OrganizationProps> = ({
   const { getLabel } = useLabelBundle();
   return (
     <Callout {...rootStyle}>
-      <Stack justify="space-between" h="full">
+      <Stack
+        justify="space-between"
+        h="full"
+      >
         <Box>
-          <Heading mb="0" fontSize="xl">
+          <Heading
+            mb="0"
+            fontSize="xl"
+          >
             {name}
           </Heading>
-          <Text mb="4" fontSize="lg">
+          <Text
+            mb="4"
+            fontSize="lg"
+          >
             {location}
           </Text>
           <Text>{description}</Text>

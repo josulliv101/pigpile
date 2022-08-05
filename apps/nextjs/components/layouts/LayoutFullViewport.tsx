@@ -32,7 +32,10 @@ export const LayoutFullViewport: React.FC<Layout> = ({ children }) => {
           transform="scale(.46)"
           {...chesterPosition}
         >
-          <Chester animationType={chesterAnimationType} opacity=".9" />
+          <Chester
+            animationType={chesterAnimationType}
+            opacity=".9"
+          />
         </Box>
       </Background>
       <FooterSmall

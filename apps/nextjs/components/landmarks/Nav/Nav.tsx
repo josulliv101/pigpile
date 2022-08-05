@@ -52,7 +52,10 @@ export const Nav: React.FC<NavProps> = ({
         onThemeOptionChange={onThemeOptionChange}
       />
       {!isUserAuthenticated ? (
-        <NextLink href="/login" passHref>
+        <NextLink
+          href="/login"
+          passHref
+        >
           <IconButton
             as="a"
             variant="outline"
@@ -65,7 +68,10 @@ export const Nav: React.FC<NavProps> = ({
           />
         </NextLink>
       ) : (
-        <UserProfileMenu user={user} onLogout={onLogout} />
+        <UserProfileMenu
+          user={user}
+          onLogout={onLogout}
+        />
       )}
       {children}
     </ButtonGroup>

@@ -8,5 +8,10 @@ export default {
 
 export const LandscapeTabs_ = () => {
   const [activeIndex, setActiveIndex] = useState(1);
-  return <LandscapeTabs index={activeIndex} onChange={setActiveIndex} />;
+  return (
+    <LandscapeTabs
+      index={activeIndex}
+      onChange={setActiveIndex}
+    />
+  );
 };

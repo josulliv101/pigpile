@@ -26,7 +26,10 @@ const Avatar = (props: HTMLChakraProps<"div">) => (
   />
 );
 const EmojiIcon = ({ icon }) => (
-  <Text fontSize="22px" opacity=".7">
+  <Text
+    fontSize="22px"
+    opacity=".7"
+  >
     {icon}
   </Text>
 );
@@ -53,9 +56,18 @@ export const DonationsTable: React.FC<DonationsTableProps> = ({
     >
       {donations.map(
         ({ comment, displayName, emoji, quantity, createdAtInMS }, index) => (
-          <HStack key={`${displayName}-${quantity}-${index}`} flexWrap="wrap">
-            <Avatar size="sm" icon={<EmojiIcon icon={emoji} />} />
-            <Text flex="1" fontSize="sm">
+          <HStack
+            key={`${displayName}-${quantity}-${index}`}
+            flexWrap="wrap"
+          >
+            <Avatar
+              size="sm"
+              icon={<EmojiIcon icon={emoji} />}
+            />
+            <Text
+              flex="1"
+              fontSize="sm"
+            >
               {displayName}
             </Text>
             {comment ? (
@@ -81,7 +93,10 @@ export const DonationsTable: React.FC<DonationsTableProps> = ({
                     left="9px"
                     top="7px"
                   >
-                    <FaComment color="inherit" fontSize=".7rem" />
+                    <FaComment
+                      color="inherit"
+                      fontSize=".7rem"
+                    />
                   </Box>
                   {comment}
                 </Badge>

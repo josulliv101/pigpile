@@ -32,7 +32,12 @@ export const Footer: React.FC<HTMLChakraProps<"div">> = (props) => {
       _dark={{ bgColor: "gray.500", color: "gray.200" }}
       {...props}
     >
-      <Container as="footer" mt={{ base: 4, md: 0 }} role="contentinfo" px="8">
+      <Container
+        as="footer"
+        mt={{ base: 4, md: 0 }}
+        role="contentinfo"
+        px="8"
+      >
         <Stack
           spacing="8"
           direction={{ base: "column", md: "row" }}
@@ -59,10 +64,16 @@ export const Footer: React.FC<HTMLChakraProps<"div">> = (props) => {
                 minW={{ base: 30, md: 36 }}
                 flex="1"
               >
-                <Text fontSize="sm" fontWeight="semibold">
+                <Text
+                  fontSize="sm"
+                  fontWeight="semibold"
+                >
                   {getLabel("Quick Links")}
                 </Text>
-                <Stack spacing={{ base: 1, sm: 2 }} shouldWrapChildren>
+                <Stack
+                  spacing={{ base: 1, sm: 2 }}
+                  shouldWrapChildren
+                >
                   <Link href="/">{getLabel("Home")}</Link>
                   <Link href="/pigpiles">{getLabel("View Pigpiles")}</Link>
                   <Link href="/about">{getLabel("About")}</Link>
@@ -76,20 +87,36 @@ export const Footer: React.FC<HTMLChakraProps<"div">> = (props) => {
                 minW={{ base: 30, md: 36 }}
                 flex="1"
               >
-                <Text fontSize="sm" fontWeight="semibold">
+                <Text
+                  fontSize="sm"
+                  fontWeight="semibold"
+                >
                   {getLabel("Legal")}
                 </Text>
-                <Stack spacing={{ base: 1, sm: 2 }} shouldWrapChildren>
+                <Stack
+                  spacing={{ base: 1, sm: 2 }}
+                  shouldWrapChildren
+                >
                   <Link href="/">{getLabel("Privacy")}</Link>
                   <Link href="/">{getLabel("Terms")}</Link>
                   <Link href="/">{getLabel("License")}</Link>
                 </Stack>
               </Stack>
-              <Stack spacing="4" minW={{ base: 30, md: 36 }} flex="1">
-                <Text fontSize="sm" fontWeight="semibold">
+              <Stack
+                spacing="4"
+                minW={{ base: 30, md: 36 }}
+                flex="1"
+              >
+                <Text
+                  fontSize="sm"
+                  fontWeight="semibold"
+                >
                   {getLabel("Social")}
                 </Text>
-                <Stack spacing={{ base: 1, sm: 2 }} shouldWrapChildren>
+                <Stack
+                  spacing={{ base: 1, sm: 2 }}
+                  shouldWrapChildren
+                >
                   <Link
                     as="a"
                     leftIcon={<FaTwitter />}
@@ -117,8 +144,15 @@ export const Footer: React.FC<HTMLChakraProps<"div">> = (props) => {
                 </Stack>
               </Stack>
             </Stack>
-            <Stack pt="" spacing="4" flexBasis="42%">
-              <HStack spacing="3" align="center">
+            <Stack
+              pt=""
+              spacing="4"
+              flexBasis="42%"
+            >
+              <HStack
+                spacing="3"
+                align="center"
+              >
                 <Logo
                   bgColor="gray.500"
                   fill="gray.200"
@@ -156,10 +190,18 @@ export const Footer: React.FC<HTMLChakraProps<"div">> = (props) => {
             direction="column"
             spacing="0"
           >
-            <Text align="center" fontSize="xs" color="subtle">
+            <Text
+              align="center"
+              fontSize="xs"
+              color="subtle"
+            >
               {getLabel("address")}
             </Text>
-            <Text align="center" fontSize="xs" color="subtle">
+            <Text
+              align="center"
+              fontSize="xs"
+              color="subtle"
+            >
               &copy; {new Date().getFullYear()} {getLabel("orgFormal")}.{" "}
               {getLabel("copyright")}
             </Text>

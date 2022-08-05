@@ -31,7 +31,10 @@ const FieldAnonymousCheckBox = () => {
           <FormControl
             isInvalid={!!form.errors.anonymous && !!form.touched.anonymous}
           >
-            <Checkbox size="sm" {...field}>
+            <Checkbox
+              size="sm"
+              {...field}
+            >
               Don't display my name on the site.
             </Checkbox>
             <FormErrorMessage>{form.errors.anonymous}</FormErrorMessage>
@@ -45,7 +48,11 @@ const FieldAnonymousCheckBox = () => {
 export const EmojiForm: React.FC<EmojiFormProps> = ({ onSubmit, ...props }) => {
   const [activeEmoji, setActiveEmoji] = useState(defaultEmojis[0]);
   return (
-    <Callout as={Stack} spacing="8" {...props}>
+    <Callout
+      as={Stack}
+      spacing="8"
+      {...props}
+    >
       <Text>Thank you! One final step below.</Text>
       <Formik
         initialValues={{

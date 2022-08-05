@@ -34,7 +34,12 @@ export const Label: React.FC<CountUpBoxLabelProps> = (props) => {
   const labelStyles: SystemStyleObject = {
     ...styles.label,
   };
-  return <Box {...props} __css={labelStyles} />;
+  return (
+    <Box
+      {...props}
+      __css={labelStyles}
+    />
+  );
 };
 
 export const CountUpLabel: React.FC<CountUpBoxLabelProps> = (props) => {
@@ -42,7 +47,12 @@ export const CountUpLabel: React.FC<CountUpBoxLabelProps> = (props) => {
   const labelStyles: SystemStyleObject = {
     ...styles.countUpLabel,
   };
-  return <Box {...props} __css={labelStyles} />;
+  return (
+    <Box
+      {...props}
+      __css={labelStyles}
+    />
+  );
 };
 
 export const CountUpBox: React.FC<CountUpBoxProps> = ({

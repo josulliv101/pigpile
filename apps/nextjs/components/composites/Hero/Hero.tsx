@@ -218,7 +218,10 @@ const Hero: React.FC<Props> = ({
           />
         </AbsoluteCenter>
         {!!currentAmount && !!goalAmount && (
-          <GoalCountUp currentAmount={currentAmount} goalAmount={goalAmount} />
+          <GoalCountUp
+            currentAmount={currentAmount}
+            goalAmount={goalAmount}
+          />
         )}
       </Container>
     </Background>

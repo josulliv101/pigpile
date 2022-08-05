@@ -25,7 +25,10 @@ export const Supporters: React.FC<SupportersProps> = ({
         viewType={viewType}
         onChange={onChange}
       />
-      <DisplayComponent donations={donations} getLabel={getLabel} />
+      <DisplayComponent
+        donations={donations}
+        getLabel={getLabel}
+      />
     </Box>
   );
 };

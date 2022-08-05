@@ -22,7 +22,10 @@ const sizes = ["sm", "md", "lg"];
 export const Sizes = () =>
   sizes.map((size) => (
     <Card size={size}>
-      <CardAvatar as={Avatar} size={size} />
+      <CardAvatar
+        as={Avatar}
+        size={size}
+      />
       <CardContent>card content</CardContent>
     </Card>
   ));
@@ -31,7 +34,10 @@ export const WithBackground = () =>
   sizes.map((size) => (
     <Card size={size}>
       <CardBackground />
-      <CardAvatar as={Avatar} size={size} />
+      <CardAvatar
+        as={Avatar}
+        size={size}
+      />
       <CardContent>card content</CardContent>
     </Card>
   ));
@@ -40,10 +46,17 @@ export const WithBadge = () =>
   sizes.map((size) => (
     <Card size={size}>
       <CardBackground />
-      <CardBadge colorScheme="pink" variant="solid" as={Badge}>
+      <CardBadge
+        colorScheme="pink"
+        variant="solid"
+        as={Badge}
+      >
         10
       </CardBadge>
-      <CardAvatar as={Avatar} size={size} />
+      <CardAvatar
+        as={Avatar}
+        size={size}
+      />
       <CardContent>card content</CardContent>
     </Card>
   ));
@@ -53,7 +66,10 @@ export const SolidVariant = (_, { parameters }) =>
     <Card colorScheme={color}>
       <CardAvatar as={Avatar} />
       <CardBackground />
-      <CardBadge variant="solid" as={Badge}>
+      <CardBadge
+        variant="solid"
+        as={Badge}
+      >
         10
       </CardBadge>
       <CardContent>
@@ -73,17 +89,27 @@ const MockAvatar = (props) => (
   />
 );
 const EmojiIcon = () => (
-  <Text fontSize="44px" opacity=".7">
+  <Text
+    fontSize="44px"
+    opacity=".7"
+  >
     🐭
   </Text>
 );
 
 export const OutlineVariant = (_, { parameters }) =>
   parameters.chakra.colorSchemes.map((color) => (
-    <Card variant="outline" colorScheme={color}>
+    <Card
+      variant="outline"
+      colorScheme={color}
+    >
       <CardAvatar as={MockAvatar} />
       <CardBackground />
-      <CardBadge variant="solid" colorScheme={color} as={Badge}>
+      <CardBadge
+        variant="solid"
+        colorScheme={color}
+        as={Badge}
+      >
         10
       </CardBadge>
       <CardContent>
@@ -97,10 +123,20 @@ export const OutlineVariant = (_, { parameters }) =>
 // CardMedia, CardAside
 export const WithEmoji = () =>
   sizes.map((size) => (
-    <Card colorScheme="blue" variant="outline" size={size}>
-      <CardAvatar as={MockAvatar} icon={<EmojiIcon />} />
+    <Card
+      colorScheme="blue"
+      variant="outline"
+      size={size}
+    >
+      <CardAvatar
+        as={MockAvatar}
+        icon={<EmojiIcon />}
+      />
       <CardBackground />
-      <CardBadge variant="solid" as={Badge}>
+      <CardBadge
+        variant="solid"
+        as={Badge}
+      >
         10
       </CardBadge>
       <CardContent>card content</CardContent>

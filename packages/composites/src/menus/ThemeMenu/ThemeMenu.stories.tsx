@@ -40,7 +40,11 @@ const Template: ComponentStory<typeof ThemeMenu> = ({
     onThemeOptionChangeArg(optionId, index);
   };
   return (
-    <ThemeMenu {...args} themeOptions={state} onThemeOptionChange={onChange} />
+    <ThemeMenu
+      {...args}
+      themeOptions={state}
+      onThemeOptionChange={onChange}
+    />
   );
 };
 

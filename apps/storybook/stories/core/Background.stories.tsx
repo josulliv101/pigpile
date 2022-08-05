@@ -76,7 +76,11 @@ const ColorSchemes = (
   return (
     <Stack>
       {colorSchemes.map((color) => (
-        <Background_ key={color} {...colorSchemesArgs} colorScheme={color} />
+        <Background_
+          key={color}
+          {...colorSchemesArgs}
+          colorScheme={color}
+        />
       ))}
     </Stack>
   );

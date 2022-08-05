@@ -19,16 +19,32 @@ export interface ColorSchemeTabsProps extends TabsProps {
 export const ColorSchemeTabs = (props): JSX.Element => {
   const { colorSchemes, ...tabsProps } = props;
   return (
-    <Tabs size="xs" isManual variant="raised" mb="2" {...tabsProps}>
-      <Text mb="2" fontSize="sm">
+    <Tabs
+      size="xs"
+      isManual
+      variant="raised"
+      mb="2"
+      {...tabsProps}
+    >
+      <Text
+        mb="2"
+        fontSize="sm"
+      >
         Color Scheme
       </Text>
       <TabList>
         {Object.entries(colorSchemes).map(([key, colorScheme], index) => {
           const isActive = tabsProps.index === index;
           return (
-            <Tab key={key} mx="2" p="2px">
-              <TabContent isActive={isActive} {...colorScheme.swatch} />
+            <Tab
+              key={key}
+              mx="2"
+              p="2px"
+            >
+              <TabContent
+                isActive={isActive}
+                {...colorScheme.swatch}
+              />
             </Tab>
           );
         })}

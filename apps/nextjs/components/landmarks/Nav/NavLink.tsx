@@ -10,7 +10,10 @@ export const NavLink: React.FC<NavLinkProps> = ({
   children,
   ...styleProps
 }) => (
-  <NextLink href={href} passHref>
+  <NextLink
+    href={href}
+    passHref
+  >
     <Button {...styleProps}>{children}</Button>
   </NextLink>
 );

@@ -22,13 +22,23 @@ const TabContent_ = (props: TabContentProps): JSX.Element => {
   const { icon, label, swatch, isActive } = props;
   if (swatch) {
     return (
-      <SwatchAnimated variant="round-curved" {...swatch} isActive={isActive} />
+      <SwatchAnimated
+        variant="round-curved"
+        {...swatch}
+        isActive={isActive}
+      />
     );
   }
   if (icon) {
     return (
-      <HStack spacing=".4rem" align="center">
-        <Icon as={icon} fontSize="xs" />
+      <HStack
+        spacing=".4rem"
+        align="center"
+      >
+        <Icon
+          as={icon}
+          fontSize="xs"
+        />
         {label && <Text>{label}</Text>}
       </HStack>
     );

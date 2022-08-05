@@ -31,7 +31,10 @@ const Avatar = (props: HTMLChakraProps<"div">) => (
   />
 );
 const EmojiIcon = ({ icon }: HTMLChakraProps<"div">) => (
-  <Text fontSize="44px" opacity=".7">
+  <Text
+    fontSize="44px"
+    opacity=".7"
+  >
     {icon}
   </Text>
 );
@@ -69,7 +72,10 @@ export const DonationsGrid: React.FC<DonationsGridProps> = ({
                 _hover: { svg: { transform: "scale(1.2)" } },
               }}
             >
-              <CardAvatar as={Avatar} icon={<EmojiIcon icon={emoji} />}>
+              <CardAvatar
+                as={Avatar}
+                icon={<EmojiIcon icon={emoji} />}
+              >
                 {comment && (
                   <AvatarBadge
                     borderColor="transparent"
@@ -104,13 +110,22 @@ export const DonationsGrid: React.FC<DonationsGridProps> = ({
               </CardAvatar>
               <CardBackground />
               <CardContent>
-                <Heading size="xs" noOfLines={1}>
+                <Heading
+                  size="xs"
+                  noOfLines={1}
+                >
                   {displayName}
                 </Heading>
-                <Text fontSize="xs" noOfLines={1}>
+                <Text
+                  fontSize="xs"
+                  noOfLines={1}
+                >
                   {quantity} {getLabel(quantity)}
                 </Text>
-                <Text fontSize="xs" noOfLines={1}>
+                <Text
+                  fontSize="xs"
+                  noOfLines={1}
+                >
                   {relativeDays(createdAtInMS)}
                 </Text>
               </CardContent>

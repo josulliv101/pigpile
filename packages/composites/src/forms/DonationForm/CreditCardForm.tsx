@@ -100,7 +100,10 @@ export const CreditCardForm: React.FC<CreditCardFormProps> = ({
         const isCardInvalid = status?.userUnfocusedCard && !status.ccComplete;
         return (
           <Form>
-            <Stack spacing="4" opacity={isCardReady ? 1 : 0}>
+            <Stack
+              spacing="4"
+              opacity={isCardReady ? 1 : 0}
+            >
               <Field name="email">
                 {({ field, form }) => (
                   <FormControl

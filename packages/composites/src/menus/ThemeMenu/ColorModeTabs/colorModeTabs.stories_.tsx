@@ -8,5 +8,10 @@ export default {
 
 export const ColorModeTabs_ = () => {
   const [activeIndex, setActiveIndex] = useState(1);
-  return <ColorModeTabs index={activeIndex} onChange={setActiveIndex} />;
+  return (
+    <ColorModeTabs
+      index={activeIndex}
+      onChange={setActiveIndex}
+    />
+  );
 };

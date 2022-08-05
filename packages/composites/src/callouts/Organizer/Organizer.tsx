@@ -48,7 +48,11 @@ export const Organizer: React.FC<OrganizerProps> = ({
       />
       <CardBackground h={{ base: "92px", sm: "132px", md: "92px" }} />
       <CardContent pt="2">
-        <Heading size="xs" noOfLines={2} mb="3">
+        <Heading
+          size="xs"
+          noOfLines={2}
+          mb="3"
+        >
           {displayName} {getLabel("is organizing this fundraiser")}.
         </Heading>
         {isEmployee && (
@@ -62,7 +66,11 @@ export const Organizer: React.FC<OrganizerProps> = ({
             Pigpile {getLabel("Employee")}
           </Badge>
         )}
-        <Text fontSize="11px" noOfLines={2} opacity=".8">
+        <Text
+          fontSize="11px"
+          noOfLines={2}
+          opacity=".8"
+        >
           {getLabel("Created")} {relativeDays(createdAtInMS)}
         </Text>
         {children}

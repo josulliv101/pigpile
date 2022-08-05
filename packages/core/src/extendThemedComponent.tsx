@@ -22,7 +22,13 @@ export const extendThemedComponent = (
       defaultProps,
       memoizedGet(theme, `components.${extendedName}`)
     );
-    return <BaseComponent ref={ref} styleConfig={styleConfig} {...props} />;
+    return (
+      <BaseComponent
+        ref={ref}
+        styleConfig={styleConfig}
+        {...props}
+      />
+    );
   });
   C.displayName = extendedName;
   return C;

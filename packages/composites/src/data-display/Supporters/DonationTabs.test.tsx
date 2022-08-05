@@ -6,7 +6,11 @@ import { DonationTabs } from "./DonationTabs";
 describe("Donation Tabs", () => {
   it("renders correctly", () => {
     const { container } = render(
-      <DonationTabs queryType={1} viewType={0} onChange={jest.fn()} />
+      <DonationTabs
+        queryType={1}
+        viewType={0}
+        onChange={jest.fn()}
+      />
     );
     expect(container.firstChild).toMatchInlineSnapshot(`
       <div

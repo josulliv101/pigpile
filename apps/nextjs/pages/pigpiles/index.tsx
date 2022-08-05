@@ -30,7 +30,11 @@ function Pigpiles({ campaignIds }: Props): JSX.Element {
       >
         <List spacing={3}>
           {campaignIds.map((id) => (
-            <NextLink key={id} href={`/pigpile/${id}`} passHref>
+            <NextLink
+              key={id}
+              href={`/pigpile/${id}`}
+              passHref
+            >
               <ListItem
                 as={Button}
                 boxShadow="md"
@@ -38,7 +42,11 @@ function Pigpiles({ campaignIds }: Props): JSX.Element {
                 w="full"
                 _focusVisible={{ outlineColor: "white" }}
               >
-                <ListIcon as={Logo} color="green.500" boxShadow="none" />
+                <ListIcon
+                  as={Logo}
+                  color="green.500"
+                  boxShadow="none"
+                />
                 {formatIdAsText(id, { capitalizeAll: true })}
               </ListItem>
             </NextLink>

@@ -26,7 +26,12 @@ export const OurMission: React.FC<HTMLChakraProps<"div">> = (props) => {
         h="full"
         pt={{ base: 0, md: 4 }}
       >
-        <Text align="center" fontSize="xl" fontWeight="500" mb="3">
+        <Text
+          align="center"
+          fontSize="xl"
+          fontWeight="500"
+          mb="3"
+        >
           {getLabel(
             "Help us in our mission to inspire giving and help good causes raise funds/in-kind donations"
           )}
