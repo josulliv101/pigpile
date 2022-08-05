@@ -28,7 +28,7 @@ export interface MoreButtonsProps extends HTMLChakraProps<"div"> {
 
 export const MORE_BUTTONS_BACK_ID = "back-button";
 
-const ButtonMore = ({ label, price, ...props }) => (
+const ButtonMore = ({ label, price, a, b, c, ...props }) => (
   <Button
     mb="4"
     {...props}
