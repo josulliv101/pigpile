@@ -35,7 +35,7 @@ export const Organizer: React.FC<OrganizerProps> = ({
       colorScheme="gray"
       variant="solid"
       size="sm"
-      minW="260px"
+      minW="240px"
       pt="36px"
       w="full"
       {...rootStyle}

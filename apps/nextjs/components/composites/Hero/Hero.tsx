@@ -110,7 +110,17 @@ const Hero: React.FC<Props> = ({
   const handleCloseCustomInputField = useCallback(() => setUserRequestsCustomAmount(false), []);
 
   return (
-    <Background bgImage={landscapeImage} bgPosition={bgPosition} variant="gradient" h="500px">
+    <Background
+      bgImage={landscapeImage}
+      bgPosition={bgPosition}
+      variant="gradient"
+      h="500px"
+      sx={{
+        "@media screen and (min-height: 200px) and (max-height: 484px)": {
+          h: 480,
+        },
+      }}
+    >
       <DonationModal
         activeFormStep={activeFormStep}
         beneficiary={beneficiary}
@@ -183,7 +193,14 @@ const Hero: React.FC<Props> = ({
           onButtonClick={onDonateQuantityBtnClick}
         />
         <AbsoluteCenter top={{ base: "75%", md: "80%" }}>
-          <Chester animationType={chesterAnimation} />
+          <Chester
+            animationType={chesterAnimation}
+            sx={{
+              "@media screen and (min-height: 200px) and (max-height: 484px)": {
+                transform: "scale(.8)",
+              },
+            }}
+          />
         </AbsoluteCenter>
         {!!currentAmount && !!goalAmount && (
           <GoalCountUp currentAmount={currentAmount} goalAmount={goalAmount} />

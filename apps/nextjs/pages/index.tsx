@@ -6,7 +6,17 @@ function Home(): JSX.Element {
   return (
     <>
       <Center w="80%" textAlign="center" color="white" top={{ base: "38%", sm: "36%" }}>
-        <Heading size="lg" fontSize={{ base: "2xl", sm: "3xl" }} fontWeight="500" mb="3">
+        <Heading
+          size="lg"
+          fontSize={{ base: "2xl", sm: "3xl" }}
+          fontWeight="500"
+          mb="3"
+          sx={{
+            "@media screen and (min-height: 200px) and (max-height: 566px)": {
+              pt: "30%",
+            },
+          }}
+        >
           Pigpile on good causes.
         </Heading>
         <Heading size={{ base: "sm", sm: "md" }} fontWeight="normal" mb="6">
