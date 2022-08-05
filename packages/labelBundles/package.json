@@ -19,5 +19,6 @@
     "lodash.get": "^4.4.2",
     "react": "18.2.0"
   },
-  "devDependencies": {}
+  "devDependencies": {},
+  "sideEffects": false
 }

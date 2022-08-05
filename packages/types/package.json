@@ -16,5 +16,6 @@
   "dependencies": {
     "@babel/runtime": "^7.17.0"
   },
-  "devDependencies": {}
+  "devDependencies": {},
+  "sideEffects": false
 }

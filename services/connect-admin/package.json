@@ -17,5 +17,6 @@
     "@babel/runtime": "^7.17.0",
     "firebase-admin": "^11.0.0"
   },
-  "devDependencies": {}
+  "devDependencies": {},
+  "sideEffects": false
 }

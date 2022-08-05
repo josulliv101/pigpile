@@ -32,5 +32,6 @@
     "react-icons": "^4.4.0",
     "s-ago": "^2.2.0"
   },
-  "devDependencies": {}
+  "devDependencies": {},
+  "sideEffects": false
 }
