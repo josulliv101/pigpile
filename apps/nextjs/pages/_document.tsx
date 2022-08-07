@@ -1,5 +1,5 @@
 import Document, { Html, Head, Main, NextScript } from "next/document";
-import Script from 'next/script'
+import Script from "next/script";
 
 export default class MyDocument extends Document {
   render(): JSX.Element {
@@ -36,7 +36,10 @@ export default class MyDocument extends Document {
             src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`}
             strategy="afterInteractive"
           />
-          <Script id="google-analytics" strategy="afterInteractive">
+          <Script
+            id="google-analytics"
+            strategy="afterInteractive"
+          >
             {`
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}

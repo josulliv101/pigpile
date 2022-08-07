@@ -202,7 +202,8 @@ export const Footer: React.FC<HTMLChakraProps<"div">> = (props) => {
               color="subtle"
               fontSize="xs"
             >
-              &copy; {new Date().getFullYear()} {getLabel("Pigpile Corporation")}.{" "}
+              &copy; {new Date().getFullYear()}{" "}
+              {getLabel("Pigpile Corporation")}.{" "}
               {getLabel("All rights reserved")}
             </Text>
           </Stack>

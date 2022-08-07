@@ -5,7 +5,7 @@ import { AppState } from "store";
 export interface AppSliceState {
   isUnloading: boolean;
   isMobileNavOpen: boolean;
-  user: User | null
+  user: User | null;
 }
 
 export const appSlice = createSlice({
@@ -37,5 +37,4 @@ export const appSlice = createSlice({
 
 export const selectAppState = () => (state: AppState) => state[appSlice.name];
 
-export const selectUser = () => (state: AppState) =>
-  state[appSlice.name]?.user;
+export const selectUser = () => (state: AppState) => state[appSlice.name]?.user;

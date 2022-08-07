@@ -1,10 +1,7 @@
-import dynamic from 'next/dynamic';
+import dynamic from "next/dynamic";
 import { useCallback, useMemo } from "react";
 import { adminDb } from "@josulliv101/connect-admin";
-import {
-  StickyBar,
-  useTheme,
-} from "@josulliv101/core";
+import { StickyBar, useTheme } from "@josulliv101/core";
 import { LayoutCampaign } from "components/layouts";
 import Hero from "components/composites/Hero";
 import { CampaignOverviewBar } from "components/composites/CampaignOverviewBar";
@@ -26,9 +23,12 @@ import {
   wrapper,
 } from "store";
 
-const CampaignContentLazy = dynamic(() => import('components/composites/CampaignContent/CampaignContent'), {
-  ssr: false,
-})
+const CampaignContentLazy = dynamic(
+  () => import("components/composites/CampaignContent/CampaignContent"),
+  {
+    ssr: false,
+  }
+);
 
 const getCommentFromDonation = ({
   displayName,

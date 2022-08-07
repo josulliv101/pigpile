@@ -47,7 +47,7 @@ export function useStatusListenererMiddleware() {
     };
     listenerMiddleware.startListening({
       matcher: isAnyOf(
-        statusSlice.actions.setStatus,
+        statusSlice.actions.setStatus
         // isAsyncThunkAction(addCampaignDonationThunk)
       ),
       effect,

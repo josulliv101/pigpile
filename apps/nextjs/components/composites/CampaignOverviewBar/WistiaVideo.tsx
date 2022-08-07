@@ -1,5 +1,10 @@
 import Script from "next/script";
-import { AbsoluteCenter, Box, Image, CircularProgress } from "@josulliv101/core";
+import {
+  AbsoluteCenter,
+  Box,
+  Image,
+  CircularProgress,
+} from "@josulliv101/core";
 import { useVideo } from "./useVideo";
 
 interface Props {
@@ -11,14 +16,15 @@ export const WistiaVideo: React.FC<Props> = ({
   playerColor = "999999",
   videoId,
 }) => {
-  const { isWistiaReady, initWistia, setIsWistiaReady, setInitWistia } = useVideo(videoId);
+  const { isWistiaReady, initWistia, setIsWistiaReady, setInitWistia } =
+    useVideo();
   if (!videoId) {
     return <Box>A wistia video id is required.</Box>;
   }
   return (
     <Box position="relative">
-      {
-        initWistia && <>
+      {initWistia && (
+        <>
           <Script
             src={`https://fast.wistia.com/embed/medias/${videoId}.jsonp`}
             strategy="lazyOnload"
@@ -28,7 +34,7 @@ export const WistiaVideo: React.FC<Props> = ({
             strategy="lazyOnload"
           />
         </>
-      }
+      )}
       <Box
         className="wistia_responsive_padding"
         flex="1"
@@ -62,27 +68,37 @@ export const WistiaVideo: React.FC<Props> = ({
               <Image
                 alt=""
                 aria-hidden="true"
+                cursor="pointer"
                 height="100%"
                 objectFit="contain"
                 onClick={() => {
                   setInitWistia(true);
-                  if (typeof window !== 'undefined') {
+                  if (typeof window !== "undefined") {
                     window._wq = window._wq || [];
-                    _wq.push({ id: videoId, onReady: function(video) {
-                      video.play();
-                      setIsWistiaReady(true);
-                    }});
+                    _wq.push({
+                      id: videoId,
+                      onReady: function (video) {
+                        video.play();
+                        setIsWistiaReady(true);
+                      },
+                    });
                   }
                 }}
                 src="https://embed-ssl.wistia.com/deliveries/a6595f4c988a472090a6c6b93a16768c.webp?image_crop_resized=630x354"
                 width="100%"
-                cursor="pointer"
               />
             </Box>
           </Box>
         </Box>
       </Box>
-      { initWistia && !isWistiaReady && <CircularProgress as={AbsoluteCenter} position="absolute" isIndeterminate zIndex="9999"  />}
+      {initWistia && !isWistiaReady && (
+        <CircularProgress
+          as={AbsoluteCenter}
+          isIndeterminate
+          position="absolute"
+          zIndex="9999"
+        />
+      )}
     </Box>
   );
 };

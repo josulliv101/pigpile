@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import {
   BackgroundContent,
   Box,
@@ -50,9 +49,7 @@ export const CampaignOverviewBar: React.FC<Props> = ({
             flex="1"
             p="3"
           >
-            <WistiaVideo
-              videoId={videoId}
-            />
+            <WistiaVideo videoId={videoId} />
             <Text
               color="inherit"
               fontSize="xs"

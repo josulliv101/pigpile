@@ -35,7 +35,9 @@ const gradientVariant: SystemStyleFunction = (props) => {
     "48%",
     "40%"
   )},${useColorModeValue(0.5, 0.6)}))`;
-  const bgImagesMobile = bgImage ? [gradient, `url(/mobile${bgImage})`] : [gradient];
+  const bgImagesMobile = bgImage
+    ? [gradient, `url(/mobile${bgImage})`]
+    : [gradient];
   const bgImages = bgImage ? [gradient, `url(${bgImage})`] : [gradient];
   return {
     bgImage: [bgImagesMobile.join(","), bgImages.join(",")],

@@ -10,8 +10,6 @@ export const LayoutFullViewport: React.FC<Layout> = ({ children }) => {
     userTheme: { bgImage, bgPosition, chesterPosition },
   } = useTheme();
   const chesterAnimationType = useAppSelector(selectChesterAnimation());
-  const landscapeImage = `url(${bgImage})`;
-
   return (
     <>
       <Banner>

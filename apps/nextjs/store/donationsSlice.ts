@@ -17,7 +17,7 @@ export const addCampaignDonationThunk = createAsyncThunk(
   async (donation: AddedDonation, { dispatch }) => {
     try {
       await addDonation(donation);
-    } catch(err) {
+    } catch (err) {
       dispatch(statusSlice.actions.setStatus(getStatusFromError(err)));
     }
   }

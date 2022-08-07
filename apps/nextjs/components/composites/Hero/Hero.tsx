@@ -1,4 +1,4 @@
-import dynamic from 'next/dynamic';
+import dynamic from "next/dynamic";
 import { useCallback, useState } from "react";
 import { AddedDonation, Donation } from "@josulliv101/types";
 import { MoreButtons } from "@josulliv101/composites";
@@ -24,9 +24,9 @@ import { useAppSelector, useLabelBundle } from "hooks";
 import { GoalCountUp } from "./GoalCountUp";
 import useDonationQuantityOptions from "./useDonationQuantityOptions";
 
-const DonationModalLazy = dynamic(() => import('./DonationModal'), {
+const DonationModalLazy = dynamic(() => import("./DonationModal"), {
   ssr: false,
-})
+});
 
 interface Props {
   beneficiary: string;

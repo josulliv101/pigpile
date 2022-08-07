@@ -31,7 +31,7 @@ function PigpileApp({ Component, pageProps }: Props): JSX.Element {
   const { theme } = useTheme();
   const getLayout =
     Component.getLayout ?? ((page) => <LayoutBasic>{page}</LayoutBasic>);
-/*
+  /*
   if (isUnloading) {
     return <div />;
   }

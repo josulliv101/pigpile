@@ -24,7 +24,7 @@ export const statusSlice = createSlice({
       state[action.payload] = undefined;
     },
   },
-/*  extraReducers: (builder) => {
+  /*  extraReducers: (builder) => {
     builder.addCase(addCampaignDonationThunk.rejected, (state, action) => {
       const status = getStatusFromError(action.error);
       state[action.payload.id] = { id: action.payload.id, ...status };

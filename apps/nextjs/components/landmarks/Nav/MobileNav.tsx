@@ -1,5 +1,4 @@
 import { forwardRef, Ref, useEffect, useRef } from "react";
-import { AnimatePresence, motion } from "framer-motion";
 import { FaBars } from "react-icons/fa";
 import { RemoveScroll } from "react-remove-scroll";
 import {
@@ -60,7 +59,7 @@ export function MobileNavContent(props: MobileNavContentProps) {
     return null;
   }
   return (
-  <RemoveScroll forwardProps>
+    <RemoveScroll forwardProps>
       <Background
         bgImage={landscapeImage}
         bgPosition={bgPosition}

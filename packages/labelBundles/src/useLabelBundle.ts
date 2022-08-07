@@ -1,5 +1,4 @@
 import { useState, useMemo } from "react";
-import { LabelBundleMap } from "@josulliv101/types";
 import { mergeWith } from "@josulliv101/core";
 import { makeGetLabelFromBundle } from "./";
 
@@ -10,10 +9,7 @@ export function useLabelBundle({
   const [labelBundleId, setLabelBundleId] = useState(initialId);
 
   return useMemo(() => {
-    const labelBundleWithOverrides = mergeWith(
-      {},
-      customLabels[labelBundleId]
-    );
+    const labelBundleWithOverrides = mergeWith({}, customLabels[labelBundleId]);
     const getLabel = makeGetLabelFromBundle(labelBundleWithOverrides);
     const getLabelForQuantity = (
       { one, many }: { one: string; many: string },

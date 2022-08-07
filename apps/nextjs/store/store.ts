@@ -39,7 +39,7 @@ export const makeStore = () => {
     },
     devTools: process.env.NODE_ENV !== "production",
   });
-}
+};
 
 export type AppStore = ReturnType<typeof makeStore>;
 export type AppState = ReturnType<AppStore["getState"]>;

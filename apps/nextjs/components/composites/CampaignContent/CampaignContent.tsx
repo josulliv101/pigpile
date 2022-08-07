@@ -1,11 +1,5 @@
 import { Donation } from "@josulliv101/types";
-import {
-  Box,
-  Container,
-  HStack,
-  Spacer,
-  Stack,
-} from "@josulliv101/core";
+import { Box, Container, HStack, Spacer, Stack } from "@josulliv101/core";
 import {
   FeaturedComments,
   MeetChester,
@@ -21,7 +15,18 @@ interface Props {
   donations: Donation[];
 }
 
-const CampaignContent: React.FC<Props> = ({ beneficiary, chesterAnimationType, comments = [], donations, donationFilter, getDonationsLabel, landscapeImage, location, onDonationFilterChange, organization }): JSX.Element => {
+const CampaignContent: React.FC<Props> = ({
+  beneficiary,
+  chesterAnimationType,
+  comments = [],
+  donations,
+  donationFilter,
+  getDonationsLabel,
+  landscapeImage,
+  location,
+  onDonationFilterChange,
+  organization,
+}): JSX.Element => {
   return (
     <>
       <Container minH="100px">
