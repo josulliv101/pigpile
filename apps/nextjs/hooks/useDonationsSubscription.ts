@@ -14,9 +14,7 @@ export function useDonationsSubscription(campaignId: string) {
       const { connectClientApp, subscribeToCampaignDonations } = await import(
         "@josulliv101/connect-client"
       );
-      const { donationsSlice, selectCampaignDonations } = await import(
-        "store/donationsSlice"
-      );
+      const { donationsSlice, selectCampaignDonations } = await import("store/donationsSlice");
 
       reducerManager.add(donationsSlice.name, donationsSlice.reducer);
       connectClientApp(() => "");

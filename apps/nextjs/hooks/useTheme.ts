@@ -17,15 +17,8 @@ import { useAppDispatch, useAppSelector } from "hooks";
 
 // TODO on-demand loading of themes
 
-export const getThemeWithDefaults = (
-  colorScheme: ColorScheme,
-  userTheme: UserTheme
-) => {
-  const {
-    componentsByVariant = [],
-    componentsBySize = [],
-    ...rest
-  } = userTheme;
+export const getThemeWithDefaults = (colorScheme: ColorScheme, userTheme: UserTheme) => {
+  const { componentsByVariant = [], componentsBySize = [], ...rest } = userTheme;
 
   const colorSchemes = colorScheme.componentsByColorScheme.map((item) =>
     withDefaultColorScheme(item)

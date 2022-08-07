@@ -24,10 +24,7 @@ export default {
   },
 } as ComponentMeta<typeof DonationForm>;
 
-const Template: ComponentStory<typeof DonationForm> = ({
-  initialNumberOfUnits,
-  ...args
-}) => {
+const Template: ComponentStory<typeof DonationForm> = ({ initialNumberOfUnits, ...args }) => {
   const [tip, setTip] = useState(undefined);
   const [showCustomInputField, setShowCustomInputField] = useState(false);
   const [numberOfUnits, setNumberOfUnits] = useState(initialNumberOfUnits);

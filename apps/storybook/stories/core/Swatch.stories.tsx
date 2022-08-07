@@ -16,10 +16,7 @@ const meta = {
   },
 } as ComponentMeta<typeof Swatch>;
 
-const Template: ComponentStory<typeof Swatch> = (
-  args,
-  { parameters: { argsByIndex } = {} }
-) => {
+const Template: ComponentStory<typeof Swatch> = (args, { parameters: { argsByIndex } = {} }) => {
   return (
     <Stack
       align="center"

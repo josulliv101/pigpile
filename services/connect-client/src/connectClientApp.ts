@@ -1,10 +1,5 @@
 import { getApp, getApps, initializeApp, FirebaseApp } from "firebase/app";
-import {
-  Auth,
-  getAuth,
-  onAuthStateChanged,
-  signInAnonymously,
-} from "firebase/auth";
+import { Auth, getAuth, onAuthStateChanged, signInAnonymously } from "firebase/auth";
 import { initializeFirestore, Firestore } from "firebase/firestore";
 import { User } from "@josulliv101/types";
 import { getUser } from "./getUser";
@@ -25,9 +20,7 @@ let auth: Auth;
 const getClientApp = (): FirebaseApp =>
   getApps().length > 0 ? getApp() : initializeApp(firebaseConfig);
 
-export const connectClientApp = (
-  authStateChangedHandler: (user: User) => void
-) => {
+export const connectClientApp = (authStateChangedHandler: (user: User) => void) => {
   app = getClientApp();
   db = initializeFirestore(app, { cacheSizeBytes: 41943048 });
   auth = getAuth(app);

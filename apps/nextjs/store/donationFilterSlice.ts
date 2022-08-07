@@ -29,5 +29,4 @@ export const donationFilterSlice = createSlice({
   },
 });
 
-export const selectDonationFilterState = () => (state: AppState) =>
-  state[donationFilterSlice.name];
+export const selectDonationFilterState = () => (state: AppState) => state[donationFilterSlice.name];

@@ -14,10 +14,7 @@ export interface CustomInputFieldProps extends HTMLChakraProps<"div"> {
   onChange: (units) => void;
 }
 
-export const CustomInputField: React.FC<CustomInputFieldProps> = ({
-  numberOfUnits,
-  onChange,
-}) => {
+export const CustomInputField: React.FC<CustomInputFieldProps> = ({ numberOfUnits, onChange }) => {
   const inputEl = useRef(null);
   useEffect(() => {
     if (inputEl?.current) {

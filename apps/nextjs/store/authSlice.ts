@@ -20,12 +20,9 @@ export const signInUserThunk = createAsyncThunk<void, Provider>(
   }
 );
 
-export const signOutUserThunk = createAsyncThunk<void>(
-  "auth/signOutUser",
-  async () => {
-    await signOut(auth);
-  }
-);
+export const signOutUserThunk = createAsyncThunk<void>("auth/signOutUser", async () => {
+  await signOut(auth);
+});
 
 export const authSlice = createSlice({
   name: "auth",
@@ -43,5 +40,4 @@ export const authSlice = createSlice({
 /*export const selectUser = () => (state: AppState) =>
   state?.[authSlice.name]?.user;*/
 
-export const selectIsAppReady = () => (state: AppState) =>
-  state?.[authSlice.name]?.isReady;
+export const selectIsAppReady = () => (state: AppState) => state?.[authSlice.name]?.isReady;

@@ -33,8 +33,8 @@ export const TipInput: React.FC<TipInputProps> = ({
       fontWeight="200"
       {...props}
     >
-      We&apos;re a free service and rely on donor love. Any contribution is
-      appreciated. Include a tip of &nbsp;
+      We&apos;re a free service and rely on donor love. Any contribution is appreciated. Include a
+      tip of &nbsp;
       <Menu placement="bottom-end">
         <MenuButton
           _disabled={{ cursor: "default" }}

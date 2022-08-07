@@ -7,12 +7,9 @@ const meta = {
   title: "Media and Icons / Background",
 } as ComponentMeta<typeof Background>;
 
-const Template: ComponentStory<typeof Background> = (args) => (
-  <Background {...args} />
-);
+const Template: ComponentStory<typeof Background> = (args) => <Background {...args} />;
 
-const bgImage =
-  "url(https://pigpile-next.firebaseapp.com/images/landscape.png)";
+const bgImage = "url(https://pigpile-next.firebaseapp.com/images/landscape.png)";
 
 const baseArgs = {
   children: <div>child text</div>,

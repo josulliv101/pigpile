@@ -8,9 +8,7 @@ import {
   useStyleConfig,
 } from "@chakra-ui/react";
 
-export interface CalloutProps
-  extends HTMLChakraProps<"div">,
-    ThemingProps<"Callout"> {}
+export interface CalloutProps extends HTMLChakraProps<"div">, ThemingProps<"Callout"> {}
 
 export const Callout: React.FC<CalloutProps> = (props) => {
   const styles = useStyleConfig("Callout", props);

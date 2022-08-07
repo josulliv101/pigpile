@@ -66,12 +66,7 @@ const ThemeTabs_ = (props: TabContentProps): JSX.Element => {
               />
             </Tab>,
           ],
-          [
-            ...panels,
-            <HiddenPanel key={key}>
-              {isActive ? `${key} ${label}` : ""}
-            </HiddenPanel>,
-          ],
+          [...panels, <HiddenPanel key={key}>{isActive ? `${key} ${label}` : ""}</HiddenPanel>],
         ];
       },
       [[], []]

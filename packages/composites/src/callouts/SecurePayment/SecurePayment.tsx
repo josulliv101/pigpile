@@ -1,13 +1,5 @@
 import { FaLock } from "react-icons/fa";
-import {
-  Avatar,
-  Box,
-  Heading,
-  HStack,
-  Stack,
-  Text,
-  HTMLChakraProps,
-} from "@josulliv101/core";
+import { Avatar, Box, Heading, HStack, Stack, Text, HTMLChakraProps } from "@josulliv101/core";
 import { useLabelBundle } from "@josulliv101/labelbundles";
 
 export const SecurePayment: React.FC<HTMLChakraProps<"div">> = (props) => {

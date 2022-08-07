@@ -18,10 +18,7 @@ export default function useIsScrolledY() {
     );
   }, [scrollY]);
 
-  const resetWindowScrollPosition = useCallback(
-    () => window?.scrollTo(0, 0),
-    []
-  );
+  const resetWindowScrollPosition = useCallback(() => window?.scrollTo(0, 0), []);
 
   useEffect(() => {
     window.onbeforeunload = function () {

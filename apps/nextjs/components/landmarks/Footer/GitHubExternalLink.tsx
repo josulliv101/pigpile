@@ -1,9 +1,7 @@
 import { FaGithub } from "react-icons/fa";
 import { IconButton, IconButtonProps } from "@josulliv101/core";
 
-export const GitHubExternalLink: React.FC<
-  Omit<IconButtonProps, "aria-label">
-> = (props) => {
+export const GitHubExternalLink: React.FC<Omit<IconButtonProps, "aria-label">> = (props) => {
   return (
     <IconButton
       aria-label="Check out the code on GitHub"

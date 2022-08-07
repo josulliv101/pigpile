@@ -1,12 +1,7 @@
 import NextLink from "next/link";
 import { FaUserAlt } from "react-icons/fa";
 import { User } from "@josulliv101/types";
-import {
-  ButtonGroup,
-  HTMLChakraProps,
-  IconButton,
-  useBreakpointValue,
-} from "@josulliv101/core";
+import { ButtonGroup, HTMLChakraProps, IconButton, useBreakpointValue } from "@josulliv101/core";
 import { ThemeMenu, UserProfileMenu } from "@josulliv101/composites";
 import { themeOptions } from "@josulliv101/theme";
 import { ThemeState } from "store";

@@ -59,9 +59,7 @@ describe("SwatchButton", () => {
         {...props}
       />
     );
-    expect(
-      screen.getByRole("button", { name: "custom swatch colors" })
-    ).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: "custom swatch colors" })).toBeInTheDocument();
   });
   it("renders correctly", () => {
     const { container } = render(<SwatchButton {...props} />);

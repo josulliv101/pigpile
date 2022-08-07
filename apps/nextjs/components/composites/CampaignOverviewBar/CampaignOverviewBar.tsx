@@ -1,20 +1,10 @@
-import {
-  BackgroundContent,
-  Box,
-  Container,
-  HTMLChakraProps,
-  Stack,
-  Text,
-} from "@josulliv101/core";
+import { BackgroundContent, Box, Container, HTMLChakraProps, Stack, Text } from "@josulliv101/core";
 import { Campaign, Media } from "@josulliv101/types";
 import { Tags } from "./Tags";
 import { IntroBlurb } from "./IntroBlurb";
 import { WistiaVideo } from "./WistiaVideo";
 
-interface Props
-  extends Media,
-    Pick<Campaign, "beneficiary" | "tags">,
-    HTMLChakraProps<"div"> {
+interface Props extends Media, Pick<Campaign, "beneficiary" | "tags">, HTMLChakraProps<"div"> {
   overview: string;
 }
 

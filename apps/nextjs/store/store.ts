@@ -32,10 +32,7 @@ export const makeStore = () => {
   return configureStore({
     reducer: reducerManager.reduce,
     middleware: (getDefaultMiddleware) => {
-      return getDefaultMiddleware().concat(
-        addUniqueIdMiddleware,
-        listenerMiddleware.middleware
-      );
+      return getDefaultMiddleware().concat(addUniqueIdMiddleware, listenerMiddleware.middleware);
     },
     devTools: process.env.NODE_ENV !== "production",
   });

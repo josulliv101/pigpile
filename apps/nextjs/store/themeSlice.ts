@@ -20,20 +20,15 @@ export const themeSlice = createSlice({
   } as ThemeState,
 
   reducers: {
-    setActiveIndex: (
-      state,
-      action: PayloadAction<{ id: string; index: number }>
-    ) => {
+    setActiveIndex: (state, action: PayloadAction<{ id: string; index: number }>) => {
       state[action.payload.id as keyof ThemeState] = action.payload.index;
     },
   },
 });
 
-export const selectColorSchemeIndex = () => (state: AppState) =>
-  state[themeSlice.name].colorScheme;
+export const selectColorSchemeIndex = () => (state: AppState) => state[themeSlice.name].colorScheme;
 
-export const selectThemeState = () => (state: AppState) =>
-  state[themeSlice.name];
+export const selectThemeState = () => (state: AppState) => state[themeSlice.name];
 
 export const selectChesterAnimation = () => (state: AppState) => {
   const chesterAnimationIndex = state[themeSlice.name].chesterAnimation;

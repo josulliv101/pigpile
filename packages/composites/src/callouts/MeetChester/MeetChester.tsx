@@ -14,10 +14,7 @@ export interface MeetChesterProps extends HTMLChakraProps<"div"> {
   animationType: string;
 }
 
-export const MeetChester: React.FC<MeetChesterProps> = ({
-  animationType,
-  ...rootStyle
-}) => {
+export const MeetChester: React.FC<MeetChesterProps> = ({ animationType, ...rootStyle }) => {
   const { getLabel } = useLabelBundle();
   return (
     <Card

@@ -15,9 +15,7 @@ import {
 import { cx } from "@chakra-ui/utils";
 import CountUp from "react-countup";
 
-export interface CountUpBoxProps
-  extends HTMLChakraProps<"aside">,
-    ThemingProps<"Container"> {
+export interface CountUpBoxProps extends HTMLChakraProps<"aside">, ThemingProps<"Container"> {
   duration?: number;
   label?: string;
   countUpValue?: number;
@@ -65,9 +63,7 @@ export const CountUpBox: React.FC<CountUpBoxProps> = ({
   sx,
   ...props
 }) => {
-  const [isCountUpComplete, setIsCountUpComplete] = React.useState(
-    !showLabelOnEnd
-  );
+  const [isCountUpComplete, setIsCountUpComplete] = React.useState(!showLabelOnEnd);
   const styles = useMultiStyleConfig("CountUpBox", props);
   const labelProps = showLabelOnEnd ? { as: Fade, in: isCountUpComplete } : {};
   return (

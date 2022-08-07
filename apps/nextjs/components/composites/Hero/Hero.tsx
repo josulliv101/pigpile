@@ -14,12 +14,7 @@ import {
   useTheme,
 } from "@josulliv101/core";
 import { formatNumber } from "@josulliv101/formatting";
-import {
-  selectChesterAnimation,
-  selectPaymentState,
-  selectUser,
-  FORM_STEPS,
-} from "store";
+import { selectChesterAnimation, selectPaymentState, selectUser, FORM_STEPS } from "store";
 import { useAppSelector, useLabelBundle } from "hooks";
 import { GoalCountUp } from "./GoalCountUp";
 import useDonationQuantityOptions from "./useDonationQuantityOptions";
@@ -52,8 +47,7 @@ const Hero: React.FC<Props> = ({
   const user = useAppSelector(selectUser());
   const chesterAnimation = useAppSelector(selectChesterAnimation());
   const { activeFormStep } = useAppSelector(selectPaymentState());
-  const [userRequestsCustomAmount, setUserRequestsCustomAmount] =
-    useState(false);
+  const [userRequestsCustomAmount, setUserRequestsCustomAmount] = useState(false);
   const [numberOfUnits, setNumberOfUnits] = useState<number | null>(null);
   const [tip, setTip] = useState(0);
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -69,17 +63,14 @@ const Hero: React.FC<Props> = ({
     onOpen();
   };
 
-  const onDonateQuantityBtnClick = useCallback(
-    (payload: number | string | null) => {
-      if (payload === "custom") {
-        return handleCustomBtnClick();
-      } else if (typeof Number(payload) === "number") {
-        setNumberOfUnits(Number(payload));
-        onOpen();
-      }
-    },
-    []
-  );
+  const onDonateQuantityBtnClick = useCallback((payload: number | string | null) => {
+    if (payload === "custom") {
+      return handleCustomBtnClick();
+    } else if (typeof Number(payload) === "number") {
+      setNumberOfUnits(Number(payload));
+      onOpen();
+    }
+  }, []);
 
   const handleCloseModal = useCallback(() => {
     setUserRequestsCustomAmount(false);
@@ -119,14 +110,8 @@ const Hero: React.FC<Props> = ({
     (n) => getLabelForQuantity({ one: "item", many: "items" }, n),
     []
   );
-  const handleShowCustomInputField = useCallback(
-    () => setUserRequestsCustomAmount(true),
-    []
-  );
-  const handleCloseCustomInputField = useCallback(
-    () => setUserRequestsCustomAmount(false),
-    []
-  );
+  const handleShowCustomInputField = useCallback(() => setUserRequestsCustomAmount(true), []);
+  const handleCloseCustomInputField = useCallback(() => setUserRequestsCustomAmount(false), []);
 
   return (
     <Background

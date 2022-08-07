@@ -6,8 +6,7 @@ import { useAppSelector } from "hooks";
 export function useLabelBundle() {
   const router = useRouter();
   const { id: campaignId } = router.query;
-  const { customLabels } =
-    useAppSelector(selectCampaign(campaignId as string)) || {};
+  const { customLabels } = useAppSelector(selectCampaign(campaignId as string)) || {};
 
   const labelBundleProps = useLabelBundleBase({ customLabels });
   return labelBundleProps;

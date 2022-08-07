@@ -1,10 +1,5 @@
 import NextLink from "next/link";
-import {
-  Button,
-  AbsoluteCenter as Center,
-  Heading,
-  Text,
-} from "@josulliv101/core";
+import { Button, AbsoluteCenter as Center, Heading, Text } from "@josulliv101/core";
 import { LayoutFullViewport } from "components/layouts";
 
 function Home(): JSX.Element {
@@ -47,8 +42,7 @@ function Home(): JSX.Element {
           pt="4"
           px="10px"
         >
-          Our mission is to inspire giving and help good causes raise
-          funds/in-kind donations.
+          Our mission is to inspire giving and help good causes raise funds/in-kind donations.
         </Text>
         <NextLink
           href="/pigpiles"
@@ -71,8 +65,6 @@ function Home(): JSX.Element {
   );
 }
 
-Home.getLayout = (page): JSX.Element => (
-  <LayoutFullViewport>{page}</LayoutFullViewport>
-);
+Home.getLayout = (page): JSX.Element => <LayoutFullViewport>{page}</LayoutFullViewport>;
 
 export default Home;

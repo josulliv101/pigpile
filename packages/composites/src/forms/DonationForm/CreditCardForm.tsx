@@ -1,9 +1,5 @@
 import { useEffect, useState } from "react";
-import {
-  useElements,
-  CardElement,
-  useStripe as useStripeObject,
-} from "@stripe/react-stripe-js";
+import { useElements, CardElement, useStripe as useStripeObject } from "@stripe/react-stripe-js";
 import { Formik, Field, Form } from "formik";
 import { PaymentIntent } from "@josulliv101/types";
 import {
@@ -40,9 +36,7 @@ export const CreditCardForm: React.FC<CreditCardFormProps> = ({
     }
   }, [showCustomInputField]);
 
-  const handleSubmit: React.FormEventHandler<HTMLFormElement> = async (
-    values
-  ) => {
+  const handleSubmit: React.FormEventHandler<HTMLFormElement> = async (values) => {
     if (process.env.IS_STORYBOOK) {
       console.warn("Credit card submission is disabled within Storybook.");
       return;
@@ -83,8 +77,7 @@ export const CreditCardForm: React.FC<CreditCardFormProps> = ({
       }}
     >
       {({ dirty, isValid, isSubmitting, setStatus, status }) => {
-        const handleCardChange = (event) =>
-          setStatus({ ...status, ccComplete: event.complete });
+        const handleCardChange = (event) => setStatus({ ...status, ccComplete: event.complete });
         const handleCardBlur = () => {
           setStatus({ ...status, userUnfocusedCard: true });
           setIsCardFocused(false);
@@ -123,11 +116,7 @@ export const CreditCardForm: React.FC<CreditCardFormProps> = ({
               <FormControl isInvalid={isCardInvalid}>
                 <Box
                   border={`1px ${
-                    isCardInvalid
-                      ? "#E53E3E"
-                      : isCardFocused
-                      ? "#3182ce"
-                      : "#e2e8f0"
+                    isCardInvalid ? "#E53E3E" : isCardFocused ? "#3182ce" : "#e2e8f0"
                   } solid`}
                   borderRadius="md"
                   boxShadow={
@@ -171,19 +160,13 @@ export const CreditCardForm: React.FC<CreditCardFormProps> = ({
                     }}
                   />
                 </Box>
-                <FormErrorMessage>
-                  Credit card information incomplete
-                </FormErrorMessage>
+                <FormErrorMessage>Credit card information incomplete</FormErrorMessage>
               </FormControl>
               {!showCustomInputField && <Spacer p="20" />}
               <Button
                 colorScheme="pink"
                 disabled={
-                  showCustomInputField ||
-                  !dirty ||
-                  !isValid ||
-                  !status?.ccComplete ||
-                  isSubmitting
+                  showCustomInputField || !dirty || !isValid || !status?.ccComplete || isSubmitting
                 }
                 isLoading={isSubmitting}
                 type="submit"

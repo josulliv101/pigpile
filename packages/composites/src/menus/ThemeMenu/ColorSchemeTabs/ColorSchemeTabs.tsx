@@ -54,9 +54,7 @@ export const ColorSchemeTabs = (props): JSX.Element => {
           const isActive = tabsProps.index === index;
           return (
             <TabPanel key={key}>
-              <VisuallyHidden>
-                {isActive ? `${key} is active swatch` : ""}
-              </VisuallyHidden>
+              <VisuallyHidden>{isActive ? `${key} is active swatch` : ""}</VisuallyHidden>
             </TabPanel>
           );
         })}

@@ -58,10 +58,7 @@ function Pigpiles({ campaignIds }: Props): JSX.Element {
 }
 
 export const getServerSideProps = wrapper.getServerSideProps(() => async () => {
-  const snapshot = await adminDb
-    .collection("campaigns-meta")
-    .doc("campaign")
-    .get();
+  const snapshot = await adminDb.collection("campaigns-meta").doc("campaign").get();
   const data = snapshot.data();
   let ids = [];
 
@@ -75,8 +72,6 @@ export const getServerSideProps = wrapper.getServerSideProps(() => async () => {
   };
 });
 
-Pigpiles.getLayout = (page): JSX.Element => (
-  <LayoutFullViewport>{page}</LayoutFullViewport>
-);
+Pigpiles.getLayout = (page): JSX.Element => <LayoutFullViewport>{page}</LayoutFullViewport>;
 
 export default Pigpiles;

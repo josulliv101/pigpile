@@ -13,9 +13,7 @@ export const getAuthApi = async (dispatch: AppDispatch) => {
   reducerManager.add(authSlice.name, authSlice.reducer);
   if (!isInitialized) {
     isInitialized = true;
-    connectClientApp((user: User) =>
-      dispatch(authSlice.actions.autheniticate(user))
-    );
+    connectClientApp((user: User) => dispatch(authSlice.actions.autheniticate(user)));
   }
   return authApi;
 };

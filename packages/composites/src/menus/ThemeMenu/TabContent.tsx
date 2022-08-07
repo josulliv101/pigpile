@@ -1,12 +1,5 @@
 import * as React from "react";
-import {
-  BoxProps,
-  HStack,
-  Icon,
-  Text,
-  SwatchAnimated,
-  SwatchProps,
-} from "@josulliv101/core";
+import { BoxProps, HStack, Icon, Text, SwatchAnimated, SwatchProps } from "@josulliv101/core";
 
 export interface TabContentProps extends BoxProps {
   label: string;

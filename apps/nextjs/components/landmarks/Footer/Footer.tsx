@@ -1,12 +1,4 @@
-import {
-  Box,
-  Container,
-  HStack,
-  Logo,
-  Stack,
-  Text,
-  HTMLChakraProps,
-} from "@josulliv101/core";
+import { Box, Container, HStack, Logo, Stack, Text, HTMLChakraProps } from "@josulliv101/core";
 import { FaFacebook, FaInstagram, FaTwitter } from "react-icons/fa";
 import { useLabelBundle } from "@josulliv101/labelbundles";
 import { FooterNavLink, NavLinkProps } from "components/landmarks";
@@ -170,10 +162,9 @@ export const Footer: React.FC<HTMLChakraProps<"div">> = (props) => {
                 </Text>
               </HStack>
               <Text fontSize="md">
-                Pigpile Corporation provides an online fund-raising app
-                dedicated to helping good causes raise funds & in-kind
-                donations. The app is free to use &ndash; no charges or service
-                fees for creating a fundraiser.
+                Pigpile Corporation provides an online fund-raising app dedicated to helping good
+                causes raise funds & in-kind donations. The app is free to use &ndash; no charges or
+                service fees for creating a fundraiser.
               </Text>
             </Stack>
           </Stack>
@@ -202,8 +193,7 @@ export const Footer: React.FC<HTMLChakraProps<"div">> = (props) => {
               color="subtle"
               fontSize="xs"
             >
-              &copy; {new Date().getFullYear()}{" "}
-              {getLabel("Pigpile Corporation")}.{" "}
+              &copy; {new Date().getFullYear()} {getLabel("Pigpile Corporation")}.{" "}
               {getLabel("All rights reserved")}
             </Text>
           </Stack>

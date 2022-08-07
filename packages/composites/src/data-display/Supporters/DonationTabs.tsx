@@ -1,11 +1,5 @@
 import * as React from "react";
-import {
-  FaChevronRight,
-  FaChevronLeft,
-  FaChevronDown,
-  FaTh,
-  FaThList,
-} from "react-icons/fa";
+import { FaChevronRight, FaChevronLeft, FaChevronDown, FaTh, FaThList } from "react-icons/fa";
 import {
   Box,
   ButtonGroup,
@@ -27,11 +21,7 @@ export interface DonationTabsProps {
   onChange: (id: string, i: number) => void;
 }
 
-export const DonationTabs: React.FC<DonationTabsProps> = ({
-  queryType,
-  viewType,
-  onChange,
-}) => {
+export const DonationTabs: React.FC<DonationTabsProps> = ({ queryType, viewType, onChange }) => {
   return (
     <HStack
       _dark={{ bgColor: "gray.600" }}

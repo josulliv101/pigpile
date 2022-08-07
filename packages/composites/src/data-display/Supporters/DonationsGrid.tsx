@@ -55,83 +55,81 @@ export const DonationsGrid: React.FC<DonationsGridProps> = ({
       w="full"
       {...props}
     >
-      {donations.map(
-        ({ comment, displayName, emoji, quantity, createdAtInMS }, index) => (
-          <Tooltip
-            key={`${displayName}-${quantity}-${index}`}
-            label={comment}
-            placement="top"
+      {donations.map(({ comment, displayName, emoji, quantity, createdAtInMS }, index) => (
+        <Tooltip
+          key={`${displayName}-${quantity}-${index}`}
+          label={comment}
+          placement="top"
+        >
+          <Card
+            key={`${displayName}-${quantity}`}
+            colorScheme="blue"
+            size="sm"
+            sx={{
+              svg: { transition: "transform 300ms" },
+              _hover: { svg: { transform: "scale(1.2)" } },
+            }}
+            variant="outline"
           >
-            <Card
-              key={`${displayName}-${quantity}`}
-              colorScheme="blue"
-              size="sm"
-              sx={{
-                svg: { transition: "transform 300ms" },
-                _hover: { svg: { transform: "scale(1.2)" } },
-              }}
-              variant="outline"
+            <CardAvatar
+              as={Avatar}
+              icon={<EmojiIcon icon={emoji} />}
             >
-              <CardAvatar
-                as={Avatar}
-                icon={<EmojiIcon icon={emoji} />}
-              >
-                {comment && (
-                  <AvatarBadge
-                    borderColor="transparent"
-                    bottom="auto"
-                    color="#979b9e"
-                    top="0"
+              {comment && (
+                <AvatarBadge
+                  borderColor="transparent"
+                  bottom="auto"
+                  color="#979b9e"
+                  top="0"
+                >
+                  <Box
+                    _dark={{ color: "gray.500" }}
+                    _focusVisible={{
+                      outline: "none",
+                      boxShadow: "outline",
+                      svg: {
+                        transform: "scale(1.2)",
+                        _focus: { border: "none" },
+                      },
+                    }}
+                    sx={{ svg: { outline: "none" } }}
+                    tabIndex={0}
                   >
-                    <Box
-                      _dark={{ color: "gray.500" }}
-                      _focusVisible={{
-                        outline: "none",
-                        boxShadow: "outline",
-                        svg: {
-                          transform: "scale(1.2)",
-                          _focus: { border: "none" },
-                        },
-                      }}
-                      sx={{ svg: { outline: "none" } }}
-                      tabIndex={0}
-                    >
-                      <FaComment
-                        _focus={{ outline: "none" }}
-                        border="none"
-                        color="inherit"
-                        fontSize=".9rem"
-                        tabIndex={-1}
-                      />
-                    </Box>
-                  </AvatarBadge>
-                )}
-              </CardAvatar>
-              <CardBackground />
-              <CardContent>
-                <Heading
-                  noOfLines={1}
-                  size="xs"
-                >
-                  {displayName}
-                </Heading>
-                <Text
-                  fontSize="xs"
-                  noOfLines={1}
-                >
-                  {quantity} {getLabel(quantity)}
-                </Text>
-                <Text
-                  fontSize="xs"
-                  noOfLines={1}
-                >
-                  {relativeDays(createdAtInMS)}
-                </Text>
-              </CardContent>
-            </Card>
-          </Tooltip>
-        )
-      )}
+                    <FaComment
+                      _focus={{ outline: "none" }}
+                      border="none"
+                      color="inherit"
+                      fontSize=".9rem"
+                      tabIndex={-1}
+                    />
+                  </Box>
+                </AvatarBadge>
+              )}
+            </CardAvatar>
+            <CardBackground />
+            <CardContent>
+              <Heading
+                noOfLines={1}
+                size="xs"
+              >
+                {displayName}
+              </Heading>
+              <Text
+                fontSize="xs"
+                noOfLines={1}
+              >
+                {quantity} {getLabel(quantity)}
+              </Text>
+              <Text
+                fontSize="xs"
+                noOfLines={1}
+              >
+                {relativeDays(createdAtInMS)}
+              </Text>
+            </CardContent>
+          </Card>
+        </Tooltip>
+      ))}
     </SimpleGrid>
   );
 };

@@ -1,18 +1,6 @@
-import {
-  anatomy,
-  lighten,
-  mode,
-  SystemStyleFunction,
-  PartsStyleFunction,
-} from "@josulliv101/core";
+import { anatomy, lighten, mode, SystemStyleFunction, PartsStyleFunction } from "@josulliv101/core";
 
-export const parts = anatomy("card").parts(
-  "container",
-  "background",
-  "badge",
-  "avatar",
-  "content"
-);
+export const parts = anatomy("card").parts("container", "background", "badge", "avatar", "content");
 
 const baseStyleBadge: SystemStyleFunction = () => {
   return {

@@ -49,8 +49,6 @@ function Login(): JSX.Element {
   );
 }
 
-Login.getLayout = (page): JSX.Element => (
-  <LayoutFullViewport>{page}</LayoutFullViewport>
-);
+Login.getLayout = (page): JSX.Element => <LayoutFullViewport>{page}</LayoutFullViewport>;
 
 export default Login;

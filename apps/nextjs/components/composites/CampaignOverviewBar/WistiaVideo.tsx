@@ -1,10 +1,5 @@
 import Script from "next/script";
-import {
-  AbsoluteCenter,
-  Box,
-  Image,
-  CircularProgress,
-} from "@josulliv101/core";
+import { AbsoluteCenter, Box, Image, CircularProgress } from "@josulliv101/core";
 import { useVideo } from "./useVideo";
 
 interface Props {
@@ -12,12 +7,8 @@ interface Props {
   videoId: string;
 }
 
-export const WistiaVideo: React.FC<Props> = ({
-  playerColor = "999999",
-  videoId,
-}) => {
-  const { isWistiaReady, initWistia, setIsWistiaReady, setInitWistia } =
-    useVideo();
+export const WistiaVideo: React.FC<Props> = ({ playerColor = "999999", videoId }) => {
+  const { isWistiaReady, initWistia, setIsWistiaReady, setInitWistia } = useVideo();
   if (!videoId) {
     return <Box>A wistia video id is required.</Box>;
   }

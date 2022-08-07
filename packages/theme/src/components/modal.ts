@@ -2,17 +2,11 @@ import { mode, SystemStyleFunction, transparentize } from "@josulliv101/core";
 
 const baseStyle: SystemStyleFunction = (props) => {
   const { colorScheme = "gray" } = props;
-  const bgColor = mode(
-    props.bgColor ?? `${colorScheme}.600`,
-    `${colorScheme}.700`
-  )(props);
+  const bgColor = mode(props.bgColor ?? `${colorScheme}.600`, `${colorScheme}.700`)(props);
 
   const color = mode(props.color ?? "white", `${colorScheme}.100`)(props);
 
-  const gradientColor1 = transparentize(
-    `${colorScheme}.500`,
-    0.98
-  )(props.theme);
+  const gradientColor1 = transparentize(`${colorScheme}.500`, 0.98)(props.theme);
   const gradientColor2 = transparentize(`${colorScheme}.600`, 0.8)(props.theme);
 
   return {

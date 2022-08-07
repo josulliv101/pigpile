@@ -26,5 +26,4 @@ export const campaignsSlice = createSlice({
   },
 });
 
-export const selectCampaign = (id: string) => (state: AppState) =>
-  state[campaignsSlice.name][id];
+export const selectCampaign = (id: string) => (state: AppState) => state[campaignsSlice.name][id];

@@ -18,8 +18,7 @@ export const makeGetLabelFromBundle =
     valueArg: string | { value: string; modifier?: string },
     ...replacementValues: replacementValue[]
   ) => {
-    const { modifier = "", value } =
-      typeof valueArg === "object" ? valueArg : { value: valueArg };
+    const { modifier = "", value } = typeof valueArg === "object" ? valueArg : { value: valueArg };
     const valuePath = modifier ? `${value}.${modifier}` : value;
     const templateString = get(bundleToUse, valuePath) ?? value;
 
@@ -27,8 +26,5 @@ export const makeGetLabelFromBundle =
       return templateString.default ?? value;
     }
 
-    return templateString.replace(
-      regex,
-      getReplaceMatchesFn(replacementValues)
-    );
+    return templateString.replace(regex, getReplaceMatchesFn(replacementValues));
   };

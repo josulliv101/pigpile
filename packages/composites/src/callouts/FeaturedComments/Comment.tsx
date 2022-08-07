@@ -10,12 +10,7 @@ interface Props {
   createdAtInMS: number;
 }
 
-export const Comment: React.FC<Props> = ({
-  displayName,
-  comment,
-  emoji,
-  createdAtInMS,
-}) => (
+export const Comment: React.FC<Props> = ({ displayName, comment, emoji, createdAtInMS }) => (
   <Box as="section">
     <Box
       maxW="3xl"

@@ -1,8 +1,4 @@
-import {
-  anatomy,
-  PartsStyleFunction,
-  PartsStyleObject,
-} from "@josulliv101/core";
+import { anatomy, PartsStyleFunction, PartsStyleObject } from "@josulliv101/core";
 
 const parts = anatomy("swatch").parts("container", "color2", "color3", "icon");
 

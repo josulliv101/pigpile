@@ -16,17 +16,11 @@ function addMoreButton(options: Option[], label = "") {
   return options;
 }
 
-export default function useDonationQuantityOptions(
-  options: number[],
-  pricePerUnit: number
-) {
+export default function useDonationQuantityOptions(options: number[], pricePerUnit: number) {
   const { getLabel, getLabelForQuantity } = useLabelBundle();
   return useMemo(() => {
     const tranformedOptions = options.map((n: number): Option => {
-      const label = `${n} ${getLabelForQuantity(
-        { one: "item.alt", many: "items.alt" },
-        n
-      )}`;
+      const label = `${n} ${getLabelForQuantity({ one: "item.alt", many: "items.alt" }, n)}`;
       return {
         value: n,
         price: getCurrency(n * pricePerUnit),
@@ -34,8 +28,6 @@ export default function useDonationQuantityOptions(
       };
     });
     const customBtnOption = { label: getLabel("custom"), value: "custom" };
-    return addMoreButton(tranformedOptions, getLabel("back")).concat(
-      customBtnOption
-    );
+    return addMoreButton(tranformedOptions, getLabel("back")).concat(customBtnOption);
   }, [options]);
 }

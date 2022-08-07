@@ -9,10 +9,7 @@ import {
   PopoverCloseButton,
   useColorMode,
 } from "@josulliv101/core";
-import {
-  ActiveThemeIds as ActiveThemeOptionIds,
-  ThemeOptions,
-} from "@josulliv101/theme";
+import { ActiveThemeIds as ActiveThemeOptionIds, ThemeOptions } from "@josulliv101/theme";
 import { PaintBrushIcon, ThemeTabs } from "./";
 
 export interface ThemeMenuProps {

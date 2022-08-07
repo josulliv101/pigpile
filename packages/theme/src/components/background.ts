@@ -1,9 +1,4 @@
-import {
-  getColor,
-  mode,
-  SystemStyleFunction,
-  useColorModeValue,
-} from "@josulliv101/core";
+import { getColor, mode, SystemStyleFunction, useColorModeValue } from "@josulliv101/core";
 
 const baseStyle: SystemStyleFunction = (props) => {
   const { bgColor, bgImage, colorScheme = "gray" } = props;
@@ -26,18 +21,13 @@ const baseStyle: SystemStyleFunction = (props) => {
 const gradientVariant: SystemStyleFunction = (props) => {
   const { bgImage, colorScheme, theme } = props;
   const colorValues = colorScheme === "pink" ? [300, 500] : [400, 600];
-  const c = mode(
-    `${colorScheme}.${colorValues[0]}`,
-    `${colorScheme}.${colorValues[1]}`
-  )(props);
+  const c = mode(`${colorScheme}.${colorValues[0]}`, `${colorScheme}.${colorValues[1]}`)(props);
   const gradientColor = getColor(theme, c, colorScheme);
   const gradient = `linear-gradient(180deg,${gradientColor},hsla(0,0%,${useColorModeValue(
     "48%",
     "40%"
   )},${useColorModeValue(0.5, 0.6)}))`;
-  const bgImagesMobile = bgImage
-    ? [gradient, `url(/mobile${bgImage})`]
-    : [gradient];
+  const bgImagesMobile = bgImage ? [gradient, `url(/mobile${bgImage})`] : [gradient];
   const bgImages = bgImage ? [gradient, `url(${bgImage})`] : [gradient];
   return {
     bgImage: [bgImagesMobile.join(","), bgImages.join(",")],

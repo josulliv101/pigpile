@@ -7,11 +7,7 @@ export interface TotalLabelProps extends HTMLChakraProps<"div"> {
   tip: number;
 }
 
-export const TotalLabel: React.FC<TotalLabelProps> = ({
-  amount = 0,
-  tip = 0,
-  ...props
-}) => {
+export const TotalLabel: React.FC<TotalLabelProps> = ({ amount = 0, tip = 0, ...props }) => {
   return (
     <Box my="8">
       <HStack

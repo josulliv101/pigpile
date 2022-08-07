@@ -14,9 +14,7 @@ export interface OAuthButtonGroupProps {
   onSignInWithProvider: (provider: unknown) => void;
 }
 
-export const OAuthButtonGroup: React.FC<OAuthButtonGroupProps> = ({
-  onSignInWithProvider,
-}) => {
+export const OAuthButtonGroup: React.FC<OAuthButtonGroupProps> = ({ onSignInWithProvider }) => {
   return (
     <ButtonGroup
       size="md"
@@ -35,9 +33,7 @@ export const OAuthButtonGroup: React.FC<OAuthButtonGroupProps> = ({
           // TODO Add google & twitter providers
           colorScheme="whiteAlpha"
           onClick={() =>
-            onSignInWithProvider(
-              name === "GitHub" ? githubAuthProvider : { providerId: name }
-            )
+            onSignInWithProvider(name === "GitHub" ? githubAuthProvider : { providerId: name })
           }
           width="full"
         >

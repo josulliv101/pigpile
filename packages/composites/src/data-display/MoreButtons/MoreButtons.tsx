@@ -34,11 +34,7 @@ const ButtonMore = ({ label, price, a, b, c, ...props }) => (
     _focusVisible={{ outlineColor: "white" }}
     borderRadius="full"
     boxShadow="md"
-    leftIcon={
-      props.value === MORE_BUTTONS_BACK_ID ? (
-        <Icon as={FaArrowCircleLeft} />
-      ) : null
-    }
+    leftIcon={props.value === MORE_BUTTONS_BACK_ID ? <Icon as={FaArrowCircleLeft} /> : null}
     sx={{ ">span": { pointerEvents: "none" } }}
   >
     {label}

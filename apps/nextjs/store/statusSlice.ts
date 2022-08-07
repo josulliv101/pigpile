@@ -32,5 +32,4 @@ export const statusSlice = createSlice({
   },*/
 });
 
-export const selectStatuses = () => (state: AppState) =>
-  state[statusSlice.name];
+export const selectStatuses = () => (state: AppState) => state[statusSlice.name];

@@ -54,79 +54,77 @@ export const DonationsTable: React.FC<DonationsTableProps> = ({
       w="full"
       {...props}
     >
-      {donations.map(
-        ({ comment, displayName, emoji, quantity, createdAtInMS }, index) => (
-          <HStack
-            key={`${displayName}-${quantity}-${index}`}
-            flexWrap="wrap"
+      {donations.map(({ comment, displayName, emoji, quantity, createdAtInMS }, index) => (
+        <HStack
+          key={`${displayName}-${quantity}-${index}`}
+          flexWrap="wrap"
+        >
+          <Avatar
+            icon={<EmojiIcon icon={emoji} />}
+            size="sm"
+          />
+          <Text
+            flex="1"
+            fontSize="sm"
           >
-            <Avatar
-              icon={<EmojiIcon icon={emoji} />}
-              size="sm"
-            />
-            <Text
-              flex="1"
-              fontSize="sm"
-            >
-              {displayName}
-            </Text>
-            {comment ? (
-              <HStack>
-                <Badge
-                  _dark={{ bgColor: "gray.500", color: "gray.200" }}
-                  fontSize="xs"
-                  fontWeight="normal"
-                  my="1"
-                  noOfLines={1}
-                  pl="7"
-                  position="relative"
-                  pr="4"
-                  py="1"
-                  textTransform="none"
-                  variant="subtle"
-                  whiteSpace="unset"
+            {displayName}
+          </Text>
+          {comment ? (
+            <HStack>
+              <Badge
+                _dark={{ bgColor: "gray.500", color: "gray.200" }}
+                fontSize="xs"
+                fontWeight="normal"
+                my="1"
+                noOfLines={1}
+                pl="7"
+                position="relative"
+                pr="4"
+                py="1"
+                textTransform="none"
+                variant="subtle"
+                whiteSpace="unset"
+              >
+                <Box
+                  _dark={{ color: "gray.300" }}
+                  color="#8d8d8d"
+                  left="9px"
+                  position="absolute"
+                  top="7px"
                 >
-                  <Box
-                    _dark={{ color: "gray.300" }}
-                    color="#8d8d8d"
-                    left="9px"
-                    position="absolute"
-                    top="7px"
-                  >
-                    <FaComment
-                      color="inherit"
-                      fontSize=".7rem"
-                    />
-                  </Box>
-                  {comment}
-                </Badge>
-              </HStack>
-            ) : null}
-            <Badge
-              _dark={{ bgColor: "gray.500", color: "gray.200" }}
-              fontWeight="normal"
-              my="1"
-              px="2"
-              py="1"
-              textTransform="none"
-              variant="subtle"
-            >
-              {quantity} {getLabel(quantity)}
-            </Badge>
-            <Badge
-              _dark={{ bgColor: "gray.500", color: "gray.200" }}
-              fontWeight="normal"
-              my="1"
-              px="2"
-              py="1"
-              textTransform="none"
-              variant="subtle"
-            >
-              {relativeDays(createdAtInMS)}
-            </Badge>
-          </HStack>
-        )
-      )}
+                  <FaComment
+                    color="inherit"
+                    fontSize=".7rem"
+                  />
+                </Box>
+                {comment}
+              </Badge>
+            </HStack>
+          ) : null}
+          <Badge
+            _dark={{ bgColor: "gray.500", color: "gray.200" }}
+            fontWeight="normal"
+            my="1"
+            px="2"
+            py="1"
+            textTransform="none"
+            variant="subtle"
+          >
+            {quantity} {getLabel(quantity)}
+          </Badge>
+          <Badge
+            _dark={{ bgColor: "gray.500", color: "gray.200" }}
+            fontWeight="normal"
+            my="1"
+            px="2"
+            py="1"
+            textTransform="none"
+            variant="subtle"
+          >
+            {relativeDays(createdAtInMS)}
+          </Badge>
+        </HStack>
+      ))}
     </Stack>
   );
 };

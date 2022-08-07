@@ -2,10 +2,7 @@ import { useState, useMemo } from "react";
 import { mergeWith } from "@josulliv101/core";
 import { makeGetLabelFromBundle } from "./";
 
-export function useLabelBundle({
-  initialId = "default",
-  customLabels = {},
-} = {}) {
+export function useLabelBundle({ initialId = "default", customLabels = {} } = {}) {
   const [labelBundleId, setLabelBundleId] = useState(initialId);
 
   return useMemo(() => {

@@ -6,11 +6,7 @@ import { LayoutCampaign } from "components/layouts";
 import Hero from "components/composites/Hero";
 import { CampaignOverviewBar } from "components/composites/CampaignOverviewBar";
 import { CampaignDetailsBar } from "components/composites/CampaignDetailsBar";
-import {
-  useAppDispatch,
-  useAppSelector,
-  useDonationsSubscription,
-} from "hooks";
+import { useAppDispatch, useAppSelector, useDonationsSubscription } from "hooks";
 import { useLabelBundle } from "hooks";
 import {
   addCampaignDonationThunk,
@@ -60,9 +56,7 @@ export const Campaign: React.FC<Props> = ({ id }): JSX.Element => {
   } = useTheme();
   const landscapeImage = bgImage;
   const dispatch = useAppDispatch();
-  const { isSortDesc, ...donationFilter } = useAppSelector(
-    selectDonationFilterState()
-  );
+  const { isSortDesc, ...donationFilter } = useAppSelector(selectDonationFilterState());
 
   const chesterAnimationType = useAppSelector(selectChesterAnimation());
 
@@ -77,8 +71,7 @@ export const Campaign: React.FC<Props> = ({ id }): JSX.Element => {
   );
 
   const handleDonationFilterChange = useCallback(
-    (id: string, index: number) =>
-      dispatch(donationFilterSlice.actions.setState({ [id]: index })),
+    (id: string, index: number) => dispatch(donationFilterSlice.actions.setState({ [id]: index })),
     []
   );
 
@@ -93,10 +86,7 @@ export const Campaign: React.FC<Props> = ({ id }): JSX.Element => {
     return donations.filter((d) => !!d.comment).map(getCommentFromDonation);
   }, [donations]);
 
-  const currentAmount = donations?.reduce(
-    (acc, d) => acc + (d.quantity || 0),
-    0
-  );
+  const currentAmount = donations?.reduce((acc, d) => acc + (d.quantity || 0), 0);
 
   return (
     <>
@@ -129,9 +119,7 @@ export const Campaign: React.FC<Props> = ({ id }): JSX.Element => {
         comments={comments}
         donationFilter={donationFilter}
         donations={donations}
-        getDonationsLabel={(n) =>
-          getLabelForQuantity({ one: "item", many: "items" }, n)
-        }
+        getDonationsLabel={(n) => getLabelForQuantity({ one: "item", many: "items" }, n)}
         landscapeImage={landscapeImage}
         location={location}
         onDonationFilterChange={handleDonationFilterChange}
@@ -141,26 +129,21 @@ export const Campaign: React.FC<Props> = ({ id }): JSX.Element => {
   );
 };
 
-export const getServerSideProps = wrapper.getServerSideProps(
-  (store) =>
-    async ({ params }) => {
-      const { id } = params as { id: string };
-      const snapshot = await adminDb.collection("campaigns").doc(id).get();
+export const getServerSideProps = wrapper.getServerSideProps((store) => async ({ params }) => {
+  const { id } = params as { id: string };
+  const snapshot = await adminDb.collection("campaigns").doc(id).get();
 
-      if (snapshot.data()) {
-        store.dispatch(campaignsSlice.actions.setCampaign(snapshot.data()));
-      }
+  if (snapshot.data()) {
+    store.dispatch(campaignsSlice.actions.setCampaign(snapshot.data()));
+  }
 
-      return {
-        props: {
-          id,
-        },
-      };
-    }
-);
+  return {
+    props: {
+      id,
+    },
+  };
+});
 
-Campaign.getLayout = (page): JSX.Element => (
-  <LayoutCampaign>{page}</LayoutCampaign>
-);
+Campaign.getLayout = (page): JSX.Element => <LayoutCampaign>{page}</LayoutCampaign>;
 
 export default Campaign;

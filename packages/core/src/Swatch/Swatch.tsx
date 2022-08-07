@@ -57,9 +57,7 @@ export const Swatch = forwardRef<SwatchProps, "div">((props, ref) => {
     _active: psedoStyles,
     ...styles.container,
   };
-  const label =
-    props["aria-label"] ||
-    `swatch colors ${getColorNames(color1, color2, color3)}`;
+  const label = props["aria-label"] || `swatch colors ${getColorNames(color1, color2, color3)}`;
   return (
     <Square
       ref={ref}
@@ -106,25 +104,21 @@ type OmittedProps =
 
 type BaseButtonProps = Omit<ButtonProps, OmittedProps>;
 
-export type SwatchButtonProps = BaseButtonProps &
-  SwatchProps &
-  HTMLMotionProps<"button">;
+export type SwatchButtonProps = BaseButtonProps & SwatchProps & HTMLMotionProps<"button">;
 
-export const SwatchButton_ = forwardRef<SwatchButtonProps, "button">(
-  ({ sx, ...props }, ref) => (
-    <Swatch
-      ref={ref}
-      as={Button}
-      sx={{
-        minW: 0,
-        padding: 0,
-        ...sx,
-      }}
-      {...props}
-      isButton
-    />
-  )
-);
+export const SwatchButton_ = forwardRef<SwatchButtonProps, "button">(({ sx, ...props }, ref) => (
+  <Swatch
+    ref={ref}
+    as={Button}
+    sx={{
+      minW: 0,
+      padding: 0,
+      ...sx,
+    }}
+    {...props}
+    isButton
+  />
+));
 
 const MotionSwatch = motion<SwatchButtonProps>(Swatch);
 
