@@ -1,19 +1,20 @@
 import { useCallback } from "react";
-import { selectUser, selectIsAppReady, signOutUserThunk } from "store";
+import { selectUser, getAuthApi } from "store";
 import { useAppDispatch, useAppSelector, useTheme } from "hooks";
 
 export function useNavProps() {
   const dispatch = useAppDispatch();
   const { themeState, onThemeOptionChange } = useTheme();
   const user = useAppSelector(selectUser());
-  const isAppReady = useAppSelector(selectIsAppReady());
-  const onLogout = useCallback(() => dispatch(signOutUserThunk()), [dispatch]);
-
+  const onLogout = useCallback(async () => {
+    const { signOutUserThunk } = await getAuthApi(dispatch);
+    dispatch(signOutUserThunk());
+  }, [dispatch]);
+console.log('useNavProps', onLogout)
   return {
     themeState,
     onThemeOptionChange,
     user,
-    isAppReady,
-    onLogout,
+    onLogout
   };
 }

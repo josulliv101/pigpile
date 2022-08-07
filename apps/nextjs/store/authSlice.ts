@@ -40,8 +40,8 @@ export const authSlice = createSlice({
   },
 });
 
-export const selectUser = () => (state: AppState) =>
-  state?.[authSlice.name]?.user;
+/*export const selectUser = () => (state: AppState) =>
+  state?.[authSlice.name]?.user;*/
 
 export const selectIsAppReady = () => (state: AppState) =>
-  state?.[authSlice.name].isReady;
+  state?.[authSlice.name]?.isReady;

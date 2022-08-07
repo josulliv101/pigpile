@@ -1,3 +1,4 @@
+import dynamic from 'next/dynamic';
 import { useCallback, useState } from "react";
 import { AddedDonation, Donation } from "@josulliv101/types";
 import { MoreButtons } from "@josulliv101/composites";
@@ -21,8 +22,11 @@ import {
 } from "store";
 import { useAppSelector, useLabelBundle } from "hooks";
 import { GoalCountUp } from "./GoalCountUp";
-import { DonationModal } from "./DonationModal";
 import useDonationQuantityOptions from "./useDonationQuantityOptions";
+
+const DonationModalLazy = dynamic(() => import('./DonationModal'), {
+  ssr: false,
+})
 
 interface Props {
   beneficiary: string;
@@ -58,7 +62,7 @@ const Hero: React.FC<Props> = ({
   const {
     userTheme: { bgImage, bgPosition },
   } = useTheme();
-  const landscapeImage = `url(${bgImage})`;
+  const landscapeImage = bgImage;
 
   const handleCustomBtnClick = () => {
     setUserRequestsCustomAmount(true);
@@ -136,7 +140,7 @@ const Hero: React.FC<Props> = ({
       }}
       variant="gradient"
     >
-      <DonationModal
+      <DonationModalLazy
         activeFormStep={activeFormStep}
         beneficiary={beneficiary}
         getLabel={getDonationLabel}

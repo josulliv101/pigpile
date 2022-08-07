@@ -15,15 +15,12 @@ export const WistiaVideo: React.FC<Props> = ({
   if (!videoId) {
     return <Box>A wistia video id is required.</Box>;
   }
-  if (!initWistia) {
-    // return <Box>wistia image</Box>;
-  }
   return (
     <Box position="relative">
       {
         initWistia && <>
           <Script
-            src="https://fast.wistia.com/embed/medias/1wpb65qwkz.jsonp"
+            src={`https://fast.wistia.com/embed/medias/${videoId}.jsonp`}
             strategy="lazyOnload"
           />
           <Script
@@ -57,17 +54,14 @@ export const WistiaVideo: React.FC<Props> = ({
               className="wistia_swatch"
               height="100%"
               left="0"
-              // opacity={isWistiaReady ? 1 : 0}
               overflow="hidden"
               position="absolute"
               top="0"
-              // transition="opacity 200ms"
               width="100%"
             >
               <Image
                 alt=""
                 aria-hidden="true"
-                // filter="blur(5px)"
                 height="100%"
                 objectFit="contain"
                 onClick={() => {
@@ -80,8 +74,7 @@ export const WistiaVideo: React.FC<Props> = ({
                     }});
                   }
                 }}
-                //src={`https://fast.wistia.com/embed/medias/${videoId}/swatch`}
-                src={"https://embed-ssl.wistia.com/deliveries/a6595f4c988a472090a6c6b93a16768c.webp?image_crop_resized=720x403"}
+                src="https://embed-ssl.wistia.com/deliveries/a6595f4c988a472090a6c6b93a16768c.webp?image_crop_resized=630x354"
                 width="100%"
                 cursor="pointer"
               />

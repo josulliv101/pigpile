@@ -1,14 +1,20 @@
 const withPreconstruct = require("@preconstruct/next");
 
-module.exports = withPreconstruct({
-  distDir: "../../.next",
-  experimental: {
-    esmExternals: "loose",
-  },
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
-  typescript: {
-    ignoreBuildErrors: true,
-  },
-});
+const withBundleAnalyzer = require('@next/bundle-analyzer')({
+  enabled: process.env.ANALYZE === 'true',
+})
+
+module.exports = withBundleAnalyzer(
+  withPreconstruct({
+    distDir: "../../.next",
+    experimental: {
+      esmExternals: "loose",
+    },
+    eslint: {
+      ignoreDuringBuilds: true,
+    },
+    typescript: {
+      ignoreBuildErrors: true,
+    },
+  })
+);

@@ -1,13 +1,7 @@
 import { useState, useMemo } from "react";
 import { LabelBundleMap } from "@josulliv101/types";
 import { mergeWith } from "@josulliv101/core";
-import { defaultLabelBundle, frLabelBundle, makeGetLabelFromBundle } from "./";
-
-// TODO load non-default label bundles on-demand
-const labelBundlesById: LabelBundleMap = {
-  default: defaultLabelBundle,
-  fr: frLabelBundle,
-};
+import { makeGetLabelFromBundle } from "./";
 
 export function useLabelBundle({
   initialId = "default",
@@ -18,8 +12,6 @@ export function useLabelBundle({
   return useMemo(() => {
     const labelBundleWithOverrides = mergeWith(
       {},
-      defaultLabelBundle,
-      labelBundlesById[labelBundleId],
       customLabels[labelBundleId]
     );
     const getLabel = makeGetLabelFromBundle(labelBundleWithOverrides);

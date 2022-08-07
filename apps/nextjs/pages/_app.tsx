@@ -9,8 +9,8 @@ import {
 import { LayoutBasic } from "components/layouts";
 import { wrapper } from "store";
 import {
-  useConnectClient,
-  useRouteChangeListeners,
+  // useConnectClient,
+  // useRouteChangeListeners,
   useStatusListenererMiddleware,
   useTheme,
 } from "hooks";
@@ -24,18 +24,18 @@ type Props = AppProps & {
 };
 
 function PigpileApp({ Component, pageProps }: Props): JSX.Element {
-  useConnectClient();
+  // useConnectClient();
   useStatusListenererMiddleware();
-  const { isUnloading } = useRouteChangeListeners();
+  // const { isUnloading } = useRouteChangeListeners();
 
   const { theme } = useTheme();
   const getLayout =
     Component.getLayout ?? ((page) => <LayoutBasic>{page}</LayoutBasic>);
-
+/*
   if (isUnloading) {
     return <div />;
   }
-
+*/
   return (
     <ChakraProvider
       colorModeManager={localStorageManager}

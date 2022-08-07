@@ -28,7 +28,7 @@ interface Props extends Pick<Campaign, "beneficiary"> {
   userRequestsCustomAmount: boolean;
 }
 
-export const DonationModal: React.FC<Props> = ({
+const DonationModal: React.FC<Props> = ({
   activeFormStep,
   beneficiary,
   landscapeImage,
@@ -103,3 +103,5 @@ export const DonationModal: React.FC<Props> = ({
     </Modal>
   );
 };
+
+export default DonationModal;

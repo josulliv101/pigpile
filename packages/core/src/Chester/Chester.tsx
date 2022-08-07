@@ -16,12 +16,7 @@ import {
 } from "./animations";
 import { Pigtail } from "./Pigtail";
 import { Shadow } from "./Shadow";
-
-export enum ChesterAnimations {
-  JUMP = "jump",
-  WIGGLE = "wiggle",
-  WAHOO = "wahoo",
-}
+import { ChesterAnimations } from "./ChesterAnimations";
 
 export interface ChesterProps extends HTMLChakraProps<"div"> {
   animate?: boolean;

@@ -27,8 +27,6 @@ export const CampaignOverviewBar: React.FC<Props> = ({
   videoId,
   ...rootStyle
 }) => {
-  const [isWistiaReady, setIsWistiaReady] = useState(false);
-
   return (
     <BackgroundContent
       pb={{ base: "20", md: "8" }}

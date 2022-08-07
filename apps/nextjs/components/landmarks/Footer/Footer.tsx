@@ -166,7 +166,7 @@ export const Footer: React.FC<HTMLChakraProps<"div">> = (props) => {
                   fontSize={{ base: "lg", sm: "2xl" }}
                   fontWeight="normal"
                 >
-                  {getLabel("tagline")}.
+                  {getLabel("Pigpile on good causes.")}.
                 </Text>
               </HStack>
               <Text fontSize="md">
@@ -195,15 +195,15 @@ export const Footer: React.FC<HTMLChakraProps<"div">> = (props) => {
               color="subtle"
               fontSize="xs"
             >
-              {getLabel("address")}
+              1770 Massachusetts Ave, Cambridge, MA 02140, suite 128
             </Text>
             <Text
               align="center"
               color="subtle"
               fontSize="xs"
             >
-              &copy; {new Date().getFullYear()} {getLabel("orgFormal")}.{" "}
-              {getLabel("copyright")}
+              &copy; {new Date().getFullYear()} {getLabel("Pigpile Corporation")}.{" "}
+              {getLabel("All rights reserved")}
             </Text>
           </Stack>
           <GitHubExternalLink />

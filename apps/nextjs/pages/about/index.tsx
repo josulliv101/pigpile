@@ -1,5 +1,5 @@
 import { Box, Heading, Text } from "@josulliv101/core";
-import { LayoutBasic } from "../../components/layouts";
+import { LayoutBasic } from "components/layouts";
 
 function About(): JSX.Element {
   return (

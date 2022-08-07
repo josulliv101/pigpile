@@ -19,7 +19,7 @@ export const LayoutFullViewport: React.FC<Layout> = ({ children }) => {
       </Banner>
       <Background
         as="main"
-        bgImage={landscapeImage}
+        bgImage={bgImage}
         bgPosition={bgPosition}
         variant="gradient"
         w="100vw"

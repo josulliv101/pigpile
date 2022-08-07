@@ -9,7 +9,7 @@ export const farmUserTheme: UserTheme = {
     top: "auto",
     right: "auto",
   },
-  bgImage: "/on-the-farm-tp.png",
+  bgImage: "/on-the-farm.webp",
   bgPosition: "20% 80%",
   componentsByVariant: [
     { variant: "ghost", components: ["NavButton", "Tag"] },

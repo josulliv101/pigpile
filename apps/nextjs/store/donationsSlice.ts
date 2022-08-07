@@ -1,12 +1,25 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { AddedDonation, Donation } from "@josulliv101/types";
 import { addDonation } from "@josulliv101/connect-client";
-import { AppState } from "./store";
+import { AppState, Status, statusSlice } from "./store";
+
+const getStatusFromError = (error: unknown): Status => {
+  return {
+    title: "Error",
+    description: error ? error?.message : "An unknown issue has occured.",
+    status: "error",
+    isClosable: true,
+  };
+};
 
 export const addCampaignDonationThunk = createAsyncThunk(
   "donation/add",
-  async (donation: AddedDonation) => {
-    await addDonation(donation);
+  async (donation: AddedDonation, { dispatch }) => {
+    try {
+      await addDonation(donation);
+    } catch(err) {
+      dispatch(statusSlice.actions.setStatus(getStatusFromError(err)));
+    }
   }
 );
 

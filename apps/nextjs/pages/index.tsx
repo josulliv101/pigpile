@@ -63,7 +63,7 @@ function Home(): JSX.Element {
             variant="solid"
             width="full"
           >
-            View Active Pigpiles
+            View Pigpiles
           </Button>
         </NextLink>
       </Center>

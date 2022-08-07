@@ -1,4 +1,4 @@
-import { FaMapMarkerAlt as FaMapMarker } from "react-icons/fa";
+import { FaMapMarkerAlt } from "react-icons/fa";
 import {
   AccentButton,
   Box,
@@ -64,7 +64,7 @@ export const CampaignDetailsBar: React.FC<Props> = ({
             alignItems="center"
             display="flex"
           >
-            <FaMapMarker
+            <FaMapMarkerAlt
               fontSize=".75rem"
               opacity=".5"
             />

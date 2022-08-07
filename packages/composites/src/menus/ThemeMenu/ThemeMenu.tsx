@@ -26,9 +26,10 @@ export const ThemeMenu: React.FC<ThemeMenuProps> = ({
   themeOptions,
   onThemeOptionChange,
 }) => {
+  console.log('themeOptions', themeOptions)
   const { setColorMode } = useColorMode();
   const { colorMode } = themeOptions;
-  const colorModeIndex = activeIndexes.colorMode;
+  const colorModeIndex = activeIndexes.colorMode || 0;
 
   useEffect(() => {
     const { id: activeColorMode } = colorMode.options[colorModeIndex];

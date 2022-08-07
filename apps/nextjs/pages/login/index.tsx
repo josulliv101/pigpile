@@ -1,12 +1,13 @@
 import { Provider } from "@josulliv101/types";
 import { AbsoluteCenter as Center } from "@josulliv101/core";
 import { LoginForm } from "@josulliv101/composites";
-import { LayoutFullViewport } from "../../components/layouts";
-import { signInUserThunk, statusSlice } from "store";
+import { LayoutFullViewport } from "components/layouts";
+import { signInUserThunk, statusSlice, getAuthApi } from "store";
 import { useAppDispatch } from "hooks";
 
 function Login(): JSX.Element {
   const dispatch = useAppDispatch();
+  (async () => await getAuthApi(dispatch))();
 
   const showFeatureNotImplementedStatus = () => {
     dispatch(

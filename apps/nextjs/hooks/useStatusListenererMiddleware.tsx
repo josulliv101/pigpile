@@ -3,14 +3,14 @@ import {
   ActionCreatorWithPayload,
   ActionCreatorWithOptionalPayload,
   isAnyOf,
-  isAsyncThunkAction,
+  // isAsyncThunkAction,
 } from "@reduxjs/toolkit";
 import { useToast } from "@josulliv101/core";
 import { Status } from "@josulliv101/types";
 import {
   listenerMiddleware,
   statusSlice,
-  addCampaignDonationThunk,
+  // addCampaignDonationThunk,
 } from "store";
 import { useAppDispatch } from "hooks";
 
@@ -48,7 +48,7 @@ export function useStatusListenererMiddleware() {
     listenerMiddleware.startListening({
       matcher: isAnyOf(
         statusSlice.actions.setStatus,
-        isAsyncThunkAction(addCampaignDonationThunk)
+        // isAsyncThunkAction(addCampaignDonationThunk)
       ),
       effect,
     });

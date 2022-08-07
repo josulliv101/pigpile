@@ -22,7 +22,6 @@ export interface NavProps extends HTMLChakraProps<"nav"> {
 
 export const Nav: React.FC<NavProps> = ({
   children,
-  isAppReady,
   themeState,
   user,
   onLogout,
@@ -31,10 +30,6 @@ export const Nav: React.FC<NavProps> = ({
 }) => {
   const viewportSize = useBreakpointValue({ base: "mobile", md: "desktop" });
   const isUserAuthenticated = user?.isAnonymous === false;
-
-  if (!isAppReady) {
-    return null;
-  }
 
   return (
     <ButtonGroup

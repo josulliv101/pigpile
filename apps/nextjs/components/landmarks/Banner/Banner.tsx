@@ -52,7 +52,6 @@ export const Banner: React.FC<HTMLChakraProps<"div">> = ({
   const isScrolledY = useIsScrolledY();
   const logoTransform = getLogoTransformScale(isScrolledY ? 0.9 : 1);
   const bgColor = isScrolledY ? "black" : "transparent";
-
   const handleOpenMobileNav = useCallback(() => {
     dispatch(appSlice.actions.openMobileNav());
   }, [dispatch]);

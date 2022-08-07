@@ -1,46 +1,34 @@
+import dynamic from 'next/dynamic';
 import { useCallback, useMemo } from "react";
-import { AddedDonation, Comment, Donation } from "@josulliv101/types";
 import { adminDb } from "@josulliv101/connect-admin";
 import {
-  Box,
-  Container,
-  HStack,
-  Spacer,
-  Stack,
   StickyBar,
   useTheme,
 } from "@josulliv101/core";
-import {
-  FeaturedComments,
-  MeetChester,
-  Organization,
-  OurMission,
-  SecurePayment,
-  Supporters,
-} from "@josulliv101/composites";
 import { LayoutCampaign } from "components/layouts";
+import Hero from "components/composites/Hero";
+import { CampaignOverviewBar } from "components/composites/CampaignOverviewBar";
+import { CampaignDetailsBar } from "components/composites/CampaignDetailsBar";
 import {
   useAppDispatch,
   useAppSelector,
   useDonationsSubscription,
 } from "hooks";
+import { useLabelBundle } from "hooks";
 import {
   addCampaignDonationThunk,
   campaignsSlice,
   donationFilterSlice,
   donationStepsSlice,
   selectCampaign,
-  selectCampaignDonations,
   selectChesterAnimation,
   selectDonationFilterState,
   wrapper,
 } from "store";
-import { useLabelBundle } from "hooks";
-import Hero from "components/composites/Hero";
-import { CampaignOverviewBar } from "components/composites/CampaignOverviewBar";
-import { CampaignDetailsBar } from "components/composites/CampaignDetailsBar";
 
-const SPACING = 10;
+const CampaignContentLazy = dynamic(() => import('components/composites/CampaignContent/CampaignContent'), {
+  ssr: false,
+})
 
 const getCommentFromDonation = ({
   displayName,
@@ -54,7 +42,6 @@ interface Props {
 }
 
 export const Campaign: React.FC<Props> = ({ id }): JSX.Element => {
-  useDonationsSubscription(id);
   const { getLabelForQuantity } = useLabelBundle();
   const {
     media,
@@ -71,13 +58,13 @@ export const Campaign: React.FC<Props> = ({ id }): JSX.Element => {
   const {
     userTheme: { bgImage },
   } = useTheme();
-  const landscapeImage = `url(${bgImage})`;
+  const landscapeImage = bgImage;
   const dispatch = useAppDispatch();
   const { isSortDesc, ...donationFilter } = useAppSelector(
     selectDonationFilterState()
   );
+
   const chesterAnimationType = useAppSelector(selectChesterAnimation());
-  const donations = useAppSelector(selectCampaignDonations(id));
 
   const handleAdditionalInfoSubmit = useCallback(
     (d: AddedDonation) => dispatch(addCampaignDonationThunk(d)),
@@ -94,6 +81,10 @@ export const Campaign: React.FC<Props> = ({ id }): JSX.Element => {
       dispatch(donationFilterSlice.actions.setState({ [id]: index })),
     []
   );
+
+  const { selectCampaignDonations } = useDonationsSubscription(id);
+
+  const donations = useAppSelector(selectCampaignDonations(id));
 
   const comments = useMemo(() => {
     if (!donations) {
@@ -132,65 +123,20 @@ export const Campaign: React.FC<Props> = ({ id }): JSX.Element => {
         location={location}
         organizer={organizer}
       />
-      <Container minH="100px">
-        <HStack
-          align="flex-start"
-          flexDirection={{ base: "column-reverse", md: "row" }}
-          id="grid-container"
-          mb={SPACING}
-          spacing={{ base: 0, md: SPACING }}
-          w="full"
-        >
-          <Stack
-            spacing={{ base: 0, md: 8 }}
-            w={{ base: "full", md: "76%" }}
-          >
-            <Supporters
-              {...donationFilter}
-              donations={donations}
-              getLabel={(n) =>
-                getLabelForQuantity({ one: "item", many: "items" }, n)
-              }
-              onChange={handleDonationFilterChange}
-            />
-            <Box
-              display={{ base: "block", md: "none" }}
-              h="6"
-              w="0"
-            />
-            <HStack
-              alignItems="stretch"
-              flexDirection={{ base: "column", lg: "row" }}
-              p="0"
-              spacing={{ base: 0, lg: 10 }}
-              w="full"
-            >
-              <Organization
-                flex="1"
-                p={{ base: 10, sm: 20, md: 10 }}
-                {...organization}
-                location={location}
-                name={beneficiary}
-              />
-              <Box
-                display={{ base: "block", lg: "none" }}
-                h="6"
-                w="0"
-              />
-              <OurMission bgImage={landscapeImage} />
-            </HStack>
-          </Stack>
-          <Stack
-            spacing={{ base: 4, md: 4 }}
-            w={{ base: "full", md: "24%" }}
-          >
-            {comments?.length && <FeaturedComments comments={comments} />}
-            <MeetChester animationType={chesterAnimationType} />
-            <SecurePayment />
-            <Spacer p="1" />
-          </Stack>
-        </HStack>
-      </Container>
+      <CampaignContentLazy
+        beneficiary={beneficiary}
+        chesterAnimationType={chesterAnimationType}
+        comments={comments}
+        donationFilter={donationFilter}
+        donations={donations}
+        getDonationsLabel={(n) =>
+          getLabelForQuantity({ one: "item", many: "items" }, n)
+        }
+        landscapeImage={landscapeImage}
+        location={location}
+        onDonationFilterChange={handleDonationFilterChange}
+        organization={organization}
+      />
     </>
   );
 };

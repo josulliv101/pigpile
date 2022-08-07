@@ -1,15 +1,15 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { Status } from "@josulliv101/types";
-import { addCampaignDonationThunk, AppState } from "store";
+import { AppState } from "store"; // addCampaignDonationThunk,
 
-const getStatusFromError = (error: unknown): Status => {
+/*const getStatusFromError = (error: unknown): Status => {
   return {
     title: "Error",
     description: error ? error?.message : "An unspecified issue has occured.",
     status: "error",
     isClosable: true,
   };
-};
+};*/
 
 export const statusSlice = createSlice({
   name: "status",
@@ -24,12 +24,12 @@ export const statusSlice = createSlice({
       state[action.payload] = undefined;
     },
   },
-  extraReducers: (builder) => {
+/*  extraReducers: (builder) => {
     builder.addCase(addCampaignDonationThunk.rejected, (state, action) => {
       const status = getStatusFromError(action.error);
       state[action.payload.id] = { id: action.payload.id, ...status };
     });
-  },
+  },*/
 });
 
 export const selectStatuses = () => (state: AppState) =>
