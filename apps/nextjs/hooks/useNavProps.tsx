@@ -10,7 +10,7 @@ export function useNavProps() {
     const { signOutUserThunk } = await getAuthApi(dispatch);
     dispatch(signOutUserThunk());
   }, [dispatch]);
-  console.log("useNavProps", onLogout);
+
   return {
     themeState,
     onThemeOptionChange,
