@@ -11,10 +11,10 @@ module.exports = withBundleAnalyzer(
       esmExternals: "loose",
     },
     eslint: {
-      ignoreDuringBuilds: true,
+      ignoreDuringBuilds: false,
     },
     typescript: {
-      ignoreBuildErrors: true,
+      ignoreBuildErrors: false,
     },
   })
 );
