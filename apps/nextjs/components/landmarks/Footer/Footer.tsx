@@ -163,8 +163,8 @@ export const Footer: React.FC<HTMLChakraProps<"div">> = (props) => {
               </HStack>
               <Text fontSize="md">
                 Pigpile Corporation provides an online fund-raising app dedicated to helping good
-                causes raise funds & in-kind donations. The app is free to use &ndash; no charges or
-                service fees for creating a fundraiser.
+                causes money & in-kind donations. The app is free to use &ndash; no charges or
+                service fees for creating a fundraiser (credit card processing fees still apply).
               </Text>
             </Stack>
           </Stack>
