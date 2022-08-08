@@ -14,7 +14,7 @@ import {
   useTheme,
 } from "@josulliv101/core";
 import { formatNumber } from "@josulliv101/formatting";
-import { selectChesterAnimation, selectPaymentState, selectUser, FORM_STEPS } from "store";
+import { selectChesterAnimation, selectDonationSteps, selectUser, FORM_STEPS } from "store";
 import { useAppSelector, useLabelBundle } from "hooks";
 import { GoalCountUp } from "./GoalCountUp";
 import useDonationQuantityOptions from "./useDonationQuantityOptions";
@@ -46,7 +46,7 @@ const Hero: React.FC<Props> = ({
 }): JSX.Element => {
   const user = useAppSelector(selectUser());
   const chesterAnimation = useAppSelector(selectChesterAnimation());
-  const { activeFormStep } = useAppSelector(selectPaymentState());
+  const { activeFormStep } = useAppSelector(selectDonationSteps());
   const [userRequestsCustomAmount, setUserRequestsCustomAmount] = useState(false);
   const [numberOfUnits, setNumberOfUnits] = useState<number | null>(null);
   const [tip, setTip] = useState(0);

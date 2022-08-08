@@ -3,11 +3,12 @@ import { AbsoluteCenter, Box, Image, CircularProgress } from "@josulliv101/core"
 import { useVideo } from "./useVideo";
 
 interface Props {
+  image: string;
   playerColor?: string;
   videoId: string;
 }
 
-export const WistiaVideo: React.FC<Props> = ({ playerColor = "999999", videoId }) => {
+export const WistiaVideo: React.FC<Props> = ({ playerColor = "999999", image, videoId }) => {
   const { isWistiaReady, initWistia, setIsWistiaReady, setInitWistia } = useVideo();
   if (!videoId) {
     return <Box>A wistia video id is required.</Box>;
@@ -75,7 +76,7 @@ export const WistiaVideo: React.FC<Props> = ({ playerColor = "999999", videoId }
                     });
                   }
                 }}
-                src="https://embed-ssl.wistia.com/deliveries/a6595f4c988a472090a6c6b93a16768c.webp?image_crop_resized=630x354"
+                src={image}
                 width="100%"
               />
             </Box>
@@ -87,7 +88,7 @@ export const WistiaVideo: React.FC<Props> = ({ playerColor = "999999", videoId }
           as={AbsoluteCenter}
           isIndeterminate
           position="absolute"
-          zIndex="9999"
+          zIndex="overlay"
         />
       )}
     </Box>

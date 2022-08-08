@@ -7,7 +7,7 @@ export enum FORM_STEPS {
 }
 
 export interface DonationStepsState {
-  activeFormStep: FORM_STEPS;
+  activeFormStep: string;
   error: string;
 }
 
@@ -26,4 +26,4 @@ export const donationStepsSlice = createSlice({
   },
 });
 
-export const selectPaymentState = () => (state: AppState) => state[donationStepsSlice.name];
+export const selectDonationSteps = () => (state: AppState) => state[donationStepsSlice.name];

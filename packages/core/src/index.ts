@@ -29,10 +29,10 @@ export * from "./CountUpBox";
 export * from "./Logo";
 export * from "./Swatch";
 
-export const AccentButton = extendThemedComponent("AccentButton", {
+export const AccentButton: typeof Button = extendThemedComponent("AccentButton", {
   Button,
 });
 
-export const BackgroundContent = extendThemedComponent("BackgroundContent", {
+export const BackgroundContent: typeof Background = extendThemedComponent("BackgroundContent", {
   Background,
 });

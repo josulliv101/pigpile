@@ -1,4 +1,4 @@
-import { Donation } from "@josulliv101/types";
+import { Comment, Donation, Organization as OrganizationType } from "@josulliv101/types";
 import { Box, Container, HStack, Spacer, Stack } from "@josulliv101/core";
 import {
   FeaturedComments,
@@ -8,11 +8,21 @@ import {
   SecurePayment,
   Supporters,
 } from "@josulliv101/composites";
+import { DonationFilterState } from "store";
 
 const SPACING = 10;
 
 interface Props {
+  beneficiary: string;
+  chesterAnimationType: string;
+  comments: Comment[];
+  donationFilter: DonationFilterState;
   donations: Donation[];
+  getDonationsLabel: (n: number) => string;
+  landscapeImage: string;
+  location: string;
+  onDonationFilterChange: () => void;
+  organization: OrganizationType;
 }
 
 const CampaignContent: React.FC<Props> = ({

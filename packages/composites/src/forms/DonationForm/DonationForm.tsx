@@ -102,7 +102,7 @@ export const DonationForm: React.FC<DonationFormProps> = ({
           opacity=".8"
           textAlign="center"
         >
-          Thank you for supporting this pigpile 🤍
+          Thank you for supporting this pigpile!
         </Text>
       )}
     </Callout>

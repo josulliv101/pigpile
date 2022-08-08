@@ -16,6 +16,7 @@ export interface Status {
 export interface Media {
   videoId: string;
   caption?: string;
+  image?: string;
 }
 
 export interface User {

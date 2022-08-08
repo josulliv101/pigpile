@@ -9,7 +9,6 @@ import {
   Input,
   Stack,
   Text,
-  useBreakpointValue,
   useColorModeValue,
 } from "@josulliv101/core";
 import { OAuthButtonGroup, OAuthButtonGroupProps } from "./OAuthButtonGroup";
@@ -38,7 +37,7 @@ export const LoginForm: React.FC<LoginFormProps> = ({
           bg: { base: "transparent", sm: "gray.700" },
           color: "gray.100",
         }}
-        bg={useBreakpointValue({ base: "transparent", sm: "gray.200" })}
+        bgColor={{ base: "transparent", sm: "gray.200" }}
         borderRadius={{ base: "none", sm: "xl" }}
         boxShadow={{ base: "none", sm: useColorModeValue("md", "md-dark") }}
         color={{ base: "white", sm: "gray.600" }}

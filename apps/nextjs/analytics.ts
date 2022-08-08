@@ -8,7 +8,7 @@ export const pageview = (url: string) => {
 
 export type GTagEvent = {
   action: string;
-  params: Gtag.CustomParams
+  params: Gtag.CustomParams;
 };
 
 export const event = ({ action, params }: GTagEvent) => {

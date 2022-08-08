@@ -14,6 +14,7 @@ export const CampaignOverviewBar: React.FC<Props> = ({
   beneficiary,
   tags = [],
   videoId,
+  image,
   ...rootStyle
 }) => {
   return (
@@ -39,7 +40,10 @@ export const CampaignOverviewBar: React.FC<Props> = ({
             flex="1"
             p="3"
           >
-            <WistiaVideo videoId={videoId} />
+            <WistiaVideo
+              videoId={videoId}
+              image={image}
+            />
             <Text
               color="inherit"
               fontSize="xs"
