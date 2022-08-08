@@ -53,7 +53,6 @@ export const Banner: React.FC<HTMLChakraProps<"div">> = ({ children: nav, ...pro
   }, [dispatch]);
 
   const handleCloseMobileNav = useCallback(() => {
-    console.log("resize");
     dispatch(appSlice.actions.closeMobileNav());
   }, [dispatch]);
 
