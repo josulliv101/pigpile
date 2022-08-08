@@ -3,7 +3,7 @@ import { AbsoluteCenter, Box, Image, CircularProgress } from "@josulliv101/core"
 import { useVideo } from "./useVideo";
 
 interface Props {
-  image: string;
+  image?: string;
   playerColor?: string;
   videoId: string;
 }

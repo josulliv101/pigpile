@@ -41,8 +41,8 @@ export const CampaignOverviewBar: React.FC<Props> = ({
             p="3"
           >
             <WistiaVideo
-              videoId={videoId}
               image={image}
+              videoId={videoId}
             />
             <Text
               color="inherit"

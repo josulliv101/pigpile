@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { forwardRef } from "react";
 import { ChakraComponent, useChakra, ComponentWithAs } from "@chakra-ui/react";
 import { memoizedGet, mergeWith } from "@chakra-ui/utils";
@@ -10,7 +11,7 @@ import { memoizedGet, mergeWith } from "@chakra-ui/utils";
  */
 export const extendThemedComponent = (
   extendedName: string,
-  BaseComponentRecord: Record<string, ComponentWithAs<any, any>>, // eslint-disable-line @typescript-eslint/no-explicit-any
+  BaseComponentRecord: Record<string, ComponentWithAs<any, any>>,
   defaultProps = {}
 ): ComponentWithAs<any, any> => {
   const [[baseName, BaseComponent]] = Object.entries(BaseComponentRecord);
