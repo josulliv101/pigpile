@@ -3,7 +3,7 @@ import { useEffect } from "react";
 
 export function useResizeListener(callback: () => void) {
   useEffect(() => {
-    if (typeof window !== "undefined" || !callback) {
+    if (typeof window === "undefined" || !callback) {
       return () => "";
     }
 
