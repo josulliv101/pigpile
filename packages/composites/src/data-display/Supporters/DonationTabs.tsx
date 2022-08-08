@@ -46,10 +46,20 @@ export const DonationTabs: React.FC<DonationTabsProps> = ({ queryType, viewType,
         >
           <TabList>
             <Tab>
-              <Text noOfLines={1}>Latest Donations</Text>
+              <Text
+                aria-label="Latest"
+                noOfLines={1}
+              >
+                Latest Donations
+              </Text>
             </Tab>
             <Tab>
-              <Text noOfLines={1}>Top Donations</Text>
+              <Text
+                aria-label="Latest"
+                noOfLines={1}
+              >
+                Top Donations
+              </Text>
             </Tab>
           </TabList>
           <TabIndicator
@@ -73,6 +83,7 @@ export const DonationTabs: React.FC<DonationTabsProps> = ({ queryType, viewType,
           <Box ml="3">
             <Switch
               _dark={{ opacity: 0.8 }}
+              aria-label="toggle sort order"
               color="gray.500"
               onChange={(ev) => onChange("isSortDesc", !ev.target.checked)}
               size="md"
@@ -126,10 +137,10 @@ export const DonationTabs: React.FC<DonationTabsProps> = ({ queryType, viewType,
           variant="raised"
         >
           <TabList>
-            <Tab>
+            <Tab aria-label="Card View">
               <FaTh color="#999" />
             </Tab>
-            <Tab>
+            <Tab aria-label="List View">
               <FaThList color="#999" />
             </Tab>
           </TabList>

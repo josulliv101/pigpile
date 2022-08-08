@@ -1,3 +1,4 @@
+import Head from "next/head";
 import { Provider } from "@josulliv101/types";
 import { AbsoluteCenter as Center } from "@josulliv101/core";
 import { LoginForm } from "@josulliv101/composites";
@@ -32,6 +33,13 @@ function Login(): JSX.Element {
   };
   return (
     <>
+      <Head>
+        <title>Login</title>
+        <meta
+          content="Login to the Pigpile app."
+          name="description"
+        />
+      </Head>
       <Center
         color="white"
         textAlign="center"

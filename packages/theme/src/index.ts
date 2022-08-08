@@ -7,6 +7,7 @@ import * as colorSchemes from "./colorSchemes";
 import * as userThemes from "./userThemes";
 
 export * as colorSchemes from "./colorSchemes";
+export * from "./FontFace";
 export * as userThemes from "./userThemes";
 export * from "./themeOptions";
 export * from "./types";

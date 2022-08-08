@@ -158,7 +158,7 @@ export const Footer: React.FC<HTMLChakraProps<"div">> = (props) => {
                   fontSize={{ base: "lg", sm: "2xl" }}
                   fontWeight="normal"
                 >
-                  {getLabel("Pigpile on good causes.")}.
+                  {getLabel("Pigpile on good causes")}.
                 </Text>
               </HStack>
               <Text fontSize="md">

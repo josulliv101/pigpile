@@ -68,6 +68,9 @@ export const Chester: React.FC<ChesterProps> = ({
           transformOrigin="center bottom"
         >
           <Image
+            htmlHeight="80px"
+            htmlWidth="68px"
+            id="chester"
             left="-4px"
             maxH="80px"
             pos="relative"

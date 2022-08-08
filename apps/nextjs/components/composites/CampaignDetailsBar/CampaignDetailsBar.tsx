@@ -41,6 +41,7 @@ export const CampaignDetailsBar: React.FC<Props> = ({
         spacing={{ base: 6, md: 12 }}
       >
         <Organizer
+          alt={getLabel("campaign organizer")}
           createdAtInMS={createdAtInMS}
           maxW={{ base: "full", md: "272px" }}
           {...organizer}

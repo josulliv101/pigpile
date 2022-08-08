@@ -1,4 +1,5 @@
 import dynamic from "next/dynamic";
+import Head from "next/head";
 import { useCallback, useMemo } from "react";
 import { adminDb } from "@josulliv101/connect-admin";
 import { StickyBar, useTheme } from "@josulliv101/core";
@@ -90,6 +91,13 @@ export const Campaign: React.FC<Props> = ({ id }): JSX.Element => {
 
   return (
     <>
+      <Head>
+        <title>{beneficiary}</title>
+        <meta
+          content="Pigpile on {beneficiary}"
+          name="description"
+        />
+      </Head>
       <Hero
         beneficiary={beneficiary}
         campaignId={id}

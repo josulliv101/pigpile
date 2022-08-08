@@ -1,4 +1,5 @@
 import NextLink from "next/link";
+import Head from "next/head";
 import { adminDb } from "@josulliv101/connect-admin";
 import {
   AbsoluteCenter as Center,
@@ -19,6 +20,13 @@ interface Props {
 function Pigpiles({ campaignIds }: Props): JSX.Element {
   return (
     <>
+      <Head>
+        <title>Active Pigpiles</title>
+        <meta
+          content="Select a pigpile to view."
+          name="description"
+        />
+      </Head>
       <Center
         alignItems="center"
         color="white"

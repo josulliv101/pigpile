@@ -1,6 +1,7 @@
 import { NextPage } from "next";
 import { AppProps } from "next/app";
 import { ReactElement, ReactNode } from "react";
+import { FontFace } from "@josulliv101/theme";
 import { ChakraProvider, CSSReset, localStorageManager } from "@josulliv101/core";
 import { LayoutBasic } from "components/layouts";
 import { wrapper } from "store";
@@ -25,13 +26,16 @@ function PigpileApp({ Component, pageProps }: Props): JSX.Element {
   }
 
   return (
-    <ChakraProvider
-      colorModeManager={localStorageManager}
-      theme={theme}
-    >
-      <CSSReset />
-      {getLayout(<Component {...pageProps} />)}
-    </ChakraProvider>
+    <>
+      <ChakraProvider
+        colorModeManager={localStorageManager}
+        theme={theme}
+      >
+        <CSSReset />
+        {getLayout(<Component {...pageProps} />)}
+      </ChakraProvider>
+      <FontFace />
+    </>
   );
 }
 

@@ -1,9 +1,17 @@
+import Head from "next/head";
 import { Box, Heading, Text } from "@josulliv101/core";
 import { LayoutBasic } from "components/layouts";
 
 function About(): JSX.Element {
   return (
     <Box>
+      <Head>
+        <title>About</title>
+        <meta
+          content="Learn more about Pigpile"
+          name="description"
+        />
+      </Head>
       <Heading
         my="4"
         size="md"

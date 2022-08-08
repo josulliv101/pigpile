@@ -8,6 +8,7 @@ interface Props {
 
 export const GoalCountUp: React.FC<Props> = ({ currentAmount = 0, goalAmount = 100 }) => {
   const { getLabel } = useLabelBundle();
+  const percentComplete = Math.round((currentAmount / goalAmount) * 100);
   return (
     <CountUpBox
       _dark={{ bgColor: "rgb(88 88 88 / 80%)" }}
@@ -28,10 +29,11 @@ export const GoalCountUp: React.FC<Props> = ({ currentAmount = 0, goalAmount = 1
       }}
     >
       <Progress
+        aria-label={`${percentComplete} ${getLabel("percent complete")}`}
         h="4px"
         pos="relative"
         top="10px"
-        value={Math.round((currentAmount / goalAmount) * 100)}
+        value={percentComplete}
         w="full"
       />
     </CountUpBox>

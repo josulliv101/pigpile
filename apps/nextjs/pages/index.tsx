@@ -1,10 +1,18 @@
 import NextLink from "next/link";
+import Head from "next/head";
 import { Button, AbsoluteCenter as Center, Heading, Text } from "@josulliv101/core";
 import { LayoutFullViewport } from "components/layouts";
 
 function Home(): JSX.Element {
   return (
     <>
+      <Head>
+        <title>Pigpile Home</title>
+        <meta
+          content="Pigpile on good causes - an online fundraising platform"
+          name="description"
+        />
+      </Head>
       <Center
         color="white"
         textAlign="center"
