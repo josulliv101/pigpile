@@ -1,6 +1,6 @@
 const actions = ["status/setStatus", "donation/add/rejected"];
 
-// TODO update id generator
+// TODO use better id generator
 const getId = () => new Date().getTime().toString(36);
 
 export const addUniqueIdMiddleware = () => (next) => (action) => {
