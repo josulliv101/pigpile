@@ -45,17 +45,15 @@ export const DonationTabs: React.FC<DonationTabsProps> = ({ queryType, viewType,
           variant="raised"
         >
           <TabList>
-            <Tab>
+            <Tab aria-label="Latest">
               <Text
-                aria-label="Latest"
                 noOfLines={1}
               >
                 Latest Donations
               </Text>
             </Tab>
-            <Tab>
+            <Tab aria-label="Top">
               <Text
-                aria-label="Latest"
                 noOfLines={1}
               >
                 Top Donations

@@ -10,6 +10,7 @@ import {
   Logo,
   HTMLChakraProps,
   useUpdateEffect,
+  VisuallyHidden,
 } from "@josulliv101/core";
 import { MobileNavButton, MobileNavContent } from "components/landmarks";
 import { appSlice, selectAppState } from "store";
@@ -121,11 +122,12 @@ export const BannerContent = memo<BannerContentProps>(
                 href="/"
                 passHref
               >
-                <chakra.a _focusVisible={{ outlineColor: "white" }}>
+                <chakra.a aria-label="Logo" _focusVisible={{ outlineColor: "white" }}>
                   <Logo
                     boxSize={{ base: 9, md: 10 }}
                     cursor="pointer"
                   />
+                  <VisuallyHidden>Pigpile Logo</VisuallyHidden>
                 </chakra.a>
               </NextLink>
             </Box>

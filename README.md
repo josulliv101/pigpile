@@ -15,7 +15,7 @@ A valid/fake credit card to test donations flow is: 4242 4242 4242 4242
 ## todo
 
 - cypress tests
-- high res bg images
+- improve some accessibility color contrast ratios
 - add accessibility keyboard shortcuts for changing theming options
 - implement useLabelBundle in more efficient way
 - pagination for donations
