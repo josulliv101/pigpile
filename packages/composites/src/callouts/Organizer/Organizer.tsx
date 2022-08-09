@@ -43,9 +43,9 @@ export const Organizer: React.FC<OrganizerProps> = ({
       <CardAvatar
         as={Avatar}
         maxW="96px"
+        name={displayName}
         size={{ base: "xl", md: "xl" }}
         src={imageUrl}
-        name={displayName}
       />
       <CardBackground h={{ base: "92px", sm: "132px", md: "92px" }} />
       <CardContent pt="2">

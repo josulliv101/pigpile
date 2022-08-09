@@ -46,18 +46,10 @@ export const DonationTabs: React.FC<DonationTabsProps> = ({ queryType, viewType,
         >
           <TabList>
             <Tab aria-label="Latest">
-              <Text
-                noOfLines={1}
-              >
-                Latest Donations
-              </Text>
+              <Text noOfLines={1}>Latest Donations</Text>
             </Tab>
             <Tab aria-label="Top">
-              <Text
-                noOfLines={1}
-              >
-                Top Donations
-              </Text>
+              <Text noOfLines={1}>Top Donations</Text>
             </Tab>
           </TabList>
           <TabIndicator

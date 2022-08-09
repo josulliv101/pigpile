@@ -122,7 +122,10 @@ export const BannerContent = memo<BannerContentProps>(
                 href="/"
                 passHref
               >
-                <chakra.a aria-label="Logo" _focusVisible={{ outlineColor: "white" }}>
+                <chakra.a
+                  _focusVisible={{ outlineColor: "white" }}
+                  aria-label="Logo"
+                >
                   <Logo
                     boxSize={{ base: 9, md: 10 }}
                     cursor="pointer"
