@@ -37,4 +37,7 @@ export const appSlice = createSlice({
 
 export const selectAppState = () => (state: AppState) => state[appSlice.name];
 
-export const selectUser = () => (state: AppState) => state[appSlice.name]?.user;
+export const selectUser = () => (state: AppState) => {
+  const appState = state[appSlice.name] as AppSliceState;
+  return appState?.user;
+};

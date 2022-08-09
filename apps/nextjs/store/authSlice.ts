@@ -1,11 +1,10 @@
-import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { signOut } from "firebase/auth";
-import { Provider, User } from "@josulliv101/types";
+import { Provider } from "@josulliv101/types";
 import { auth, signInWithPopup } from "@josulliv101/connect-client";
 import { AppState } from "./";
 
 export interface AuthState {
-  user?: User | null;
   isReady: boolean;
   error?: string;
 }
@@ -27,17 +26,16 @@ export const signOutUserThunk = createAsyncThunk<void>("auth/signOutUser", async
 export const authSlice = createSlice({
   name: "auth",
 
-  initialState: { user: null, error: "", isReady: false } as AuthState,
+  initialState: { error: "", isReady: false } as AuthState,
 
   reducers: {
-    autheniticate: (state, action: PayloadAction<User | null>) => {
-      state.user = action.payload;
+    autheniticate: (state) => {
       state.isReady = true;
     },
   },
 });
 
-/*export const selectUser = () => (state: AppState) =>
-  state?.[authSlice.name]?.user;*/
-
-export const selectIsAppReady = () => (state: AppState) => state?.[authSlice.name]?.isReady;
+export const selectIsAppReady = () => (state: AppState) => {
+  const authState = state?.[authSlice.name] as AuthState;
+  return authState?.isReady;
+};

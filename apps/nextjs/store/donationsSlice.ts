@@ -39,4 +39,4 @@ export const donationsSlice = createSlice({
 });
 
 export const selectCampaignDonations = (campaignId: string) => (state: AppState) =>
-  state[donationsSlice.name][campaignId];
+  state[donationsSlice.name]?.[campaignId];
