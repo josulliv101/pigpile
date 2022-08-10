@@ -26,7 +26,6 @@ export const connectClientApp = (authStateChangedHandler: (user: User) => void) 
   auth = getAuth(app);
 
   onAuthStateChanged(auth, async (authUser) => {
-    //
     if (!authUser) {
       await signInAnonymously(auth);
     } else {

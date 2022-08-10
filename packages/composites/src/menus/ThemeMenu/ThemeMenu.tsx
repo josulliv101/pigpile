@@ -40,7 +40,6 @@ export const ThemeMenu: React.FC<ThemeMenuProps> = ({
     >
       <PopoverTrigger>
         <IconButton
-          // colorScheme="blackAlpha"
           _active={{ bgColor: "blackAlpha.50" }}
           _focusVisible={{ outlineColor: "white" }}
           _hover={{ bgColor: "blackAlpha.50" }}

@@ -13,10 +13,4 @@ export const getUser = async (authUser: AuthUser | null): Promise<PigpileUser | 
     };
   }
   return null;
-  /*  return {
-    uid: "",
-    displayName: "",
-    isAnonymous: true,
-    isAdmin: false,
-  };*/
 };
